@@ -1,0 +1,63 @@
+model:
+  meta_architecture: "RBSolver"
+  rbsolver:
+    eye_in_hand: True
+    use_mask: anno
+    optim_eep: True
+    optim_eep_xy: False
+    optim_eep_rot: False
+    reg_loss_weight: 0.0
+    init_Tc_c2e: [ [ -0.    ,-1.    , 0.    , 0.0325 ],
+                   [ 0.9659,-0.    ,-0.2588, 0.0659 ],
+                   [ 0.2588, 0.    , 0.9659,-0.0125 ],
+                   [ 0.    , 0.    , 0.    , 1. ] ]
+    mesh_paths: [ "data/xarm_description/meshes/xarm7/visual/link0.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link1.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link2.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link3.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link4.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link5.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link6.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link7.STL",
+                  "data/xarm_gripper/meshes/base_link.STL",
+                  "data/xarm_gripper/meshes/left_outer_knuckle.STL",
+                  "data/xarm_gripper/meshes/left_finger.STL",
+                  "data/xarm_gripper/meshes/left_inner_knuckle.STL",
+                  "data/xarm_gripper/meshes/right_outer_knuckle.STL",
+                  "data/xarm_gripper/meshes/right_finger.STL",
+                  "data/xarm_gripper/meshes/right_inner_knuckle.STL"
+    ]
+datasets:
+  train: ("xarm_real_rb_solver_iter/real_xarm/example_eih_autosam/archives/start_time20231028_144137",)
+  test: "xarm_real_rb_solver_iter/real_xarm/example_eih_autosam/archives/start_time20231028_144137"
+
+solver:
+  trainer: "rbsolver"
+  log_interval: 100
+  explore_iters: 5
+  num_epochs: 1000
+  max_lr: 0.003
+  batch_size: 100
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+input:
+  shuffle: False
+dataloader:
+  pin_memory: True
+dataset:
+  xarm_real:
+    load_mask_pred: False
+    load_mask_anno: True
+    eye_in_hand: True
+    urdf_path: "data/sapien_packages/xarm7/xarm_urdf/xarm7_gripper.urdf"
+    use_links: [ 1, 2, 3, 4, 5, 6, 7, 8,10,11,12,13,14,15,16 ]
+    shift_gripper: False
+test:
+  batch_size: 100
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: True
+  visualizer: "rbsolver_hover_mask"

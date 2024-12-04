@@ -1,0 +1,33 @@
+rb_solve:
+  use_nvdiffrast: True
+  use_gt_mask: False
+  data_dir: data/sim/space_explore_it10
+  init_Tbc: [ [ 0.99869549, 0.04814276,-0.01701665,-0.2755737 ],
+              [ -0.01554248,-0.03083134,-0.99940377, 0.2164405 ],
+              [ -0.0486387 , 0.99836451,-0.03004277, 0.92661572 ],
+              [ 0.        , 0.        , 0.        , 1. ] ]
+
+  steps: [ 1000 ]
+  validate_dir: ""
+  dbg: True
+  #  nimgs: 1
+
+  #  lrs: [ 0.01, 0.003 ]
+  lrs: [ 0.003 ]
+
+  #links: [ 0,1,2,3,4,5,6,7 ]
+
+
+  log_interval: 20
+
+  space_explore:
+    start: 200
+    sample: 20
+    n_sample_qpos_each_joint: 3
+
+output_dir: ""
+sim:
+  fx: 9.068051757812500000e+02
+  fy: 9.066802978515625000e+02
+  cx: 6.501978759765625000e+02
+  cy: 3.677142944335937500e+02

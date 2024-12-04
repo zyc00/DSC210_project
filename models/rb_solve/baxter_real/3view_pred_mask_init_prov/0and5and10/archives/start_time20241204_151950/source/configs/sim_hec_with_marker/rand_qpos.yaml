@@ -1,0 +1,27 @@
+sim_hec_with_marker:
+  urdf_path: "data/xarm7_with_gripper_reduced_dof.urdf"
+  srdf_path: "data/xarm7_with_gripper_reduced_dof.srdf"
+  chessboard_path: "data/chessboard3.glb"
+  camera_ring:
+    enable: True
+    min_dist: 0.8
+    max_dist: 1.8
+    min_elev: 10
+    max_elev: 50
+    ndist: 4
+    nelev: 5
+    nazim: 5
+    trans_noise: 0.0
+    endpoint: False
+    start_azim: 4.73
+    end_azim: 5.79
+  rt:
+    enable: True
+  add_desk_cube:
+    enable: True
+    half_size: [ 0.5, 0.2, 0.5 ]
+    pose: [ -0.4, -0.1, -0.5 ]
+    color: [ 0,0,0 ]
+  random_qpos: True
+  random_qpos_number: 1000
+  outdir: data/sim_hec_with_marker/rand_qpos

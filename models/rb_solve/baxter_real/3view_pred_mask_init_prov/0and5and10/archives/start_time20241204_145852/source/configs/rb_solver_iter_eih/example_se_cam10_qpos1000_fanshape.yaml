@@ -1,0 +1,79 @@
+deterministic: True
+model:
+  meta_architecture: "RBSolver"
+  rbsolver_iter:
+    data_dir: data/sim_for_hec_eih/version1_se_cam10_qpos1000/000002
+    pointrend_model_weight: "models/pointrend_rcnn_R_50_FPN_3x_xarm_v4/model_0084999.pth"
+    start_qpos: [ 0,0.2,0,1.4,0,2.459,0 ]
+  rbsolver:
+    use_mask: pred # or gt for debug.
+    eye_in_hand: True
+    init_Tc_c2e: [ [ -1.250350475311279297e-02 ,9.995076656341552734e-01, 2.877977490425109863e-02, 0.02687910571694374084 ],
+                   [ -9.998905658721923828e-01, -1.226997375488281250e-02 ,-8.276385255157947540e-03 ,0.05706074833869934082 ],
+                   [ -7.919183932244777679e-03, -2.888010814785957336e-02, 9.995515346527099609e-01, -0.02632411383092403412 ],
+                   [ 0.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 1.000000000000000000e+00 ] ] # todo use gt for now.
+  space_explorer:
+    start: 200
+    sample: 10
+    qpos_sample_method: fan_shaped_eef
+    sample_limit: True
+    sample_dof: 7
+    n_sample_qposes: 1000
+    urdf_path: "data/xarm7_with_gripper_reduced_dof.urdf"
+    srdf_path: "data/xarm7_with_gripper_reduced_dof.srdf"
+    move_group: "link_eef"
+    parallel_rendering: False
+    max_dist_constraint:
+      enable: True
+      max_dist: 0.65
+      max_dist_center_compute_n: 20000
+    collision_check:
+      enable: True
+      use_pointcloud: False
+      pc_sampled: 40000
+      ignore_posz_pts: True
+      dilate: 20
+      by_eef_pose: False
+      planning_time: 0.1
+datasets:
+  train: ("xarm_hec_sim_eih_version1_se_cam10_qpos1000/000002",)
+  test: "xarm_hec_sim_eih_version1_se_cam10_qpos1000/000002"
+input:
+  shuffle: False
+solver:
+  trainer: "rbsolver_iter_eih"
+  log_interval: 100
+  explore_iters: 5 # todo: use 5
+  num_epochs: 1000 # todo: use 1000 by default
+  max_lr: 0.003
+  batch_size: 100
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+dataloader:
+  pin_memory: True
+dataset:
+  xarm_hec_sim:
+    load_mask_pred: True
+test:
+  batch_size: 100
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: True
+  visualizer: "rbsolver_hover_mask"
+
+sim_hec:
+  Tc_c2e: [ [ -0.0015838 , 0.99993756,-0.01106223,-0.01687238 ],
+            [ -0.99894559,-0.00107448, 0.04589724, 0.0891773 ],
+            [ 0.04588248, 0.01112326, 0.99888491, 0.04636628 ],
+            [ 0.        , 0.        , 0.        , 1. ] ]
+  step: False
+  rt:
+    enable: True
+  add_desk_cube:
+    enable: True
+    half_sizes: [ [ 0.5, 0.2, 0.5 ],[ 0.5, 0.2, 0.5 ] ]
+    poses: [ [ -0.4, 0.0, -0.5 ],[ 0.7, 0.0, -0.5 ] ]
+    colors: [ [ 0,0,0 ],[ 0,0,0 ] ]

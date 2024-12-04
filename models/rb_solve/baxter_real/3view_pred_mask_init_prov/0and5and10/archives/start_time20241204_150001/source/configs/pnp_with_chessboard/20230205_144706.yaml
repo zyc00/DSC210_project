@@ -1,0 +1,5 @@
+pnp_with_chessboard:
+  data_dir: data/realsense/20230205_144706
+  patterns: [ [ 3, 11 ],[ 3,7 ] ]
+  pattern_planes: [ "yz","xy" ]
+  grid_sizes: [ 0.01,0.015 ]

@@ -1,0 +1,20 @@
+model:
+  megapose6d:
+    generate_data:
+      min_dist: 0.6
+      max_dist: 2.0
+      n_dist: 5
+      min_elev: 0
+      max_elev: 80
+      n_elev: 6
+      nazim: 12
+      trans_noise: [ 0.03,0.03,0.03 ]
+      output_dir: data/megapose6d/v2
+  rbsolver:
+    use_mask: gt
+    init_Tc_c2b: [ [ 0.99869549, 0.04814276,-0.01701665,-0.2755737 ],
+                   [ -0.01554248,-0.03083134,-0.99940377, 0.2164405 ],
+                   [ -0.0486387 , 0.99836451,-0.03004277, 0.92661572 ],
+                   [ 0.        , 0.        , 0.        , 1. ] ]
+
+    #links: [ 0,1,2,3,4,5,6,7 ]

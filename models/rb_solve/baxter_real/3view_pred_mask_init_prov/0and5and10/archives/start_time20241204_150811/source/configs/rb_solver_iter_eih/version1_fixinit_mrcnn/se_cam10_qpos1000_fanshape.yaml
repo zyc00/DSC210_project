@@ -1,0 +1,82 @@
+deterministic: True
+model:
+  meta_architecture: "RBSolver"
+  rbsolver_iter:
+    data_dir: data/sim_for_hec_eih/version1_se_cam10_qpos1000/000000
+    start_qpos: [ 0,0.2,0,1.4,0,2.459,0 ]
+    segmentor: autosam
+    init_method: meshloc # manual, pvnet, or meshloc
+    meshloc_database_dir: "data/sim_for_hec_eih/meshloc_database"
+    autosam_box_scale: 1.1
+  rbsolver:
+    use_mask: pred # or gt for debug.
+    eye_in_hand: True
+    init_Tc_c2e: [ ]
+  space_explorer:
+    start: 200
+    sample: 10
+    qpos_sample_method: fan_shaped_eef
+    sample_limit: True
+    sample_dof: 7
+    n_sample_qposes: 1000
+    urdf_path: "data/xarm7_with_gripper_reduced_dof.urdf"
+    srdf_path: "data/xarm7_with_gripper_reduced_dof.srdf"
+    move_group: "link_eef"
+    parallel_rendering: False
+    max_dist_constraint:
+      enable: True
+      max_dist: 0.65
+      max_dist_center_compute_n: 20000
+      max_dist_center: 0.24
+    collision_check:
+      enable: True
+      use_pointcloud: False
+      pc_sampled: 40000
+      ignore_posz_pts: True
+      dilate: 20
+      by_eef_pose: False
+      planning_time: 0.1
+datasets:
+  train: ("xarm_hec_sim_eih_version1_se_cam10_qpos1000/000000",)
+  test: "xarm_hec_sim_eih_version1_se_cam10_qpos1000/000000"
+input:
+  shuffle: False
+solver:
+  trainer: "rbsolver_iter_eih"
+  log_interval: 100
+  explore_iters: 5 # todo: use 5
+  num_epochs: 1000 # todo: use 1000 by default
+  max_lr: 0.003
+  batch_size: 100
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+dataloader:
+  pin_memory: True
+dataset:
+  xarm_hec_sim:
+    load_mask_pred: True
+test:
+  batch_size: 100
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: True
+  visualizer: "rbsolver_hover_mask"
+
+sim_hec:
+  #  Tc_c2e: [ [ -0.02077028, 0.99937366, 0.02865096,-0.01353559 ],
+  #            [ -0.99887328,-0.02196591, 0.04206747, 0.07151894 ],
+  #            [ 0.04267047,-0.02774492, 0.99870389, 0.01027634 ],
+  #            [ 0.        , 0.        , 0.        , 1. ] ]
+  Tc_c2e_npy_path: "data/sim_for_hec_eih/version1_se_cam10_qpos1000/poses.npy"
+  Tc_c2e_index: 0
+  step: False
+  rt:
+    enable: True
+  add_desk_cube:
+    enable: True
+    half_sizes: [ [ 0.5, 0.2, 0.5 ],[ 0.5, 0.2, 0.5 ] ]
+    poses: [ [ -0.4, 0.0, -0.5 ],[ 0.7, 0.0, -0.5 ] ]
+    colors: [ [ 0,0,0 ],[ 0,0,0 ] ]

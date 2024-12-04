@@ -1,0 +1,93 @@
+model:
+  meta_architecture: "RBSolverRealmanHead"
+  rbsolver_iter:
+    data_dir: data/realsense/example_sam
+    start_qpos: [ 0.611     ,  0.        ,  0.        ,
+                  -1.36554557,  1.41444973, -0.45109781, -0.99773493, -1.67471327, -0.34950218,
+                  0.67532026, -0.10508627,  0.58667495, -1.77203277, -0.68570493,  0.853082 ]
+    segmentor: sam
+    use_realman:
+      enable: True
+      arm: left
+      speed: 1
+  #      wait_time: 1 # todo
+  #      speed_control: True # todo
+  #      safety_factor: 6 # todo
+  #      timestep: 0.05 # todo
+  rbsolver:
+    H: 480
+    W: 640
+    use_mask: pred
+    init_Tc_c2b: [ [ -0.51082867, 0.85825107,-0.049591  ,-0.19550834 ],
+                   [ 0.8532641 , 0.51320622, 0.09251903,-0.1190922 ],
+                   [ 0.10485494, 0.00494721,-0.99447524, 0.41846158 ],
+                   [ 0.        , 0.        , 0.        , 1. ] ]
+    mesh_paths: [
+      "data/hillbot_pgi_description_linghao/meshes/Link_left3.STL",
+      "data/hillbot_pgi_description_linghao/meshes/Link_left4.STL",
+      "data/hillbot_pgi_description_linghao/meshes/Link_left5.STL",
+      "data/hillbot_pgi_description_linghao/meshes/Link_left6.STL",
+    ]
+  space_explorer:
+    parallel_rendering: True
+    sample: 5 #20
+    sample_limit: True
+    #    qpos_sample_method: random_eef
+    sample_camera_poses_method: "random"
+    n_sample_qposes: 20 #100
+    urdf_path: "data/hillbot_pgi_description_linghao/hillbot_pgi_description_linghao.urdf"
+    srdf_path: "data/hillbot_pgi_description_linghao/hillbot_pgi_description_linghao.srdf"
+    move_group: "Link_right6" # todo
+    camera_intrinsic: [ 6.068522338867187500e+02,6.074729614257812500e+02,3.188367309570312500e+02,2.481767120361328125e+02 ]
+    #    qpos_choices_pad_right: 4
+    sample_dof: 15
+    max_dist_constraint:
+      enable: True
+      max_dist: 0.7
+      max_dist_center_compute_n: 20000
+      max_dist_center: 0.01
+    collision_check:
+      enable: True
+      use_pointcloud: False
+      pc_sampled: 40000
+      ignore_posz_pts: True
+      dilate: 20
+      by_eef_pose: False
+      planning_time: 0.1
+#      timestep: 0.02
+datasets:
+  train: ("realman/example_sam",)
+  test: "realman/example_sam"
+
+solver:
+  trainer: "rbsolver_iter_realman"
+  log_interval: 100
+  explore_iters: 10
+  num_epochs: 1000
+  max_lr: 0.003
+  batch_size: 100
+  save_freq: 200
+  val_freq: 200
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+input:
+  shuffle: False
+dataloader:
+  pin_memory: True
+dataset:
+  realman:
+    relative_to: Link_lbase
+    camera_id: right
+    #    use_links: [ 6,8,10,12,14 ]
+    use_links: [ 10,12,14,16 ]
+    load_mask_anno: False
+    load_mask_pred: True
+#    selected_indices: [ 22, 23, 24, 25 ]
+test:
+  batch_size: 100
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: False
+  visualizer: "rbsolver_hover_mask"
+

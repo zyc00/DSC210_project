@@ -1,0 +1,125 @@
+model:
+  meta_architecture: "HandEyeSolverEIH"
+  hand_eye_solver:
+    use_gt_marker_pose: False
+    chessboard: False
+    icp: False
+    cpa: False
+    subpixel: False
+#  rbsolver_iter:
+#    data_dir: "data/sim_hec_with_marker_eih/dvqf"
+#    start_qpos: [
+#      [ -0.1, -0.1, 0.0, 0.84, -0.1, 1.218, -0.1 ],
+#      # [-0.1, -0.1, 0.0, 0.84, -0.1, 1.218, -0.05],
+#      [ -0.1, -0.1, 0.0, 0.86, -0.1, 1.218, -0.15 ],
+#      # [-0.1, -0.1, 0.0, 0.88, -0.1, 1.268, -0.1],
+#      [ -0.1, -0.1, 0.0, 0.81, -0.1, 1.168, -0.1 ],
+#      # [-0.1, -0.1, 0.0, 0.84, -0.08, 1.218, -0.1],
+#      [ -0.1, -0.1, 0.0, 0.85, -0.12, 1.218, -0.1 ],
+#      # [-0.1, -0.1, 0.0, 0.86, -0.15, 1.218, -0.1],
+#      [ -0.1, -0.1, 0.0, 0.87, -0.18, 1.218, -0.1 ],
+#      # [-0.1, -0.1, 0.0, 0.87, -0.21, 1.218, -0.1],
+#      # [0.0, -0.522, 0.0, 0.697, 0.0, 1.218, 0.0],
+#      # [0.05, -0.5225, 0.05, 0.697, 0.0, 1.218, 0.0],
+#      # [-0.05, -0.5225, 0.05, 0.697, 0.0, 1.218, 0.0],
+#      # [-0.1, -0.5225, 0.05, 0.697, 0.0, 1.218, 0.0],
+#      # [-0.15, -0.5225, 0.05, 0.697, 0.0, 1.218, 0.0],
+#      # [-0.2, -0.5225, 0.05, 0.63, 0.0, 1.218, 0.0],
+#      # [-0.25, -0.5225, 0.05, 0.65, 0.0, 1.218, 0.0],
+#      # [0.1, -0.522, 0.0, 0.697, 0.0, 1.218, 0.0],
+#      # [0.1, -0.522, 0.0, 0.657, 0.0, 1.218, 0.0],
+#      # [0.0, -0.522, 0.0, 0.697, 0.0, 1.218, 0.05]
+#      # [ 0,-0.522,0,0.697,0,1.218,0 ],
+#      # [ 0,-0.562,0,0.697,0,1.228,0 ],
+#      # [ 0,-0.582,0,0.697,0,1.238,0 ],
+#      # [ 0,-0.522,0,0.657,0,1.238,0 ],
+#      # [ 0,-0.562,0,0.657,0,1.228,0 ],
+#      # [ 0,-0.582,0,0.657,0,1.218,0 ],
+#      # [ 0,-0.522,0,0.637,0,1.248,0 ],
+#      # [ 0,-0.562,0,0.637,0,1.258,0 ],
+#      # [ 0,-0.582,0,0.637,0,1.268,0 ],
+#      # [ 0,-0.522,0,0.637,0,1.278,0 ],
+#      # [ 0,-0.562,0,0.637,0,1.288,0 ],
+#      # [ 0,-0.582,0,0.637,0,1.299,0 ],
+#    ]
+#  space_explorer:
+#    variance_based_sampling: False
+#    sample: 50
+#    sample_limit: True
+#    n_sample_qposes: 2000
+#    ckpt_path: "data/sim_hec_with_marker_eih/dvqf/ckpts"
+#    urdf_path: "data/xarm7_textured.urdf"
+#    srdf_path: "data/xarm7_with_gripper.srdf"
+#    move_group: "link_eef"
+#    max_dist_constraint:
+#      enable: False
+#      max_dist: 0.5
+#      max_dist_center_compute_n: 20000
+#    self_collision_check:
+#      enable: False
+#    collision_check:
+#      enable: False
+#      pc_sampled: 40000
+#      ignore_posz_pts: True
+#      dilate: 20
+#      use_pointcloud: False
+#      by_eef_pose: False
+datasets:
+  train: ("xarm_hec_real_marker_eih_20231111_1323",)
+  test: "xarm_hec_real_marker_eih_20231111_1323"
+
+solver:
+  trainer: "hand_eye_solver"
+  log_interval: 100
+  #  explore_iters: 25
+  num_epochs: 1
+  max_lr: 0.003
+  batch_size: 100
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+dataloader:
+  pin_memory: True
+#dataset:
+#  xarm_hec_sim_marker:
+
+test:
+  batch_size: 10000
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: False
+  visualizer: ""
+  save_predictions: True
+
+input:
+  shuffle: False
+#sim_hec_eye_in_hand:
+#  urdf_path: "data/xarm7_textured.urdf"
+#  srdf_path: "data/xarm7_with_gripper.srdf"
+#  fx: 9.194852294921875000e+02
+#  fy: 9.196687622070312500e+02
+#  cx: 6.365846557617187500e+02
+#  cy: 3.594877319335937500e+02
+#  # chessboard_path: "data/chessboard_bend.glb"
+#  # chessboard_path: "data/chessboard_deform7.glb"
+#  # chessboard_path: "marker_glb/chessboard_48cm.glb"
+#  # chessboard_path: "marker_glb/chessboard_49cm.glb"
+#  chessboard_path: "data/chessboard_5cm.glb"
+#
+#  Tc_c2e: [ [ -1.250350475311279297e-02 ,9.995076656341552734e-01, 2.877977490425109863e-02, 2.687910571694374084e-02 ],
+#            [ -9.998905658721923828e-01, -1.226997375488281250e-02 ,-8.276385255157947540e-03 ,5.706074833869934082e-02 ],
+#            [ -7.919183932244777679e-03, -2.888010814785957336e-02, 9.995515346527099609e-01, -2.632411383092403412e-02 ],
+#            [ 0.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 1.000000000000000000e+00 ] ]
+#
+#  outdir: data/sim_hec_with_marker_eih/dvqf
+#  add_desk_cube:
+#    enable: True
+#    half_sizes: [ [ 0.5, 0.2, 0.5 ],[ 0.5, 0.2, 0.5 ] ]
+#    poses: [ [ -0.4, 0.0, -0.5 ],[ 0.7, 0.0, -0.5 ] ]
+#    colors: [ [ 0,0,0 ],[ 0,0,0 ] ]
+#  rt:
+#    enable: False
+##  debug: False
+dbg: True

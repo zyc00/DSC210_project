@@ -1,0 +1,46 @@
+dl_ext
+easydict
+glumpy
+gym
+h5py
+imageio
+loguru
+matplotlib
+mplib
+multipledispatch
+# numpy
+open3d
+packaging
+# pandas
+Pillow
+pycocotools
+# pyk4a
+motion-planning
+# pyrealsense2
+pyrender
+# pytorch3d
+PyYAML
+scikit_image
+scikit_learn
+scipy
+screeninfo
+# seaborn
+setuptools
+# skimage
+tensorboardX
+termcolor
+# torch
+# torchvision
+tqdm
+transforms3d
+trimesh
+yacs
+zarr
+lightning
+# sapien
+https://github.com/haosulab/SAPIEN/releases/download/nightly/sapien-3.0.0.dev20241003+c877626f-cp310-cp310-manylinux2014_x86_64.whl
+pyglet==1.5.27
+https://github.com/zju3dv/Wis3D/releases/download/2.0.0/wis3d-2.0.0-py3-none-any.whl
+git+https://github.com/NVlabs/nvdiffrast.git
+git+https://github.com/Parskatt/DKM.git
+git+https://github.com/facebookresearch/segment-anything.git

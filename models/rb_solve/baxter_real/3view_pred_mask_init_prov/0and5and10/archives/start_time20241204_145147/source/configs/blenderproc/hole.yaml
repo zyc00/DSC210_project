@@ -1,0 +1,13 @@
+bproc_cube:
+  mesh_path: "data/hole.obj"
+  do_render: True
+  n_elev: 40
+  nazim: 50
+  dists: [ 0.4,0.5,0.6,0.7,0.8 ]
+  resize_factor: 1
+  noise: 0.04
+  #  colors:
+  #    bottom: [ 1, 0.27, 0.0,1 ]
+  #    front: [ 0.49411765, 0.26666667, 0.54901961,1 ]
+  #    right: [ 0.82, 0.41, 0.12, 1 ]
+  output_dir: "data/blenderproc_hole"

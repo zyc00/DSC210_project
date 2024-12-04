@@ -1,0 +1,7 @@
+autoinit:
+  radius: 1.5
+  urdf_path: ./baxter_common/baxter.urdf
+  data_dir: /home/linghao/Datasets/baxter_real/baxter-real-dataset/cleaned
+  use_mask: gsam_masks_processed
+  elev_interval: 10
+  azim_interval: 36

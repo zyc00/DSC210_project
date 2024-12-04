@@ -1,0 +1,56 @@
+model:
+  meta_architecture: "RBSolver"
+  rbsolver:
+    use_mask: pred
+    init_Tc_c2b: [ [ 0.99869549, 0.04814276,-0.01701665,-0.2755737 ],
+                   [ -0.01554248,-0.03083134,-0.99940377, 0.2164405 ],
+                   [ -0.0486387 , 0.99836451,-0.03004277, 0.92661572 ],
+                   [ 0.        , 0.        , 0.        , 1. ] ]
+
+    #links: [ 0,1,2,3,4,5,6,7 ]
+  space_explorer:
+    sample_limit: True
+    n_sample_qposes: 2000
+    urdf_path: "data/xarm7_with_gripper_reduced_dof.urdf"
+    srdf_path: "data/xarm7_with_gripper_reduced_dof.srdf"
+    move_group: "link_eef"
+    max_dist_constraint:
+      enable: True
+      max_dist: 0.5
+      max_dist_center_compute_n: 20000
+    collision_check:
+      enable: True
+      pc_sampled: 10000
+datasets:
+  train: ("xarm_hec_sim_space_explore_from_manual3_topk_it04_nostep_rt",)
+  test: "xarm_hec_sim_space_explore_from_manual3_topk_it04_nostep_rt"
+
+solver:
+  num_epochs: 1000
+  max_lr: 0.003
+  batch_size: 10
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+dataloader:
+  pin_memory: True
+dataset:
+  xarm_hec_sim:
+    load_mask_pred: True
+test:
+  batch_size: 10
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: True
+  visualizer: "rbsolver_hover_mask"
+
+
+#  space_explore:
+#    start: 300
+#    sample: 50 # camera poses sampled from start to end (steps[-1])
+#    #    sample: 10 # camera poses sampled from start to end (steps[-1])
+#    qpos_sample_method: random
+#    n_sample_qposes: 1500
+##    n_sample_qposes: 500

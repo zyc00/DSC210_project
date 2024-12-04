@@ -1,0 +1,5 @@
+data_dir: data/realsense/20230121_095546
+icp: False
+cpa: True
+fragments: [ [ 0,73 ] ]
+#fragments: [ [ 0,10 ],[ 10,20 ],[ 20,30 ],[ 30,38 ],[ 38,46 ],[ 46,54 ] ]

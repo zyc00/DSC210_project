@@ -1,0 +1,22 @@
+sim_hec:
+  rt:
+    enable: True
+  urdf_path: "./baxter_common/baxter.urdf"
+  outdir: data/sim/baxter_real_with_white_curtain
+  camera_ring: False
+  Tc_c2b: [ [ 0.3721,  0.9280,  0.0166, -0.8678 ],
+            [ -0.1321,  0.0707, -0.9887,  0.2791 ],
+            [ -0.9187,  0.3657,  0.1489,  1.1425 ],
+            [ 0.0000,  0.0000,  0.0000,  1.0000 ] ]
+  fx: 994.7
+  fy: 994.7
+  cx: 1019.5
+  cy: 776.5
+  height: 1536
+  width: 2048
+  n_point_light: 2
+  add_desk_cube:
+    enable: True
+    half_size: [ 0.1, 10, 10 ]
+    color: [ 1,1,1 ]
+    pose: [ -2,0,0 ]

@@ -1,0 +1,125 @@
+model:
+  meta_architecture: "RBSolver"
+  rbsolver_iter:
+    data_dir: data/rb_solver_iter/real_xarm/example_eih_autosam
+    #    start_qpos: [ -0.085521, 0.485202, -0.020944, 1.207768, -0.008727, 2.062979, -0.18675 ]
+    #    start_qpos: [0.0, 0.0, 0.0, 1.047198, 0.0, 2.260201, -0.127409]
+    #    start_qpos: [-0.001966, 0.219298, 0.002138, 1.321041, -6.9e-05, 2.349638, -0.155215]
+    start_qpos: [ -0.001966, 0.219298, 0.002138, 1.321041, -6.9e-05, 2.515602, -0.155215 ]
+    #    segmentor: promptsam
+    segmentor: autosam
+    #    init_method: meshloc
+    #    meshloc_database_dir: data/realarm/tohand/meshloc_database
+    use_realarm:
+      enable: True
+      ip: "192.168.1.229"
+      speed: 0.1
+      wait_time: 1
+      speed_control: True
+      safety_factor: 6
+      timestep: 0.05
+      record_video:
+        enable: False
+  #    pointrend_cfg_file: "configs/InstanceSegmentation/pointrend_rcnn_R_50_FPN_3x_xarm_finetune_v1v2v3_aug.yaml"
+  #    pointrend_model_weight: "models/pointrend_rcnn_R_50_FPN_3x_xarm_finetune_v1v2v3_aug/model_final.pth"
+  rbsolver:
+    eye_in_hand: True
+    use_mask: pred
+    #    init_Tc_c2e: [ [ 0.14813307, -0.98474991,  0.09124032,  0.00772273 ],
+    #                   [ 0.98362436,  0.13712712,  -0.11695909, 0.07494 ],
+    #                   [ 0.10266415,  0.1070717,  0.98893684, 0.01667456 ],
+    #                   [ 0.        ,  0.        ,  0.        ,  1. ] ]
+    init_Tc_c2e: [ [ 0,-1,0,0.0325 ],
+                   [ 0.9659,0,-0.2588,0.0659 ],
+                   [ 0.2588,0,0.9659,-0.0125 ],
+                   [ 0,0,0,1 ] ]
+    optim_eep: True
+    optim_eep_xy: False
+    mesh_paths: [ "data/xarm_description/meshes/xarm7/visual/link0.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link1.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link2.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link3.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link4.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link5.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link6.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link7.STL",
+                  "data/xarm_gripper/meshes/base_link.STL",
+                  "data/xarm_gripper/meshes/left_outer_knuckle.STL",
+                  "data/xarm_gripper/meshes/left_finger.STL",
+                  "data/xarm_gripper/meshes/left_inner_knuckle.STL",
+                  "data/xarm_gripper/meshes/right_outer_knuckle.STL",
+                  "data/xarm_gripper/meshes/right_finger.STL",
+                  "data/xarm_gripper/meshes/right_inner_knuckle.STL"
+    ]
+  space_explorer:
+    parallel_rendering: True
+    sample_dof: 7
+    sample: 10
+    qpos_sample_method: fan_shaped_eef
+    sample_limit: True
+    #    qpos_sample_method: random_eef
+    sample_camera_poses_method: "random"
+    n_sample_qposes: 1000
+    urdf_path: "data/xarm7_with_gripper_reduced_dof.urdf"
+    srdf_path: "data/xarm7_with_gripper_reduced_dof.srdf"
+    move_group: "link_eef"
+    max_dist_constraint:
+      enable: True
+      max_dist_center: 0.24
+      max_dist: 0.5
+      max_dist_center_compute_n: 20000
+    collision_check:
+      enable: True
+      use_pointcloud: False
+      pc_sampled: 40000
+      ignore_posz_pts: True
+      dilate: 20
+      by_eef_pose: False
+      planning_time: 0.1
+#      timestep: 0.02
+datasets:
+  train: ("xarm_real_rb_solver_iter/real_xarm/example_eih_autosam",)
+  test: "xarm_real_rb_solver_iter/real_xarm/example_eih_autosam"
+
+solver:
+  trainer: "rbsolver_iter_eih"
+  log_interval: 100
+  explore_iters: 10
+  num_epochs: 1000
+#  num_epochs: 300
+  max_lr: 0.003
+  batch_size: 100
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+input:
+  shuffle: False
+dataloader:
+  pin_memory: True
+dataset:
+  xarm_real:
+    load_mask_pred: True
+    eye_in_hand: True
+    urdf_path: "sapien_packages/xarm7/xarm_urdf/xarm7_gripper.urdf"
+    use_links: [ 1, 2, 3, 4, 5, 6, 7, 8,10,11,12,13,14,15,16 ]
+test:
+  batch_size: 100
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: False
+  visualizer: "rbsolver_hover_mask"
+
+#sim_hec:
+#  Tc_c2b: [ [ 9.738e-01,  2.276e-01,  0.000e+00,  2.704e-17 ],
+#            [ 7.784e-02, -3.330e-01, -9.397e-01,  3.372e-17 ],
+#            [ -2.139e-01,  9.150e-01, -3.420e-01,  8.000e-01 ],
+#            [ 0.000e+00,  0.000e+00,  0.000e+00,  1.000e+00 ] ]
+#  step: False
+#  rt:
+#    enable: True
+#  add_desk_cube:
+#    enable: True
+#    half_size: [ 0.5, 0.5, 0.5 ]
+#    pose: [ -0.4, 0, -0.5 ]

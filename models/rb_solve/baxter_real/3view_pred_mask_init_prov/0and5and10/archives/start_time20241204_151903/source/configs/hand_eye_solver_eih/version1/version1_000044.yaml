@@ -1,0 +1,29 @@
+model:
+  meta_architecture: "HandEyeSolver"
+  hand_eye_solver:
+    #    data_dir: data/sim_hec_with_marker/version1/000000
+    use_gt_marker_pose: False
+    icp: False
+    cpa: False
+    subpixel: True
+datasets:
+  train: ("xarm_hec_sim_marker_version1_000044",)
+  test: "xarm_hec_sim_marker_version1_000044"
+
+solver:
+  trainer: "hand_eye_solver"
+  batch_size: 10000
+  scheduler: "ConstantScheduler"
+dataloader:
+  pin_memory: True
+#dataset:
+#  xarm_hec_sim_marker:
+
+test:
+  batch_size: 10000
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: False
+  visualizer: ""
+  save_predictions: True
+

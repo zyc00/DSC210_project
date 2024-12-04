@@ -1,0 +1,45 @@
+model:
+  meta_architecture: "RBSolver"
+  rbsolver:
+    use_mask: sam
+    init_Tc_c2b: [ [ 0.3575719 ,  0.93387324, -0.00480661, -0.8592802 ],
+                   [ -0.11172229,  0.03766659, -0.9930254 ,  0.30743563 ],
+                   [ -0.9271785 ,  0.3556154 ,  0.11780312,  1.2090743 ],
+                   [ 0.        ,  0.        ,  0.        ,  1. ] ]
+    mesh_paths: [
+      #      "./baxter_common/baxter_description/meshes/upper_shoulder/S0.STL",
+      "./baxter_common/baxter_description/meshes/lower_shoulder/S1.STL",
+      "./baxter_common/baxter_description/meshes/upper_elbow/E0.STL",
+      "./baxter_common/baxter_description/meshes/lower_elbow/E1.STL",
+      "./baxter_common/baxter_description/meshes/upper_forearm/W0.STL",
+      "./baxter_common/baxter_description/meshes/lower_forearm/W1.STL",
+    ]
+    H: 1536
+    W: 2048
+datasets:
+  train: ("baxter_real_000015",)
+  test: "baxter_real_000015"
+
+solver:
+  trainer: rbsolver
+  num_epochs: 1000
+  max_lr: 0.003
+  batch_size: 1000
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+dataloader:
+  pin_memory: True
+dataset:
+  baxter_real:
+    load_mask_pred: False
+    load_mask_sam: True
+    use_links: [ 33, 34, 35, 36, 38 ]
+test:
+  batch_size: 1000
+  do_evaluation: True
+  evaluators: [ "baxter_ee_pck" ]
+  do_visualization: True
+  visualizer: "rbsolver_hover_mask"

@@ -1,0 +1,76 @@
+model:
+  meta_architecture: "RBSolver"
+  rbsolver_iter:
+    data_dir: data/sim_for_hec/version2_no_marker_predinit_se/000006
+    pointrend_model_weight: "models/pointrend_rcnn_R_50_FPN_3x_xarm_v4/model_0084999.pth"
+  rbsolver:
+    use_mask: pred
+    init_Tc_c2b: [ [ 0.9829, 0.1837, 0.0131,-0.0026 ],
+                   [ 0.08  ,-0.3618,-0.9288,-0.0118 ],
+                   [ -0.1659, 0.914 ,-0.3703, 0.8148 ],
+                   [ 0.    , 0.    , 0.    , 1. ] ]
+
+    #links: [ 0,1,2,3,4,5,6,7 ]
+  space_explorer:
+    #    sample: 20
+    sample: 50
+    sample_limit: True
+    n_sample_qposes: 2000
+    #    n_sample_qposes: 1000
+    urdf_path: "data/xarm7_with_gripper_reduced_dof.urdf"
+    srdf_path: "data/xarm7_with_gripper_reduced_dof.srdf"
+    move_group: "link_eef"
+    render_resize_factor: 2
+    max_dist_constraint:
+      enable: True
+      max_dist: 0.5
+      max_dist_center_compute_n: 20000
+    collision_check:
+      enable: True
+      use_pointcloud: False
+      pc_sampled: 40000
+      by_eef_pose: False
+      ignore_posz_pts: True
+      planning_time: 0.1
+      dilate: 20
+datasets:
+  train: ("xarm_hec_sim_version2_no_marker_predinit_se/000006",)
+  test: "xarm_hec_sim_version2_no_marker_predinit_se/000006"
+
+solver:
+  trainer: "rbsolver_iter"
+  log_interval: 100
+  explore_iters: 2
+  num_epochs: 1000
+  max_lr: 0.003
+  batch_size: 100
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+dataloader:
+  pin_memory: True
+dataset:
+  xarm_hec_sim:
+    load_mask_pred: True
+test:
+  batch_size: 100
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: True
+  visualizer: "rbsolver_hover_mask"
+
+sim_hec:
+  Tc_c2b: [ [ 9.738e-01,  2.276e-01,  0.000e+00,  2.704e-17 ],
+            [ 7.784e-02, -3.330e-01, -9.397e-01,  3.372e-17 ],
+            [ -2.139e-01,  9.150e-01, -3.420e-01,  8.000e-01 ],
+            [ 0.000e+00,  0.000e+00,  0.000e+00,  1.000e+00 ] ]
+  step: False
+  rt:
+    enable: True
+  add_desk_cube:
+    enable: True
+    half_size: [ 0.5, 0.5, 0.5 ]
+    pose: [ -0.4, 0, -0.5 ]
+

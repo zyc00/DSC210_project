@@ -1,0 +1,19 @@
+annotate_video:
+  data_dir: data/realsense/5x5x15peg_real_4
+  #  n: 10
+  whl: [ 0.05,0.15,0.05 ] # todo??
+  pts_3d: [ [ 0.025 , 0.075 , 0.025 ],
+            [ 0.025 ,-0.075 , 0.025 ],
+            [ -0.025,  0.075 , 0.025 ],
+            [ -0.025, -0.075 , 0.025 ],
+            [ 0.025 , 0.075, -0.025 ],
+            [ 0.025, -0.075, -0.025 ],
+            [ -0.025 , 0.075, -0.025 ],
+            [ -0.025, -0.075, -0.025 ] ] #todo?
+  use_aruco: True
+  aruco:
+    rows: 4
+    cols: 7
+    marker_size: 0.03
+    marker_sep: 0.005
+    dictionary: "DICT_ARUCO_ORIGINAL"

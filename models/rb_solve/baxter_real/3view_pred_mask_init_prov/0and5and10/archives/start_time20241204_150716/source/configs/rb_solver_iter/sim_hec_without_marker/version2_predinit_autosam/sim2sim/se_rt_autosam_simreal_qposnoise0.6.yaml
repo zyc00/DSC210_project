@@ -1,0 +1,87 @@
+model:
+  meta_architecture: "RBSolver"
+  rbsolver_iter:
+    data_dir: data/sim_for_hec/version2_no_marker_se_rt_autosam_2link_simreal_qposnoise_0.6
+    segmentor: autosam
+    init_method: meshloc # manual, pvnet, or meshloc
+    meshloc_database_dir: "data/sim_for_hec/version2_no_marker_predinit_se_autosam/meshloc_database"
+    autosam_links: [ 1, 2 ]
+    qpos_noise: 0.6
+    qpos_pool: [ [ -3.175887, -1.138001, 0.686426, 0.439239, 1.967795, 0.834091, 0.001712 ],
+                 [ -1.432306, 0.001821, -0.288514, 0.731559, 5.659155, 2.591708, -0.002662 ],
+                 [ 0.509603, -1.689638, 0.772875, 0.093798, 5.010518, 1.681376, 7.5e-05 ],
+                 [ 0.284642, -2.005137, -0.848181, 0.636366, 5.809113, 1.876515, 6.6e-05 ],
+                 [ -3.707415, -0.875039, 0.795184, 0.373736, 4.934812, 0.609575, 0.000149 ],
+                 [ 0.776275, -1.413496, -0.639236, 0.215691, 5.845927, 0.117446, -1.1e-05 ],
+                 [ -1.500571, 0.800666, 0.691138, 0.994299, -5.645261, 2.510323, -1e-05 ] ]
+  rbsolver:
+    use_mask: pred
+    init_Tc_c2b: [ ]
+  space_explorer:
+    sample: 20
+    sample_limit: True
+    n_sample_qposes: 1000
+    urdf_path: "data/xarm7_with_gripper_reduced_dof.urdf"
+    srdf_path: "data/xarm7_with_gripper_reduced_dof.srdf"
+    move_group: "link_eef"
+    max_dist_constraint:
+      enable: True
+      max_dist_center: 0.24
+      max_dist: 0.5
+      max_dist_center_compute_n: 20000
+    collision_check:
+      enable: True
+      use_pointcloud: False
+      by_eef_pose: False
+      planning_time: 0.1
+      pc_sampled: 40000
+      ignore_posz_pts: True
+      dilate: 20
+datasets:
+  train: ("xarm_hec_sim_version2_no_marker_se_rt_autosam_2link_simreal_qposnoise_0.6",)
+  test: "xarm_hec_sim_version2_no_marker_se_rt_autosam_2link_simreal_qposnoise_0.6"
+
+solver:
+  trainer: "rbsolver_iter"
+  log_interval: 100
+  explore_iters: 7
+  num_epochs: 1000
+  max_lr: 0.003
+  batch_size: 100
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+dataloader:
+  pin_memory: True
+input:
+  shuffle: False
+dataset:
+  xarm_hec_sim:
+    load_mask_pred: True
+test:
+  batch_size: 100
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: True
+  visualizer: "rbsolver_hover_mask"
+
+sim_hec:
+  Tc_c2b: [ [ 0.9991289 ,-0.04058207,-0.00972819,-0.33335966 ],
+            [ -0.01767028,-0.20021737,-0.97959226, 0.16416362 ],
+            [ 0.03780613, 0.97891074,-0.20076   , 1.1032665 ],
+            [ 0.        , 0.        , 0.        , 1. ] ]
+  #  Tc_c2b_npy_path: "data/sim_for_hec/version2_se_cam10_qpos1000/poses.npy"
+  #  Tc_c2b_index: 7
+  step: False
+  rt:
+    enable: True
+  add_desk_cube:
+    enable: True
+    half_size: [ 0.5, 0.5, 0.5 ]
+    pose: [ -0.4, 0, -0.5 ]
+  fx: 9.021616210937500000e+02
+  fy: 9.020661010742187500e+02
+  cx: 6.464719238281250000e+02
+  cy: 3.629275207519531250e+02

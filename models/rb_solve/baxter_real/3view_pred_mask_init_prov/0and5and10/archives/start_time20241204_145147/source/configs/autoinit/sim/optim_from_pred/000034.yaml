@@ -1,0 +1,45 @@
+model:
+  meta_architecture: "RBSolver"
+  rbsolver:
+    use_mask: pred
+    init_Tc_c2b: [ [ 5.73576436e-01, 8.19152044e-01, 0.00000000e+00,-3.14985563e-17 ],
+                   [ 3.00731780e-01,-2.10574659e-01,-9.30171333e-01, 9.45554299e-17 ],
+                   [ -7.61951749e-01, 5.33524359e-01,-3.67125715e-01, 1.00000000e+00 ],
+                   [ 0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 1.00000000e+00 ] ]
+datasets:
+  train: ("xarm_hec_sim_autoinit/000034",)
+  test: "xarm_hec_sim_autoinit/000034"
+
+solver:
+  trainer: rbsolver
+  num_epochs: 300
+  max_lr: 0.003
+  batch_size: 100
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+dataloader:
+  pin_memory: True
+input:
+  shuffle: False
+dataset:
+  xarm_hec_sim:
+    load_mask_pred: True
+#    load_mask_gt: False
+test:
+  batch_size: 100
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: True
+  visualizer: "rbsolver_hover_mask"
+
+
+#  space_explore:
+#    start: 300
+#    sample: 50 # camera poses sampled from start to end (steps[-1])
+#    #    sample: 10 # camera poses sampled from start to end (steps[-1])
+#    qpos_sample_method: random
+#    n_sample_qposes: 1500
+##    n_sample_qposes: 500

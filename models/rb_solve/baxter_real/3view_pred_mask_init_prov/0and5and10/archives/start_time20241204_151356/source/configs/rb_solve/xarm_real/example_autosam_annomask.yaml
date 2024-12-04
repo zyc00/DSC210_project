@@ -1,0 +1,51 @@
+model:
+  meta_architecture: "RBSolver"
+  rbsolver:
+    eye_in_hand: False
+    use_mask: anno
+    init_Tc_c2b: [ [ 9.996235089850981081e-01, -2.568047568318678614e-02 ,-9.661959066578591077e-03 ,-3.318843687137384424e-01 ],
+                   [ -1.436273654537843086e-02, -1.897100675198041819e-01 ,-9.817350977124936762e-01 ,1.671890322266844364e-01 ],
+                   [ 2.337845339724248586e-02, 9.815042554417767739e-01, -1.900074852905442035e-01, 1.100486447505466536e+00 ],
+                   [ 0.000000000000000000e+00, 0.000000000000000000e+00 ,0.000000000000000000e+00, 1.000000000000000000e+00 ] ]
+
+    mesh_paths: [ "data/xarm_description/meshes/xarm7/visual/link0.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link1.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link2.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link3.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link4.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link5.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link6.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link7.STL",
+    ]
+datasets:
+  train: ("xarm_real_rb_solver_iter/real_xarm/example_autosam",)
+  test: "xarm_real_rb_solver_iter/real_xarm/example_autosam"
+solver:
+  trainer: "rbsolver"
+  log_interval: 1
+  #  explore_iters: 5
+  num_epochs: 1000
+  max_lr: 0.003
+  batch_size: 100
+  save_freq: 200
+  val_freq: 200
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+input:
+  shuffle: False
+dataloader:
+  pin_memory: True
+dataset:
+  xarm_real:
+    load_mask_pred: False
+    load_mask_anno: True
+    eye_in_hand: False
+    urdf_path: "data/sapien_packages/xarm7/xarm_urdf/xarm7_gripper.urdf"
+    use_links: [ 1, 2, 3, 4, 5, 6, 7, 8 ]
+test:
+  batch_size: 100
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: True
+  visualizer: "rbsolver_hover_mask"

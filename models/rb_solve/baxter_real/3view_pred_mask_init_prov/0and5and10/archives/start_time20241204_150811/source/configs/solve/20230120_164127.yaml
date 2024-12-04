@@ -1,0 +1,8 @@
+data_dir: data/realsense/20230120_164127
+icp: False
+cpa: False
+use_gt_marker_pose: False
+n: 30
+subpixel: True
+fragments: [ [ 0,54 ] ]
+#fragments: [ [ 0,10 ],[ 10,20 ],[ 20,30 ],[ 30,38 ],[ 38,46 ],[ 46,54 ] ]

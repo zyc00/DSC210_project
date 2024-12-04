@@ -1,0 +1,2 @@
+data_dir: data/realsense/20230123_130359
+box_size: [ 0.03175, 0.06985, 0.09525 ]

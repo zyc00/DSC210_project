@@ -1,0 +1,7 @@
+xarm:
+  ip: "192.168.1.209"
+  speed: 10
+  wait_time: 1
+  minmax_rotation: [ -30, 40 ]
+  interval: 5
+  axis: x

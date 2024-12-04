@@ -1,0 +1,71 @@
+model:
+  meta_architecture: "RBSolver"
+  rbsolver_iter:
+    data_dir: data/sim_for_hec/version2_no_marker_predinit_se_ncam10_nqpos2000/000034
+  rbsolver:
+    use_mask: pred
+    init_Tc_c2b: [[ 6.6580e-01, 7.4610e-01,-7.0000e-04,-4.0000e-04],
+ [ 2.3760e-01,-2.1290e-01,-9.4770e-01, 1.2000e-03],
+ [-7.0730e-01, 6.3090e-01,-3.1900e-01, 1.1372e+00],
+ [ 0.0000e+00, 0.0000e+00, 0.0000e+00, 1.0000e+00]]
+
+    #links: [ 0,1,2,3,4,5,6,7 ]
+  space_explorer:
+    sample: 10
+    sample_limit: True
+    n_sample_qposes: 2000
+    urdf_path: "data/xarm7_with_gripper_reduced_dof.urdf"
+    srdf_path: "data/xarm7_with_gripper_reduced_dof.srdf"
+    move_group: "link_eef"
+    max_dist_constraint:
+      enable: True
+      max_dist: 0.5
+      max_dist_center_compute_n: 20000
+    collision_check:
+      enable: True
+      use_pointcloud: False
+      pc_sampled: 40000
+      by_eef_pose: False
+      ignore_posz_pts: True
+      planning_time: 0.1
+      dilate: 20
+datasets:
+  train: ("xarm_hec_sim_version2_no_marker_predinit_se_ncam10_nqpos2000/000034",)
+  test: "xarm_hec_sim_version2_no_marker_predinit_se_ncam10_nqpos2000/000034"
+
+solver:
+  trainer: "rbsolver_iter"
+  log_interval: 100
+  explore_iters: 5
+  num_epochs: 1000
+  max_lr: 0.003
+  batch_size: 100
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+dataloader:
+  pin_memory: True
+dataset:
+  xarm_hec_sim:
+    load_mask_pred: True
+test:
+  batch_size: 100
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: True
+  visualizer: "rbsolver_hover_mask"
+
+sim_hec:
+  Tc_c2b: [[ 6.48174950e-01, 7.61491453e-01, 0.00000000e+00,-2.81211193e-18],
+           [ 2.60445416e-01,-2.21688889e-01,-9.39692621e-01, 1.00372666e-17],
+           [-7.15567900e-01, 6.09085218e-01,-3.42020143e-01, 1.13333333e+00],
+           [ 0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 1.00000000e+00]]
+  step: False
+  rt:
+    enable: True
+  add_desk_cube:
+    enable: True
+    half_size: [ 0.5, 0.5, 0.5 ]
+    pose: [ -0.4, 0, -0.5 ]

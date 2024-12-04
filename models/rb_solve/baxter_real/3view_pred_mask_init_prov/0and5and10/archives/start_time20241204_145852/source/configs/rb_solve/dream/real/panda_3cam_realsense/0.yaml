@@ -1,0 +1,48 @@
+model:
+  meta_architecture: "RBSolver"
+  rbsolver:
+    use_mask: anno
+    init_Tc_c2b: [ [ -0.8246677 , 0.5629828 ,-0.05453294, 0.19787377 ],
+                   [ 0.15996468, 0.13966426,-0.9771924 , 0.43384904 ],
+                   [ -0.5425263 ,-0.8145825 ,-0.20523408, 1.3986539 ],
+                   [ 0.        , 0.        , 0.        , 1. ] ]
+
+    mesh_paths: [
+      "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/link0.ply",
+      "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/link1.ply",
+      "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/link2.ply",
+      "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/link3.ply",
+      "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/link4.ply",
+      "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/link5.ply",
+      "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/link6.ply",
+      "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/link7.ply",
+      "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/hand.ply",
+    ]
+    H: 480
+    W: 640
+datasets:
+  train: ("dream_real_panda3cam_realsense",)
+  test: "dream_real_panda3cam_realsense"
+
+solver:
+  trainer: rbsolver
+  num_epochs: 1000
+  max_lr: 0.003
+  batch_size: 1000
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+dataloader:
+  pin_memory: True
+dataset:
+  dream_real_panda_3cam_realsense:
+    use_links: [ 0,1, 2, 3, 4, 5,6, 7, 9 ]
+    load_mask_anno: True
+test:
+  batch_size: 1000
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: True
+  visualizer: "rbsolver_hover_mask"

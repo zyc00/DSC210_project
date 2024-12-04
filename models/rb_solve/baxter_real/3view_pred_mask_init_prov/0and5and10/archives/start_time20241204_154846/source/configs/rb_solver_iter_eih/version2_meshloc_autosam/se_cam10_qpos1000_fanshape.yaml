@@ -1,0 +1,96 @@
+deterministic: True
+model:
+  meta_architecture: "RBSolver"
+  rbsolver_iter:
+    data_dir: data/sim_for_hec_eih/version2_se_cam10_qpos1000/000000
+    start_qpos: [ 0.   ,  0.208,  0.   ,  1.335,  0.   ,  2.242, 0 ]
+    segmentor: autosam
+    autosam_point_center: True
+    init_method: meshloc
+    meshloc_database_dir: "data/sim_for_hec_eih/meshloc_databasev2"
+    autosam_box_scale: 1.0
+  rbsolver:
+    use_mask: pred # or gt for debug.
+    eye_in_hand: True
+    ignore_gripper_mask: True
+    init_Tc_c2e: [ ]
+    mesh_paths: [ "data/xarm_description/meshes/xarm7/visual/link0.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link1.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link2.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link3.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link4.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link5.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link6.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link7.STL" ]
+  space_explorer:
+    start: 200
+    sample: 10
+    qpos_sample_method: fan_shaped_eef
+    sample_limit: True
+    sample_dof: 7
+    n_sample_qposes: 1000
+    urdf_path: "data/sapien_packages/xarm7/xarm_urdf/xarm7_gripper_stl_camera.urdf"
+    srdf_path: "data/sapien_packages/xarm7/xarm_urdf/xarm7_gripper_stl.srdf"
+    move_group: "link_eef"
+    parallel_rendering: False
+    max_dist_constraint:
+      enable: True
+      max_dist: 0.65
+      max_dist_center_compute_n: 20000
+      max_dist_center: 0.24
+    collision_check:
+      enable: True
+      use_pointcloud: False
+      pc_sampled: 40000
+      ignore_posz_pts: True
+      dilate: 20
+      by_eef_pose: False
+      planning_time: 0.1
+datasets:
+  train: ("xarm_sim_for_hec_eih/version2_se_cam10_qpos1000/000000",)
+  test: "xarm_sim_for_hec_eih/version2_se_cam10_qpos1000/000000"
+input:
+  shuffle: False
+solver:
+  trainer: "rbsolver_iter_eih"
+  log_interval: 100
+  explore_iters: 5 # todo: use 5
+  num_epochs: 1000 # todo: use 1000 by default
+  max_lr: 0.003
+  batch_size: 100
+  save_freq: 200
+  val_freq: 200
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+  image_grid_on_tb_writer: False
+dataloader:
+  pin_memory: True
+dataset:
+  xarm:
+    load_mask_pred: True
+    load_mask_gripper: True
+    eye_in_hand: True
+    urdf_path: "data/sapien_packages/xarm7/xarm_urdf/xarm7_gripper.urdf"
+    use_links: [ 1, 2, 3, 4, 5, 6, 7, 8 ]
+    shift_gripper: False
+test:
+  batch_size: 100
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: True
+  visualizer: "rbsolver_hover_mask"
+
+sim_hec:
+  urdf_path: "data/sapien_packages/xarm7/xarm_urdf/xarm7_gripper.urdf"
+  Tc_c2e_npy_path: "data/sim_for_hec_eih/version2_se_cam10_qpos1000/poses.npy"
+  Tc_c2e_index: 0
+  step: False
+  rt:
+    enable: True
+  add_desk_cube:
+    enable: True
+    half_sizes: [ [ 0.5, 0.2, 0.5 ] ]
+    poses: [ [ -0.4, 0.0, -0.5 ] ]
+    colors: [ [ 0.3,0.3,0.3 ] ]
+backup_src: False

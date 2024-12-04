@@ -1,0 +1,19 @@
+sim_hec:
+  #  Tc_c2b: [ [ 9.738e-01,  2.276e-01,  0.000e+00,  2.704e-17 ],
+  #            [ 7.784e-02, -3.330e-01, -9.397e-01,  3.372e-17 ],
+  #            [ -2.139e-01,  9.150e-01, -3.420e-01,  8.000e-01 ],
+  #            [ 0.000e+00,  0.000e+00,  0.000e+00,  1.000e+00 ] ]
+  Tc_c2b_npy_path: "data/sim_for_hec/version2_se_cam10_qpos1000/poses.npy"
+  Tc_c2b_index: 6
+  step: False
+  rt:
+    enable: True
+  add_desk_cube:
+    enable: True
+    half_size: [ 0.5, 0.5, 0.5 ]
+    pose: [ -0.4, 0, -0.5 ]
+  urdf_path: data/sapien_packages/xarm7/xarm_urdf/xarm7_gripper_stl.urdf
+  srdf_path: data/xarm7_with_gripper_reduced_dof.srdf
+  outdir: data/sim/autoinit/render_data
+  random_qpos_number: 20
+  random_qpos: True

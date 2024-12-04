@@ -1,0 +1,27 @@
+model:
+  meta_architecture: "DreamNetwork"
+  dream:
+    resnet:
+      n_keypoints: 9
+      old_process: False
+dataloader:
+  num_workers: 0
+datasets:
+  train: ("dream_xarm_mini_v4_train",)
+  test: "dream_xarm_mini_v4_val"
+solver:
+  #  max_lr: 0.00015
+  max_lr: 0.001
+  num_epochs: 10000
+  #  scheduler: ConstantScheduler
+  scheduler: OneCycleScheduler
+  trainer: base
+  batch_size: 16
+  save_every: True
+  save_mode: iteration
+  save_freq: 2000
+input:
+  shuffle: True
+test:
+  save_predictions: True
+  batch_size: 16

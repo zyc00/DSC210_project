@@ -1,0 +1,110 @@
+model:
+  meta_architecture: "RBSolver"
+  rbsolver_iter:
+    data_dir: data/rb_solver_iter/real_xarm/example_autosam2nd
+    start_qpos: [ 0,0,0,1.047,0,1.047,-1.57 ]
+    segmentor: autosam
+    init_method: meshloc
+    meshloc_database_dir: data/realarm/tohand/meshloc_database
+    meshloc_init_Tc_c2b: [ [ 0.997645  ,-0.06725892,-0.01343888,-0.3393561 ],
+                           [ -0.02611882,-0.19137216,-0.98116994, 0.1699503 ],
+                           [ 0.06342059, 0.9792104 ,-0.19267833, 1.0998726 ],
+                           [ 0.        , 0.        , 0.        , 1. ] ]
+    use_realarm:
+      enable: True
+      ip: "192.168.1.229"
+      speed: 0.1
+      wait_time: 2
+      speed_control: True
+      safety_factor: 6
+      timestep: 0.05
+      record_video:
+        enable: False
+  #    pointrend_cfg_file: "configs/InstanceSegmentation/pointrend_rcnn_R_50_FPN_3x_xarm_finetune_v1v2v3_aug.yaml"
+  #    pointrend_model_weight: "models/pointrend_rcnn_R_50_FPN_3x_xarm_finetune_v1v2v3_aug/model_final.pth"
+  rbsolver:
+    use_mask: pred
+#    init_Tc_c2b: [ [ 0.9998876 ,  0.01335649, -0.00681359, -0.35093495 ],
+#                   [ -0.00385254, -0.21031284, -0.9776266 ,  0.2065338 ],
+#                   [ -0.01449064,  0.97754294, -0.21023762,  1.098393 ],
+#                   [ 0.        ,  0.        ,  0.        ,  1. ] ]
+
+    mesh_paths: [ "data/xarm_description/meshes/xarm7/visual/link0.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link1.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link2.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link3.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link4.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link5.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link6.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link7.STL", ]
+  space_explorer:
+    parallel_rendering: True
+    sample: 20
+    sample_limit: True
+    #    qpos_sample_method: random_eef
+    sample_camera_poses_method: "random"
+    qpos_sample_method_switch: False
+    n_sample_qposes: 1000
+    urdf_path: "sapien_packages/xarm7/xarm_urdf/xarm7_gripper_stl_camera.urdf"
+    srdf_path: "sapien_packages/xarm7/xarm_urdf/xarm7_gripper_stl.srdf"
+    move_group: "link_eef"
+    max_dist_constraint:
+      enable: True
+      max_dist_center: 0.24
+      max_dist: 0.5
+      max_dist_center_compute_n: 20000
+    collision_check:
+      enable: True
+      use_pointcloud: False
+      pc_sampled: 40000
+      ignore_posz_pts: True
+      dilate: 20
+      by_eef_pose: False
+      planning_time: 0.1
+#      timestep: 0.02
+datasets:
+  train: ("xarm_real_rb_solver_iter/real_xarm/example_autosam2nd",)
+  test: "xarm_real_rb_solver_iter/real_xarm/example_autosam2nd"
+
+solver:
+  trainer: "rbsolver_iter"
+  log_interval: 100
+  explore_iters: 10
+  num_epochs: 1000
+  max_lr: 0.003
+  batch_size: 100
+  save_freq: 200
+  val_freq: 200
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+input:
+  shuffle: False
+dataloader:
+  pin_memory: True
+dataset:
+  xarm_real:
+    load_mask_pred: True
+    use_links: [ 1, 2, 3, 4, 5, 6, 7, 8 ]
+test:
+  batch_size: 100
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: False
+  visualizer: "rbsolver_hover_mask"
+
+#sim_hec:
+#  Tc_c2b: [ [ 9.738e-01,  2.276e-01,  0.000e+00,  2.704e-17 ],
+#            [ 7.784e-02, -3.330e-01, -9.397e-01,  3.372e-17 ],
+#            [ -2.139e-01,  9.150e-01, -3.420e-01,  8.000e-01 ],
+#            [ 0.000e+00,  0.000e+00,  0.000e+00,  1.000e+00 ] ]
+#  step: False
+#  rt:
+#    enable: True
+#  add_desk_cube:
+#    enable: True
+#    half_size: [ 0.5, 0.5, 0.5 ]
+#    pose: [ -0.4, 0, -0.5 ]
+
+autoinit:
+  data_dir: "data/autoinit/real_xarm/example_autosam2nd"

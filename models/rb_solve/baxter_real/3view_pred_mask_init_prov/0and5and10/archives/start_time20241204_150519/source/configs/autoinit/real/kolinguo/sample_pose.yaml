@@ -1,0 +1,7 @@
+autoinit:
+  radius: 1.0
+  urdf_path: data/sapien_packages/xarm7/xarm_urdf/xarm7_gripper.urdf
+  data_dir: "data/rb_solver_iter/real_xarm/kolinguo"
+  use_mask: gsam_mask
+  elev_interval: 10
+  azim_interval: 36

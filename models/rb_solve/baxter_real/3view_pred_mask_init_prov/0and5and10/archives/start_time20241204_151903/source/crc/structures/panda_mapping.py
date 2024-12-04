@@ -1,0 +1,15 @@
+link_name_mesh_path_mapping = {
+    'panda_link0': "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/link0.ply",
+    'panda_link1': "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/link1.ply",
+    'panda_link2': "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/link2.ply",
+    'panda_link3': "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/link3.ply",
+    'panda_link4': "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/link4.ply",
+    'panda_link5': "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/link5.ply",
+    'panda_link6': "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/link6.ply",
+    'panda_link7': "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/link7.ply",
+    'panda_link8': "",
+    'panda_hand': "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/hand.ply",
+    'panda_hand_tcp': "",
+    'panda_leftfinger': "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/finger.ply",
+    'panda_rightfinger': "./ManiSkill2/mani_skill2/assets/descriptions/franka_description/meshes/visual/finger.ply",
+}

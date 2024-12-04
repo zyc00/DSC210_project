@@ -1,0 +1,9 @@
+bproc_cube:
+  mesh_path: "data/peg5x5x15.obj"
+  do_render: True
+  n_elev: 40
+  nazim: 50
+  dists: [ 0.3,0.4,0.5,0.6,0.7 ]
+  resize_factor: 1
+  noise: 0.04
+  output_dir: "data/blenderproc_5x5x15peg"

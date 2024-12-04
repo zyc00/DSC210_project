@@ -1,0 +1,1501 @@
+2024-12-04 15:06:39 | INFO     | Using 1 GPUs
+2024-12-04 15:06:39 | INFO     | Namespace(config_file='configs/rb_solve/baxter_real/3view_pred_mask_init_prov/0and5and10.yaml', opts=[], init_method='env://', no_archive=False, distributed=False)
+2024-12-04 15:06:39 | INFO     | Running with full config:
+annotate_video:
+  aruco:
+    cols: 7
+    dictionary: DICT_ARUCO_ORIGINAL
+    marker_sep: 0.005
+    marker_size: 0.015
+    rows: 4
+  chessboard:
+    cols: 9
+    grid_size: 0.028
+    rows: 6
+  data_dir: ''
+  n: -1
+  pts_3d:
+  - - 0.03175
+    - -0.022225
+    - -0.0635
+  - - 0.03175
+    - 0.022225
+    - -0.0635
+  - - -0.03175
+    - 0.022225
+    - -0.0635
+  - - -0.03175
+    - -0.022225
+    - -0.0635
+  - - -0.03175
+    - -0.022225
+    - 0.0635
+  - - 0.03175
+    - -0.022225
+    - 0.0635
+  - - 0.03175
+    - 0.022225
+    - 0.0635
+  use_aruco: false
+  whl:
+  - 0.0635
+  - 0.04445
+  - 0.127
+autoinit:
+  azim_interval: 5
+  data_dir: ''
+  elev_interval: 5
+  elev_max: 70
+  elev_min: 0
+  n: -1
+  nqpos: 10
+  radius: 1.0
+  urdf_path: data/sapien_packages/xarm7/xarm_urdf/xarm7_gripper.urdf
+  use_mask: ''
+backup_src: true
+bproc_cube:
+  H: 720
+  K:
+  - - 906.80517578125
+    - 0.0
+    - 650.1978759765625
+  - - 0.0
+    - 906.6802978515625
+    - 367.71429443359375
+  - - 0.0
+    - 0.0
+    - 1.0
+  W: 1280
+  colors:
+    back:
+    - 0.0
+    - 0.0
+    - 1.0
+    - 1
+    bottom:
+    - 1.0
+    - 1.0
+    - 0.0
+    - 1
+    front:
+    - 0.0
+    - 1.0
+    - 0.0
+    - 1
+    left:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 1
+    right:
+    - 0.54
+    - 0.27
+    - 0.074
+    - 1
+    top:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1
+  dists:
+  - 0.4
+  - 0.9
+  do_render: false
+  light_plane_z: 2
+  max_elev: 60.0
+  mesh_path: data/untitled.obj
+  n_elev: 10
+  nazim: 12
+  noise: 0.0
+  output_dir: data/blenderproc
+  resize_factor: 1
+dataloader:
+  collator: DefaultBatchCollator
+  num_workers: 0
+  pin_memory: true
+dataset:
+  baxter_real:
+    load_mask_anno: false
+    load_mask_gsam: false
+    load_mask_pred: true
+    load_mask_sam: false
+    selected_indices: []
+    urdf_path: ./baxter_common/baxter.urdf
+    use_links:
+    - 32
+    - 33
+    - 34
+    - 35
+    - 36
+    - 38
+  dream_real_panda_3cam_realsense:
+    load_mask_anno: false
+    load_mask_pred: false
+    urdf_path: ./ManiSkill2/mani_skill2/assets/descriptions/panda_v2.urdf
+    use_links:
+    - 0
+    - 2
+    - 3
+    - 4
+    - 6
+    - 7
+    - 9
+  dream_synthetic_panda_test_dr:
+    load_mask_anno: false
+    load_mask_pred: false
+    urdf_path: data/panda_v2.urdf
+    use_links:
+    - 0
+    - 2
+    - 3
+    - 4
+    - 6
+    - 7
+    - 9
+  dream_synthetic_panda_test_photo:
+    load_mask_anno: false
+    load_mask_pred: false
+    urdf_path: data/panda_v2.urdf
+    use_links:
+    - 0
+    - 2
+    - 3
+    - 4
+    - 6
+    - 7
+    - 9
+  dream_synthetic_panda_train_dr:
+    load_mask_anno: false
+    load_mask_pred: false
+    urdf_path: ./ManiSkill2/mani_skill2/assets/descriptions/panda_v2.urdf
+    use_links:
+    - 0
+    - 2
+    - 3
+    - 4
+    - 6
+    - 7
+    - 9
+  mobilerobot:
+    eye_in_hand: false
+    load_mask_anno: false
+    load_mask_gripper: false
+    load_mask_gt: false
+    load_mask_pred: false
+    selected_indices: []
+    shift_gripper: false
+    urdf_path: data/mobilerobot/mycobot_pi_v2/mycobot_urdf_stl.urdf
+    use_links:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+  realman:
+    camera_id: head
+    eye_in_hand: false
+    load_mask_anno: true
+    load_mask_gt: false
+    load_mask_pred: false
+    relative_to: base_link
+    resize:
+    - -1
+    - -1
+    selected_indices: []
+    urdf_path: data/hillbot_pgi_description_linghao/hillbot_pgi_description_linghao.urdf
+    use_links:
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+  realman_hec_marker:
+    camera_id: right
+    urdf_path: data/hillbot_pgi_description_linghao/hillbot_pgi_description_linghao.urdf
+  xarm:
+    eye_in_hand: false
+    load_mask_anno: false
+    load_mask_gripper: false
+    load_mask_gt: false
+    load_mask_pred: false
+    selected_indices: []
+    shift_gripper: false
+    urdf_path: data/xarm7_with_gripper_reduced_dof.urdf
+    use_links:
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+  xarm_hec_sim_marker:
+    urdf_path: data/xarm7_with_gripper_reduced_dof.urdf
+datasets:
+  test: baxter_real_0and5and10
+  train:
+  - baxter_real_0and5and10
+dbg: false
+deterministic: false
+do_eval_after_train: false
+evaltime: false
+input:
+  shuffle: true
+  transforms: []
+maskrcnn:
+  base_lr: 0.00025
+  batch_size: 2
+  batch_size_per_image: 128
+  checkpoint_period: 5000
+  data_dir: ''
+  max_iter: 8000
+  model_cfg_file: COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml
+  num_workers: 4
+  score_thresh_test: 0.7
+meshloc:
+  loftr_thresh: 0.2
+  matching_method: dkm
+  object_ids:
+  - '000000'
+  pnp_method: ransac
+  pnp_ransac_iterations_count: 10000
+  pnp_ransac_reproj_error: 8.0
+  query_dir: data/sim_hec_with_marker/version2_no_marker
+  ref_dir: data/sim_hec_for_meshloc_ref_v1
+  topk: 10
+mode: train
+model:
+  device: cuda
+  dream:
+    resnet:
+      full: false
+      n_keypoints: 7
+      old_process: true
+      pretrained: true
+  hand_eye_solver:
+    chessboard: true
+    cpa: false
+    icp: false
+    manual_set_zero: []
+    subpixel: true
+    use_gt_marker_pose: false
+  hand_eye_solver_gn:
+    cpa: false
+    icp: false
+    manual_set_zero: []
+    subpixel: true
+    use_gt_marker_pose: false
+  megapose6d:
+    generate_data:
+      H: 720
+      K:
+      - - 906.80517578125
+        - 0.0
+        - 650.1978759765625
+      - - 0.0
+        - 906.6802978515625
+        - 367.71429443359375
+      - - 0.0
+        - 0.0
+        - 1.0
+      W: 1280
+      max_dist: 2.0
+      max_elev: 80
+      min_dist: 0.5
+      min_elev: 0
+      n_dist: 10
+      n_elev: 10
+      nazim: 30
+      output_dir: ''
+      trans_noise:
+      - 0.03
+      - 0.03
+      - 0.03
+      urdf_path: data/xarm7_textured.urdf
+  meta_architecture: RBSolver
+  rbsolver:
+    H: 1536
+    W: 2048
+    eep_init: []
+    eep_rotz: 0.0
+    eep_tz: 0.0
+    eye_in_hand: false
+    ignore_gripper_mask: false
+    init_Tc_c2b:
+    - - 0.3575719
+      - 0.93387324
+      - -0.00480661
+      - -0.8592802
+    - - -0.11172229
+      - 0.03766659
+      - -0.9930254
+      - 0.30743563
+    - - -0.9271785
+      - 0.3556154
+      - 0.11780312
+      - 1.2090743
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    init_Tc_c2e: []
+    last2link_loss_weights: 1
+    loss_type: mse
+    lrs: []
+    mesh_paths:
+    - ./baxter_common/baxter_description/meshes/upper_shoulder/S0.STL
+    - ./baxter_common/baxter_description/meshes/lower_shoulder/S1.STL
+    - ./baxter_common/baxter_description/meshes/upper_elbow/E0.STL
+    - ./baxter_common/baxter_description/meshes/lower_elbow/E1.STL
+    - ./baxter_common/baxter_description/meshes/upper_forearm/W0.STL
+    - ./baxter_common/baxter_description/meshes/lower_forearm/W1.STL
+    optim_eep: false
+    optim_eep_mask: []
+    optim_eep_rot: true
+    optim_eep_xy: true
+    optim_inverse: false
+    optim_mesh_scale: false
+    optim_trans_only: false
+    reg_loss_weight: 0.0
+    render_scale: 1.0
+    use_last_as_result: true
+    use_mask: pred
+    weighted_loss: false
+  rbsolver_iter:
+    autosam_box_scale: 1.0
+    autosam_links:
+    - 1
+    - 2
+    autosam_point_center: false
+    autosam_random_points: false
+    data_dir: ''
+    data_pool: []
+    explore_iters: 1
+    init_method: manual
+    meshloc_database_dir: ''
+    meshloc_init_Tc_c2b: []
+    meshloc_use_all_imgs: false
+    pointrend_cfg_file: configs/InstanceSegmentation/pointrend_rcnn_R_50_FPN_3x_xarm.yaml
+    pointrend_model_weight: output/model_0099999.pth
+    qpos_noise: 0.0
+    qpos_pool: []
+    segmentor: pointrend
+    start_index: 0
+    start_qpos:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    use_realarm:
+      enable: false
+      ip: 192.168.1.209
+      record_video:
+        enable: false
+        outdir: data/realarm_video
+      safety_factor: 3
+      speed: 0.1
+      speed_control: false
+      timestep: 0.1
+      wait_time: 1
+    use_realman:
+      arm: ''
+      enable: false
+      ip: 192.168.31.175
+      speed: 1
+      wait_time: 1
+  space_explorer:
+    camera_intrinsic:
+    - 906.80517578125
+    - 906.6802978515625
+    - 650.1978759765625
+    - 367.71429443359375
+    ckpt_path: ''
+    collision_check:
+      by_eef_pose: true
+      dilate: 10
+      enable: false
+      ignore_posz_pts: false
+      pc_sampled: -1
+      planning_time: 1.0
+      timestep: 0.01
+      use_pointcloud: true
+    max_dist_constraint:
+      enable: false
+      max_dist: 0.5
+      max_dist_center: 0.0
+      max_dist_center_compute_n: 100000
+    mesh_dir: data/xarm_description/meshes/xarm7/visual
+    move_group: ''
+    n_sample_qpos_each_joint: 2
+    n_sample_qposes: 1000
+    parallel_rendering: false
+    qpos_choices: ''
+    qpos_choices_pad_left: 0
+    qpos_choices_pad_right: 0
+    qpos_sample_method: random
+    qpos_sample_method_switch: false
+    qpos_sample_range: 0.0
+    render_resize_factor: 1
+    resample_camera_poses:
+      enable: false
+      maxn: 0
+    sample: 10
+    sample_camera_poses_method: random
+    sample_dof: 6
+    sample_limit: false
+    self_collision_check:
+      enable: true
+    srdf_path: ''
+    start: 200
+    urdf_path: ''
+    var_in_valid_mask: false
+    variance_based_sampling: true
+output_dir: models/rb_solve/baxter_real/3view_pred_mask_init_prov/0and5and10
+paths_catalog: /home/jigu/projects/DSC210_project/crc/config/paths_catalog.py
+pnp_hole_pose:
+  data_dir: ''
+  pts2d: []
+  pts3d:
+  - - 0.03175
+    - -0.022225
+    - -0.0635
+  - - 0.03175
+    - 0.022225
+    - -0.0635
+  - - -0.03175
+    - 0.022225
+    - -0.0635
+  - - -0.03175
+    - -0.022225
+    - -0.0635
+  - - -0.03175
+    - -0.022225
+    - 0.0635
+  - - 0.03175
+    - -0.022225
+    - 0.0635
+  - - 0.03175
+    - 0.022225
+    - 0.0635
+  whl:
+  - 0.0635
+  - 0.04445
+  - 0.127
+pnp_with_chessboard:
+  data_dir: ''
+  grid_sizes: []
+  pattern_planes: []
+  patterns: []
+  wlh:
+  - 0.0635
+  - 0.127
+  - 0.04445
+rb_solve:
+  data_dir: ''
+  dbg: true
+  eye_on_hand: false
+  init_Tbc: []
+  init_Tc_c2e: []
+  links:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  log_interval: 20
+  lrs: []
+  neg_iou_loss: false
+  nimgs: -1
+  optimizer: adam
+  render_sizes: []
+  space_explore:
+    n_sample_qpos_each_joint: 2
+    n_sample_qposes: 1000
+    qpos_sample_method: grid
+    sample: 10
+    start: 200
+  steps: []
+  use_gt_mask: false
+  use_nvdiffrast: false
+  validate_dir: ''
+sapien_cube:
+  H: 720
+  K:
+  - - 906.80517578125
+    - 0.0
+    - 650.1978759765625
+  - - 0.0
+    - 906.6802978515625
+    - 367.71429443359375
+  - - 0.0
+    - 0.0
+    - 1.0
+  TB_B2w:
+  - - 1
+    - 0
+    - 0
+    - 0.6
+  - - 0
+    - 1
+    - 0
+    - 0
+  - - 0
+    - 0
+    - 1
+    - 0
+  - - 0
+    - 0
+    - 0
+    - 1
+  Tw_w2o_path: tmp/cubaA_poses.npy
+  W: 1280
+  camera_pose: []
+  cx: 0.0
+  cy: 0.0
+  fx: 0.0
+  fy: 0.0
+  gripper_qpos:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  mesh_path: data/untitled.obj
+  outdir: ''
+  output_dir: data/sapien_cube
+  robot_pose:
+  - -0.6
+  - 0
+  - 0
+  - 1
+  - 0
+  - 0
+  - 0
+  robot_qpos_path: tmp/robot_qpos.npy
+  rotz: 0
+  rt:
+    enable: false
+  urdf_path: data/xarm7_with_gripper.urdf
+  visual_path: data/untitled.dae
+sim:
+  add_desk_cube:
+    color:
+    - 0.5
+    - 0.5
+    - 0.5
+    enable: false
+    half_size:
+    - 0.5
+    - 0.5
+    - 0.5
+    pose:
+    - 0.0
+    - 0.0
+    - 0.0
+  add_ground:
+    enable: false
+  cam_pose: []
+  camera_ring: false
+  cx: 0.0
+  cy: 0.0
+  eih_nqpos: 100
+  envmaps:
+  - SaintPetersSquare2
+  eye_on_hand_pose: []
+  fx: 0.0
+  fy: 0.0
+  move_group: ''
+  n_point_light: 10
+  outdir: ''
+  qpos: []
+  random_light_each_step: false
+  random_qpos: false
+  random_qpos_number: 10
+  rt:
+    enable: false
+  srdf_path: data/xarm7.urdf
+  urdf_path: data/xarm7.urdf
+sim_hec:
+  Tc_c2b: []
+  Tc_c2b_index: 0
+  Tc_c2b_npy_path: ''
+  Tc_c2e: []
+  Tc_c2e_index: 0
+  Tc_c2e_npy_path: ''
+  add_desk_cube:
+    color:
+    - 0
+    - 0
+    - 0
+    colors: []
+    enable: false
+    half_size:
+    - 0.5
+    - 0.5
+    - 0.5
+    half_sizes: []
+    pose:
+    - -0.3
+    - 0
+    - -0.5
+    poses: []
+  add_ground: false
+  camera_ring: false
+  cx: 650.1978759765625
+  cy: 367.71429443359375
+  eye_on_hand_pose: []
+  fx: 906.80517578125
+  fy: 906.6802978515625
+  height: 720
+  n_point_light: 10
+  outdir: ''
+  qpos: []
+  random_qpos: false
+  random_qpos_number: 10
+  rt:
+    enable: false
+  srdf_path: ''
+  step: false
+  urdf_path: data/xarm7_textured.urdf
+  width: 1280
+sim_hec_eye_in_hand:
+  Tc_c2e: []
+  add_chessboard: true
+  add_desk_cube:
+    colors:
+    - - 0
+      - 0
+      - 0
+    enable: false
+    half_sizes:
+    - - 0.5
+      - 0.5
+      - 0.5
+    poses:
+    - - -0.3
+      - 0
+      - -0.5
+  add_ground: false
+  chessboard_path: data/chessboard2.glb
+  cx: 650.1978759765625
+  cy: 367.71429443359375
+  fx: 906.80517578125
+  fy: 906.6802978515625
+  move_group: link_eef
+  n_point_light: 10
+  outdir: ''
+  qpos: []
+  random_qpos: false
+  random_qpos_number: 10
+  rt:
+    enable: false
+  srdf_path: data/xarm7_textured.srdf
+  urdf_path: data/xarm7_textured.urdf
+sim_hec_with_marker:
+  Tc_c2b: []
+  add_chessboard: true
+  add_desk_cube:
+    color:
+    - 0
+    - 0
+    - 0
+    enable: false
+    half_size:
+    - 0.5
+    - 0.5
+    - 0.5
+    pose:
+    - -0.3
+    - 0
+    - -0.5
+  add_ground: false
+  camera_ring:
+    enable: false
+    end_azim: 6.283185307179586
+    endpoint: true
+    max_dist: 1.5
+    max_elev: 80
+    min_dist: 0.7
+    min_elev: -80
+    nazim: 12
+    ndist: 5
+    nelev: 18
+    start_azim: 0.0
+    trans_noise: 0.0
+  chessboard_path: data/chessboard2.glb
+  cx: 650.1978759765625
+  cy: 367.71429443359375
+  eye_on_hand_pose: []
+  fx: 906.80517578125
+  fy: 906.6802978515625
+  move_group: link_eef
+  n_point_light: 10
+  outdir: ''
+  qpos: []
+  random_qpos: false
+  random_qpos_number: 10
+  rt:
+    enable: false
+  srdf_path: data/xarm7_textured.srdf
+  urdf_path: data/xarm7_textured.urdf
+sim_pvnet:
+  K:
+  - - 906.80517578125
+    - 0.0
+    - 650.1978759765625
+  - - 0.0
+    - 906.6802978515625
+    - 367.71429443359375
+  - - 0.0
+    - 0.0
+    - 1.0
+  Tc_c2b: []
+  add_desk_cube:
+    color:
+    - 0
+    - 0
+    - 0
+    enable: false
+    half_size:
+    - 0.5
+    - 0.5
+    - 0.5
+    pose:
+    - -0.3
+    - 0
+    - -0.5
+  add_ground: false
+  envmaps:
+  - SaintPetersSquare2
+  max_dist: 2.0
+  max_elev: 80
+  min_dist: 0.5
+  min_elev: 0
+  n_dist: 10
+  n_elev: 10
+  n_point_light: 10
+  nazim: 30
+  outdir: ''
+  random_light_each_step: false
+  rt:
+    enable: false
+  trans_noise:
+  - 0.03
+  - 0.03
+  - 0.03
+  urdf_path: data/xarm7_textured.urdf
+solver:
+  batch_size: 1000
+  bias_lr_factor: 1
+  broadcast_buffers: false
+  compress_history_ops: false
+  convert_sync_batchnorm: false
+  ddp_version: torch
+  detect_anomaly: false
+  dist:
+    sampler:
+      shuffle: false
+      type: pytorch
+  do_grad_clip: false
+  ds_len: -1
+  empty_cache: true
+  end_lr: 0.0001
+  end_pose_lr: 1.0e-05
+  explore_iters: 10
+  find_unused_parameters: false
+  gamma: 0.1
+  gamma_pose: 0.1
+  grad_clip: 1.0
+  grad_clip_type: norm
+  grad_noise:
+    enable: false
+    noise: 0.0
+  image_grid_on_tb_writer: true
+  load: ''
+  load_model: ''
+  load_model_extras: []
+  log_interval: 1
+  loss_function: ''
+  lrate_decay: 250
+  lrate_decay_pose: 250
+  max_lr: 0.003
+  metric_functions: []
+  min_factor: 0.1
+  mlp_lr: 0.001
+  momentum: 0.9
+  num_epochs: 1000
+  num_iters: 10000
+  optimizer: Adam
+  pop_verts_faces: false
+  pose_lr: 5.0e-05
+  print_it: false
+  resume: false
+  save_every: true
+  save_freq: 20
+  save_last_only: false
+  save_min_loss: 20.0
+  save_mode: iteration
+  save_optimizer: true
+  save_scheduler: true
+  scheduler: ConstantScheduler
+  scheduler_decay_thresh: 5.0e-05
+  steps:
+  - 30000
+  trainer: rbsolver
+  val_freq: 20
+  warmup_factor: 0.3333333333333333
+  warmup_iters: 500
+  warmup_method: linear
+  weight_decay: 0.0005
+  weight_decay_bias: 0.0
+test:
+  batch_size: 1000
+  ckpt_dir: ''
+  do_evaluation: true
+  do_visualization: true
+  eval_all: false
+  eval_all_min: 0
+  evaluators:
+  - baxter_ee_pck
+  force_recompute: true
+  save_predictions: false
+  visualizer: rbsolver_hover_mask
+video_segm:
+  data_dir: ''
+
+2024-12-04 15:06:39 | INFO     | Backuping source....
+2024-12-04 15:06:39 | INFO     | Backuping source done!
+2024-12-04 15:06:39 | INFO     | Loaded configuration file configs/rb_solve/baxter_real/3view_pred_mask_init_prov/0and5and10.yaml
+2024-12-04 15:06:39 | INFO     | 
+model:
+  meta_architecture: "RBSolver"
+  rbsolver:
+    use_mask: pred
+    init_Tc_c2b: [ [ 0.3575719 ,  0.93387324, -0.00480661, -0.8592802 ],
+                   [ -0.11172229,  0.03766659, -0.9930254 ,  0.30743563 ],
+                   [ -0.9271785 ,  0.3556154 ,  0.11780312,  1.2090743 ],
+                   [ 0.        ,  0.        ,  0.        ,  1. ] ]
+    mesh_paths: [
+      "./baxter_common/baxter_description/meshes/upper_shoulder/S0.STL",
+      "./baxter_common/baxter_description/meshes/lower_shoulder/S1.STL",
+      "./baxter_common/baxter_description/meshes/upper_elbow/E0.STL",
+      "./baxter_common/baxter_description/meshes/lower_elbow/E1.STL",
+      "./baxter_common/baxter_description/meshes/upper_forearm/W0.STL",
+      "./baxter_common/baxter_description/meshes/lower_forearm/W1.STL",
+    ]
+    H: 1536
+    W: 2048
+datasets:
+  train: ("baxter_real_0and5and10",)
+  test: "baxter_real_0and5and10"
+
+solver:
+  trainer: rbsolver
+  num_epochs: 1000
+  max_lr: 0.003
+  batch_size: 1000
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+dataloader:
+  pin_memory: True
+dataset:
+  baxter_real:
+    load_mask_pred: True
+test:
+  batch_size: 1000
+  do_evaluation: True
+  evaluators: [ "baxter_ee_pck" ]
+  do_visualization: True
+  visualizer: "rbsolver_hover_mask"
+2024-12-04 15:06:39 | INFO     | Running with config:
+annotate_video:
+  aruco:
+    cols: 7
+    dictionary: DICT_ARUCO_ORIGINAL
+    marker_sep: 0.005
+    marker_size: 0.015
+    rows: 4
+  chessboard:
+    cols: 9
+    grid_size: 0.028
+    rows: 6
+  data_dir: 
+  n: -1
+  pts_3d: [[0.03175, -0.022225, -0.0635], [0.03175, 0.022225, -0.0635], [-0.03175, 0.022225, -0.0635], [-0.03175, -0.022225, -0.0635], [-0.03175, -0.022225, 0.0635], [0.03175, -0.022225, 0.0635], [0.03175, 0.022225, 0.0635]]
+  use_aruco: False
+  whl: [0.0635, 0.04445, 0.127]
+autoinit:
+  azim_interval: 5
+  data_dir: 
+  elev_interval: 5
+  elev_max: 70
+  elev_min: 0
+  n: -1
+  nqpos: 10
+  radius: 1.0
+  urdf_path: data/sapien_packages/xarm7/xarm_urdf/xarm7_gripper.urdf
+  use_mask: 
+backup_src: True
+bproc_cube:
+  H: 720
+  K: [[906.80517578125, 0.0, 650.1978759765625], [0.0, 906.6802978515625, 367.71429443359375], [0.0, 0.0, 1.0]]
+  W: 1280
+  colors:
+    back: [0.0, 0.0, 1.0, 1]
+    bottom: [1.0, 1.0, 0.0, 1]
+    front: [0.0, 1.0, 0.0, 1]
+    left: [1.0, 0.0, 0.0, 1]
+    right: [0.54, 0.27, 0.074, 1]
+    top: [1.0, 1.0, 1.0, 1]
+  dists: [0.4, 0.9]
+  do_render: False
+  light_plane_z: 2
+  max_elev: 60.0
+  mesh_path: data/untitled.obj
+  n_elev: 10
+  nazim: 12
+  noise: 0.0
+  output_dir: data/blenderproc
+  resize_factor: 1
+dataloader:
+  collator: DefaultBatchCollator
+  num_workers: 0
+  pin_memory: True
+dataset:
+  baxter_real:
+    load_mask_anno: False
+    load_mask_gsam: False
+    load_mask_pred: True
+    load_mask_sam: False
+    selected_indices: []
+    urdf_path: ./baxter_common/baxter.urdf
+    use_links: [32, 33, 34, 35, 36, 38]
+  dream_real_panda_3cam_realsense:
+    load_mask_anno: False
+    load_mask_pred: False
+    urdf_path: ./ManiSkill2/mani_skill2/assets/descriptions/panda_v2.urdf
+    use_links: [0, 2, 3, 4, 6, 7, 9]
+  dream_synthetic_panda_test_dr:
+    load_mask_anno: False
+    load_mask_pred: False
+    urdf_path: data/panda_v2.urdf
+    use_links: [0, 2, 3, 4, 6, 7, 9]
+  dream_synthetic_panda_test_photo:
+    load_mask_anno: False
+    load_mask_pred: False
+    urdf_path: data/panda_v2.urdf
+    use_links: [0, 2, 3, 4, 6, 7, 9]
+  dream_synthetic_panda_train_dr:
+    load_mask_anno: False
+    load_mask_pred: False
+    urdf_path: ./ManiSkill2/mani_skill2/assets/descriptions/panda_v2.urdf
+    use_links: [0, 2, 3, 4, 6, 7, 9]
+  mobilerobot:
+    eye_in_hand: False
+    load_mask_anno: False
+    load_mask_gripper: False
+    load_mask_gt: False
+    load_mask_pred: False
+    selected_indices: []
+    shift_gripper: False
+    urdf_path: data/mobilerobot/mycobot_pi_v2/mycobot_urdf_stl.urdf
+    use_links: [0, 1, 2, 3, 4, 5, 6]
+  realman:
+    camera_id: head
+    eye_in_hand: False
+    load_mask_anno: True
+    load_mask_gt: False
+    load_mask_pred: False
+    relative_to: base_link
+    resize: [-1, -1]
+    selected_indices: []
+    urdf_path: data/hillbot_pgi_description_linghao/hillbot_pgi_description_linghao.urdf
+    use_links: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+  realman_hec_marker:
+    camera_id: right
+    urdf_path: data/hillbot_pgi_description_linghao/hillbot_pgi_description_linghao.urdf
+  xarm:
+    eye_in_hand: False
+    load_mask_anno: False
+    load_mask_gripper: False
+    load_mask_gt: False
+    load_mask_pred: False
+    selected_indices: []
+    shift_gripper: False
+    urdf_path: data/xarm7_with_gripper_reduced_dof.urdf
+    use_links: [2, 3, 4, 5, 6, 7, 8]
+  xarm_hec_sim_marker:
+    urdf_path: data/xarm7_with_gripper_reduced_dof.urdf
+datasets:
+  test: baxter_real_0and5and10
+  train: ('baxter_real_0and5and10',)
+dbg: False
+deterministic: False
+do_eval_after_train: False
+evaltime: False
+input:
+  shuffle: True
+  transforms: []
+maskrcnn:
+  base_lr: 0.00025
+  batch_size: 2
+  batch_size_per_image: 128
+  checkpoint_period: 5000
+  data_dir: 
+  max_iter: 8000
+  model_cfg_file: COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml
+  num_workers: 4
+  score_thresh_test: 0.7
+meshloc:
+  loftr_thresh: 0.2
+  matching_method: dkm
+  object_ids: ['000000']
+  pnp_method: ransac
+  pnp_ransac_iterations_count: 10000
+  pnp_ransac_reproj_error: 8.0
+  query_dir: data/sim_hec_with_marker/version2_no_marker
+  ref_dir: data/sim_hec_for_meshloc_ref_v1
+  topk: 10
+mode: train
+model:
+  device: cuda
+  dream:
+    resnet:
+      full: False
+      n_keypoints: 7
+      old_process: True
+      pretrained: True
+  hand_eye_solver:
+    chessboard: True
+    cpa: False
+    icp: False
+    manual_set_zero: []
+    subpixel: True
+    use_gt_marker_pose: False
+  hand_eye_solver_gn:
+    cpa: False
+    icp: False
+    manual_set_zero: []
+    subpixel: True
+    use_gt_marker_pose: False
+  megapose6d:
+    generate_data:
+      H: 720
+      K: [[906.80517578125, 0.0, 650.1978759765625], [0.0, 906.6802978515625, 367.71429443359375], [0.0, 0.0, 1.0]]
+      W: 1280
+      max_dist: 2.0
+      max_elev: 80
+      min_dist: 0.5
+      min_elev: 0
+      n_dist: 10
+      n_elev: 10
+      nazim: 30
+      output_dir: 
+      trans_noise: [0.03, 0.03, 0.03]
+      urdf_path: data/xarm7_textured.urdf
+  meta_architecture: RBSolver
+  rbsolver:
+    H: 1536
+    W: 2048
+    eep_init: []
+    eep_rotz: 0.0
+    eep_tz: 0.0
+    eye_in_hand: False
+    ignore_gripper_mask: False
+    init_Tc_c2b: [[0.3575719, 0.93387324, -0.00480661, -0.8592802], [-0.11172229, 0.03766659, -0.9930254, 0.30743563], [-0.9271785, 0.3556154, 0.11780312, 1.2090743], [0.0, 0.0, 0.0, 1.0]]
+    init_Tc_c2e: []
+    last2link_loss_weights: 1
+    loss_type: mse
+    lrs: []
+    mesh_paths: ['./baxter_common/baxter_description/meshes/upper_shoulder/S0.STL', './baxter_common/baxter_description/meshes/lower_shoulder/S1.STL', './baxter_common/baxter_description/meshes/upper_elbow/E0.STL', './baxter_common/baxter_description/meshes/lower_elbow/E1.STL', './baxter_common/baxter_description/meshes/upper_forearm/W0.STL', './baxter_common/baxter_description/meshes/lower_forearm/W1.STL']
+    optim_eep: False
+    optim_eep_mask: []
+    optim_eep_rot: True
+    optim_eep_xy: True
+    optim_inverse: False
+    optim_mesh_scale: False
+    optim_trans_only: False
+    reg_loss_weight: 0.0
+    render_scale: 1.0
+    use_last_as_result: True
+    use_mask: pred
+    weighted_loss: False
+  rbsolver_iter:
+    autosam_box_scale: 1.0
+    autosam_links: [1, 2]
+    autosam_point_center: False
+    autosam_random_points: False
+    data_dir: 
+    data_pool: []
+    explore_iters: 1
+    init_method: manual
+    meshloc_database_dir: 
+    meshloc_init_Tc_c2b: []
+    meshloc_use_all_imgs: False
+    pointrend_cfg_file: configs/InstanceSegmentation/pointrend_rcnn_R_50_FPN_3x_xarm.yaml
+    pointrend_model_weight: output/model_0099999.pth
+    qpos_noise: 0.0
+    qpos_pool: []
+    segmentor: pointrend
+    start_index: 0
+    start_qpos: [0, 0, 0, 0, 0, 0, 0]
+    use_realarm:
+      enable: False
+      ip: 192.168.1.209
+      record_video:
+        enable: False
+        outdir: data/realarm_video
+      safety_factor: 3
+      speed: 0.1
+      speed_control: False
+      timestep: 0.1
+      wait_time: 1
+    use_realman:
+      arm: 
+      enable: False
+      ip: 192.168.31.175
+      speed: 1
+      wait_time: 1
+  space_explorer:
+    camera_intrinsic: [906.80517578125, 906.6802978515625, 650.1978759765625, 367.71429443359375]
+    ckpt_path: 
+    collision_check:
+      by_eef_pose: True
+      dilate: 10
+      enable: False
+      ignore_posz_pts: False
+      pc_sampled: -1
+      planning_time: 1.0
+      timestep: 0.01
+      use_pointcloud: True
+    max_dist_constraint:
+      enable: False
+      max_dist: 0.5
+      max_dist_center: 0.0
+      max_dist_center_compute_n: 100000
+    mesh_dir: data/xarm_description/meshes/xarm7/visual
+    move_group: 
+    n_sample_qpos_each_joint: 2
+    n_sample_qposes: 1000
+    parallel_rendering: False
+    qpos_choices: 
+    qpos_choices_pad_left: 0
+    qpos_choices_pad_right: 0
+    qpos_sample_method: random
+    qpos_sample_method_switch: False
+    qpos_sample_range: 0.0
+    render_resize_factor: 1
+    resample_camera_poses:
+      enable: False
+      maxn: 0
+    sample: 10
+    sample_camera_poses_method: random
+    sample_dof: 6
+    sample_limit: False
+    self_collision_check:
+      enable: True
+    srdf_path: 
+    start: 200
+    urdf_path: 
+    var_in_valid_mask: False
+    variance_based_sampling: True
+output_dir: models/rb_solve/baxter_real/3view_pred_mask_init_prov/0and5and10
+paths_catalog: /home/jigu/projects/DSC210_project/crc/config/paths_catalog.py
+pnp_hole_pose:
+  data_dir: 
+  pts2d: []
+  pts3d: [[0.03175, -0.022225, -0.0635], [0.03175, 0.022225, -0.0635], [-0.03175, 0.022225, -0.0635], [-0.03175, -0.022225, -0.0635], [-0.03175, -0.022225, 0.0635], [0.03175, -0.022225, 0.0635], [0.03175, 0.022225, 0.0635]]
+  whl: [0.0635, 0.04445, 0.127]
+pnp_with_chessboard:
+  data_dir: 
+  grid_sizes: []
+  pattern_planes: []
+  patterns: []
+  wlh: [0.0635, 0.127, 0.04445]
+rb_solve:
+  data_dir: 
+  dbg: True
+  eye_on_hand: False
+  init_Tbc: []
+  init_Tc_c2e: []
+  links: [0, 1, 2, 3, 4, 5, 6, 7]
+  log_interval: 20
+  lrs: []
+  neg_iou_loss: False
+  nimgs: -1
+  optimizer: adam
+  render_sizes: []
+  space_explore:
+    n_sample_qpos_each_joint: 2
+    n_sample_qposes: 1000
+    qpos_sample_method: grid
+    sample: 10
+    start: 200
+  steps: []
+  use_gt_mask: False
+  use_nvdiffrast: False
+  validate_dir: 
+sapien_cube:
+  H: 720
+  K: [[906.80517578125, 0.0, 650.1978759765625], [0.0, 906.6802978515625, 367.71429443359375], [0.0, 0.0, 1.0]]
+  TB_B2w: [[1, 0, 0, 0.6], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]
+  Tw_w2o_path: tmp/cubaA_poses.npy
+  W: 1280
+  camera_pose: []
+  cx: 0.0
+  cy: 0.0
+  fx: 0.0
+  fy: 0.0
+  gripper_qpos: [0, 0, 0, 0, 0, 0]
+  mesh_path: data/untitled.obj
+  outdir: 
+  output_dir: data/sapien_cube
+  robot_pose: [-0.6, 0, 0, 1, 0, 0, 0]
+  robot_qpos_path: tmp/robot_qpos.npy
+  rotz: 0
+  rt:
+    enable: False
+  urdf_path: data/xarm7_with_gripper.urdf
+  visual_path: data/untitled.dae
+sim:
+  add_desk_cube:
+    color: [0.5, 0.5, 0.5]
+    enable: False
+    half_size: [0.5, 0.5, 0.5]
+    pose: [0.0, 0.0, 0.0]
+  add_ground:
+    enable: False
+  cam_pose: []
+  camera_ring: False
+  cx: 0.0
+  cy: 0.0
+  eih_nqpos: 100
+  envmaps: ['SaintPetersSquare2']
+  eye_on_hand_pose: []
+  fx: 0.0
+  fy: 0.0
+  move_group: 
+  n_point_light: 10
+  outdir: 
+  qpos: []
+  random_light_each_step: False
+  random_qpos: False
+  random_qpos_number: 10
+  rt:
+    enable: False
+  srdf_path: data/xarm7.urdf
+  urdf_path: data/xarm7.urdf
+sim_hec:
+  Tc_c2b: []
+  Tc_c2b_index: 0
+  Tc_c2b_npy_path: 
+  Tc_c2e: []
+  Tc_c2e_index: 0
+  Tc_c2e_npy_path: 
+  add_desk_cube:
+    color: [0, 0, 0]
+    colors: []
+    enable: False
+    half_size: [0.5, 0.5, 0.5]
+    half_sizes: []
+    pose: [-0.3, 0, -0.5]
+    poses: []
+  add_ground: False
+  camera_ring: False
+  cx: 650.1978759765625
+  cy: 367.71429443359375
+  eye_on_hand_pose: []
+  fx: 906.80517578125
+  fy: 906.6802978515625
+  height: 720
+  n_point_light: 10
+  outdir: 
+  qpos: []
+  random_qpos: False
+  random_qpos_number: 10
+  rt:
+    enable: False
+  srdf_path: 
+  step: False
+  urdf_path: data/xarm7_textured.urdf
+  width: 1280
+sim_hec_eye_in_hand:
+  Tc_c2e: []
+  add_chessboard: True
+  add_desk_cube:
+    colors: [[0, 0, 0]]
+    enable: False
+    half_sizes: [[0.5, 0.5, 0.5]]
+    poses: [[-0.3, 0, -0.5]]
+  add_ground: False
+  chessboard_path: data/chessboard2.glb
+  cx: 650.1978759765625
+  cy: 367.71429443359375
+  fx: 906.80517578125
+  fy: 906.6802978515625
+  move_group: link_eef
+  n_point_light: 10
+  outdir: 
+  qpos: []
+  random_qpos: False
+  random_qpos_number: 10
+  rt:
+    enable: False
+  srdf_path: data/xarm7_textured.srdf
+  urdf_path: data/xarm7_textured.urdf
+sim_hec_with_marker:
+  Tc_c2b: []
+  add_chessboard: True
+  add_desk_cube:
+    color: [0, 0, 0]
+    enable: False
+    half_size: [0.5, 0.5, 0.5]
+    pose: [-0.3, 0, -0.5]
+  add_ground: False
+  camera_ring:
+    enable: False
+    end_azim: 6.283185307179586
+    endpoint: True
+    max_dist: 1.5
+    max_elev: 80
+    min_dist: 0.7
+    min_elev: -80
+    nazim: 12
+    ndist: 5
+    nelev: 18
+    start_azim: 0.0
+    trans_noise: 0.0
+  chessboard_path: data/chessboard2.glb
+  cx: 650.1978759765625
+  cy: 367.71429443359375
+  eye_on_hand_pose: []
+  fx: 906.80517578125
+  fy: 906.6802978515625
+  move_group: link_eef
+  n_point_light: 10
+  outdir: 
+  qpos: []
+  random_qpos: False
+  random_qpos_number: 10
+  rt:
+    enable: False
+  srdf_path: data/xarm7_textured.srdf
+  urdf_path: data/xarm7_textured.urdf
+sim_pvnet:
+  K: [[906.80517578125, 0.0, 650.1978759765625], [0.0, 906.6802978515625, 367.71429443359375], [0.0, 0.0, 1.0]]
+  Tc_c2b: []
+  add_desk_cube:
+    color: [0, 0, 0]
+    enable: False
+    half_size: [0.5, 0.5, 0.5]
+    pose: [-0.3, 0, -0.5]
+  add_ground: False
+  envmaps: ['SaintPetersSquare2']
+  max_dist: 2.0
+  max_elev: 80
+  min_dist: 0.5
+  min_elev: 0
+  n_dist: 10
+  n_elev: 10
+  n_point_light: 10
+  nazim: 30
+  outdir: 
+  random_light_each_step: False
+  rt:
+    enable: False
+  trans_noise: [0.03, 0.03, 0.03]
+  urdf_path: data/xarm7_textured.urdf
+solver:
+  batch_size: 1000
+  bias_lr_factor: 1
+  broadcast_buffers: False
+  compress_history_ops: False
+  convert_sync_batchnorm: False
+  ddp_version: torch
+  detect_anomaly: False
+  dist:
+    sampler:
+      shuffle: False
+      type: pytorch
+  do_grad_clip: False
+  ds_len: -1
+  empty_cache: True
+  end_lr: 0.0001
+  end_pose_lr: 1e-05
+  explore_iters: 10
+  find_unused_parameters: False
+  gamma: 0.1
+  gamma_pose: 0.1
+  grad_clip: 1.0
+  grad_clip_type: norm
+  grad_noise:
+    enable: False
+    noise: 0.0
+  image_grid_on_tb_writer: True
+  load: 
+  load_model: 
+  load_model_extras: []
+  log_interval: 1
+  loss_function: 
+  lrate_decay: 250
+  lrate_decay_pose: 250
+  max_lr: 0.003
+  metric_functions: ()
+  min_factor: 0.1
+  mlp_lr: 0.001
+  momentum: 0.9
+  num_epochs: 1000
+  num_iters: 10000
+  optimizer: Adam
+  pop_verts_faces: False
+  pose_lr: 5e-05
+  print_it: False
+  resume: False
+  save_every: True
+  save_freq: 20
+  save_last_only: False
+  save_min_loss: 20.0
+  save_mode: iteration
+  save_optimizer: True
+  save_scheduler: True
+  scheduler: ConstantScheduler
+  scheduler_decay_thresh: 5e-05
+  steps: (30000,)
+  trainer: rbsolver
+  val_freq: 20
+  warmup_factor: 0.3333333333333333
+  warmup_iters: 500
+  warmup_method: linear
+  weight_decay: 0.0005
+  weight_decay_bias: 0.0
+test:
+  batch_size: 1000
+  ckpt_dir: 
+  do_evaluation: True
+  do_visualization: True
+  eval_all: False
+  eval_all_min: 0
+  evaluators: ['baxter_ee_pck']
+  force_recompute: True
+  save_predictions: False
+  visualizer: rbsolver_hover_mask
+video_segm:
+  data_dir: 
+2024-12-04 15:06:39 | INFO     | making dataloader...

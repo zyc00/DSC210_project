@@ -1,0 +1,52 @@
+model:
+  meta_architecture: "RBSolverRealmanHead"
+  rbsolver:
+    H: 480
+    W: 640
+    use_mask: anno
+    init_Tc_c2b: [ [ -0.51082867, 0.85825107,-0.049591  ,-0.19550834 ],
+                   [ 0.8532641 , 0.51320622, 0.09251903,-0.1190922 ],
+                   [ 0.10485494, 0.00494721,-0.99447524, 0.41846158 ],
+                   [ 0.        , 0.        , 0.        , 1. ] ]
+
+    mesh_paths: [
+      #      "data/hillbot_pgi_description_linghao/meshes/Link_left1.STL",
+      #                  "data/hillbot_pgi_description_linghao/meshes/Link_left2.STL",
+      "data/hillbot_pgi_description_linghao/meshes/Link_left3.STL",
+      "data/hillbot_pgi_description_linghao/meshes/Link_left4.STL",
+      "data/hillbot_pgi_description_linghao/meshes/Link_left5.STL",
+    ]
+
+#    relative_to_link_index: 4
+datasets:
+  train: ("realman/240612-095351",)
+  test: "realman/240612-095351"
+
+solver:
+  trainer: "rbsolver"
+  num_epochs: 1000
+  max_lr: 0.003
+  batch_size: 100
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+dataloader:
+  pin_memory: True
+dataset:
+  realman:
+    relative_to: Link_lbase
+    camera_id: right
+    #    use_links: [ 6,8,10,12,14 ]
+    use_links: [ 10,12,14 ]
+    selected_indices: [ 22, 23, 24, 25 ]
+test:
+  batch_size: 100
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: True
+  visualizer: "rbsolver_hover_mask"
+
+input:
+  shuffle: False

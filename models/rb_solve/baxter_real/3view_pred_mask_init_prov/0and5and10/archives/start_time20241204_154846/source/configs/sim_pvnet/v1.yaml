@@ -1,0 +1,23 @@
+sim_pvnet:
+  K: [ [ 9.068051757812500000e+02, 0.000000000000000000e+00, 6.501978759765625000e+02 ],
+       [ 0.000000000000000000e+00, 9.066802978515625000e+02, 3.677142944335937500e+02 ],
+       [ 0.000000000000000000e+00, 0.000000000000000000e+00, 1.000000000000000000e+00 ] ]
+  min_dist: 1.0
+  max_dist: 2.0
+  min_elev: 0
+  max_elev: 80
+  n_dist: 10
+  n_elev: 10
+  nazim: 30
+  trans_noise: [ 0.03 ,0.03, 0.03 ]
+  n_point_light: 10
+  rt:
+    enable: True
+  outdir: "data/sim_pvnet/v1"
+  urdf_path: "data/xarm7_textured.urdf"
+  add_ground: False
+  add_desk_cube:
+    enable: True
+    half_size: [ 0.5, 0.5, 0.5 ]
+    color: [ 0, 0, 0 ]
+    pose: [ -0.3, 0, -0.5 ]

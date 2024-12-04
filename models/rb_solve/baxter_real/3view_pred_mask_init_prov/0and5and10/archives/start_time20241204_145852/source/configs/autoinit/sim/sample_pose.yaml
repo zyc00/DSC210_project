@@ -1,0 +1,6 @@
+autoinit:
+  radius: 1.0
+  urdf_path: data/sapien_packages/xarm7/xarm_urdf/xarm7_gripper.urdf
+  data_dir: "data/sim/autoinit/render_data"
+  #  use_mask: gt_mask
+  use_mask: pred_mask

@@ -1,0 +1,95 @@
+model:
+  meta_architecture: "RBSolver"
+  rbsolver_iter:
+    data_dir: data/rb_solver_iter/real_xarm/example5
+    use_realarm:
+      enable: True
+      ip: "192.168.1.209"
+      speed: 0.1
+      wait_time: 1
+      speed_control: True
+      safety_factor: 6
+      timestep: 0.05
+      record_video:
+        enable: False
+    pointrend_cfg_file: "configs/InstanceSegmentation/pointrend_rcnn_R_50_FPN_3x_xarm_finetune_v1v2v3_aug.yaml"
+    pointrend_model_weight: "models/pointrend_rcnn_R_50_FPN_3x_xarm_finetune_v1v2v3_aug/model_final.pth"
+  rbsolver:
+    use_mask: pred
+    init_Tc_c2b: [ [ 0.9998876 ,  0.01335649, -0.00681359, -0.35093495 ],
+                   [ -0.00385254, -0.21031284, -0.9776266 ,  0.07665338 ],
+                   [ -0.01449064,  0.97754294, -0.21023762,  0.8298393 ],
+                   [ 0.        ,  0.        ,  0.        ,  1. ] ]
+
+    mesh_paths: [ "data/xarm_description/meshes/xarm7/visual/link1.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link2.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link3.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link4.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link5.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link6.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link7.STL", ]
+  space_explorer:
+    parallel_rendering: True
+    sample: 50
+    sample_limit: True
+    #    qpos_sample_method: random_eef
+    sample_camera_poses_method: "random"
+    n_sample_qposes: 2000
+    urdf_path: "data/xarm7_with_gripper_reduced_dof.urdf"
+    srdf_path: "data/xarm7_with_gripper_reduced_dof.srdf"
+    move_group: "link_eef"
+    max_dist_constraint:
+      enable: True
+      max_dist: 0.5
+      max_dist_center_compute_n: 20000
+    collision_check:
+      enable: True
+      use_pointcloud: False
+      pc_sampled: 40000
+      ignore_posz_pts: True
+      dilate: 20
+      by_eef_pose: False
+      planning_time: 0.1
+#      timestep: 0.02
+datasets:
+  train: ("xarm_real_rb_solver_iter/real_xarm/example5",)
+  test: "xarm_real_rb_solver_iter/real_xarm/example5"
+
+solver:
+  trainer: "rbsolver_iter"
+  log_interval: 100
+  explore_iters: 5
+  num_epochs: 1000
+  max_lr: 0.003
+  batch_size: 100
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+input:
+  shuffle: False
+dataloader:
+  pin_memory: True
+dataset:
+  xarm_real:
+    load_mask_pred: True
+test:
+  batch_size: 100
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: False
+  visualizer: "rbsolver_hover_mask"
+
+#sim_hec:
+#  Tc_c2b: [ [ 9.738e-01,  2.276e-01,  0.000e+00,  2.704e-17 ],
+#            [ 7.784e-02, -3.330e-01, -9.397e-01,  3.372e-17 ],
+#            [ -2.139e-01,  9.150e-01, -3.420e-01,  8.000e-01 ],
+#            [ 0.000e+00,  0.000e+00,  0.000e+00,  1.000e+00 ] ]
+#  step: False
+#  rt:
+#    enable: True
+#  add_desk_cube:
+#    enable: True
+#    half_size: [ 0.5, 0.5, 0.5 ]
+#    pose: [ -0.4, 0, -0.5 ]

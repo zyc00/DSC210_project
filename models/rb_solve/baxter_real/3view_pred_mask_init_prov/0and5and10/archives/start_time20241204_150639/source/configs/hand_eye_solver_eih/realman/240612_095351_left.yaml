@@ -1,0 +1,39 @@
+model:
+  meta_architecture: "HandEyeSolverEIH"
+  hand_eye_solver:
+    use_gt_marker_pose: True
+    chessboard: False
+    icp: False
+    cpa: False
+    subpixel: False
+datasets:
+  train: ("realman_hec_marker_eih_240612-095351",)
+  test: "realman_hec_marker_eih_240612-095351"
+
+solver:
+  trainer: "hand_eye_solver"
+  log_interval: 100
+  num_epochs: 1
+  max_lr: 0.003
+  batch_size: 100
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+dataloader:
+  pin_memory: True
+dataset:
+  realman_hec_marker:
+    camera_id: left
+test:
+  batch_size: 10000
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: False
+  visualizer: ""
+  save_predictions: True
+
+input:
+  shuffle: False
+dbg: True
