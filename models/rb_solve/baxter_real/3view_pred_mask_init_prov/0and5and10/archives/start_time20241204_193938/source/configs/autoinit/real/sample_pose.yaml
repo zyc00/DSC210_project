@@ -1,0 +1,7 @@
+autoinit:
+  radius: 1.0
+  urdf_path: data/sapien_packages/xarm7/xarm_urdf/xarm7_gripper.urdf
+  data_dir: "data/autoinit/real_xarm/example_autosam"
+  use_mask: pred_mask
+  elev_interval: 10
+  azim_interval: 36

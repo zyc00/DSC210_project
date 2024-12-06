@@ -1,0 +1,19 @@
+annotate_video:
+  data_dir: data/realsense/hole_real_4
+  #  n: 10
+  whl: [ 0.15, 0.075, 0.15 ] # todo??
+  pts_3d: [ [ 0.075 , 0.0375 , 0.075 ],
+            [ 0.075 ,-0.0375 , 0.075 ],
+            [ -0.075,  0.0375 , 0.075 ],
+            [ -0.075, -0.0375 , 0.075 ],
+            [ 0.075 , 0.0375, -0.075 ],
+            [ 0.075, -0.0375, -0.075 ],
+            [ -0.075 , 0.0375, -0.075 ],
+            [ -0.075, -0.0375, -0.075 ] ] #todo?
+  use_aruco: True
+  aruco:
+    rows: 4
+    cols: 7
+    marker_size: 0.03
+    marker_sep: 0.005
+    dictionary: "DICT_ARUCO_ORIGINAL"

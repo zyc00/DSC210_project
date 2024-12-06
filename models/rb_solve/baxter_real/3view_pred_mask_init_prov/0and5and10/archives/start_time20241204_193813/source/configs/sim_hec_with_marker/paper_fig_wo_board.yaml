@@ -1,0 +1,20 @@
+sim_hec_with_marker:
+  urdf_path: "data/xarm7_textured.urdf"
+  srdf_path: "data/xarm7_with_gripper.srdf"
+  Tc_c2b: [ [ 1,  0.,  0., -0.25 ],
+            [ 0., 0, -1, 0.28 ],
+            [ 0,  1, 0,  0.9 ],
+            [ 0.        ,  0.        ,  0.        ,  1. ] ]
+  add_chessboard: False
+  camera_ring:
+    enable: False
+  rt:
+    enable: True
+  add_desk_cube:
+    enable: True
+    half_size: [ 0.5, 0.2, 0.5 ]
+    pose: [ -0.4, -0.1, -0.5 ]
+    color: [ 0,0,0 ]
+  qpos: [ [ 0.,  0., 0.,  0.,  0.,  0.,0. ],
+  ]
+  outdir: data/sim_hec_with_marker/paper_fig_wo_board

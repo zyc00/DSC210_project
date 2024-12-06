@@ -34,7 +34,9 @@ def build(cfg):
                                [0, 0, 0, 1]])
             ee_in_base = []
             for qpos in qposes:
-                pose38 = sk.compute_forward_kinematics([0] * 8 + qpos.tolist(), 38)
+                qpos_= np.zeros(15)
+                qpos_[2::2]=qpos
+                pose38 = sk.compute_forward_kinematics(qpos_, 32)
                 pose38 = pose38.to_transformation_matrix()
                 ee_pose = pose38 @ Tl_l2e
                 ee_in_base.append(ee_pose[:3, 3])
@@ -65,6 +67,6 @@ def build(cfg):
             np.savetxt(eval_dump_path, cpa_err)
             for thresh in [0.01, 0.02, 0.05, 0.1, 0.2, 0.3, 0.4]:
                 # compute ratio of error < thresh
-                loguru.logger.info("ratio of error < {}cm: {}".format(thresh, np.mean(cpa_err < thresh)))
+                loguru.logger.info("ratio of error < {}m: {}".format(thresh, np.mean(cpa_err < thresh)))
 
     return f

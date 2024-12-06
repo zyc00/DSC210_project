@@ -1,0 +1,2302 @@
+2024-12-04 19:39:38 | INFO     | Using 1 GPUs
+2024-12-04 19:39:38 | INFO     | Namespace(config_file='configs/rb_solve/baxter_real/3view_pred_mask_init_prov/0and5and10.yaml', opts=['model.rbsolver.use_mask', 'anno', 'dataset.baxter_real.load_mask_anno', 'True'], init_method='env://', no_archive=False, distributed=False)
+2024-12-04 19:39:38 | INFO     | Running with full config:
+annotate_video:
+  aruco:
+    cols: 7
+    dictionary: DICT_ARUCO_ORIGINAL
+    marker_sep: 0.005
+    marker_size: 0.015
+    rows: 4
+  chessboard:
+    cols: 9
+    grid_size: 0.028
+    rows: 6
+  data_dir: ''
+  n: -1
+  pts_3d:
+  - - 0.03175
+    - -0.022225
+    - -0.0635
+  - - 0.03175
+    - 0.022225
+    - -0.0635
+  - - -0.03175
+    - 0.022225
+    - -0.0635
+  - - -0.03175
+    - -0.022225
+    - -0.0635
+  - - -0.03175
+    - -0.022225
+    - 0.0635
+  - - 0.03175
+    - -0.022225
+    - 0.0635
+  - - 0.03175
+    - 0.022225
+    - 0.0635
+  use_aruco: false
+  whl:
+  - 0.0635
+  - 0.04445
+  - 0.127
+autoinit:
+  azim_interval: 5
+  data_dir: ''
+  elev_interval: 5
+  elev_max: 70
+  elev_min: 0
+  n: -1
+  nqpos: 10
+  radius: 1.0
+  urdf_path: data/sapien_packages/xarm7/xarm_urdf/xarm7_gripper.urdf
+  use_mask: ''
+backup_src: true
+bproc_cube:
+  H: 720
+  K:
+  - - 906.80517578125
+    - 0.0
+    - 650.1978759765625
+  - - 0.0
+    - 906.6802978515625
+    - 367.71429443359375
+  - - 0.0
+    - 0.0
+    - 1.0
+  W: 1280
+  colors:
+    back:
+    - 0.0
+    - 0.0
+    - 1.0
+    - 1
+    bottom:
+    - 1.0
+    - 1.0
+    - 0.0
+    - 1
+    front:
+    - 0.0
+    - 1.0
+    - 0.0
+    - 1
+    left:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 1
+    right:
+    - 0.54
+    - 0.27
+    - 0.074
+    - 1
+    top:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1
+  dists:
+  - 0.4
+  - 0.9
+  do_render: false
+  light_plane_z: 2
+  max_elev: 60.0
+  mesh_path: data/untitled.obj
+  n_elev: 10
+  nazim: 12
+  noise: 0.0
+  output_dir: data/blenderproc
+  resize_factor: 1
+dataloader:
+  collator: DefaultBatchCollator
+  num_workers: 0
+  pin_memory: true
+dataset:
+  baxter_real:
+    load_mask_anno: true
+    load_mask_gsam: false
+    load_mask_pred: true
+    load_mask_sam: false
+    selected_indices: []
+    urdf_path: ./baxter_common/baxter.urdf
+    use_links:
+    - 32
+    - 33
+    - 34
+    - 35
+    - 36
+    - 38
+  dream_real_panda_3cam_realsense:
+    load_mask_anno: false
+    load_mask_pred: false
+    urdf_path: ./ManiSkill2/mani_skill2/assets/descriptions/panda_v2.urdf
+    use_links:
+    - 0
+    - 2
+    - 3
+    - 4
+    - 6
+    - 7
+    - 9
+  dream_synthetic_panda_test_dr:
+    load_mask_anno: false
+    load_mask_pred: false
+    urdf_path: data/panda_v2.urdf
+    use_links:
+    - 0
+    - 2
+    - 3
+    - 4
+    - 6
+    - 7
+    - 9
+  dream_synthetic_panda_test_photo:
+    load_mask_anno: false
+    load_mask_pred: false
+    urdf_path: data/panda_v2.urdf
+    use_links:
+    - 0
+    - 2
+    - 3
+    - 4
+    - 6
+    - 7
+    - 9
+  dream_synthetic_panda_train_dr:
+    load_mask_anno: false
+    load_mask_pred: false
+    urdf_path: ./ManiSkill2/mani_skill2/assets/descriptions/panda_v2.urdf
+    use_links:
+    - 0
+    - 2
+    - 3
+    - 4
+    - 6
+    - 7
+    - 9
+  mobilerobot:
+    eye_in_hand: false
+    load_mask_anno: false
+    load_mask_gripper: false
+    load_mask_gt: false
+    load_mask_pred: false
+    selected_indices: []
+    shift_gripper: false
+    urdf_path: data/mobilerobot/mycobot_pi_v2/mycobot_urdf_stl.urdf
+    use_links:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+  realman:
+    camera_id: head
+    eye_in_hand: false
+    load_mask_anno: true
+    load_mask_gt: false
+    load_mask_pred: false
+    relative_to: base_link
+    resize:
+    - -1
+    - -1
+    selected_indices: []
+    urdf_path: data/hillbot_pgi_description_linghao/hillbot_pgi_description_linghao.urdf
+    use_links:
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+  realman_hec_marker:
+    camera_id: right
+    urdf_path: data/hillbot_pgi_description_linghao/hillbot_pgi_description_linghao.urdf
+  xarm:
+    eye_in_hand: false
+    load_mask_anno: false
+    load_mask_gripper: false
+    load_mask_gt: false
+    load_mask_pred: false
+    selected_indices: []
+    shift_gripper: false
+    urdf_path: data/xarm7_with_gripper_reduced_dof.urdf
+    use_links:
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+  xarm_hec_sim_marker:
+    urdf_path: data/xarm7_with_gripper_reduced_dof.urdf
+datasets:
+  test: baxter_real_0and5and10
+  train:
+  - baxter_real_0and5and10
+dbg: false
+deterministic: false
+do_eval_after_train: false
+evaltime: false
+input:
+  shuffle: true
+  transforms: []
+maskrcnn:
+  base_lr: 0.00025
+  batch_size: 2
+  batch_size_per_image: 128
+  checkpoint_period: 5000
+  data_dir: ''
+  max_iter: 8000
+  model_cfg_file: COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml
+  num_workers: 4
+  score_thresh_test: 0.7
+meshloc:
+  loftr_thresh: 0.2
+  matching_method: dkm
+  object_ids:
+  - '000000'
+  pnp_method: ransac
+  pnp_ransac_iterations_count: 10000
+  pnp_ransac_reproj_error: 8.0
+  query_dir: data/sim_hec_with_marker/version2_no_marker
+  ref_dir: data/sim_hec_for_meshloc_ref_v1
+  topk: 10
+mode: train
+model:
+  device: cuda
+  dream:
+    resnet:
+      full: false
+      n_keypoints: 7
+      old_process: true
+      pretrained: true
+  hand_eye_solver:
+    chessboard: true
+    cpa: false
+    icp: false
+    manual_set_zero: []
+    subpixel: true
+    use_gt_marker_pose: false
+  hand_eye_solver_gn:
+    cpa: false
+    icp: false
+    manual_set_zero: []
+    subpixel: true
+    use_gt_marker_pose: false
+  megapose6d:
+    generate_data:
+      H: 720
+      K:
+      - - 906.80517578125
+        - 0.0
+        - 650.1978759765625
+      - - 0.0
+        - 906.6802978515625
+        - 367.71429443359375
+      - - 0.0
+        - 0.0
+        - 1.0
+      W: 1280
+      max_dist: 2.0
+      max_elev: 80
+      min_dist: 0.5
+      min_elev: 0
+      n_dist: 10
+      n_elev: 10
+      nazim: 30
+      output_dir: ''
+      trans_noise:
+      - 0.03
+      - 0.03
+      - 0.03
+      urdf_path: data/xarm7_textured.urdf
+  meta_architecture: RBSolver
+  rbsolver:
+    H: 1536
+    W: 2048
+    eep_init: []
+    eep_rotz: 0.0
+    eep_tz: 0.0
+    eye_in_hand: false
+    ignore_gripper_mask: false
+    init_Tc_c2b:
+    - - 0.3575719
+      - 0.93387324
+      - -0.00480661
+      - -0.8592802
+    - - -0.11172229
+      - 0.03766659
+      - -0.9930254
+      - 0.30743563
+    - - -0.9271785
+      - 0.3556154
+      - 0.11780312
+      - 1.2090743
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    init_Tc_c2e: []
+    last2link_loss_weights: 1
+    loss_type: mse
+    lrs: []
+    mesh_paths:
+    - ./baxter_common/baxter_description/meshes/upper_shoulder/S0.STL
+    - ./baxter_common/baxter_description/meshes/lower_shoulder/S1.STL
+    - ./baxter_common/baxter_description/meshes/upper_elbow/E0.STL
+    - ./baxter_common/baxter_description/meshes/lower_elbow/E1.STL
+    - ./baxter_common/baxter_description/meshes/upper_forearm/W0.STL
+    - ./baxter_common/baxter_description/meshes/lower_forearm/W1.STL
+    optim_eep: false
+    optim_eep_mask: []
+    optim_eep_rot: true
+    optim_eep_xy: true
+    optim_inverse: false
+    optim_mesh_scale: false
+    optim_trans_only: false
+    reg_loss_weight: 0.0
+    render_scale: 1.0
+    use_last_as_result: true
+    use_mask: anno
+    weighted_loss: false
+  rbsolver_iter:
+    autosam_box_scale: 1.0
+    autosam_links:
+    - 1
+    - 2
+    autosam_point_center: false
+    autosam_random_points: false
+    data_dir: ''
+    data_pool: []
+    explore_iters: 1
+    init_method: manual
+    meshloc_database_dir: ''
+    meshloc_init_Tc_c2b: []
+    meshloc_use_all_imgs: false
+    pointrend_cfg_file: configs/InstanceSegmentation/pointrend_rcnn_R_50_FPN_3x_xarm.yaml
+    pointrend_model_weight: output/model_0099999.pth
+    qpos_noise: 0.0
+    qpos_pool: []
+    segmentor: pointrend
+    start_index: 0
+    start_qpos:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    use_realarm:
+      enable: false
+      ip: 192.168.1.209
+      record_video:
+        enable: false
+        outdir: data/realarm_video
+      safety_factor: 3
+      speed: 0.1
+      speed_control: false
+      timestep: 0.1
+      wait_time: 1
+    use_realman:
+      arm: ''
+      enable: false
+      ip: 192.168.31.175
+      speed: 1
+      wait_time: 1
+  space_explorer:
+    camera_intrinsic:
+    - 906.80517578125
+    - 906.6802978515625
+    - 650.1978759765625
+    - 367.71429443359375
+    ckpt_path: ''
+    collision_check:
+      by_eef_pose: true
+      dilate: 10
+      enable: false
+      ignore_posz_pts: false
+      pc_sampled: -1
+      planning_time: 1.0
+      timestep: 0.01
+      use_pointcloud: true
+    max_dist_constraint:
+      enable: false
+      max_dist: 0.5
+      max_dist_center: 0.0
+      max_dist_center_compute_n: 100000
+    mesh_dir: data/xarm_description/meshes/xarm7/visual
+    move_group: ''
+    n_sample_qpos_each_joint: 2
+    n_sample_qposes: 1000
+    parallel_rendering: false
+    qpos_choices: ''
+    qpos_choices_pad_left: 0
+    qpos_choices_pad_right: 0
+    qpos_sample_method: random
+    qpos_sample_method_switch: false
+    qpos_sample_range: 0.0
+    render_resize_factor: 1
+    resample_camera_poses:
+      enable: false
+      maxn: 0
+    sample: 10
+    sample_camera_poses_method: random
+    sample_dof: 6
+    sample_limit: false
+    self_collision_check:
+      enable: true
+    srdf_path: ''
+    start: 200
+    urdf_path: ''
+    var_in_valid_mask: false
+    variance_based_sampling: true
+output_dir: models/rb_solve/baxter_real/3view_pred_mask_init_prov/0and5and10
+paths_catalog: /home/jigu/projects/DSC210_project/crc/config/paths_catalog.py
+pnp_hole_pose:
+  data_dir: ''
+  pts2d: []
+  pts3d:
+  - - 0.03175
+    - -0.022225
+    - -0.0635
+  - - 0.03175
+    - 0.022225
+    - -0.0635
+  - - -0.03175
+    - 0.022225
+    - -0.0635
+  - - -0.03175
+    - -0.022225
+    - -0.0635
+  - - -0.03175
+    - -0.022225
+    - 0.0635
+  - - 0.03175
+    - -0.022225
+    - 0.0635
+  - - 0.03175
+    - 0.022225
+    - 0.0635
+  whl:
+  - 0.0635
+  - 0.04445
+  - 0.127
+pnp_with_chessboard:
+  data_dir: ''
+  grid_sizes: []
+  pattern_planes: []
+  patterns: []
+  wlh:
+  - 0.0635
+  - 0.127
+  - 0.04445
+rb_solve:
+  data_dir: ''
+  dbg: true
+  eye_on_hand: false
+  init_Tbc: []
+  init_Tc_c2e: []
+  links:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  log_interval: 20
+  lrs: []
+  neg_iou_loss: false
+  nimgs: -1
+  optimizer: adam
+  render_sizes: []
+  space_explore:
+    n_sample_qpos_each_joint: 2
+    n_sample_qposes: 1000
+    qpos_sample_method: grid
+    sample: 10
+    start: 200
+  steps: []
+  use_gt_mask: false
+  use_nvdiffrast: false
+  validate_dir: ''
+sapien_cube:
+  H: 720
+  K:
+  - - 906.80517578125
+    - 0.0
+    - 650.1978759765625
+  - - 0.0
+    - 906.6802978515625
+    - 367.71429443359375
+  - - 0.0
+    - 0.0
+    - 1.0
+  TB_B2w:
+  - - 1
+    - 0
+    - 0
+    - 0.6
+  - - 0
+    - 1
+    - 0
+    - 0
+  - - 0
+    - 0
+    - 1
+    - 0
+  - - 0
+    - 0
+    - 0
+    - 1
+  Tw_w2o_path: tmp/cubaA_poses.npy
+  W: 1280
+  camera_pose: []
+  cx: 0.0
+  cy: 0.0
+  fx: 0.0
+  fy: 0.0
+  gripper_qpos:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  mesh_path: data/untitled.obj
+  outdir: ''
+  output_dir: data/sapien_cube
+  robot_pose:
+  - -0.6
+  - 0
+  - 0
+  - 1
+  - 0
+  - 0
+  - 0
+  robot_qpos_path: tmp/robot_qpos.npy
+  rotz: 0
+  rt:
+    enable: false
+  urdf_path: data/xarm7_with_gripper.urdf
+  visual_path: data/untitled.dae
+sim:
+  add_desk_cube:
+    color:
+    - 0.5
+    - 0.5
+    - 0.5
+    enable: false
+    half_size:
+    - 0.5
+    - 0.5
+    - 0.5
+    pose:
+    - 0.0
+    - 0.0
+    - 0.0
+  add_ground:
+    enable: false
+  cam_pose: []
+  camera_ring: false
+  cx: 0.0
+  cy: 0.0
+  eih_nqpos: 100
+  envmaps:
+  - SaintPetersSquare2
+  eye_on_hand_pose: []
+  fx: 0.0
+  fy: 0.0
+  move_group: ''
+  n_point_light: 10
+  outdir: ''
+  qpos: []
+  random_light_each_step: false
+  random_qpos: false
+  random_qpos_number: 10
+  rt:
+    enable: false
+  srdf_path: data/xarm7.urdf
+  urdf_path: data/xarm7.urdf
+sim_hec:
+  Tc_c2b: []
+  Tc_c2b_index: 0
+  Tc_c2b_npy_path: ''
+  Tc_c2e: []
+  Tc_c2e_index: 0
+  Tc_c2e_npy_path: ''
+  add_desk_cube:
+    color:
+    - 0
+    - 0
+    - 0
+    colors: []
+    enable: false
+    half_size:
+    - 0.5
+    - 0.5
+    - 0.5
+    half_sizes: []
+    pose:
+    - -0.3
+    - 0
+    - -0.5
+    poses: []
+  add_ground: false
+  camera_ring: false
+  cx: 650.1978759765625
+  cy: 367.71429443359375
+  eye_on_hand_pose: []
+  fx: 906.80517578125
+  fy: 906.6802978515625
+  height: 720
+  n_point_light: 10
+  outdir: ''
+  qpos: []
+  random_qpos: false
+  random_qpos_number: 10
+  rt:
+    enable: false
+  srdf_path: ''
+  step: false
+  urdf_path: data/xarm7_textured.urdf
+  width: 1280
+sim_hec_eye_in_hand:
+  Tc_c2e: []
+  add_chessboard: true
+  add_desk_cube:
+    colors:
+    - - 0
+      - 0
+      - 0
+    enable: false
+    half_sizes:
+    - - 0.5
+      - 0.5
+      - 0.5
+    poses:
+    - - -0.3
+      - 0
+      - -0.5
+  add_ground: false
+  chessboard_path: data/chessboard2.glb
+  cx: 650.1978759765625
+  cy: 367.71429443359375
+  fx: 906.80517578125
+  fy: 906.6802978515625
+  move_group: link_eef
+  n_point_light: 10
+  outdir: ''
+  qpos: []
+  random_qpos: false
+  random_qpos_number: 10
+  rt:
+    enable: false
+  srdf_path: data/xarm7_textured.srdf
+  urdf_path: data/xarm7_textured.urdf
+sim_hec_with_marker:
+  Tc_c2b: []
+  add_chessboard: true
+  add_desk_cube:
+    color:
+    - 0
+    - 0
+    - 0
+    enable: false
+    half_size:
+    - 0.5
+    - 0.5
+    - 0.5
+    pose:
+    - -0.3
+    - 0
+    - -0.5
+  add_ground: false
+  camera_ring:
+    enable: false
+    end_azim: 6.283185307179586
+    endpoint: true
+    max_dist: 1.5
+    max_elev: 80
+    min_dist: 0.7
+    min_elev: -80
+    nazim: 12
+    ndist: 5
+    nelev: 18
+    start_azim: 0.0
+    trans_noise: 0.0
+  chessboard_path: data/chessboard2.glb
+  cx: 650.1978759765625
+  cy: 367.71429443359375
+  eye_on_hand_pose: []
+  fx: 906.80517578125
+  fy: 906.6802978515625
+  move_group: link_eef
+  n_point_light: 10
+  outdir: ''
+  qpos: []
+  random_qpos: false
+  random_qpos_number: 10
+  rt:
+    enable: false
+  srdf_path: data/xarm7_textured.srdf
+  urdf_path: data/xarm7_textured.urdf
+sim_pvnet:
+  K:
+  - - 906.80517578125
+    - 0.0
+    - 650.1978759765625
+  - - 0.0
+    - 906.6802978515625
+    - 367.71429443359375
+  - - 0.0
+    - 0.0
+    - 1.0
+  Tc_c2b: []
+  add_desk_cube:
+    color:
+    - 0
+    - 0
+    - 0
+    enable: false
+    half_size:
+    - 0.5
+    - 0.5
+    - 0.5
+    pose:
+    - -0.3
+    - 0
+    - -0.5
+  add_ground: false
+  envmaps:
+  - SaintPetersSquare2
+  max_dist: 2.0
+  max_elev: 80
+  min_dist: 0.5
+  min_elev: 0
+  n_dist: 10
+  n_elev: 10
+  n_point_light: 10
+  nazim: 30
+  outdir: ''
+  random_light_each_step: false
+  rt:
+    enable: false
+  trans_noise:
+  - 0.03
+  - 0.03
+  - 0.03
+  urdf_path: data/xarm7_textured.urdf
+solver:
+  batch_size: 1000
+  bias_lr_factor: 1
+  broadcast_buffers: false
+  compress_history_ops: false
+  convert_sync_batchnorm: false
+  ddp_version: torch
+  detect_anomaly: false
+  dist:
+    sampler:
+      shuffle: false
+      type: pytorch
+  do_grad_clip: false
+  ds_len: -1
+  empty_cache: true
+  end_lr: 0.0001
+  end_pose_lr: 1.0e-05
+  explore_iters: 10
+  find_unused_parameters: false
+  gamma: 0.1
+  gamma_pose: 0.1
+  grad_clip: 1.0
+  grad_clip_type: norm
+  grad_noise:
+    enable: false
+    noise: 0.0
+  image_grid_on_tb_writer: true
+  load: ''
+  load_model: ''
+  load_model_extras: []
+  log_interval: 1
+  loss_function: ''
+  lrate_decay: 250
+  lrate_decay_pose: 250
+  max_lr: 0.003
+  metric_functions: []
+  min_factor: 0.1
+  mlp_lr: 0.001
+  momentum: 0.9
+  num_epochs: 1000
+  num_iters: 10000
+  optimizer: Adam
+  pop_verts_faces: false
+  pose_lr: 5.0e-05
+  print_it: false
+  resume: false
+  save_every: true
+  save_freq: 20
+  save_last_only: false
+  save_min_loss: 20.0
+  save_mode: iteration
+  save_optimizer: true
+  save_scheduler: true
+  scheduler: ConstantScheduler
+  scheduler_decay_thresh: 5.0e-05
+  steps:
+  - 30000
+  trainer: rbsolver
+  val_freq: 20
+  warmup_factor: 0.3333333333333333
+  warmup_iters: 500
+  warmup_method: linear
+  weight_decay: 0.0005
+  weight_decay_bias: 0.0
+test:
+  batch_size: 1000
+  ckpt_dir: ''
+  do_evaluation: true
+  do_visualization: true
+  eval_all: false
+  eval_all_min: 0
+  evaluators:
+  - baxter_ee_pck
+  force_recompute: true
+  save_predictions: false
+  visualizer: rbsolver_hover_mask
+video_segm:
+  data_dir: ''
+
+2024-12-04 19:39:38 | INFO     | Backuping source....
+2024-12-04 19:39:38 | INFO     | Backuping source done!
+2024-12-04 19:39:38 | INFO     | Loaded configuration file configs/rb_solve/baxter_real/3view_pred_mask_init_prov/0and5and10.yaml
+2024-12-04 19:39:38 | INFO     | 
+model:
+  meta_architecture: "RBSolver"
+  rbsolver:
+    use_mask: pred
+    init_Tc_c2b: [ [ 0.3575719 ,  0.93387324, -0.00480661, -0.8592802 ],
+                   [ -0.11172229,  0.03766659, -0.9930254 ,  0.30743563 ],
+                   [ -0.9271785 ,  0.3556154 ,  0.11780312,  1.2090743 ],
+                   [ 0.        ,  0.        ,  0.        ,  1. ] ]
+    mesh_paths: [
+      "./baxter_common/baxter_description/meshes/upper_shoulder/S0.STL",
+      "./baxter_common/baxter_description/meshes/lower_shoulder/S1.STL",
+      "./baxter_common/baxter_description/meshes/upper_elbow/E0.STL",
+      "./baxter_common/baxter_description/meshes/lower_elbow/E1.STL",
+      "./baxter_common/baxter_description/meshes/upper_forearm/W0.STL",
+      "./baxter_common/baxter_description/meshes/lower_forearm/W1.STL",
+    ]
+    H: 1536
+    W: 2048
+datasets:
+  train: ("baxter_real_0and5and10",)
+  test: "baxter_real_0and5and10"
+
+solver:
+  trainer: rbsolver
+  num_epochs: 1000
+  max_lr: 0.003
+  batch_size: 1000
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+dataloader:
+  pin_memory: True
+dataset:
+  baxter_real:
+    load_mask_pred: True
+test:
+  batch_size: 1000
+  do_evaluation: True
+  evaluators: [ "baxter_ee_pck" ]
+  do_visualization: True
+  visualizer: "rbsolver_hover_mask"
+2024-12-04 19:39:38 | INFO     | Running with config:
+annotate_video:
+  aruco:
+    cols: 7
+    dictionary: DICT_ARUCO_ORIGINAL
+    marker_sep: 0.005
+    marker_size: 0.015
+    rows: 4
+  chessboard:
+    cols: 9
+    grid_size: 0.028
+    rows: 6
+  data_dir: 
+  n: -1
+  pts_3d: [[0.03175, -0.022225, -0.0635], [0.03175, 0.022225, -0.0635], [-0.03175, 0.022225, -0.0635], [-0.03175, -0.022225, -0.0635], [-0.03175, -0.022225, 0.0635], [0.03175, -0.022225, 0.0635], [0.03175, 0.022225, 0.0635]]
+  use_aruco: False
+  whl: [0.0635, 0.04445, 0.127]
+autoinit:
+  azim_interval: 5
+  data_dir: 
+  elev_interval: 5
+  elev_max: 70
+  elev_min: 0
+  n: -1
+  nqpos: 10
+  radius: 1.0
+  urdf_path: data/sapien_packages/xarm7/xarm_urdf/xarm7_gripper.urdf
+  use_mask: 
+backup_src: True
+bproc_cube:
+  H: 720
+  K: [[906.80517578125, 0.0, 650.1978759765625], [0.0, 906.6802978515625, 367.71429443359375], [0.0, 0.0, 1.0]]
+  W: 1280
+  colors:
+    back: [0.0, 0.0, 1.0, 1]
+    bottom: [1.0, 1.0, 0.0, 1]
+    front: [0.0, 1.0, 0.0, 1]
+    left: [1.0, 0.0, 0.0, 1]
+    right: [0.54, 0.27, 0.074, 1]
+    top: [1.0, 1.0, 1.0, 1]
+  dists: [0.4, 0.9]
+  do_render: False
+  light_plane_z: 2
+  max_elev: 60.0
+  mesh_path: data/untitled.obj
+  n_elev: 10
+  nazim: 12
+  noise: 0.0
+  output_dir: data/blenderproc
+  resize_factor: 1
+dataloader:
+  collator: DefaultBatchCollator
+  num_workers: 0
+  pin_memory: True
+dataset:
+  baxter_real:
+    load_mask_anno: True
+    load_mask_gsam: False
+    load_mask_pred: True
+    load_mask_sam: False
+    selected_indices: []
+    urdf_path: ./baxter_common/baxter.urdf
+    use_links: [32, 33, 34, 35, 36, 38]
+  dream_real_panda_3cam_realsense:
+    load_mask_anno: False
+    load_mask_pred: False
+    urdf_path: ./ManiSkill2/mani_skill2/assets/descriptions/panda_v2.urdf
+    use_links: [0, 2, 3, 4, 6, 7, 9]
+  dream_synthetic_panda_test_dr:
+    load_mask_anno: False
+    load_mask_pred: False
+    urdf_path: data/panda_v2.urdf
+    use_links: [0, 2, 3, 4, 6, 7, 9]
+  dream_synthetic_panda_test_photo:
+    load_mask_anno: False
+    load_mask_pred: False
+    urdf_path: data/panda_v2.urdf
+    use_links: [0, 2, 3, 4, 6, 7, 9]
+  dream_synthetic_panda_train_dr:
+    load_mask_anno: False
+    load_mask_pred: False
+    urdf_path: ./ManiSkill2/mani_skill2/assets/descriptions/panda_v2.urdf
+    use_links: [0, 2, 3, 4, 6, 7, 9]
+  mobilerobot:
+    eye_in_hand: False
+    load_mask_anno: False
+    load_mask_gripper: False
+    load_mask_gt: False
+    load_mask_pred: False
+    selected_indices: []
+    shift_gripper: False
+    urdf_path: data/mobilerobot/mycobot_pi_v2/mycobot_urdf_stl.urdf
+    use_links: [0, 1, 2, 3, 4, 5, 6]
+  realman:
+    camera_id: head
+    eye_in_hand: False
+    load_mask_anno: True
+    load_mask_gt: False
+    load_mask_pred: False
+    relative_to: base_link
+    resize: [-1, -1]
+    selected_indices: []
+    urdf_path: data/hillbot_pgi_description_linghao/hillbot_pgi_description_linghao.urdf
+    use_links: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+  realman_hec_marker:
+    camera_id: right
+    urdf_path: data/hillbot_pgi_description_linghao/hillbot_pgi_description_linghao.urdf
+  xarm:
+    eye_in_hand: False
+    load_mask_anno: False
+    load_mask_gripper: False
+    load_mask_gt: False
+    load_mask_pred: False
+    selected_indices: []
+    shift_gripper: False
+    urdf_path: data/xarm7_with_gripper_reduced_dof.urdf
+    use_links: [2, 3, 4, 5, 6, 7, 8]
+  xarm_hec_sim_marker:
+    urdf_path: data/xarm7_with_gripper_reduced_dof.urdf
+datasets:
+  test: baxter_real_0and5and10
+  train: ('baxter_real_0and5and10',)
+dbg: False
+deterministic: False
+do_eval_after_train: False
+evaltime: False
+input:
+  shuffle: True
+  transforms: []
+maskrcnn:
+  base_lr: 0.00025
+  batch_size: 2
+  batch_size_per_image: 128
+  checkpoint_period: 5000
+  data_dir: 
+  max_iter: 8000
+  model_cfg_file: COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml
+  num_workers: 4
+  score_thresh_test: 0.7
+meshloc:
+  loftr_thresh: 0.2
+  matching_method: dkm
+  object_ids: ['000000']
+  pnp_method: ransac
+  pnp_ransac_iterations_count: 10000
+  pnp_ransac_reproj_error: 8.0
+  query_dir: data/sim_hec_with_marker/version2_no_marker
+  ref_dir: data/sim_hec_for_meshloc_ref_v1
+  topk: 10
+mode: train
+model:
+  device: cuda
+  dream:
+    resnet:
+      full: False
+      n_keypoints: 7
+      old_process: True
+      pretrained: True
+  hand_eye_solver:
+    chessboard: True
+    cpa: False
+    icp: False
+    manual_set_zero: []
+    subpixel: True
+    use_gt_marker_pose: False
+  hand_eye_solver_gn:
+    cpa: False
+    icp: False
+    manual_set_zero: []
+    subpixel: True
+    use_gt_marker_pose: False
+  megapose6d:
+    generate_data:
+      H: 720
+      K: [[906.80517578125, 0.0, 650.1978759765625], [0.0, 906.6802978515625, 367.71429443359375], [0.0, 0.0, 1.0]]
+      W: 1280
+      max_dist: 2.0
+      max_elev: 80
+      min_dist: 0.5
+      min_elev: 0
+      n_dist: 10
+      n_elev: 10
+      nazim: 30
+      output_dir: 
+      trans_noise: [0.03, 0.03, 0.03]
+      urdf_path: data/xarm7_textured.urdf
+  meta_architecture: RBSolver
+  rbsolver:
+    H: 1536
+    W: 2048
+    eep_init: []
+    eep_rotz: 0.0
+    eep_tz: 0.0
+    eye_in_hand: False
+    ignore_gripper_mask: False
+    init_Tc_c2b: [[0.3575719, 0.93387324, -0.00480661, -0.8592802], [-0.11172229, 0.03766659, -0.9930254, 0.30743563], [-0.9271785, 0.3556154, 0.11780312, 1.2090743], [0.0, 0.0, 0.0, 1.0]]
+    init_Tc_c2e: []
+    last2link_loss_weights: 1
+    loss_type: mse
+    lrs: []
+    mesh_paths: ['./baxter_common/baxter_description/meshes/upper_shoulder/S0.STL', './baxter_common/baxter_description/meshes/lower_shoulder/S1.STL', './baxter_common/baxter_description/meshes/upper_elbow/E0.STL', './baxter_common/baxter_description/meshes/lower_elbow/E1.STL', './baxter_common/baxter_description/meshes/upper_forearm/W0.STL', './baxter_common/baxter_description/meshes/lower_forearm/W1.STL']
+    optim_eep: False
+    optim_eep_mask: []
+    optim_eep_rot: True
+    optim_eep_xy: True
+    optim_inverse: False
+    optim_mesh_scale: False
+    optim_trans_only: False
+    reg_loss_weight: 0.0
+    render_scale: 1.0
+    use_last_as_result: True
+    use_mask: anno
+    weighted_loss: False
+  rbsolver_iter:
+    autosam_box_scale: 1.0
+    autosam_links: [1, 2]
+    autosam_point_center: False
+    autosam_random_points: False
+    data_dir: 
+    data_pool: []
+    explore_iters: 1
+    init_method: manual
+    meshloc_database_dir: 
+    meshloc_init_Tc_c2b: []
+    meshloc_use_all_imgs: False
+    pointrend_cfg_file: configs/InstanceSegmentation/pointrend_rcnn_R_50_FPN_3x_xarm.yaml
+    pointrend_model_weight: output/model_0099999.pth
+    qpos_noise: 0.0
+    qpos_pool: []
+    segmentor: pointrend
+    start_index: 0
+    start_qpos: [0, 0, 0, 0, 0, 0, 0]
+    use_realarm:
+      enable: False
+      ip: 192.168.1.209
+      record_video:
+        enable: False
+        outdir: data/realarm_video
+      safety_factor: 3
+      speed: 0.1
+      speed_control: False
+      timestep: 0.1
+      wait_time: 1
+    use_realman:
+      arm: 
+      enable: False
+      ip: 192.168.31.175
+      speed: 1
+      wait_time: 1
+  space_explorer:
+    camera_intrinsic: [906.80517578125, 906.6802978515625, 650.1978759765625, 367.71429443359375]
+    ckpt_path: 
+    collision_check:
+      by_eef_pose: True
+      dilate: 10
+      enable: False
+      ignore_posz_pts: False
+      pc_sampled: -1
+      planning_time: 1.0
+      timestep: 0.01
+      use_pointcloud: True
+    max_dist_constraint:
+      enable: False
+      max_dist: 0.5
+      max_dist_center: 0.0
+      max_dist_center_compute_n: 100000
+    mesh_dir: data/xarm_description/meshes/xarm7/visual
+    move_group: 
+    n_sample_qpos_each_joint: 2
+    n_sample_qposes: 1000
+    parallel_rendering: False
+    qpos_choices: 
+    qpos_choices_pad_left: 0
+    qpos_choices_pad_right: 0
+    qpos_sample_method: random
+    qpos_sample_method_switch: False
+    qpos_sample_range: 0.0
+    render_resize_factor: 1
+    resample_camera_poses:
+      enable: False
+      maxn: 0
+    sample: 10
+    sample_camera_poses_method: random
+    sample_dof: 6
+    sample_limit: False
+    self_collision_check:
+      enable: True
+    srdf_path: 
+    start: 200
+    urdf_path: 
+    var_in_valid_mask: False
+    variance_based_sampling: True
+output_dir: models/rb_solve/baxter_real/3view_pred_mask_init_prov/0and5and10
+paths_catalog: /home/jigu/projects/DSC210_project/crc/config/paths_catalog.py
+pnp_hole_pose:
+  data_dir: 
+  pts2d: []
+  pts3d: [[0.03175, -0.022225, -0.0635], [0.03175, 0.022225, -0.0635], [-0.03175, 0.022225, -0.0635], [-0.03175, -0.022225, -0.0635], [-0.03175, -0.022225, 0.0635], [0.03175, -0.022225, 0.0635], [0.03175, 0.022225, 0.0635]]
+  whl: [0.0635, 0.04445, 0.127]
+pnp_with_chessboard:
+  data_dir: 
+  grid_sizes: []
+  pattern_planes: []
+  patterns: []
+  wlh: [0.0635, 0.127, 0.04445]
+rb_solve:
+  data_dir: 
+  dbg: True
+  eye_on_hand: False
+  init_Tbc: []
+  init_Tc_c2e: []
+  links: [0, 1, 2, 3, 4, 5, 6, 7]
+  log_interval: 20
+  lrs: []
+  neg_iou_loss: False
+  nimgs: -1
+  optimizer: adam
+  render_sizes: []
+  space_explore:
+    n_sample_qpos_each_joint: 2
+    n_sample_qposes: 1000
+    qpos_sample_method: grid
+    sample: 10
+    start: 200
+  steps: []
+  use_gt_mask: False
+  use_nvdiffrast: False
+  validate_dir: 
+sapien_cube:
+  H: 720
+  K: [[906.80517578125, 0.0, 650.1978759765625], [0.0, 906.6802978515625, 367.71429443359375], [0.0, 0.0, 1.0]]
+  TB_B2w: [[1, 0, 0, 0.6], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]
+  Tw_w2o_path: tmp/cubaA_poses.npy
+  W: 1280
+  camera_pose: []
+  cx: 0.0
+  cy: 0.0
+  fx: 0.0
+  fy: 0.0
+  gripper_qpos: [0, 0, 0, 0, 0, 0]
+  mesh_path: data/untitled.obj
+  outdir: 
+  output_dir: data/sapien_cube
+  robot_pose: [-0.6, 0, 0, 1, 0, 0, 0]
+  robot_qpos_path: tmp/robot_qpos.npy
+  rotz: 0
+  rt:
+    enable: False
+  urdf_path: data/xarm7_with_gripper.urdf
+  visual_path: data/untitled.dae
+sim:
+  add_desk_cube:
+    color: [0.5, 0.5, 0.5]
+    enable: False
+    half_size: [0.5, 0.5, 0.5]
+    pose: [0.0, 0.0, 0.0]
+  add_ground:
+    enable: False
+  cam_pose: []
+  camera_ring: False
+  cx: 0.0
+  cy: 0.0
+  eih_nqpos: 100
+  envmaps: ['SaintPetersSquare2']
+  eye_on_hand_pose: []
+  fx: 0.0
+  fy: 0.0
+  move_group: 
+  n_point_light: 10
+  outdir: 
+  qpos: []
+  random_light_each_step: False
+  random_qpos: False
+  random_qpos_number: 10
+  rt:
+    enable: False
+  srdf_path: data/xarm7.urdf
+  urdf_path: data/xarm7.urdf
+sim_hec:
+  Tc_c2b: []
+  Tc_c2b_index: 0
+  Tc_c2b_npy_path: 
+  Tc_c2e: []
+  Tc_c2e_index: 0
+  Tc_c2e_npy_path: 
+  add_desk_cube:
+    color: [0, 0, 0]
+    colors: []
+    enable: False
+    half_size: [0.5, 0.5, 0.5]
+    half_sizes: []
+    pose: [-0.3, 0, -0.5]
+    poses: []
+  add_ground: False
+  camera_ring: False
+  cx: 650.1978759765625
+  cy: 367.71429443359375
+  eye_on_hand_pose: []
+  fx: 906.80517578125
+  fy: 906.6802978515625
+  height: 720
+  n_point_light: 10
+  outdir: 
+  qpos: []
+  random_qpos: False
+  random_qpos_number: 10
+  rt:
+    enable: False
+  srdf_path: 
+  step: False
+  urdf_path: data/xarm7_textured.urdf
+  width: 1280
+sim_hec_eye_in_hand:
+  Tc_c2e: []
+  add_chessboard: True
+  add_desk_cube:
+    colors: [[0, 0, 0]]
+    enable: False
+    half_sizes: [[0.5, 0.5, 0.5]]
+    poses: [[-0.3, 0, -0.5]]
+  add_ground: False
+  chessboard_path: data/chessboard2.glb
+  cx: 650.1978759765625
+  cy: 367.71429443359375
+  fx: 906.80517578125
+  fy: 906.6802978515625
+  move_group: link_eef
+  n_point_light: 10
+  outdir: 
+  qpos: []
+  random_qpos: False
+  random_qpos_number: 10
+  rt:
+    enable: False
+  srdf_path: data/xarm7_textured.srdf
+  urdf_path: data/xarm7_textured.urdf
+sim_hec_with_marker:
+  Tc_c2b: []
+  add_chessboard: True
+  add_desk_cube:
+    color: [0, 0, 0]
+    enable: False
+    half_size: [0.5, 0.5, 0.5]
+    pose: [-0.3, 0, -0.5]
+  add_ground: False
+  camera_ring:
+    enable: False
+    end_azim: 6.283185307179586
+    endpoint: True
+    max_dist: 1.5
+    max_elev: 80
+    min_dist: 0.7
+    min_elev: -80
+    nazim: 12
+    ndist: 5
+    nelev: 18
+    start_azim: 0.0
+    trans_noise: 0.0
+  chessboard_path: data/chessboard2.glb
+  cx: 650.1978759765625
+  cy: 367.71429443359375
+  eye_on_hand_pose: []
+  fx: 906.80517578125
+  fy: 906.6802978515625
+  move_group: link_eef
+  n_point_light: 10
+  outdir: 
+  qpos: []
+  random_qpos: False
+  random_qpos_number: 10
+  rt:
+    enable: False
+  srdf_path: data/xarm7_textured.srdf
+  urdf_path: data/xarm7_textured.urdf
+sim_pvnet:
+  K: [[906.80517578125, 0.0, 650.1978759765625], [0.0, 906.6802978515625, 367.71429443359375], [0.0, 0.0, 1.0]]
+  Tc_c2b: []
+  add_desk_cube:
+    color: [0, 0, 0]
+    enable: False
+    half_size: [0.5, 0.5, 0.5]
+    pose: [-0.3, 0, -0.5]
+  add_ground: False
+  envmaps: ['SaintPetersSquare2']
+  max_dist: 2.0
+  max_elev: 80
+  min_dist: 0.5
+  min_elev: 0
+  n_dist: 10
+  n_elev: 10
+  n_point_light: 10
+  nazim: 30
+  outdir: 
+  random_light_each_step: False
+  rt:
+    enable: False
+  trans_noise: [0.03, 0.03, 0.03]
+  urdf_path: data/xarm7_textured.urdf
+solver:
+  batch_size: 1000
+  bias_lr_factor: 1
+  broadcast_buffers: False
+  compress_history_ops: False
+  convert_sync_batchnorm: False
+  ddp_version: torch
+  detect_anomaly: False
+  dist:
+    sampler:
+      shuffle: False
+      type: pytorch
+  do_grad_clip: False
+  ds_len: -1
+  empty_cache: True
+  end_lr: 0.0001
+  end_pose_lr: 1e-05
+  explore_iters: 10
+  find_unused_parameters: False
+  gamma: 0.1
+  gamma_pose: 0.1
+  grad_clip: 1.0
+  grad_clip_type: norm
+  grad_noise:
+    enable: False
+    noise: 0.0
+  image_grid_on_tb_writer: True
+  load: 
+  load_model: 
+  load_model_extras: []
+  log_interval: 1
+  loss_function: 
+  lrate_decay: 250
+  lrate_decay_pose: 250
+  max_lr: 0.003
+  metric_functions: ()
+  min_factor: 0.1
+  mlp_lr: 0.001
+  momentum: 0.9
+  num_epochs: 1000
+  num_iters: 10000
+  optimizer: Adam
+  pop_verts_faces: False
+  pose_lr: 5e-05
+  print_it: False
+  resume: False
+  save_every: True
+  save_freq: 20
+  save_last_only: False
+  save_min_loss: 20.0
+  save_mode: iteration
+  save_optimizer: True
+  save_scheduler: True
+  scheduler: ConstantScheduler
+  scheduler_decay_thresh: 5e-05
+  steps: (30000,)
+  trainer: rbsolver
+  val_freq: 20
+  warmup_factor: 0.3333333333333333
+  warmup_iters: 500
+  warmup_method: linear
+  weight_decay: 0.0005
+  weight_decay_bias: 0.0
+test:
+  batch_size: 1000
+  ckpt_dir: 
+  do_evaluation: True
+  do_visualization: True
+  eval_all: False
+  eval_all_min: 0
+  evaluators: ['baxter_ee_pck']
+  force_recompute: True
+  save_predictions: False
+  visualizer: rbsolver_hover_mask
+video_segm:
+  data_dir: 
+2024-12-04 19:39:38 | INFO     | making dataloader...
+2024-12-04 19:39:39 | INFO     | Done.
+2024-12-04 19:39:42 | INFO     | epoch 0, train, loss 230079.0000, time 3.50s, err_x 0.0000, err_y 0.0000, err_z 0.0000, err_trans 0.0000, err_rot 0.0000, err_R 0.0280, err_t 0.0000
+2024-12-04 19:39:42 | INFO     | epoch 1, train, loss 225425.5469, time 0.06s, err_x 0.3000, err_y 0.3000, err_z 0.3000, err_trans 0.5196, err_rot 0.1719, err_R 0.2654, err_t 0.5231
+2024-12-04 19:39:42 | INFO     | epoch 2, train, loss 221245.1094, time 0.05s, err_x 0.6001, err_y 0.6004, err_z 0.6002, err_trans 1.0396, err_rot 0.3440, err_R 0.5293, err_t 1.0511
+2024-12-04 19:39:42 | INFO     | epoch 3, train, loss 217496.0938, time 0.05s, err_x 0.8992, err_y 0.8968, err_z 0.8984, err_trans 1.5556, err_rot 0.5150, err_R 0.7828, err_t 1.5887
+2024-12-04 19:39:42 | INFO     | epoch 4, train, loss 214223.8750, time 0.05s, err_x 1.1959, err_y 1.1904, err_z 1.1958, err_trans 2.0681, err_rot 0.6852, err_R 1.0325, err_t 2.1247
+2024-12-04 19:39:42 | INFO     | epoch 5, train, loss 211468.7344, time 0.05s, err_x 1.4923, err_y 1.4803, err_z 1.4913, err_trans 2.5773, err_rot 0.8547, err_R 1.2695, err_t 2.6758
+2024-12-04 19:39:42 | INFO     | epoch 6, train, loss 208805.6719, time 0.05s, err_x 1.7901, err_y 1.7618, err_z 1.7811, err_trans 3.0791, err_rot 1.0230, err_R 1.4481, err_t 3.3123
+2024-12-04 19:39:42 | INFO     | epoch 7, train, loss 206458.0312, time 0.05s, err_x 2.0870, err_y 2.0367, err_z 2.0645, err_trans 3.5729, err_rot 1.1896, err_R 1.6154, err_t 3.9684
+2024-12-04 19:39:43 | INFO     | epoch 8, train, loss 204309.7500, time 0.05s, err_x 2.3846, err_y 2.3087, err_z 2.3427, err_trans 4.0626, err_rot 1.3556, err_R 1.7798, err_t 4.6405
+2024-12-04 19:39:43 | INFO     | epoch 9, train, loss 202309.0469, time 0.05s, err_x 2.6835, err_y 2.5664, err_z 2.6075, err_trans 4.5372, err_rot 1.5194, err_R 1.9337, err_t 5.3277
+2024-12-04 19:39:43 | INFO     | epoch 10, train, loss 200353.3125, time 0.06s, err_x 2.9829, err_y 2.8034, err_z 2.8579, err_trans 4.9924, err_rot 1.6805, err_R 2.0828, err_t 6.0104
+2024-12-04 19:39:43 | INFO     | epoch 11, train, loss 198434.8750, time 0.05s, err_x 3.2816, err_y 3.0166, err_z 3.0940, err_trans 5.4260, err_rot 1.8383, err_R 2.2298, err_t 6.6780
+2024-12-04 19:39:43 | INFO     | epoch 12, train, loss 196551.7500, time 0.05s, err_x 3.5798, err_y 3.2051, err_z 3.3160, err_trans 5.8381, err_rot 1.9930, err_R 2.3754, err_t 7.3262
+2024-12-04 19:39:43 | INFO     | epoch 13, train, loss 194705.9219, time 0.05s, err_x 3.8760, err_y 3.3778, err_z 3.5279, err_trans 6.2353, err_rot 2.1451, err_R 2.5234, err_t 7.9600
+2024-12-04 19:39:43 | INFO     | epoch 14, train, loss 192841.3438, time 0.05s, err_x 4.1719, err_y 3.5357, err_z 3.7302, err_trans 6.6197, err_rot 2.2961, err_R 2.6742, err_t 8.5810
+2024-12-04 19:39:43 | INFO     | epoch 15, train, loss 190992.9688, time 0.05s, err_x 4.4680, err_y 3.6836, err_z 3.9246, err_trans 6.9953, err_rot 2.4462, err_R 2.8290, err_t 9.1935
+2024-12-04 19:39:43 | INFO     | epoch 16, train, loss 189145.2188, time 0.05s, err_x 4.7642, err_y 3.8237, err_z 4.1124, err_trans 7.3641, err_rot 2.5958, err_R 2.9879, err_t 9.7990
+2024-12-04 19:39:43 | INFO     | epoch 17, train, loss 187245.2969, time 0.05s, err_x 5.0605, err_y 3.9559, err_z 4.2938, err_trans 7.7262, err_rot 2.7448, err_R 3.1507, err_t 10.3977
+2024-12-04 19:39:43 | INFO     | epoch 18, train, loss 185360.0469, time 0.05s, err_x 5.3546, err_y 4.0805, err_z 4.4707, err_trans 8.0814, err_rot 2.8925, err_R 3.3171, err_t 10.9872
+2024-12-04 19:39:43 | INFO     | epoch 19, train, loss 183449.8438, time 0.05s, err_x 5.6482, err_y 4.1934, err_z 4.6397, err_trans 8.4269, err_rot 3.0394, err_R 3.4845, err_t 11.5647
+2024-12-04 19:39:43 | INFO     | epoch 20, train, loss 181563.4062, time 0.05s, err_x 5.9397, err_y 4.3003, err_z 4.8044, err_trans 8.7667, err_rot 3.1852, err_R 3.6548, err_t 12.1343
+2024-12-04 19:39:43 | INFO     | epoch 21, train, loss 179654.6562, time 0.05s, err_x 6.2308, err_y 4.4005, err_z 4.9621, err_trans 9.1000, err_rot 3.3303, err_R 3.8269, err_t 12.6958
+2024-12-04 19:39:43 | INFO     | epoch 22, train, loss 177746.4688, time 0.05s, err_x 6.5221, err_y 4.4955, err_z 5.1132, err_trans 9.4282, err_rot 3.4749, err_R 4.0011, err_t 13.2512
+2024-12-04 19:39:43 | INFO     | epoch 23, train, loss 175789.8438, time 0.05s, err_x 6.8143, err_y 4.5858, err_z 5.2570, err_trans 9.7519, err_rot 3.6194, err_R 4.1774, err_t 13.8018
+2024-12-04 19:39:43 | INFO     | epoch 24, train, loss 173851.6250, time 0.05s, err_x 7.1074, err_y 4.6717, err_z 5.3955, err_trans 10.0723, err_rot 3.7641, err_R 4.3560, err_t 14.3487
+2024-12-04 19:39:43 | INFO     | epoch 25, train, loss 172013.7344, time 0.05s, err_x 7.3994, err_y 4.7573, err_z 5.5306, err_trans 10.3908, err_rot 3.9083, err_R 4.5364, err_t 14.8924
+2024-12-04 19:39:43 | INFO     | epoch 26, train, loss 170124.0312, time 0.05s, err_x 7.6901, err_y 4.8311, err_z 5.6566, err_trans 10.6993, err_rot 4.0509, err_R 4.7162, err_t 15.4229
+2024-12-04 19:39:43 | INFO     | epoch 27, train, loss 168067.8594, time 0.05s, err_x 7.9808, err_y 4.8815, err_z 5.7653, err_trans 10.9891, err_rot 4.1908, err_R 4.8934, err_t 15.9297
+2024-12-04 19:39:44 | INFO     | epoch 28, train, loss 165846.5625, time 0.05s, err_x 8.2710, err_y 4.9094, err_z 5.8595, err_trans 11.2626, err_rot 4.3279, err_R 5.0693, err_t 16.4148
+2024-12-04 19:39:44 | INFO     | epoch 29, train, loss 163528.9531, time 0.05s, err_x 8.5601, err_y 4.9171, err_z 5.9393, err_trans 11.5207, err_rot 4.4623, err_R 5.2437, err_t 16.8790
+2024-12-04 19:39:44 | INFO     | epoch 30, train, loss 161073.5938, time 0.05s, err_x 8.8488, err_y 4.8985, err_z 6.0023, err_trans 11.7611, err_rot 4.5938, err_R 5.4167, err_t 17.3183
+2024-12-04 19:39:44 | INFO     | epoch 31, train, loss 158678.8750, time 0.05s, err_x 9.1362, err_y 4.8745, err_z 6.0598, err_trans 11.9980, err_rot 4.7250, err_R 5.5912, err_t 17.7504
+2024-12-04 19:39:44 | INFO     | epoch 32, train, loss 156341.6406, time 0.05s, err_x 9.4200, err_y 4.8443, err_z 6.1118, err_trans 12.2294, err_rot 4.8544, err_R 5.7656, err_t 18.1720
+2024-12-04 19:39:44 | INFO     | epoch 33, train, loss 154221.4375, time 0.05s, err_x 9.6983, err_y 4.8126, err_z 6.1645, err_trans 12.4587, err_rot 4.9821, err_R 5.9399, err_t 18.5867
+2024-12-04 19:39:44 | INFO     | epoch 34, train, loss 152238.1094, time 0.05s, err_x 9.9716, err_y 4.7806, err_z 6.2197, err_trans 12.6875, err_rot 5.1085, err_R 6.1147, err_t 18.9970
+2024-12-04 19:39:44 | INFO     | epoch 35, train, loss 150452.9219, time 0.05s, err_x 10.2395, err_y 4.7561, err_z 6.2803, err_trans 12.9193, err_rot 5.2341, err_R 6.2892, err_t 19.4076
+2024-12-04 19:39:44 | INFO     | epoch 36, train, loss 148788.0156, time 0.05s, err_x 10.5015, err_y 4.7367, err_z 6.3444, err_trans 13.1518, err_rot 5.3582, err_R 6.4624, err_t 19.8154
+2024-12-04 19:39:44 | INFO     | epoch 37, train, loss 147209.4219, time 0.05s, err_x 10.7562, err_y 4.7199, err_z 6.4117, err_trans 13.3822, err_rot 5.4799, err_R 6.6329, err_t 20.2163
+2024-12-04 19:39:44 | INFO     | epoch 38, train, loss 145644.5000, time 0.05s, err_x 11.0076, err_y 4.7049, err_z 6.4784, err_trans 13.6115, err_rot 5.6007, err_R 6.8023, err_t 20.6137
+2024-12-04 19:39:44 | INFO     | epoch 39, train, loss 144169.5781, time 0.05s, err_x 11.2550, err_y 4.6915, err_z 6.5454, err_trans 13.8393, err_rot 5.7201, err_R 6.9701, err_t 21.0072
+2024-12-04 19:39:44 | INFO     | epoch 40, train, loss 142761.0000, time 0.05s, err_x 11.4990, err_y 4.6753, err_z 6.6114, err_trans 14.0640, err_rot 5.8379, err_R 7.1366, err_t 21.3945
+2024-12-04 19:39:44 | INFO     | epoch 41, train, loss 141396.1250, time 0.05s, err_x 11.7372, err_y 4.6550, err_z 6.6771, err_trans 14.2834, err_rot 5.9530, err_R 7.3006, err_t 21.7718
+2024-12-04 19:39:44 | INFO     | epoch 42, train, loss 140174.2344, time 0.05s, err_x 11.9716, err_y 4.6350, err_z 6.7437, err_trans 14.5011, err_rot 6.0668, err_R 7.4628, err_t 22.1446
+2024-12-04 19:39:44 | INFO     | epoch 43, train, loss 139011.1719, time 0.05s, err_x 12.2019, err_y 4.6101, err_z 6.8074, err_trans 14.7133, err_rot 6.1783, err_R 7.6233, err_t 22.5084
+2024-12-04 19:39:44 | INFO     | epoch 44, train, loss 138026.9375, time 0.05s, err_x 12.4285, err_y 4.5901, err_z 6.8746, err_trans 14.9264, err_rot 6.2889, err_R 7.7823, err_t 22.8718
+2024-12-04 19:39:44 | INFO     | epoch 45, train, loss 137169.0000, time 0.05s, err_x 12.6508, err_y 4.5703, err_z 6.9438, err_trans 15.1376, err_rot 6.3981, err_R 7.9394, err_t 23.2306
+2024-12-04 19:39:44 | INFO     | epoch 46, train, loss 136382.2656, time 0.05s, err_x 12.8699, err_y 4.5572, err_z 7.0181, err_trans 15.3511, err_rot 6.5073, err_R 8.0953, err_t 23.5912
+2024-12-04 19:39:44 | INFO     | epoch 47, train, loss 135633.6562, time 0.05s, err_x 13.0860, err_y 4.5476, err_z 7.0932, err_trans 15.5639, err_rot 6.6160, err_R 8.2496, err_t 23.9499
+2024-12-04 19:39:44 | INFO     | epoch 48, train, loss 134932.5625, time 0.05s, err_x 13.2979, err_y 4.5393, err_z 7.1708, err_trans 15.7753, err_rot 6.7232, err_R 8.4021, err_t 24.3054
+2024-12-04 19:39:45 | INFO     | epoch 49, train, loss 134393.0938, time 0.05s, err_x 13.5049, err_y 4.5331, err_z 7.2501, err_trans 15.9842, err_rot 6.8287, err_R 8.5520, err_t 24.6560
+2024-12-04 19:39:45 | INFO     | epoch 50, train, loss 133970.6406, time 0.05s, err_x 13.7069, err_y 4.5297, err_z 7.3315, err_trans 16.1910, err_rot 6.9325, err_R 8.6990, err_t 25.0020
+2024-12-04 19:39:45 | INFO     | epoch 51, train, loss 133586.2188, time 0.05s, err_x 13.9033, err_y 4.5246, err_z 7.4136, err_trans 16.3932, err_rot 7.0342, err_R 8.8429, err_t 25.3393
+2024-12-04 19:39:45 | INFO     | epoch 52, train, loss 133222.5625, time 0.05s, err_x 14.0951, err_y 4.5186, err_z 7.4972, err_trans 16.5921, err_rot 7.1339, err_R 8.9842, err_t 25.6701
+2024-12-04 19:39:45 | INFO     | epoch 53, train, loss 132900.6562, time 0.05s, err_x 14.2832, err_y 4.5133, err_z 7.5820, err_trans 16.7889, err_rot 7.2320, err_R 9.1235, err_t 25.9969
+2024-12-04 19:39:45 | INFO     | epoch 54, train, loss 132604.6875, time 0.05s, err_x 14.4699, err_y 4.5131, err_z 7.6676, err_trans 16.9864, err_rot 7.3301, err_R 9.2617, err_t 26.3249
+2024-12-04 19:39:45 | INFO     | epoch 55, train, loss 132339.7188, time 0.05s, err_x 14.6522, err_y 4.5184, err_z 7.7576, err_trans 17.1838, err_rot 7.4270, err_R 9.3975, err_t 26.6516
+2024-12-04 19:39:45 | INFO     | epoch 56, train, loss 132121.1719, time 0.05s, err_x 14.8341, err_y 4.5259, err_z 7.8474, err_trans 17.3815, err_rot 7.5241, err_R 9.5329, err_t 26.9791
+2024-12-04 19:39:45 | INFO     | epoch 57, train, loss 131902.3125, time 0.05s, err_x 15.0123, err_y 4.5367, err_z 7.9406, err_trans 17.5785, err_rot 7.6200, err_R 9.6662, err_t 27.3046
+2024-12-04 19:39:45 | INFO     | epoch 58, train, loss 131709.4375, time 0.05s, err_x 15.1906, err_y 4.5533, err_z 8.0323, err_trans 17.7765, err_rot 7.7164, err_R 9.7989, err_t 27.6330
+2024-12-04 19:39:45 | INFO     | epoch 59, train, loss 131536.4844, time 0.05s, err_x 15.3628, err_y 4.5687, err_z 8.1276, err_trans 17.9707, err_rot 7.8104, err_R 9.9281, err_t 27.9531
+2024-12-04 19:39:45 | INFO     | epoch 60, train, loss 131343.4062, time 0.05s, err_x 15.5344, err_y 4.5914, err_z 8.2242, err_trans 18.1669, err_rot 7.9044, err_R 10.0565, err_t 28.2769
+2024-12-04 19:39:45 | INFO     | epoch 61, train, loss 131190.7188, time 0.05s, err_x 15.7045, err_y 4.6177, err_z 8.3203, err_trans 18.3626, err_rot 7.9976, err_R 10.1835, err_t 28.6001
+2024-12-04 19:39:45 | INFO     | epoch 62, train, loss 131025.2031, time 0.05s, err_x 15.8759, err_y 4.6526, err_z 8.4167, err_trans 18.5616, err_rot 8.0919, err_R 10.3105, err_t 28.9300
+2024-12-04 19:39:45 | INFO     | epoch 63, train, loss 130864.0234, time 0.05s, err_x 16.0468, err_y 4.6997, err_z 8.5175, err_trans 18.7652, err_rot 8.1870, err_R 10.4366, err_t 29.2672
+2024-12-04 19:39:45 | INFO     | epoch 64, train, loss 130693.3750, time 0.05s, err_x 16.2176, err_y 4.7552, err_z 8.6209, err_trans 18.9722, err_rot 8.2826, err_R 10.5620, err_t 29.6098
+2024-12-04 19:39:45 | INFO     | epoch 65, train, loss 130540.9844, time 0.05s, err_x 16.3866, err_y 4.8159, err_z 8.7269, err_trans 19.1800, err_rot 8.3782, err_R 10.6857, err_t 29.9528
+2024-12-04 19:39:45 | INFO     | epoch 66, train, loss 130437.4219, time 0.05s, err_x 16.5545, err_y 4.8899, err_z 8.8384, err_trans 19.3928, err_rot 8.4751, err_R 10.8077, err_t 30.3029
+2024-12-04 19:39:45 | INFO     | epoch 67, train, loss 130376.0625, time 0.05s, err_x 16.7204, err_y 4.9661, err_z 8.9529, err_trans 19.6058, err_rot 8.5718, err_R 10.9286, err_t 30.6523
+2024-12-04 19:39:45 | INFO     | epoch 68, train, loss 130321.0234, time 0.05s, err_x 16.8818, err_y 5.0413, err_z 9.0680, err_trans 19.8151, err_rot 8.6666, err_R 11.0467, err_t 30.9948
+2024-12-04 19:39:45 | INFO     | epoch 69, train, loss 130240.7188, time 0.05s, err_x 17.0402, err_y 5.1165, err_z 9.1830, err_trans 20.0219, err_rot 8.7602, err_R 11.1631, err_t 31.3332
+2024-12-04 19:39:46 | INFO     | epoch 70, train, loss 130217.4688, time 0.05s, err_x 17.1946, err_y 5.1918, err_z 9.2990, err_trans 20.2257, err_rot 8.8523, err_R 11.2773, err_t 31.6665
+2024-12-04 19:39:46 | INFO     | epoch 71, train, loss 130166.0625, time 0.05s, err_x 17.3484, err_y 5.2622, err_z 9.4092, err_trans 20.4253, err_rot 8.9432, err_R 11.3914, err_t 31.9948
+2024-12-04 19:39:46 | INFO     | epoch 72, train, loss 130122.0156, time 0.05s, err_x 17.4968, err_y 5.3272, err_z 9.5215, err_trans 20.6198, err_rot 9.0319, err_R 11.5027, err_t 32.3133
+2024-12-04 19:39:46 | INFO     | epoch 73, train, loss 130155.3984, time 0.05s, err_x 17.6407, err_y 5.3904, err_z 9.6361, err_trans 20.8112, err_rot 9.1188, err_R 11.6120, err_t 32.6252
+2024-12-04 19:39:46 | INFO     | epoch 74, train, loss 130209.3594, time 0.05s, err_x 17.7770, err_y 5.4442, err_z 9.7513, err_trans 20.9940, err_rot 9.2022, err_R 11.7169, err_t 32.9203
+2024-12-04 19:39:46 | INFO     | epoch 75, train, loss 130313.3906, time 0.05s, err_x 17.9055, err_y 5.4877, err_z 9.8696, err_trans 21.1691, err_rot 9.2823, err_R 11.8178, err_t 33.1993
+2024-12-04 19:39:46 | INFO     | epoch 76, train, loss 130385.0469, time 0.05s, err_x 18.0273, err_y 5.5112, err_z 9.9811, err_trans 21.3302, err_rot 9.3581, err_R 11.9147, err_t 33.4535
+2024-12-04 19:39:46 | INFO     | epoch 77, train, loss 130463.1719, time 0.05s, err_x 18.1446, err_y 5.5168, err_z 10.0837, err_trans 21.4789, err_rot 9.4306, err_R 12.0086, err_t 33.6869
+2024-12-04 19:39:46 | INFO     | epoch 78, train, loss 130496.1172, time 0.05s, err_x 18.2546, err_y 5.4994, err_z 10.1771, err_trans 21.6113, err_rot 9.4979, err_R 12.0979, err_t 33.8922
+2024-12-04 19:39:46 | INFO     | epoch 79, train, loss 130548.8906, time 0.05s, err_x 18.3503, err_y 5.4569, err_z 10.2604, err_trans 21.7207, err_rot 9.5557, err_R 12.1787, err_t 34.0583
+2024-12-04 19:39:46 | INFO     | epoch 80, train, loss 130476.9844, time 0.05s, err_x 18.4283, err_y 5.3882, err_z 10.3358, err_trans 21.8051, err_rot 9.6028, err_R 12.2485, err_t 34.1793
+2024-12-04 19:39:46 | INFO     | epoch 81, train, loss 130333.8359, time 0.05s, err_x 18.4933, err_y 5.2990, err_z 10.4018, err_trans 21.8696, err_rot 9.6420, err_R 12.3100, err_t 34.2652
+2024-12-04 19:39:46 | INFO     | epoch 82, train, loss 130137.6250, time 0.05s, err_x 18.5419, err_y 5.1876, err_z 10.4608, err_trans 21.9121, err_rot 9.6718, err_R 12.3609, err_t 34.3102
+2024-12-04 19:39:46 | INFO     | epoch 83, train, loss 129843.3359, time 0.05s, err_x 18.5764, err_y 5.0570, err_z 10.5140, err_trans 21.9363, err_rot 9.6935, err_R 12.4027, err_t 34.3202
+2024-12-04 19:39:46 | INFO     | epoch 84, train, loss 129546.2969, time 0.05s, err_x 18.6003, err_y 4.9137, err_z 10.5631, err_trans 21.9475, err_rot 9.7091, err_R 12.4379, err_t 34.3053
+2024-12-04 19:39:46 | INFO     | epoch 85, train, loss 129228.0625, time 0.05s, err_x 18.6102, err_y 4.7586, err_z 10.6103, err_trans 21.9446, err_rot 9.7175, err_R 12.4641, err_t 34.2618
+2024-12-04 19:39:46 | INFO     | epoch 86, train, loss 128927.9922, time 0.05s, err_x 18.6085, err_y 4.5991, err_z 10.6598, err_trans 21.9331, err_rot 9.7205, err_R 12.4834, err_t 34.1994
+2024-12-04 19:39:46 | INFO     | epoch 87, train, loss 128682.4531, time 0.05s, err_x 18.5972, err_y 4.4408, err_z 10.7144, err_trans 21.9175, err_rot 9.7194, err_R 12.4969, err_t 34.1258
+2024-12-04 19:39:46 | INFO     | epoch 88, train, loss 128477.6406, time 0.05s, err_x 18.5789, err_y 4.2875, err_z 10.7738, err_trans 21.9005, err_rot 9.7158, err_R 12.5060, err_t 34.0467
+2024-12-04 19:39:46 | INFO     | epoch 89, train, loss 128318.1094, time 0.05s, err_x 18.5534, err_y 4.1546, err_z 10.8452, err_trans 21.8885, err_rot 9.7114, err_R 12.5092, err_t 33.9720
+2024-12-04 19:39:46 | INFO     | epoch 90, train, loss 128187.6562, time 0.05s, err_x 18.5217, err_y 4.0481, err_z 10.9305, err_trans 21.8841, err_rot 9.7070, err_R 12.5074, err_t 33.9079
+2024-12-04 19:39:47 | INFO     | epoch 91, train, loss 128054.0469, time 0.04s, err_x 18.4857, err_y 3.9570, err_z 11.0224, err_trans 21.8832, err_rot 9.7022, err_R 12.5017, err_t 33.8481
+2024-12-04 19:39:47 | INFO     | epoch 92, train, loss 127943.5469, time 0.05s, err_x 18.4433, err_y 3.8826, err_z 11.1242, err_trans 21.8856, err_rot 9.6961, err_R 12.4915, err_t 33.7918
+2024-12-04 19:39:47 | INFO     | epoch 93, train, loss 127857.1719, time 0.05s, err_x 18.4006, err_y 3.8141, err_z 11.2262, err_trans 21.8896, err_rot 9.6902, err_R 12.4802, err_t 33.7383
+2024-12-04 19:39:47 | INFO     | epoch 94, train, loss 127802.2109, time 0.05s, err_x 18.3543, err_y 3.7478, err_z 11.3280, err_trans 21.8918, err_rot 9.6825, err_R 12.4663, err_t 33.6807
+2024-12-04 19:39:47 | INFO     | epoch 95, train, loss 127750.2969, time 0.05s, err_x 18.3070, err_y 3.6809, err_z 11.4271, err_trans 21.8923, err_rot 9.6734, err_R 12.4519, err_t 33.6211
+2024-12-04 19:39:47 | INFO     | epoch 96, train, loss 127742.4219, time 0.05s, err_x 18.2594, err_y 3.6124, err_z 11.5208, err_trans 21.8903, err_rot 9.6626, err_R 12.4374, err_t 33.5591
+2024-12-04 19:39:47 | INFO     | epoch 97, train, loss 127702.5469, time 0.05s, err_x 18.2138, err_y 3.5398, err_z 11.6051, err_trans 21.8849, err_rot 9.6507, err_R 12.4237, err_t 33.4947
+2024-12-04 19:39:47 | INFO     | epoch 98, train, loss 127655.9297, time 0.05s, err_x 18.1722, err_y 3.4583, err_z 11.6775, err_trans 21.8759, err_rot 9.6381, err_R 12.4126, err_t 33.4276
+2024-12-04 19:39:47 | INFO     | epoch 99, train, loss 127561.2344, time 0.05s, err_x 18.1363, err_y 3.3618, err_z 11.7350, err_trans 21.8618, err_rot 9.6252, err_R 12.4049, err_t 33.3553
+2024-12-04 19:39:50 | INFO     | epoch 100, train, loss 127433.8359, time 2.83s, err_x 18.1058, err_y 3.2589, err_z 11.7824, err_trans 21.8464, err_rot 9.6132, err_R 12.3995, err_t 33.2829
+2024-12-04 19:39:50 | INFO     | epoch 101, train, loss 127316.3594, time 0.05s, err_x 18.0845, err_y 3.1626, err_z 11.8241, err_trans 21.8372, err_rot 9.6050, err_R 12.3992, err_t 33.2259
+2024-12-04 19:39:50 | INFO     | epoch 102, train, loss 127218.6094, time 0.05s, err_x 18.0740, err_y 3.0653, err_z 11.8576, err_trans 21.8328, err_rot 9.6010, err_R 12.4055, err_t 33.1814
+2024-12-04 19:39:50 | INFO     | epoch 103, train, loss 127102.1406, time 0.05s, err_x 18.0731, err_y 2.9787, err_z 11.8894, err_trans 21.8373, err_rot 9.6021, err_R 12.4170, err_t 33.1562
+2024-12-04 19:39:50 | INFO     | epoch 104, train, loss 127003.7344, time 0.05s, err_x 18.0799, err_y 2.8942, err_z 11.9161, err_trans 21.8461, err_rot 9.6064, err_R 12.4324, err_t 33.1410
+2024-12-04 19:39:50 | INFO     | epoch 105, train, loss 126927.6250, time 0.05s, err_x 18.0941, err_y 2.8182, err_z 11.9417, err_trans 21.8619, err_rot 9.6144, err_R 12.4522, err_t 33.1414
+2024-12-04 19:39:50 | INFO     | epoch 106, train, loss 126877.9844, time 0.05s, err_x 18.1144, err_y 2.7578, err_z 11.9706, err_trans 21.8869, err_rot 9.6269, err_R 12.4744, err_t 33.1596
+2024-12-04 19:39:50 | INFO     | epoch 107, train, loss 126839.4375, time 0.05s, err_x 18.1401, err_y 2.7077, err_z 12.0035, err_trans 21.9198, err_rot 9.6431, err_R 12.4996, err_t 33.1928
+2024-12-04 19:39:50 | INFO     | epoch 108, train, loss 126830.3359, time 0.05s, err_x 18.1664, err_y 2.6672, err_z 12.0398, err_trans 21.9566, err_rot 9.6604, err_R 12.5243, err_t 33.2328
+2024-12-04 19:39:50 | INFO     | epoch 109, train, loss 126841.1094, time 0.05s, err_x 18.1934, err_y 2.6388, err_z 12.0800, err_trans 21.9974, err_rot 9.6791, err_R 12.5489, err_t 33.2817
+2024-12-04 19:39:50 | INFO     | epoch 110, train, loss 126841.4688, time 0.05s, err_x 18.2192, err_y 2.6100, err_z 12.1170, err_trans 22.0357, err_rot 9.6965, err_R 12.5720, err_t 33.3270
+2024-12-04 19:39:50 | INFO     | epoch 111, train, loss 126863.4609, time 0.05s, err_x 18.2405, err_y 2.5790, err_z 12.1530, err_trans 22.0695, err_rot 9.7107, err_R 12.5921, err_t 33.3639
+2024-12-04 19:39:50 | INFO     | epoch 112, train, loss 126858.8750, time 0.05s, err_x 18.2578, err_y 2.5495, err_z 12.1893, err_trans 22.1003, err_rot 9.7221, err_R 12.6094, err_t 33.3956
+2024-12-04 19:39:50 | INFO     | epoch 113, train, loss 126869.6484, time 0.05s, err_x 18.2731, err_y 2.5206, err_z 12.2220, err_trans 22.1277, err_rot 9.7314, err_R 12.6253, err_t 33.4239
+2024-12-04 19:39:50 | INFO     | epoch 114, train, loss 126849.1094, time 0.05s, err_x 18.2802, err_y 2.4807, err_z 12.2488, err_trans 22.1439, err_rot 9.7346, err_R 12.6359, err_t 33.4316
+2024-12-04 19:39:50 | INFO     | epoch 115, train, loss 126813.9531, time 0.05s, err_x 18.2816, err_y 2.4370, err_z 12.2720, err_trans 22.1531, err_rot 9.7340, err_R 12.6428, err_t 33.4276
+2024-12-04 19:39:51 | INFO     | epoch 116, train, loss 126751.9375, time 0.05s, err_x 18.2803, err_y 2.3744, err_z 12.2822, err_trans 22.1509, err_rot 9.7286, err_R 12.6482, err_t 33.4048
+2024-12-04 19:39:51 | INFO     | epoch 117, train, loss 126682.3438, time 0.05s, err_x 18.2763, err_y 2.2937, err_z 12.2799, err_trans 22.1378, err_rot 9.7192, err_R 12.6514, err_t 33.3627
+2024-12-04 19:39:51 | INFO     | epoch 118, train, loss 126590.5625, time 0.05s, err_x 18.2721, err_y 2.2130, err_z 12.2760, err_trans 22.1239, err_rot 9.7089, err_R 12.6544, err_t 33.3198
+2024-12-04 19:39:51 | INFO     | epoch 119, train, loss 126549.1719, time 0.05s, err_x 18.2692, err_y 2.1411, err_z 12.2734, err_trans 22.1130, err_rot 9.6997, err_R 12.6577, err_t 33.2839
+2024-12-04 19:39:51 | INFO     | epoch 120, train, loss 126523.9609, time 0.05s, err_x 18.2661, err_y 2.0731, err_z 12.2711, err_trans 22.1026, err_rot 9.6910, err_R 12.6600, err_t 33.2492
+2024-12-04 19:39:51 | INFO     | epoch 121, train, loss 126500.2500, time 0.05s, err_x 18.2621, err_y 2.0253, err_z 12.2809, err_trans 22.1004, err_rot 9.6844, err_R 12.6612, err_t 33.2284
+2024-12-04 19:39:51 | INFO     | epoch 122, train, loss 126483.1719, time 0.05s, err_x 18.2587, err_y 1.9851, err_z 12.2959, err_trans 22.1022, err_rot 9.6796, err_R 12.6623, err_t 33.2140
+2024-12-04 19:39:51 | INFO     | epoch 123, train, loss 126456.1172, time 0.06s, err_x 18.2568, err_y 1.9528, err_z 12.3133, err_trans 22.1075, err_rot 9.6768, err_R 12.6634, err_t 33.2061
+2024-12-04 19:39:51 | INFO     | epoch 124, train, loss 126438.8750, time 0.05s, err_x 18.2558, err_y 1.9307, err_z 12.3360, err_trans 22.1173, err_rot 9.6758, err_R 12.6647, err_t 33.2066
+2024-12-04 19:39:51 | INFO     | epoch 125, train, loss 126423.1406, time 0.05s, err_x 18.2545, err_y 1.9158, err_z 12.3619, err_trans 22.1295, err_rot 9.6760, err_R 12.6649, err_t 33.2109
+2024-12-04 19:39:51 | INFO     | epoch 126, train, loss 126422.4375, time 0.05s, err_x 18.2538, err_y 1.9076, err_z 12.3898, err_trans 22.1438, err_rot 9.6774, err_R 12.6651, err_t 33.2200
+2024-12-04 19:39:51 | INFO     | epoch 127, train, loss 126425.4922, time 0.05s, err_x 18.2537, err_y 1.9063, err_z 12.4203, err_trans 22.1607, err_rot 9.6798, err_R 12.6652, err_t 33.2343
+2024-12-04 19:39:51 | INFO     | epoch 128, train, loss 126439.4219, time 0.05s, err_x 18.2567, err_y 1.8987, err_z 12.4452, err_trans 22.1764, err_rot 9.6825, err_R 12.6679, err_t 33.2483
+2024-12-04 19:39:51 | INFO     | epoch 129, train, loss 126448.7344, time 0.05s, err_x 18.2595, err_y 1.8886, err_z 12.4681, err_trans 22.1907, err_rot 9.6844, err_R 12.6702, err_t 33.2597
+2024-12-04 19:39:51 | INFO     | epoch 130, train, loss 126449.9531, time 0.05s, err_x 18.2644, err_y 1.8656, err_z 12.4826, err_trans 22.2010, err_rot 9.6852, err_R 12.6743, err_t 33.2646
+2024-12-04 19:39:51 | INFO     | epoch 131, train, loss 126431.6094, time 0.05s, err_x 18.2712, err_y 1.8305, err_z 12.4892, err_trans 22.2073, err_rot 9.6849, err_R 12.6802, err_t 33.2632
+2024-12-04 19:39:51 | INFO     | epoch 132, train, loss 126400.9062, time 0.05s, err_x 18.2776, err_y 1.7848, err_z 12.4887, err_trans 22.2086, err_rot 9.6829, err_R 12.6858, err_t 33.2528
+2024-12-04 19:39:51 | INFO     | epoch 133, train, loss 126371.9531, time 0.05s, err_x 18.2831, err_y 1.7406, err_z 12.4878, err_trans 22.2092, err_rot 9.6801, err_R 12.6904, err_t 33.2415
+2024-12-04 19:39:51 | INFO     | epoch 134, train, loss 126336.1172, time 0.05s, err_x 18.2875, err_y 1.6882, err_z 12.4856, err_trans 22.2075, err_rot 9.6758, err_R 12.6950, err_t 33.2241
+2024-12-04 19:39:51 | INFO     | epoch 135, train, loss 126315.8594, time 0.05s, err_x 18.2915, err_y 1.6466, err_z 12.4898, err_trans 22.2101, err_rot 9.6727, err_R 12.6991, err_t 33.2144
+2024-12-04 19:39:51 | INFO     | epoch 136, train, loss 126291.1094, time 0.05s, err_x 18.2987, err_y 1.6066, err_z 12.4925, err_trans 22.2145, err_rot 9.6710, err_R 12.7053, err_t 33.2098
+2024-12-04 19:39:52 | INFO     | epoch 137, train, loss 126278.1562, time 0.05s, err_x 18.3078, err_y 1.5709, err_z 12.4969, err_trans 22.2220, err_rot 9.6709, err_R 12.7126, err_t 33.2112
+2024-12-04 19:39:52 | INFO     | epoch 138, train, loss 126262.3984, time 0.05s, err_x 18.3160, err_y 1.5367, err_z 12.5035, err_trans 22.2300, err_rot 9.6705, err_R 12.7191, err_t 33.2125
+2024-12-04 19:39:52 | INFO     | epoch 139, train, loss 126262.1719, time 0.05s, err_x 18.3236, err_y 1.5062, err_z 12.5124, err_trans 22.2393, err_rot 9.6708, err_R 12.7244, err_t 33.2148
+2024-12-04 19:39:52 | INFO     | epoch 140, train, loss 126248.0781, time 0.05s, err_x 18.3286, err_y 1.4810, err_z 12.5261, err_trans 22.2493, err_rot 9.6711, err_R 12.7273, err_t 33.2167
+2024-12-04 19:39:52 | INFO     | epoch 141, train, loss 126241.8047, time 0.05s, err_x 18.3313, err_y 1.4557, err_z 12.5403, err_trans 22.2579, err_rot 9.6706, err_R 12.7283, err_t 33.2146
+2024-12-04 19:39:52 | INFO     | epoch 142, train, loss 126235.2969, time 0.05s, err_x 18.3321, err_y 1.4340, err_z 12.5562, err_trans 22.2661, err_rot 9.6699, err_R 12.7274, err_t 33.2115
+2024-12-04 19:39:52 | INFO     | epoch 143, train, loss 126226.0234, time 0.05s, err_x 18.3332, err_y 1.4132, err_z 12.5720, err_trans 22.2746, err_rot 9.6695, err_R 12.7262, err_t 33.2090
+2024-12-04 19:39:52 | INFO     | epoch 144, train, loss 126220.4062, time 0.05s, err_x 18.3362, err_y 1.3925, err_z 12.5855, err_trans 22.2834, err_rot 9.6697, err_R 12.7257, err_t 33.2080
+2024-12-04 19:39:52 | INFO     | epoch 145, train, loss 126215.7969, time 0.05s, err_x 18.3413, err_y 1.3796, err_z 12.5996, err_trans 22.2948, err_rot 9.6713, err_R 12.7264, err_t 33.2147
+2024-12-04 19:39:52 | INFO     | epoch 146, train, loss 126219.6484, time 0.05s, err_x 18.3463, err_y 1.3670, err_z 12.6137, err_trans 22.3061, err_rot 9.6726, err_R 12.7272, err_t 33.2216
+2024-12-04 19:39:52 | INFO     | epoch 147, train, loss 126235.5625, time 0.05s, err_x 18.3509, err_y 1.3465, err_z 12.6245, err_trans 22.3148, err_rot 9.6725, err_R 12.7283, err_t 33.2234
+2024-12-04 19:39:52 | INFO     | epoch 148, train, loss 126202.7031, time 0.05s, err_x 18.3553, err_y 1.3048, err_z 12.6238, err_trans 22.3154, err_rot 9.6694, err_R 12.7293, err_t 33.2086
+2024-12-04 19:39:52 | INFO     | epoch 149, train, loss 126188.3906, time 0.05s, err_x 18.3618, err_y 1.2651, err_z 12.6201, err_trans 22.3164, err_rot 9.6666, err_R 12.7317, err_t 33.1976
+2024-12-04 19:39:52 | INFO     | epoch 150, train, loss 126175.0234, time 0.05s, err_x 18.3670, err_y 1.2271, err_z 12.6159, err_trans 22.3162, err_rot 9.6633, err_R 12.7329, err_t 33.1852
+2024-12-04 19:39:52 | INFO     | epoch 151, train, loss 126145.1094, time 0.05s, err_x 18.3713, err_y 1.1858, err_z 12.6104, err_trans 22.3144, err_rot 9.6594, err_R 12.7336, err_t 33.1689
+2024-12-04 19:39:52 | INFO     | epoch 152, train, loss 126124.6719, time 0.05s, err_x 18.3756, err_y 1.1417, err_z 12.6050, err_trans 22.3126, err_rot 9.6556, err_R 12.7342, err_t 33.1507
+2024-12-04 19:39:52 | INFO     | epoch 153, train, loss 126133.0000, time 0.05s, err_x 18.3817, err_y 1.1032, err_z 12.6000, err_trans 22.3129, err_rot 9.6530, err_R 12.7354, err_t 33.1380
+2024-12-04 19:39:52 | INFO     | epoch 154, train, loss 126126.4375, time 0.05s, err_x 18.3873, err_y 1.0790, err_z 12.6036, err_trans 22.3184, err_rot 9.6523, err_R 12.7361, err_t 33.1353
+2024-12-04 19:39:52 | INFO     | epoch 155, train, loss 126099.9609, time 0.05s, err_x 18.3944, err_y 1.0729, err_z 12.6160, err_trans 22.3309, err_rot 9.6539, err_R 12.7376, err_t 33.1480
+2024-12-04 19:39:52 | INFO     | epoch 156, train, loss 126123.3750, time 0.05s, err_x 18.4022, err_y 1.0664, err_z 12.6287, err_trans 22.3441, err_rot 9.6558, err_R 12.7395, err_t 33.1614
+2024-12-04 19:39:52 | INFO     | epoch 157, train, loss 126147.3750, time 0.05s, err_x 18.4086, err_y 1.0581, err_z 12.6435, err_trans 22.3575, err_rot 9.6572, err_R 12.7406, err_t 33.1725
+2024-12-04 19:39:53 | INFO     | epoch 158, train, loss 126118.7188, time 0.05s, err_x 18.4143, err_y 1.0445, err_z 12.6531, err_trans 22.3669, err_rot 9.6568, err_R 12.7412, err_t 33.1779
+2024-12-04 19:39:53 | INFO     | epoch 159, train, loss 126130.5469, time 0.05s, err_x 18.4179, err_y 1.0323, err_z 12.6620, err_trans 22.3744, err_rot 9.6551, err_R 12.7409, err_t 33.1815
+2024-12-04 19:39:53 | INFO     | epoch 160, train, loss 126128.1797, time 0.05s, err_x 18.4197, err_y 1.0135, err_z 12.6682, err_trans 22.3784, err_rot 9.6519, err_R 12.7392, err_t 33.1774
+2024-12-04 19:39:53 | INFO     | epoch 161, train, loss 126105.0312, time 0.05s, err_x 18.4207, err_y 0.9796, err_z 12.6676, err_trans 22.3774, err_rot 9.6469, err_R 12.7373, err_t 33.1617
+2024-12-04 19:39:53 | INFO     | epoch 162, train, loss 126073.0469, time 0.05s, err_x 18.4221, err_y 0.9426, err_z 12.6653, err_trans 22.3757, err_rot 9.6416, err_R 12.7354, err_t 33.1440
+2024-12-04 19:39:53 | INFO     | epoch 163, train, loss 126064.8750, time 0.05s, err_x 18.4243, err_y 0.8971, err_z 12.6583, err_trans 22.3717, err_rot 9.6357, err_R 12.7338, err_t 33.1210
+2024-12-04 19:39:53 | INFO     | epoch 164, train, loss 126042.7109, time 0.05s, err_x 18.4276, err_y 0.8629, err_z 12.6571, err_trans 22.3724, err_rot 9.6317, err_R 12.7331, err_t 33.1080
+2024-12-04 19:39:53 | INFO     | epoch 165, train, loss 126021.4844, time 0.05s, err_x 18.4322, err_y 0.8251, err_z 12.6550, err_trans 22.3736, err_rot 9.6278, err_R 12.7337, err_t 33.0955
+2024-12-04 19:39:53 | INFO     | epoch 166, train, loss 126010.7969, time 0.05s, err_x 18.4366, err_y 0.7913, err_z 12.6570, err_trans 22.3771, err_rot 9.6242, err_R 12.7343, err_t 33.0866
+2024-12-04 19:39:53 | INFO     | epoch 167, train, loss 125996.6562, time 0.05s, err_x 18.4417, err_y 0.7655, err_z 12.6628, err_trans 22.3837, err_rot 9.6221, err_R 12.7353, err_t 33.0844
+2024-12-04 19:39:53 | INFO     | epoch 168, train, loss 125987.6562, time 0.05s, err_x 18.4480, err_y 0.7487, err_z 12.6729, err_trans 22.3940, err_rot 9.6216, err_R 12.7368, err_t 33.0902
+2024-12-04 19:39:53 | INFO     | epoch 169, train, loss 126002.9922, time 0.05s, err_x 18.4569, err_y 0.7313, err_z 12.6813, err_trans 22.4055, err_rot 9.6227, err_R 12.7404, err_t 33.0996
+2024-12-04 19:39:53 | INFO     | epoch 170, train, loss 126001.9922, time 0.05s, err_x 18.4666, err_y 0.7130, err_z 12.6895, err_trans 22.4176, err_rot 9.6248, err_R 12.7444, err_t 33.1092
+2024-12-04 19:39:53 | INFO     | epoch 171, train, loss 126006.7969, time 0.05s, err_x 18.4762, err_y 0.6985, err_z 12.6991, err_trans 22.4305, err_rot 9.6271, err_R 12.7486, err_t 33.1215
+2024-12-04 19:39:53 | INFO     | epoch 172, train, loss 126009.6719, time 0.05s, err_x 18.4836, err_y 0.6745, err_z 12.7029, err_trans 22.4379, err_rot 9.6266, err_R 12.7507, err_t 33.1225
+2024-12-04 19:39:53 | INFO     | epoch 173, train, loss 125995.4844, time 0.05s, err_x 18.4888, err_y 0.6423, err_z 12.7046, err_trans 22.4423, err_rot 9.6243, err_R 12.7512, err_t 33.1148
+2024-12-04 19:39:53 | INFO     | epoch 174, train, loss 125975.4531, time 0.05s, err_x 18.4912, err_y 0.6045, err_z 12.7067, err_trans 22.4444, err_rot 9.6198, err_R 12.7505, err_t 33.1008
+2024-12-04 19:39:53 | INFO     | epoch 175, train, loss 125966.5938, time 0.05s, err_x 18.4934, err_y 0.5711, err_z 12.7117, err_trans 22.4482, err_rot 9.6153, err_R 12.7504, err_t 33.0908
+2024-12-04 19:39:53 | INFO     | epoch 176, train, loss 125953.4531, time 0.05s, err_x 18.5017, err_y 0.5446, err_z 12.7170, err_trans 22.4573, err_rot 9.6139, err_R 12.7545, err_t 33.0943
+2024-12-04 19:39:53 | INFO     | epoch 177, train, loss 125948.7031, time 0.05s, err_x 18.5122, err_y 0.5217, err_z 12.7233, err_trans 22.4690, err_rot 9.6138, err_R 12.7605, err_t 33.1039
+2024-12-04 19:39:54 | INFO     | epoch 178, train, loss 125946.0234, time 0.05s, err_x 18.5254, err_y 0.5002, err_z 12.7263, err_trans 22.4811, err_rot 9.6144, err_R 12.7681, err_t 33.1173
+2024-12-04 19:39:54 | INFO     | epoch 179, train, loss 125934.5469, time 0.05s, err_x 18.5364, err_y 0.4698, err_z 12.7233, err_trans 22.4878, err_rot 9.6125, err_R 12.7744, err_t 33.1205
+2024-12-04 19:39:54 | INFO     | epoch 180, train, loss 125919.4688, time 0.05s, err_x 18.5488, err_y 0.4342, err_z 12.7137, err_trans 22.4919, err_rot 9.6103, err_R 12.7812, err_t 33.1205
+2024-12-04 19:39:54 | INFO     | epoch 181, train, loss 125908.9375, time 0.05s, err_x 18.5613, err_y 0.4052, err_z 12.7064, err_trans 22.4976, err_rot 9.6091, err_R 12.7875, err_t 33.1245
+2024-12-04 19:39:54 | INFO     | epoch 182, train, loss 125911.2500, time 0.05s, err_x 18.5724, err_y 0.3794, err_z 12.7017, err_trans 22.5036, err_rot 9.6078, err_R 12.7932, err_t 33.1290
+2024-12-04 19:39:54 | INFO     | epoch 183, train, loss 125907.5781, time 0.05s, err_x 18.5807, err_y 0.3580, err_z 12.7008, err_trans 22.5096, err_rot 9.6061, err_R 12.7974, err_t 33.1332
+2024-12-04 19:39:54 | INFO     | epoch 184, train, loss 125906.1719, time 0.05s, err_x 18.5871, err_y 0.3377, err_z 12.7014, err_trans 22.5149, err_rot 9.6041, err_R 12.8004, err_t 33.1357
+2024-12-04 19:39:54 | INFO     | epoch 185, train, loss 125895.3594, time 0.05s, err_x 18.5930, err_y 0.3205, err_z 12.7039, err_trans 22.5210, err_rot 9.6027, err_R 12.8032, err_t 33.1396
+2024-12-04 19:39:54 | INFO     | epoch 186, train, loss 125890.6406, time 0.05s, err_x 18.5970, err_y 0.3028, err_z 12.7074, err_trans 22.5260, err_rot 9.6007, err_R 12.8047, err_t 33.1405
+2024-12-04 19:39:54 | INFO     | epoch 187, train, loss 125880.6875, time 0.05s, err_x 18.5987, err_y 0.2764, err_z 12.7073, err_trans 22.5269, err_rot 9.5967, err_R 12.8044, err_t 33.1314
+2024-12-04 19:39:54 | INFO     | epoch 188, train, loss 125874.0859, time 0.05s, err_x 18.6008, err_y 0.2479, err_z 12.7025, err_trans 22.5256, err_rot 9.5924, err_R 12.8032, err_t 33.1191
+2024-12-04 19:39:54 | INFO     | epoch 189, train, loss 125864.6875, time 0.05s, err_x 18.6042, err_y 0.2169, err_z 12.6939, err_trans 22.5233, err_rot 9.5884, err_R 12.8022, err_t 33.1054
+2024-12-04 19:39:54 | INFO     | epoch 190, train, loss 125864.5000, time 0.05s, err_x 18.6122, err_y 0.1878, err_z 12.6830, err_trans 22.5235, err_rot 9.5871, err_R 12.8034, err_t 33.0979
+2024-12-04 19:39:54 | INFO     | epoch 191, train, loss 125869.2969, time 0.05s, err_x 18.6222, err_y 0.1692, err_z 12.6760, err_trans 22.5277, err_rot 9.5879, err_R 12.8054, err_t 33.0997
+2024-12-04 19:39:54 | INFO     | epoch 192, train, loss 125864.6406, time 0.05s, err_x 18.6329, err_y 0.1610, err_z 12.6746, err_trans 22.5357, err_rot 9.5905, err_R 12.8074, err_t 33.1096
+2024-12-04 19:39:54 | INFO     | epoch 193, train, loss 125862.0625, time 0.05s, err_x 18.6442, err_y 0.1432, err_z 12.6683, err_trans 22.5414, err_rot 9.5925, err_R 12.8093, err_t 33.1129
+2024-12-04 19:39:54 | INFO     | epoch 194, train, loss 125862.7422, time 0.05s, err_x 18.6522, err_y 0.1160, err_z 12.6606, err_trans 22.5435, err_rot 9.5924, err_R 12.8092, err_t 33.1059
+2024-12-04 19:39:54 | INFO     | epoch 195, train, loss 125860.3984, time 0.05s, err_x 18.6578, err_y 0.0886, err_z 12.6536, err_trans 22.5440, err_rot 9.5910, err_R 12.8074, err_t 33.0952
+2024-12-04 19:39:54 | INFO     | epoch 196, train, loss 125855.1406, time 0.05s, err_x 18.6643, err_y 0.0655, err_z 12.6472, err_trans 22.5458, err_rot 9.5905, err_R 12.8060, err_t 33.0882
+2024-12-04 19:39:54 | INFO     | epoch 197, train, loss 125852.2500, time 0.05s, err_x 18.6712, err_y 0.0471, err_z 12.6426, err_trans 22.5489, err_rot 9.5904, err_R 12.8045, err_t 33.0847
+2024-12-04 19:39:54 | INFO     | epoch 198, train, loss 125846.8750, time 0.05s, err_x 18.6784, err_y 0.0285, err_z 12.6381, err_trans 22.5523, err_rot 9.5900, err_R 12.8035, err_t 33.0820
+2024-12-04 19:39:55 | INFO     | epoch 199, train, loss 125835.7656, time 0.05s, err_x 18.6846, err_y 0.0070, err_z 12.6325, err_trans 22.5543, err_rot 9.5887, err_R 12.8023, err_t 33.0764
+2024-12-04 19:39:57 | INFO     | epoch 200, train, loss 125840.2109, time 2.78s, err_x 18.6929, err_y 0.0171, err_z 12.6256, err_trans 22.5573, err_rot 9.5879, err_R 12.8033, err_t 33.0732
+2024-12-04 19:39:57 | INFO     | epoch 201, train, loss 125840.9844, time 0.05s, err_x 18.7019, err_y 0.0432, err_z 12.6167, err_trans 22.5598, err_rot 9.5869, err_R 12.8052, err_t 33.0699
+2024-12-04 19:39:57 | INFO     | epoch 202, train, loss 125840.6094, time 0.05s, err_x 18.7118, err_y 0.0704, err_z 12.6061, err_trans 22.5622, err_rot 9.5856, err_R 12.8076, err_t 33.0670
+2024-12-04 19:39:57 | INFO     | epoch 203, train, loss 125841.0000, time 0.05s, err_x 18.7210, err_y 0.0896, err_z 12.5992, err_trans 22.5660, err_rot 9.5845, err_R 12.8089, err_t 33.0676
+2024-12-04 19:39:57 | INFO     | epoch 204, train, loss 125842.0000, time 0.05s, err_x 18.7280, err_y 0.1068, err_z 12.5957, err_trans 22.5699, err_rot 9.5828, err_R 12.8082, err_t 33.0664
+2024-12-04 19:39:58 | INFO     | epoch 205, train, loss 125827.2500, time 0.05s, err_x 18.7359, err_y 0.1170, err_z 12.5942, err_trans 22.5757, err_rot 9.5819, err_R 12.8079, err_t 33.0709
+2024-12-04 19:39:58 | INFO     | epoch 206, train, loss 125834.1250, time 0.05s, err_x 18.7466, err_y 0.1316, err_z 12.5875, err_trans 22.5809, err_rot 9.5819, err_R 12.8097, err_t 33.0756
+2024-12-04 19:39:58 | INFO     | epoch 207, train, loss 125839.8125, time 0.05s, err_x 18.7587, err_y 0.1554, err_z 12.5751, err_trans 22.5842, err_rot 9.5815, err_R 12.8127, err_t 33.0762
+2024-12-04 19:39:58 | INFO     | epoch 208, train, loss 125833.2031, time 0.05s, err_x 18.7701, err_y 0.1808, err_z 12.5619, err_trans 22.5865, err_rot 9.5807, err_R 12.8155, err_t 33.0748
+2024-12-04 19:39:58 | INFO     | epoch 209, train, loss 125849.7656, time 0.05s, err_x 18.7808, err_y 0.2022, err_z 12.5481, err_trans 22.5879, err_rot 9.5798, err_R 12.8178, err_t 33.0745
+2024-12-04 19:39:58 | INFO     | epoch 210, train, loss 125837.5625, time 0.05s, err_x 18.7871, err_y 0.2141, err_z 12.5407, err_trans 22.5892, err_rot 9.5777, err_R 12.8177, err_t 33.0752
+2024-12-04 19:39:58 | INFO     | epoch 211, train, loss 125838.7031, time 0.05s, err_x 18.7901, err_y 0.2203, err_z 12.5370, err_trans 22.5897, err_rot 9.5745, err_R 12.8155, err_t 33.0753
+2024-12-04 19:39:58 | INFO     | epoch 212, train, loss 125835.3750, time 0.05s, err_x 18.7938, err_y 0.2321, err_z 12.5283, err_trans 22.5880, err_rot 9.5709, err_R 12.8136, err_t 33.0716
+2024-12-04 19:39:58 | INFO     | epoch 213, train, loss 125824.7344, time 0.05s, err_x 18.7944, err_y 0.2610, err_z 12.5132, err_trans 22.5805, err_rot 9.5640, err_R 12.8101, err_t 33.0527
+2024-12-04 19:39:58 | INFO     | epoch 214, train, loss 125809.5469, time 0.05s, err_x 18.7959, err_y 0.2891, err_z 12.4989, err_trans 22.5742, err_rot 9.5574, err_R 12.8076, err_t 33.0363
+2024-12-04 19:39:58 | INFO     | epoch 215, train, loss 125798.3672, time 0.05s, err_x 18.7977, err_y 0.3122, err_z 12.4881, err_trans 22.5700, err_rot 9.5521, err_R 12.8050, err_t 33.0237
+2024-12-04 19:39:58 | INFO     | epoch 216, train, loss 125784.3125, time 0.05s, err_x 18.8017, err_y 0.3206, err_z 12.4832, err_trans 22.5707, err_rot 9.5496, err_R 12.8036, err_t 33.0238
+2024-12-04 19:39:58 | INFO     | epoch 217, train, loss 125795.6250, time 0.05s, err_x 18.8061, err_y 0.3292, err_z 12.4808, err_trans 22.5732, err_rot 9.5476, err_R 12.8028, err_t 33.0255
+2024-12-04 19:39:58 | INFO     | epoch 218, train, loss 125798.3750, time 0.05s, err_x 18.8086, err_y 0.3450, err_z 12.4775, err_trans 22.5737, err_rot 9.5442, err_R 12.8009, err_t 33.0201
+2024-12-04 19:39:58 | INFO     | epoch 219, train, loss 125776.8672, time 0.05s, err_x 18.8098, err_y 0.3554, err_z 12.4760, err_trans 22.5740, err_rot 9.5408, err_R 12.7975, err_t 33.0154
+2024-12-04 19:39:58 | INFO     | epoch 220, train, loss 125787.4844, time 0.05s, err_x 18.8081, err_y 0.3682, err_z 12.4778, err_trans 22.5737, err_rot 9.5365, err_R 12.7923, err_t 33.0058
+2024-12-04 19:39:58 | INFO     | epoch 221, train, loss 125766.8125, time 0.05s, err_x 18.8064, err_y 0.3942, err_z 12.4733, err_trans 22.5703, err_rot 9.5308, err_R 12.7871, err_t 32.9875
+2024-12-04 19:39:58 | INFO     | epoch 222, train, loss 125763.0859, time 0.05s, err_x 18.8086, err_y 0.4310, err_z 12.4628, err_trans 22.5670, err_rot 9.5254, err_R 12.7844, err_t 32.9678
+2024-12-04 19:39:58 | INFO     | epoch 223, train, loss 125748.5859, time 0.05s, err_x 18.8163, err_y 0.4757, err_z 12.4430, err_trans 22.5635, err_rot 9.5208, err_R 12.7849, err_t 32.9488
+2024-12-04 19:39:58 | INFO     | epoch 224, train, loss 125747.3359, time 0.05s, err_x 18.8314, err_y 0.5223, err_z 12.4170, err_trans 22.5627, err_rot 9.5186, err_R 12.7892, err_t 32.9371
+2024-12-04 19:39:58 | INFO     | epoch 225, train, loss 125741.8984, time 0.05s, err_x 18.8464, err_y 0.5646, err_z 12.3945, err_trans 22.5639, err_rot 9.5165, err_R 12.7939, err_t 32.9292
+2024-12-04 19:39:59 | INFO     | epoch 226, train, loss 125757.5000, time 0.05s, err_x 18.8648, err_y 0.6036, err_z 12.3757, err_trans 22.5700, err_rot 9.5162, err_R 12.8017, err_t 32.9309
+2024-12-04 19:39:59 | INFO     | epoch 227, train, loss 125777.2422, time 0.05s, err_x 18.8852, err_y 0.6358, err_z 12.3568, err_trans 22.5776, err_rot 9.5170, err_R 12.8112, err_t 32.9396
+2024-12-04 19:39:59 | INFO     | epoch 228, train, loss 125781.0000, time 0.05s, err_x 18.9084, err_y 0.6576, err_z 12.3436, err_trans 22.5903, err_rot 9.5194, err_R 12.8234, err_t 32.9613
+2024-12-04 19:39:59 | INFO     | epoch 229, train, loss 125794.7344, time 0.05s, err_x 18.9315, err_y 0.6716, err_z 12.3376, err_trans 22.6068, err_rot 9.5226, err_R 12.8369, err_t 32.9908
+2024-12-04 19:39:59 | INFO     | epoch 230, train, loss 125799.2734, time 0.05s, err_x 18.9534, err_y 0.6774, err_z 12.3378, err_trans 22.6255, err_rot 9.5260, err_R 12.8501, err_t 33.0256
+2024-12-04 19:39:59 | INFO     | epoch 231, train, loss 125816.7812, time 0.05s, err_x 18.9695, err_y 0.6874, err_z 12.3377, err_trans 22.6393, err_rot 9.5256, err_R 12.8601, err_t 33.0501
+2024-12-04 19:39:59 | INFO     | epoch 232, train, loss 125810.7031, time 0.05s, err_x 18.9807, err_y 0.7020, err_z 12.3374, err_trans 22.6489, err_rot 9.5229, err_R 12.8676, err_t 33.0655
+2024-12-04 19:39:59 | INFO     | epoch 233, train, loss 125802.9219, time 0.05s, err_x 18.9884, err_y 0.7214, err_z 12.3334, err_trans 22.6538, err_rot 9.5231, err_R 12.8732, err_t 33.0723
+2024-12-04 19:39:59 | INFO     | epoch 234, train, loss 125796.4375, time 0.05s, err_x 18.9909, err_y 0.7514, err_z 12.3247, err_trans 22.6522, err_rot 9.5313, err_R 12.8753, err_t 33.0642
+2024-12-04 19:39:59 | INFO     | epoch 235, train, loss 125773.4688, time 0.05s, err_x 18.9905, err_y 0.7866, err_z 12.3136, err_trans 22.6469, err_rot 9.5391, err_R 12.8753, err_t 33.0479
+2024-12-04 19:39:59 | INFO     | epoch 236, train, loss 125764.2109, time 0.05s, err_x 18.9915, err_y 0.8119, err_z 12.3033, err_trans 22.6431, err_rot 9.5459, err_R 12.8762, err_t 33.0392
+2024-12-04 19:39:59 | INFO     | epoch 237, train, loss 125741.1172, time 0.05s, err_x 18.9914, err_y 0.8273, err_z 12.2976, err_trans 22.6404, err_rot 9.5495, err_R 12.8766, err_t 33.0359
+2024-12-04 19:39:59 | INFO     | epoch 238, train, loss 125732.9062, time 0.05s, err_x 18.9899, err_y 0.8325, err_z 12.2979, err_trans 22.6395, err_rot 9.5500, err_R 12.8763, err_t 33.0379
+2024-12-04 19:39:59 | INFO     | epoch 239, train, loss 125713.9375, time 0.05s, err_x 18.9925, err_y 0.8383, err_z 12.2959, err_trans 22.6408, err_rot 9.5540, err_R 12.8787, err_t 33.0451
+2024-12-04 19:39:59 | INFO     | epoch 240, train, loss 125710.7500, time 0.05s, err_x 18.9975, err_y 0.8472, err_z 12.2918, err_trans 22.6431, err_rot 9.5595, err_R 12.8822, err_t 33.0532
+2024-12-04 19:39:59 | INFO     | epoch 241, train, loss 125691.2188, time 0.05s, err_x 19.0028, err_y 0.8532, err_z 12.2891, err_trans 22.6464, err_rot 9.5626, err_R 12.8854, err_t 33.0632
+2024-12-04 19:39:59 | INFO     | epoch 242, train, loss 125681.5625, time 0.05s, err_x 19.0062, err_y 0.8669, err_z 12.2828, err_trans 22.6463, err_rot 9.5650, err_R 12.8865, err_t 33.0636
+2024-12-04 19:39:59 | INFO     | epoch 243, train, loss 125682.7734, time 0.05s, err_x 19.0116, err_y 0.8779, err_z 12.2747, err_trans 22.6468, err_rot 9.5671, err_R 12.8879, err_t 33.0669
+2024-12-04 19:39:59 | INFO     | epoch 244, train, loss 125674.8672, time 0.05s, err_x 19.0188, err_y 0.8951, err_z 12.2627, err_trans 22.6471, err_rot 9.5724, err_R 12.8905, err_t 33.0683
+2024-12-04 19:39:59 | INFO     | epoch 245, train, loss 125670.3594, time 0.05s, err_x 19.0287, err_y 0.9162, err_z 12.2472, err_trans 22.6478, err_rot 9.5807, err_R 12.8945, err_t 33.0703
+2024-12-04 19:40:00 | INFO     | epoch 246, train, loss 125672.1875, time 0.05s, err_x 19.0399, err_y 0.9311, err_z 12.2328, err_trans 22.6501, err_rot 9.5880, err_R 12.8991, err_t 33.0775
+2024-12-04 19:40:00 | INFO     | epoch 247, train, loss 125671.7188, time 0.05s, err_x 19.0500, err_y 0.9469, err_z 12.2185, err_trans 22.6515, err_rot 9.5948, err_R 12.9027, err_t 33.0824
+2024-12-04 19:40:00 | INFO     | epoch 248, train, loss 125667.8906, time 0.05s, err_x 19.0575, err_y 0.9638, err_z 12.2040, err_trans 22.6507, err_rot 9.5996, err_R 12.9043, err_t 33.0823
+2024-12-04 19:40:00 | INFO     | epoch 249, train, loss 125660.6719, time 0.05s, err_x 19.0640, err_y 0.9811, err_z 12.1889, err_trans 22.6488, err_rot 9.6025, err_R 12.9044, err_t 33.0792
+2024-12-04 19:40:00 | INFO     | epoch 250, train, loss 125657.2656, time 0.05s, err_x 19.0720, err_y 1.0005, err_z 12.1707, err_trans 22.6466, err_rot 9.6067, err_R 12.9049, err_t 33.0758
+2024-12-04 19:40:00 | INFO     | epoch 251, train, loss 125652.7109, time 0.05s, err_x 19.0834, err_y 1.0193, err_z 12.1501, err_trans 22.6460, err_rot 9.6133, err_R 12.9073, err_t 33.0769
+2024-12-04 19:40:00 | INFO     | epoch 252, train, loss 125665.2500, time 0.05s, err_x 19.0976, err_y 1.0439, err_z 12.1262, err_trans 22.6462, err_rot 9.6229, err_R 12.9115, err_t 33.0780
+2024-12-04 19:40:00 | INFO     | epoch 253, train, loss 125670.7500, time 0.05s, err_x 19.1123, err_y 1.0681, err_z 12.1011, err_trans 22.6463, err_rot 9.6327, err_R 12.9159, err_t 33.0797
+2024-12-04 19:40:00 | INFO     | epoch 254, train, loss 125675.5859, time 0.05s, err_x 19.1279, err_y 1.0878, err_z 12.0788, err_trans 22.6486, err_rot 9.6413, err_R 12.9207, err_t 33.0858
+2024-12-04 19:40:00 | INFO     | epoch 255, train, loss 125687.1875, time 0.05s, err_x 19.1469, err_y 1.1120, err_z 12.0485, err_trans 22.6497, err_rot 9.6527, err_R 12.9269, err_t 33.0912
+2024-12-04 19:40:00 | INFO     | epoch 256, train, loss 125699.6250, time 0.05s, err_x 19.1640, err_y 1.1338, err_z 12.0192, err_trans 22.6497, err_rot 9.6616, err_R 12.9321, err_t 33.0957
+2024-12-04 19:40:00 | INFO     | epoch 257, train, loss 125709.9375, time 0.05s, err_x 19.1783, err_y 1.1581, err_z 11.9888, err_trans 22.6468, err_rot 9.6693, err_R 12.9354, err_t 33.0943
+2024-12-04 19:40:00 | INFO     | epoch 258, train, loss 125715.0156, time 0.05s, err_x 19.1855, err_y 1.1824, err_z 11.9644, err_trans 22.6413, err_rot 9.6719, err_R 12.9343, err_t 33.0842
+2024-12-04 19:40:00 | INFO     | epoch 259, train, loss 125711.7188, time 0.05s, err_x 19.1931, err_y 1.2136, err_z 11.9350, err_trans 22.6338, err_rot 9.6762, err_R 12.9329, err_t 33.0687
+2024-12-04 19:40:00 | INFO     | epoch 260, train, loss 125709.4609, time 0.05s, err_x 19.2088, err_y 1.2356, err_z 11.9027, err_trans 22.6313, err_rot 9.6843, err_R 12.9364, err_t 33.0694
+2024-12-04 19:40:00 | INFO     | epoch 261, train, loss 125720.2656, time 0.05s, err_x 19.2301, err_y 1.2404, err_z 11.8768, err_trans 22.6361, err_rot 9.6927, err_R 12.9448, err_t 33.0909
+2024-12-04 19:40:00 | INFO     | epoch 262, train, loss 125740.1797, time 0.05s, err_x 19.2470, err_y 1.2318, err_z 11.8595, err_trans 22.6410, err_rot 9.6951, err_R 12.9512, err_t 33.1163
+2024-12-04 19:40:00 | INFO     | epoch 263, train, loss 125748.8359, time 0.05s, err_x 19.2610, err_y 1.2314, err_z 11.8386, err_trans 22.6419, err_rot 9.7000, err_R 12.9563, err_t 33.1327
+2024-12-04 19:40:00 | INFO     | epoch 264, train, loss 125751.7109, time 0.05s, err_x 19.2698, err_y 1.2473, err_z 11.8127, err_trans 22.6367, err_rot 9.7057, err_R 12.9577, err_t 33.1309
+2024-12-04 19:40:00 | INFO     | epoch 265, train, loss 125745.5234, time 0.05s, err_x 19.2757, err_y 1.2698, err_z 11.7868, err_trans 22.6295, err_rot 9.7114, err_R 12.9574, err_t 33.1216
+2024-12-04 19:40:00 | INFO     | epoch 266, train, loss 125729.0859, time 0.05s, err_x 19.2793, err_y 1.2786, err_z 11.7692, err_trans 22.6239, err_rot 9.7124, err_R 12.9565, err_t 33.1193
+2024-12-04 19:40:01 | INFO     | epoch 267, train, loss 125714.6250, time 0.05s, err_x 19.2788, err_y 1.2946, err_z 11.7516, err_trans 22.6153, err_rot 9.7141, err_R 12.9540, err_t 33.1083
+2024-12-04 19:40:01 | INFO     | epoch 268, train, loss 125699.8359, time 0.05s, err_x 19.2799, err_y 1.3075, err_z 11.7350, err_trans 22.6083, err_rot 9.7179, err_R 12.9534, err_t 33.1027
+2024-12-04 19:40:01 | INFO     | epoch 269, train, loss 125679.9219, time 0.05s, err_x 19.2849, err_y 1.3182, err_z 11.7164, err_trans 22.6035, err_rot 9.7246, err_R 12.9556, err_t 33.1042
+2024-12-04 19:40:01 | INFO     | epoch 270, train, loss 125683.7969, time 0.05s, err_x 19.2965, err_y 1.3237, err_z 11.6963, err_trans 22.6033, err_rot 9.7361, err_R 12.9628, err_t 33.1189
+2024-12-04 19:40:01 | INFO     | epoch 271, train, loss 125690.1719, time 0.05s, err_x 19.3103, err_y 1.3351, err_z 11.6726, err_trans 22.6035, err_rot 9.7508, err_R 12.9717, err_t 33.1331
+2024-12-04 19:40:01 | INFO     | epoch 272, train, loss 125688.5781, time 0.05s, err_x 19.3213, err_y 1.3607, err_z 11.6461, err_trans 22.6008, err_rot 9.7664, err_R 12.9783, err_t 33.1344
+2024-12-04 19:40:01 | INFO     | epoch 273, train, loss 125695.8984, time 0.05s, err_x 19.3291, err_y 1.3849, err_z 11.6210, err_trans 22.5960, err_rot 9.7785, err_R 12.9824, err_t 33.1314
+2024-12-04 19:40:01 | INFO     | epoch 274, train, loss 125663.7656, time 0.05s, err_x 19.3357, err_y 1.3891, err_z 11.6090, err_trans 22.5958, err_rot 9.7856, err_R 12.9872, err_t 33.1424
+2024-12-04 19:40:01 | INFO     | epoch 275, train, loss 125664.7188, time 0.05s, err_x 19.3395, err_y 1.3907, err_z 11.6013, err_trans 22.5951, err_rot 9.7897, err_R 12.9907, err_t 33.1520
+2024-12-04 19:40:01 | INFO     | epoch 276, train, loss 125662.1719, time 0.05s, err_x 19.3437, err_y 1.4065, err_z 11.5864, err_trans 22.5921, err_rot 9.7967, err_R 12.9933, err_t 33.1516
+2024-12-04 19:40:01 | INFO     | epoch 277, train, loss 125641.2109, time 0.05s, err_x 19.3465, err_y 1.4324, err_z 11.5698, err_trans 22.5876, err_rot 9.8042, err_R 12.9947, err_t 33.1428
+2024-12-04 19:40:01 | INFO     | epoch 278, train, loss 125617.8047, time 0.05s, err_x 19.3520, err_y 1.4622, err_z 11.5512, err_trans 22.5846, err_rot 9.8128, err_R 12.9967, err_t 33.1341
+2024-12-04 19:40:01 | INFO     | epoch 279, train, loss 125618.0469, time 0.05s, err_x 19.3615, err_y 1.4853, err_z 11.5329, err_trans 22.5850, err_rot 9.8202, err_R 13.0003, err_t 33.1339
+2024-12-04 19:40:01 | INFO     | epoch 280, train, loss 125638.7812, time 0.05s, err_x 19.3765, err_y 1.4880, err_z 11.5225, err_trans 22.5927, err_rot 9.8239, err_R 13.0071, err_t 33.1543
+2024-12-04 19:40:01 | INFO     | epoch 281, train, loss 125634.7969, time 0.05s, err_x 19.3871, err_y 1.5025, err_z 11.5092, err_trans 22.5960, err_rot 9.8258, err_R 13.0102, err_t 33.1599
+2024-12-04 19:40:01 | INFO     | epoch 282, train, loss 125629.7734, time 0.05s, err_x 19.3953, err_y 1.5266, err_z 11.4949, err_trans 22.5974, err_rot 9.8280, err_R 13.0119, err_t 33.1565
+2024-12-04 19:40:01 | INFO     | epoch 283, train, loss 125610.2656, time 0.05s, err_x 19.4015, err_y 1.5577, err_z 11.4801, err_trans 22.5973, err_rot 9.8293, err_R 13.0119, err_t 33.1460
+2024-12-04 19:40:01 | INFO     | epoch 284, train, loss 125609.8984, time 0.05s, err_x 19.4079, err_y 1.5922, err_z 11.4646, err_trans 22.5974, err_rot 9.8315, err_R 13.0119, err_t 33.1339
+2024-12-04 19:40:01 | INFO     | epoch 285, train, loss 125605.5469, time 0.05s, err_x 19.4194, err_y 1.6167, err_z 11.4496, err_trans 22.6014, err_rot 9.8341, err_R 13.0150, err_t 33.1343
+2024-12-04 19:40:01 | INFO     | epoch 286, train, loss 125607.6797, time 0.05s, err_x 19.4338, err_y 1.6322, err_z 11.4357, err_trans 22.6078, err_rot 9.8361, err_R 13.0198, err_t 33.1440
+2024-12-04 19:40:01 | INFO     | epoch 287, train, loss 125616.5625, time 0.05s, err_x 19.4499, err_y 1.6510, err_z 11.4170, err_trans 22.6135, err_rot 9.8408, err_R 13.0250, err_t 33.1524
+2024-12-04 19:40:02 | INFO     | epoch 288, train, loss 125627.8359, time 0.05s, err_x 19.4659, err_y 1.6723, err_z 11.3956, err_trans 22.6180, err_rot 9.8466, err_R 13.0297, err_t 33.1582
+2024-12-04 19:40:02 | INFO     | epoch 289, train, loss 125631.3984, time 0.05s, err_x 19.4795, err_y 1.6936, err_z 11.3736, err_trans 22.6203, err_rot 9.8500, err_R 13.0324, err_t 33.1595
+2024-12-04 19:40:02 | INFO     | epoch 290, train, loss 125630.8125, time 0.05s, err_x 19.4926, err_y 1.7082, err_z 11.3534, err_trans 22.6226, err_rot 9.8511, err_R 13.0348, err_t 33.1640
+2024-12-04 19:40:02 | INFO     | epoch 291, train, loss 125621.0859, time 0.05s, err_x 19.5044, err_y 1.7185, err_z 11.3363, err_trans 22.6250, err_rot 9.8484, err_R 13.0362, err_t 33.1692
+2024-12-04 19:40:02 | INFO     | epoch 292, train, loss 125611.2969, time 0.05s, err_x 19.5173, err_y 1.7240, err_z 11.3173, err_trans 22.6269, err_rot 9.8449, err_R 13.0378, err_t 33.1773
+2024-12-04 19:40:02 | INFO     | epoch 293, train, loss 125607.6250, time 0.05s, err_x 19.5290, err_y 1.7308, err_z 11.2946, err_trans 22.6262, err_rot 9.8410, err_R 13.0380, err_t 33.1814
+2024-12-04 19:40:02 | INFO     | epoch 294, train, loss 125610.3359, time 0.05s, err_x 19.5404, err_y 1.7431, err_z 11.2666, err_trans 22.6230, err_rot 9.8369, err_R 13.0369, err_t 33.1791
+2024-12-04 19:40:02 | INFO     | epoch 295, train, loss 125609.4922, time 0.05s, err_x 19.5511, err_y 1.7651, err_z 11.2315, err_trans 22.6165, err_rot 9.8347, err_R 13.0346, err_t 33.1682
+2024-12-04 19:40:02 | INFO     | epoch 296, train, loss 125620.5859, time 0.05s, err_x 19.5619, err_y 1.7902, err_z 11.1914, err_trans 22.6080, err_rot 9.8336, err_R 13.0319, err_t 33.1539
+2024-12-04 19:40:02 | INFO     | epoch 297, train, loss 125620.5234, time 0.05s, err_x 19.5766, err_y 1.8085, err_z 11.1543, err_trans 22.6038, err_rot 9.8337, err_R 13.0323, err_t 33.1506
+2024-12-04 19:40:02 | INFO     | epoch 298, train, loss 125630.9531, time 0.05s, err_x 19.5905, err_y 1.8183, err_z 11.1229, err_trans 22.6012, err_rot 9.8321, err_R 13.0332, err_t 33.1531
+2024-12-04 19:40:02 | INFO     | epoch 299, train, loss 125637.1484, time 0.05s, err_x 19.6000, err_y 1.8188, err_z 11.1005, err_trans 22.5984, err_rot 9.8253, err_R 13.0323, err_t 33.1572
+2024-12-04 19:40:05 | INFO     | epoch 300, train, loss 125625.3125, time 2.82s, err_x 19.6063, err_y 1.8252, err_z 11.0785, err_trans 22.5936, err_rot 9.8197, err_R 13.0303, err_t 33.1544
+2024-12-04 19:40:05 | INFO     | epoch 301, train, loss 125635.3984, time 0.05s, err_x 19.6122, err_y 1.8311, err_z 11.0605, err_trans 22.5904, err_rot 9.8149, err_R 13.0293, err_t 33.1540
+2024-12-04 19:40:05 | INFO     | epoch 302, train, loss 125612.0312, time 0.05s, err_x 19.6172, err_y 1.8421, err_z 11.0378, err_trans 22.5845, err_rot 9.8092, err_R 13.0265, err_t 33.1467
+2024-12-04 19:40:05 | INFO     | epoch 303, train, loss 125614.5156, time 0.05s, err_x 19.6210, err_y 1.8671, err_z 11.0084, err_trans 22.5755, err_rot 9.8059, err_R 13.0221, err_t 33.1279
+2024-12-04 19:40:05 | INFO     | epoch 304, train, loss 125610.2344, time 0.05s, err_x 19.6315, err_y 1.8864, err_z 10.9789, err_trans 22.5719, err_rot 9.8059, err_R 13.0223, err_t 33.1223
+2024-12-04 19:40:05 | INFO     | epoch 305, train, loss 125620.0234, time 0.05s, err_x 19.6463, err_y 1.9022, err_z 10.9495, err_trans 22.5718, err_rot 9.8074, err_R 13.0251, err_t 33.1250
+2024-12-04 19:40:05 | INFO     | epoch 306, train, loss 125630.3984, time 0.05s, err_x 19.6626, err_y 1.9091, err_z 10.9242, err_trans 22.5743, err_rot 9.8083, err_R 13.0299, err_t 33.1368
+2024-12-04 19:40:05 | INFO     | epoch 307, train, loss 125621.2344, time 0.05s, err_x 19.6763, err_y 1.9167, err_z 10.9040, err_trans 22.5772, err_rot 9.8064, err_R 13.0334, err_t 33.1460
+2024-12-04 19:40:05 | INFO     | epoch 308, train, loss 125626.0625, time 0.05s, err_x 19.6911, err_y 1.9232, err_z 10.8818, err_trans 22.5799, err_rot 9.8049, err_R 13.0373, err_t 33.1565
+2024-12-04 19:40:05 | INFO     | epoch 309, train, loss 125629.3281, time 0.05s, err_x 19.7038, err_y 1.9360, err_z 10.8538, err_trans 22.5786, err_rot 9.8046, err_R 13.0394, err_t 33.1586
+2024-12-04 19:40:05 | INFO     | epoch 310, train, loss 125637.2109, time 0.05s, err_x 19.7153, err_y 1.9615, err_z 10.8172, err_trans 22.5733, err_rot 9.8071, err_R 13.0396, err_t 33.1490
+2024-12-04 19:40:05 | INFO     | epoch 311, train, loss 125631.4844, time 0.05s, err_x 19.7215, err_y 1.9855, err_z 10.7836, err_trans 22.5647, err_rot 9.8058, err_R 13.0368, err_t 33.1332
+2024-12-04 19:40:05 | INFO     | epoch 312, train, loss 125641.1484, time 0.05s, err_x 19.7311, err_y 2.0066, err_z 10.7472, err_trans 22.5576, err_rot 9.8064, err_R 13.0356, err_t 33.1226
+2024-12-04 19:40:05 | INFO     | epoch 313, train, loss 125636.1484, time 0.05s, err_x 19.7386, err_y 2.0323, err_z 10.7079, err_trans 22.5477, err_rot 9.8058, err_R 13.0319, err_t 33.1045
+2024-12-04 19:40:06 | INFO     | epoch 314, train, loss 125639.9375, time 0.05s, err_x 19.7531, err_y 2.0476, err_z 10.6734, err_trans 22.5455, err_rot 9.8068, err_R 13.0338, err_t 33.1049
+2024-12-04 19:40:06 | INFO     | epoch 315, train, loss 125649.0234, time 0.05s, err_x 19.7693, err_y 2.0531, err_z 10.6478, err_trans 22.5481, err_rot 9.8074, err_R 13.0384, err_t 33.1170
+2024-12-04 19:40:06 | INFO     | epoch 316, train, loss 125652.2734, time 0.05s, err_x 19.7850, err_y 2.0612, err_z 10.6216, err_trans 22.5503, err_rot 9.8082, err_R 13.0428, err_t 33.1271
+2024-12-04 19:40:06 | INFO     | epoch 317, train, loss 125647.1875, time 0.05s, err_x 19.7945, err_y 2.0597, err_z 10.6045, err_trans 22.5504, err_rot 9.8032, err_R 13.0449, err_t 33.1365
+2024-12-04 19:40:06 | INFO     | epoch 318, train, loss 125656.9375, time 0.05s, err_x 19.8042, err_y 2.0700, err_z 10.5786, err_trans 22.5477, err_rot 9.8023, err_R 13.0463, err_t 33.1371
+2024-12-04 19:40:06 | INFO     | epoch 319, train, loss 125656.3906, time 0.05s, err_x 19.8136, err_y 2.0943, err_z 10.5431, err_trans 22.5415, err_rot 9.8049, err_R 13.0464, err_t 33.1267
+2024-12-04 19:40:06 | INFO     | epoch 320, train, loss 125650.2656, time 0.05s, err_x 19.8209, err_y 2.1075, err_z 10.5154, err_trans 22.5363, err_rot 9.8045, err_R 13.0468, err_t 33.1226
+2024-12-04 19:40:06 | INFO     | epoch 321, train, loss 125648.7734, time 0.05s, err_x 19.8266, err_y 2.1148, err_z 10.4919, err_trans 22.5310, err_rot 9.8021, err_R 13.0470, err_t 33.1209
+2024-12-04 19:40:06 | INFO     | epoch 322, train, loss 125639.6719, time 0.05s, err_x 19.8332, err_y 2.1273, err_z 10.4636, err_trans 22.5248, err_rot 9.8033, err_R 13.0478, err_t 33.1170
+2024-12-04 19:40:06 | INFO     | epoch 323, train, loss 125634.5234, time 0.05s, err_x 19.8419, err_y 2.1507, err_z 10.4285, err_trans 22.5185, err_rot 9.8092, err_R 13.0493, err_t 33.1086
+2024-12-04 19:40:06 | INFO     | epoch 324, train, loss 125628.0000, time 0.05s, err_x 19.8497, err_y 2.1633, err_z 10.4025, err_trans 22.5145, err_rot 9.8128, err_R 13.0520, err_t 33.1086
+2024-12-04 19:40:06 | INFO     | epoch 325, train, loss 125634.6250, time 0.05s, err_x 19.8579, err_y 2.1686, err_z 10.3834, err_trans 22.5134, err_rot 9.8156, err_R 13.0564, err_t 33.1163
+2024-12-04 19:40:06 | INFO     | epoch 326, train, loss 125629.5000, time 0.05s, err_x 19.8691, err_y 2.1939, err_z 10.3526, err_trans 22.5116, err_rot 9.8257, err_R 13.0613, err_t 33.1142
+2024-12-04 19:40:06 | INFO     | epoch 327, train, loss 125636.8594, time 0.05s, err_x 19.8802, err_y 2.2173, err_z 10.3259, err_trans 22.5114, err_rot 9.8353, err_R 13.0670, err_t 33.1149
+2024-12-04 19:40:06 | INFO     | epoch 328, train, loss 125631.2734, time 0.05s, err_x 19.8878, err_y 2.2262, err_z 10.3105, err_trans 22.5120, err_rot 9.8391, err_R 13.0725, err_t 33.1225
+2024-12-04 19:40:06 | INFO     | epoch 329, train, loss 125618.2422, time 0.05s, err_x 19.8942, err_y 2.2356, err_z 10.2994, err_trans 22.5134, err_rot 9.8415, err_R 13.0777, err_t 33.1295
+2024-12-04 19:40:06 | INFO     | epoch 330, train, loss 125615.9922, time 0.05s, err_x 19.9046, err_y 2.2533, err_z 10.2811, err_trans 22.5160, err_rot 9.8495, err_R 13.0846, err_t 33.1360
+2024-12-04 19:40:06 | INFO     | epoch 331, train, loss 125624.0469, time 0.05s, err_x 19.9172, err_y 2.2823, err_z 10.2538, err_trans 22.5177, err_rot 9.8619, err_R 13.0915, err_t 33.1364
+2024-12-04 19:40:06 | INFO     | epoch 332, train, loss 125629.0469, time 0.05s, err_x 19.9287, err_y 2.3105, err_z 10.2298, err_trans 22.5198, err_rot 9.8722, err_R 13.0976, err_t 33.1363
+2024-12-04 19:40:06 | INFO     | epoch 333, train, loss 125615.5859, time 0.05s, err_x 19.9372, err_y 2.3478, err_z 10.2055, err_trans 22.5201, err_rot 9.8815, err_R 13.1010, err_t 33.1259
+2024-12-04 19:40:07 | INFO     | epoch 334, train, loss 125611.9531, time 0.05s, err_x 19.9504, err_y 2.3807, err_z 10.1774, err_trans 22.5225, err_rot 9.8933, err_R 13.1070, err_t 33.1236
+2024-12-04 19:40:07 | INFO     | epoch 335, train, loss 125616.0781, time 0.05s, err_x 19.9630, err_y 2.4008, err_z 10.1581, err_trans 22.5271, err_rot 9.9028, err_R 13.1146, err_t 33.1311
+2024-12-04 19:40:07 | INFO     | epoch 336, train, loss 125612.7812, time 0.05s, err_x 19.9749, err_y 2.4118, err_z 10.1444, err_trans 22.5327, err_rot 9.9102, err_R 13.1230, err_t 33.1449
+2024-12-04 19:40:07 | INFO     | epoch 337, train, loss 125608.9375, time 0.05s, err_x 19.9827, err_y 2.4322, err_z 10.1289, err_trans 22.5348, err_rot 9.9167, err_R 13.1280, err_t 33.1462
+2024-12-04 19:40:07 | INFO     | epoch 338, train, loss 125598.6797, time 0.05s, err_x 19.9870, err_y 2.4592, err_z 10.1121, err_trans 22.5340, err_rot 9.9217, err_R 13.1300, err_t 33.1375
+2024-12-04 19:40:07 | INFO     | epoch 339, train, loss 125589.0469, time 0.05s, err_x 19.9930, err_y 2.4700, err_z 10.1034, err_trans 22.5366, err_rot 9.9235, err_R 13.1346, err_t 33.1431
+2024-12-04 19:40:07 | INFO     | epoch 340, train, loss 125586.6484, time 0.05s, err_x 19.9998, err_y 2.4834, err_z 10.0902, err_trans 22.5382, err_rot 9.9243, err_R 13.1377, err_t 33.1449
+2024-12-04 19:40:07 | INFO     | epoch 341, train, loss 125590.7734, time 0.05s, err_x 20.0061, err_y 2.4990, err_z 10.0775, err_trans 22.5398, err_rot 9.9236, err_R 13.1397, err_t 33.1441
+2024-12-04 19:40:07 | INFO     | epoch 342, train, loss 125569.9062, time 0.05s, err_x 20.0123, err_y 2.5121, err_z 10.0676, err_trans 22.5424, err_rot 9.9215, err_R 13.1421, err_t 33.1456
+2024-12-04 19:40:07 | INFO     | epoch 343, train, loss 125564.3359, time 0.05s, err_x 20.0224, err_y 2.5124, err_z 10.0605, err_trans 22.5482, err_rot 9.9193, err_R 13.1478, err_t 33.1608
+2024-12-04 19:40:07 | INFO     | epoch 344, train, loss 125570.8359, time 0.05s, err_x 20.0336, err_y 2.5116, err_z 10.0488, err_trans 22.5528, err_rot 9.9163, err_R 13.1532, err_t 33.1758
+2024-12-04 19:40:07 | INFO     | epoch 345, train, loss 125578.3750, time 0.05s, err_x 20.0445, err_y 2.5139, err_z 10.0304, err_trans 22.5547, err_rot 9.9128, err_R 13.1570, err_t 33.1855
+2024-12-04 19:40:07 | INFO     | epoch 346, train, loss 125568.3125, time 0.05s, err_x 20.0562, err_y 2.5142, err_z 10.0097, err_trans 22.5558, err_rot 9.9086, err_R 13.1608, err_t 33.1960
+2024-12-04 19:40:07 | INFO     | epoch 347, train, loss 125569.2500, time 0.05s, err_x 20.0601, err_y 2.5245, err_z 9.9890, err_trans 22.5513, err_rot 9.9009, err_R 13.1591, err_t 33.1891
+2024-12-04 19:40:07 | INFO     | epoch 348, train, loss 125548.8281, time 0.05s, err_x 20.0619, err_y 2.5453, err_z 9.9612, err_trans 22.5429, err_rot 9.8926, err_R 13.1542, err_t 33.1695
+2024-12-04 19:40:07 | INFO     | epoch 349, train, loss 125541.3359, time 0.05s, err_x 20.0645, err_y 2.5743, err_z 9.9245, err_trans 22.5323, err_rot 9.8853, err_R 13.1478, err_t 33.1428
+2024-12-04 19:40:07 | INFO     | epoch 350, train, loss 125536.3047, time 0.05s, err_x 20.0687, err_y 2.5944, err_z 9.8921, err_trans 22.5242, err_rot 9.8767, err_R 13.1433, err_t 33.1248
+2024-12-04 19:40:07 | INFO     | epoch 351, train, loss 125531.3125, time 0.05s, err_x 20.0754, err_y 2.6074, err_z 9.8632, err_trans 22.5189, err_rot 9.8679, err_R 13.1412, err_t 33.1158
+2024-12-04 19:40:07 | INFO     | epoch 352, train, loss 125535.8359, time 0.05s, err_x 20.0852, err_y 2.6182, err_z 9.8322, err_trans 22.5154, err_rot 9.8590, err_R 13.1403, err_t 33.1112
+2024-12-04 19:40:07 | INFO     | epoch 353, train, loss 125543.2734, time 0.05s, err_x 20.0996, err_y 2.6318, err_z 9.7975, err_trans 22.5147, err_rot 9.8533, err_R 13.1413, err_t 33.1104
+2024-12-04 19:40:07 | INFO     | epoch 354, train, loss 125556.1719, time 0.05s, err_x 20.1139, err_y 2.6466, err_z 9.7652, err_trans 22.5151, err_rot 9.8483, err_R 13.1425, err_t 33.1099
+2024-12-04 19:40:08 | INFO     | epoch 355, train, loss 125574.4219, time 0.05s, err_x 20.1273, err_y 2.6612, err_z 9.7382, err_trans 22.5172, err_rot 9.8427, err_R 13.1442, err_t 33.1106
+2024-12-04 19:40:08 | INFO     | epoch 356, train, loss 125588.7734, time 0.05s, err_x 20.1438, err_y 2.6801, err_z 9.7066, err_trans 22.5205, err_rot 9.8400, err_R 13.1468, err_t 33.1118
+2024-12-04 19:40:08 | INFO     | epoch 357, train, loss 125591.1250, time 0.05s, err_x 20.1595, err_y 2.7043, err_z 9.6736, err_trans 22.5232, err_rot 9.8382, err_R 13.1487, err_t 33.1087
+2024-12-04 19:40:08 | INFO     | epoch 358, train, loss 125590.3906, time 0.05s, err_x 20.1790, err_y 2.7341, err_z 9.6343, err_trans 22.5275, err_rot 9.8395, err_R 13.1518, err_t 33.1061
+2024-12-04 19:40:08 | INFO     | epoch 359, train, loss 125593.0234, time 0.05s, err_x 20.1965, err_y 2.7722, err_z 9.5875, err_trans 22.5278, err_rot 9.8415, err_R 13.1521, err_t 33.0930
+2024-12-04 19:40:08 | INFO     | epoch 360, train, loss 125603.5000, time 0.05s, err_x 20.2148, err_y 2.7984, err_z 9.5445, err_trans 22.5292, err_rot 9.8418, err_R 13.1541, err_t 33.0890
+2024-12-04 19:40:08 | INFO     | epoch 361, train, loss 125612.2109, time 0.05s, err_x 20.2348, err_y 2.8147, err_z 9.5040, err_trans 22.5321, err_rot 9.8409, err_R 13.1578, err_t 33.0937
+2024-12-04 19:40:08 | INFO     | epoch 362, train, loss 125622.8438, time 0.05s, err_x 20.2611, err_y 2.8325, err_z 9.4566, err_trans 22.5380, err_rot 9.8454, err_R 13.1646, err_t 33.1050
+2024-12-04 19:40:08 | INFO     | epoch 363, train, loss 125652.3906, time 0.05s, err_x 20.2826, err_y 2.8552, err_z 9.4088, err_trans 22.5402, err_rot 9.8492, err_R 13.1688, err_t 33.1072
+2024-12-04 19:40:08 | INFO     | epoch 364, train, loss 125672.7500, time 0.05s, err_x 20.2989, err_y 2.8842, err_z 9.3609, err_trans 22.5387, err_rot 9.8514, err_R 13.1702, err_t 33.0987
+2024-12-04 19:40:08 | INFO     | epoch 365, train, loss 125691.5469, time 0.05s, err_x 20.3133, err_y 2.9104, err_z 9.3183, err_trans 22.5373, err_rot 9.8546, err_R 13.1726, err_t 33.0925
+2024-12-04 19:40:08 | INFO     | epoch 366, train, loss 125689.0938, time 0.05s, err_x 20.3243, err_y 2.9268, err_z 9.2863, err_trans 22.5361, err_rot 9.8542, err_R 13.1754, err_t 33.0910
+2024-12-04 19:40:08 | INFO     | epoch 367, train, loss 125687.2031, time 0.05s, err_x 20.3369, err_y 2.9286, err_z 9.2618, err_trans 22.5377, err_rot 9.8534, err_R 13.1817, err_t 33.1035
+2024-12-04 19:40:08 | INFO     | epoch 368, train, loss 125693.8984, time 0.05s, err_x 20.3500, err_y 2.9380, err_z 9.2329, err_trans 22.5389, err_rot 9.8540, err_R 13.1875, err_t 33.1114
+2024-12-04 19:40:08 | INFO     | epoch 369, train, loss 125694.6172, time 0.05s, err_x 20.3582, err_y 2.9538, err_z 9.2026, err_trans 22.5360, err_rot 9.8506, err_R 13.1892, err_t 33.1067
+2024-12-04 19:40:08 | INFO     | epoch 370, train, loss 125682.1484, time 0.05s, err_x 20.3607, err_y 2.9744, err_z 9.1746, err_trans 22.5295, err_rot 9.8436, err_R 13.1875, err_t 33.0915
+2024-12-04 19:40:08 | INFO     | epoch 371, train, loss 125673.4219, time 0.05s, err_x 20.3643, err_y 2.9944, err_z 9.1451, err_trans 22.5234, err_rot 9.8363, err_R 13.1860, err_t 33.0773
+2024-12-04 19:40:08 | INFO     | epoch 372, train, loss 125668.0469, time 0.05s, err_x 20.3713, err_y 3.0054, err_z 9.1159, err_trans 22.5194, err_rot 9.8288, err_R 13.1868, err_t 33.0728
+2024-12-04 19:40:08 | INFO     | epoch 373, train, loss 125660.8750, time 0.05s, err_x 20.3789, err_y 3.0171, err_z 9.0860, err_trans 22.5157, err_rot 9.8231, err_R 13.1884, err_t 33.0692
+2024-12-04 19:40:08 | INFO     | epoch 374, train, loss 125657.5625, time 0.05s, err_x 20.3874, err_y 3.0339, err_z 9.0553, err_trans 22.5133, err_rot 9.8202, err_R 13.1907, err_t 33.0647
+2024-12-04 19:40:08 | INFO     | epoch 375, train, loss 125657.5234, time 0.05s, err_x 20.3967, err_y 3.0555, err_z 9.0237, err_trans 22.5119, err_rot 9.8196, err_R 13.1935, err_t 33.0593
+2024-12-04 19:40:09 | INFO     | epoch 376, train, loss 125657.1172, time 0.05s, err_x 20.4082, err_y 3.0709, err_z 8.9965, err_trans 22.5136, err_rot 9.8199, err_R 13.1988, err_t 33.0626
+2024-12-04 19:40:09 | INFO     | epoch 377, train, loss 125646.6094, time 0.05s, err_x 20.4189, err_y 3.0809, err_z 8.9725, err_trans 22.5151, err_rot 9.8205, err_R 13.2050, err_t 33.0694
+2024-12-04 19:40:09 | INFO     | epoch 378, train, loss 125646.9922, time 0.05s, err_x 20.4262, err_y 3.0973, err_z 8.9453, err_trans 22.5132, err_rot 9.8210, err_R 13.2085, err_t 33.0666
+2024-12-04 19:40:09 | INFO     | epoch 379, train, loss 125638.2969, time 0.05s, err_x 20.4324, err_y 3.1197, err_z 8.9149, err_trans 22.5098, err_rot 9.8218, err_R 13.2105, err_t 33.0575
+2024-12-04 19:40:09 | INFO     | epoch 380, train, loss 125634.2109, time 0.05s, err_x 20.4385, err_y 3.1448, err_z 8.8829, err_trans 22.5062, err_rot 9.8234, err_R 13.2121, err_t 33.0463
+2024-12-04 19:40:09 | INFO     | epoch 381, train, loss 125633.6172, time 0.05s, err_x 20.4443, err_y 3.1692, err_z 8.8498, err_trans 22.5019, err_rot 9.8259, err_R 13.2138, err_t 33.0351
+2024-12-04 19:40:09 | INFO     | epoch 382, train, loss 125626.0234, time 0.05s, err_x 20.4490, err_y 3.1891, err_z 8.8220, err_trans 22.4980, err_rot 9.8276, err_R 13.2164, err_t 33.0272
+2024-12-04 19:40:09 | INFO     | epoch 383, train, loss 125609.2969, time 0.05s, err_x 20.4536, err_y 3.2047, err_z 8.7967, err_trans 22.4944, err_rot 9.8281, err_R 13.2198, err_t 33.0226
+2024-12-04 19:40:09 | INFO     | epoch 384, train, loss 125607.6094, time 0.05s, err_x 20.4615, err_y 3.2186, err_z 8.7700, err_trans 22.4932, err_rot 9.8307, err_R 13.2250, err_t 33.0235
+2024-12-04 19:40:09 | INFO     | epoch 385, train, loss 125611.6484, time 0.05s, err_x 20.4740, err_y 3.2388, err_z 8.7380, err_trans 22.4950, err_rot 9.8387, err_R 13.2323, err_t 33.0268
+2024-12-04 19:40:09 | INFO     | epoch 386, train, loss 125611.4609, time 0.05s, err_x 20.4860, err_y 3.2593, err_z 8.7065, err_trans 22.4967, err_rot 9.8469, err_R 13.2394, err_t 33.0294
+2024-12-04 19:40:09 | INFO     | epoch 387, train, loss 125614.7656, time 0.05s, err_x 20.4977, err_y 3.2743, err_z 8.6786, err_trans 22.4988, err_rot 9.8535, err_R 13.2471, err_t 33.0359
+2024-12-04 19:40:09 | INFO     | epoch 388, train, loss 125611.5469, time 0.05s, err_x 20.5060, err_y 3.2900, err_z 8.6559, err_trans 22.5000, err_rot 9.8578, err_R 13.2537, err_t 33.0388
+2024-12-04 19:40:09 | INFO     | epoch 389, train, loss 125605.2109, time 0.05s, err_x 20.5090, err_y 3.3100, err_z 8.6366, err_trans 22.4982, err_rot 9.8602, err_R 13.2579, err_t 33.0330
+2024-12-04 19:40:09 | INFO     | epoch 390, train, loss 125598.4844, time 0.05s, err_x 20.5120, err_y 3.3428, err_z 8.6134, err_trans 22.4969, err_rot 9.8663, err_R 13.2613, err_t 33.0200
+2024-12-04 19:40:09 | INFO     | epoch 391, train, loss 125588.3750, time 0.05s, err_x 20.5175, err_y 3.3714, err_z 8.5943, err_trans 22.4988, err_rot 9.8734, err_R 13.2672, err_t 33.0146
+2024-12-04 19:40:09 | INFO     | epoch 392, train, loss 125582.5859, time 0.05s, err_x 20.5258, err_y 3.4004, err_z 8.5765, err_trans 22.5039, err_rot 9.8821, err_R 13.2744, err_t 33.0136
+2024-12-04 19:40:09 | INFO     | epoch 393, train, loss 125579.9375, time 0.05s, err_x 20.5364, err_y 3.4215, err_z 8.5634, err_trans 22.5118, err_rot 9.8894, err_R 13.2836, err_t 33.0212
+2024-12-04 19:40:09 | INFO     | epoch 394, train, loss 125563.5000, time 0.05s, err_x 20.5487, err_y 3.4369, err_z 8.5529, err_trans 22.5214, err_rot 9.8960, err_R 13.2944, err_t 33.0351
+2024-12-04 19:40:09 | INFO     | epoch 395, train, loss 125564.2734, time 0.05s, err_x 20.5589, err_y 3.4498, err_z 8.5464, err_trans 22.5302, err_rot 9.9016, err_R 13.3052, err_t 33.0492
+2024-12-04 19:40:10 | INFO     | epoch 396, train, loss 125549.9375, time 0.05s, err_x 20.5660, err_y 3.4848, err_z 8.5255, err_trans 22.5341, err_rot 9.9112, err_R 13.3110, err_t 33.0421
+2024-12-04 19:40:10 | INFO     | epoch 397, train, loss 125539.7500, time 0.05s, err_x 20.5719, err_y 3.5134, err_z 8.5086, err_trans 22.5376, err_rot 9.9178, err_R 13.3167, err_t 33.0373
+2024-12-04 19:40:10 | INFO     | epoch 398, train, loss 125527.3359, time 0.05s, err_x 20.5766, err_y 3.5404, err_z 8.4951, err_trans 22.5410, err_rot 9.9228, err_R 13.3224, err_t 33.0328
+2024-12-04 19:40:10 | INFO     | epoch 399, train, loss 125522.1094, time 0.05s, err_x 20.5842, err_y 3.5684, err_z 8.4787, err_trans 22.5462, err_rot 9.9294, err_R 13.3289, err_t 33.0309
+2024-12-04 19:40:12 | INFO     | epoch 400, train, loss 125522.0625, time 2.82s, err_x 20.5953, err_y 3.5878, err_z 8.4653, err_trans 22.5544, err_rot 9.9352, err_R 13.3380, err_t 33.0392
+2024-12-04 19:40:13 | INFO     | epoch 401, train, loss 125531.6484, time 0.04s, err_x 20.6089, err_y 3.6008, err_z 8.4496, err_trans 22.5630, err_rot 9.9390, err_R 13.3476, err_t 33.0523
+2024-12-04 19:40:13 | INFO     | epoch 402, train, loss 125524.7422, time 0.04s, err_x 20.6206, err_y 3.6248, err_z 8.4305, err_trans 22.5703, err_rot 9.9445, err_R 13.3553, err_t 33.0562
+2024-12-04 19:40:13 | INFO     | epoch 403, train, loss 125519.1797, time 0.04s, err_x 20.6276, err_y 3.6606, err_z 8.4082, err_trans 22.5742, err_rot 9.9502, err_R 13.3597, err_t 33.0462
+2024-12-04 19:40:13 | INFO     | epoch 404, train, loss 125503.0625, time 0.04s, err_x 20.6312, err_y 3.6983, err_z 8.3836, err_trans 22.5745, err_rot 9.9536, err_R 13.3610, err_t 33.0283
+2024-12-04 19:40:13 | INFO     | epoch 405, train, loss 125496.5938, time 0.04s, err_x 20.6394, err_y 3.7310, err_z 8.3588, err_trans 22.5782, err_rot 9.9572, err_R 13.3647, err_t 33.0193
+2024-12-04 19:40:13 | INFO     | epoch 406, train, loss 125492.9297, time 0.04s, err_x 20.6544, err_y 3.7569, err_z 8.3344, err_trans 22.5871, err_rot 9.9631, err_R 13.3724, err_t 33.0239
+2024-12-04 19:40:13 | INFO     | epoch 407, train, loss 125503.1094, time 0.04s, err_x 20.6741, err_y 3.7748, err_z 8.3124, err_trans 22.6000, err_rot 9.9695, err_R 13.3834, err_t 33.0403
+2024-12-04 19:40:13 | INFO     | epoch 408, train, loss 125512.6875, time 0.04s, err_x 20.6942, err_y 3.7926, err_z 8.2919, err_trans 22.6139, err_rot 9.9779, err_R 13.3956, err_t 33.0591
+2024-12-04 19:40:13 | INFO     | epoch 409, train, loss 125508.0469, time 0.05s, err_x 20.7074, err_y 3.8100, err_z 8.2797, err_trans 22.6244, err_rot 9.9818, err_R 13.4056, err_t 33.0710
+2024-12-04 19:40:13 | INFO     | epoch 410, train, loss 125504.0156, time 0.04s, err_x 20.7191, err_y 3.8425, err_z 8.2588, err_trans 22.6330, err_rot 9.9880, err_R 13.4120, err_t 33.0692
+2024-12-04 19:40:13 | INFO     | epoch 411, train, loss 125503.1484, time 0.04s, err_x 20.7297, err_y 3.8774, err_z 8.2372, err_trans 22.6408, err_rot 9.9931, err_R 13.4174, err_t 33.0638
+2024-12-04 19:40:13 | INFO     | epoch 412, train, loss 125492.7812, time 0.04s, err_x 20.7367, err_y 3.9127, err_z 8.2189, err_trans 22.6467, err_rot 9.9956, err_R 13.4212, err_t 33.0539
+2024-12-04 19:40:13 | INFO     | epoch 413, train, loss 125467.6719, time 0.04s, err_x 20.7330, err_y 3.9518, err_z 8.2050, err_trans 22.6450, err_rot 9.9918, err_R 13.4194, err_t 33.0273
+2024-12-04 19:40:13 | INFO     | epoch 414, train, loss 125452.8281, time 0.04s, err_x 20.7346, err_y 3.9844, err_z 8.1896, err_trans 22.6466, err_rot 9.9900, err_R 13.4208, err_t 33.0115
+2024-12-04 19:40:13 | INFO     | epoch 415, train, loss 125434.2969, time 0.04s, err_x 20.7418, err_y 4.0158, err_z 8.1699, err_trans 22.6516, err_rot 9.9901, err_R 13.4243, err_t 33.0025
+2024-12-04 19:40:13 | INFO     | epoch 416, train, loss 125442.2109, time 0.04s, err_x 20.7563, err_y 4.0406, err_z 8.1466, err_trans 22.6609, err_rot 9.9923, err_R 13.4313, err_t 33.0062
+2024-12-04 19:40:13 | INFO     | epoch 417, train, loss 125446.3750, time 0.04s, err_x 20.7733, err_y 4.0571, err_z 8.1254, err_trans 22.6719, err_rot 9.9925, err_R 13.4399, err_t 33.0177
+2024-12-04 19:40:13 | INFO     | epoch 418, train, loss 125447.8750, time 0.04s, err_x 20.7914, err_y 4.0727, err_z 8.1049, err_trans 22.6839, err_rot 9.9943, err_R 13.4497, err_t 33.0323
+2024-12-04 19:40:13 | INFO     | epoch 419, train, loss 125438.0156, time 0.05s, err_x 20.8000, err_y 4.0969, err_z 8.0898, err_trans 22.6908, err_rot 9.9935, err_R 13.4556, err_t 33.0315
+2024-12-04 19:40:13 | INFO     | epoch 420, train, loss 125439.0469, time 0.05s, err_x 20.8042, err_y 4.1235, err_z 8.0780, err_trans 22.6952, err_rot 9.9910, err_R 13.4593, err_t 33.0237
+2024-12-04 19:40:13 | INFO     | epoch 421, train, loss 125421.5000, time 0.04s, err_x 20.8045, err_y 4.1615, err_z 8.0648, err_trans 22.6977, err_rot 9.9896, err_R 13.4607, err_t 33.0049
+2024-12-04 19:40:13 | INFO     | epoch 422, train, loss 125397.6484, time 0.05s, err_x 20.8066, err_y 4.1993, err_z 8.0536, err_trans 22.7026, err_rot 9.9894, err_R 13.4636, err_t 32.9900
+2024-12-04 19:40:14 | INFO     | epoch 423, train, loss 125396.2734, time 0.04s, err_x 20.8140, err_y 4.2296, err_z 8.0496, err_trans 22.7136, err_rot 9.9902, err_R 13.4713, err_t 32.9899
+2024-12-04 19:40:14 | INFO     | epoch 424, train, loss 125391.9375, time 0.04s, err_x 20.8253, err_y 4.2664, err_z 8.0442, err_trans 22.7290, err_rot 9.9951, err_R 13.4806, err_t 32.9925
+2024-12-04 19:40:14 | INFO     | epoch 425, train, loss 125384.4609, time 0.04s, err_x 20.8359, err_y 4.3026, err_z 8.0405, err_trans 22.7441, err_rot 9.9986, err_R 13.4895, err_t 32.9944
+2024-12-04 19:40:14 | INFO     | epoch 426, train, loss 125381.5859, time 0.05s, err_x 20.8468, err_y 4.3369, err_z 8.0364, err_trans 22.7592, err_rot 10.0022, err_R 13.4987, err_t 32.9977
+2024-12-04 19:40:14 | INFO     | epoch 427, train, loss 125375.0312, time 0.04s, err_x 20.8576, err_y 4.3685, err_z 8.0316, err_trans 22.7735, err_rot 10.0061, err_R 13.5080, err_t 33.0022
+2024-12-04 19:40:14 | INFO     | epoch 428, train, loss 125366.1797, time 0.04s, err_x 20.8659, err_y 4.4012, err_z 8.0232, err_trans 22.7844, err_rot 10.0090, err_R 13.5154, err_t 33.0010
+2024-12-04 19:40:14 | INFO     | epoch 429, train, loss 125372.9688, time 0.04s, err_x 20.8699, err_y 4.4254, err_z 8.0233, err_trans 22.7928, err_rot 10.0076, err_R 13.5225, err_t 33.0006
+2024-12-04 19:40:14 | INFO     | epoch 430, train, loss 125360.2344, time 0.05s, err_x 20.8687, err_y 4.4561, err_z 8.0215, err_trans 22.7970, err_rot 10.0060, err_R 13.5263, err_t 32.9888
+2024-12-04 19:40:14 | INFO     | epoch 431, train, loss 125345.0859, time 0.05s, err_x 20.8618, err_y 4.4818, err_z 8.0278, err_trans 22.7979, err_rot 10.0000, err_R 13.5285, err_t 32.9737
+2024-12-04 19:40:14 | INFO     | epoch 432, train, loss 125339.5469, time 0.04s, err_x 20.8557, err_y 4.5022, err_z 8.0359, err_trans 22.7993, err_rot 9.9925, err_R 13.5315, err_t 32.9629
+2024-12-04 19:40:14 | INFO     | epoch 433, train, loss 125343.8125, time 0.04s, err_x 20.8563, err_y 4.5304, err_z 8.0335, err_trans 22.8046, err_rot 9.9887, err_R 13.5347, err_t 32.9528
+2024-12-04 19:40:14 | INFO     | epoch 434, train, loss 125320.6094, time 0.04s, err_x 20.8590, err_y 4.5700, err_z 8.0224, err_trans 22.8110, err_rot 9.9862, err_R 13.5358, err_t 32.9355
+2024-12-04 19:40:14 | INFO     | epoch 435, train, loss 125300.3750, time 0.04s, err_x 20.8664, err_y 4.6140, err_z 8.0058, err_trans 22.8208, err_rot 9.9868, err_R 13.5380, err_t 32.9208
+2024-12-04 19:40:14 | INFO     | epoch 436, train, loss 125286.7031, time 0.04s, err_x 20.8808, err_y 4.6523, err_z 7.9912, err_trans 22.8366, err_rot 9.9922, err_R 13.5454, err_t 32.9214
+2024-12-04 19:40:14 | INFO     | epoch 437, train, loss 125300.7734, time 0.04s, err_x 20.9057, err_y 4.6791, err_z 7.9784, err_trans 22.8604, err_rot 10.0017, err_R 13.5598, err_t 32.9447
+2024-12-04 19:40:14 | INFO     | epoch 438, train, loss 125330.3438, time 0.04s, err_x 20.9349, err_y 4.6946, err_z 7.9674, err_trans 22.8864, err_rot 10.0104, err_R 13.5773, err_t 32.9804
+2024-12-04 19:40:14 | INFO     | epoch 439, train, loss 125342.0859, time 0.05s, err_x 20.9581, err_y 4.7174, err_z 7.9516, err_trans 22.9069, err_rot 10.0173, err_R 13.5902, err_t 33.0015
+2024-12-04 19:40:14 | INFO     | epoch 440, train, loss 125355.7969, time 0.04s, err_x 20.9771, err_y 4.7402, err_z 7.9322, err_trans 22.9222, err_rot 10.0218, err_R 13.6003, err_t 33.0144
+2024-12-04 19:40:14 | INFO     | epoch 441, train, loss 125350.0938, time 0.04s, err_x 20.9867, err_y 4.7712, err_z 7.9093, err_trans 22.9295, err_rot 10.0218, err_R 13.6038, err_t 33.0073
+2024-12-04 19:40:14 | INFO     | epoch 442, train, loss 125330.0234, time 0.05s, err_x 20.9888, err_y 4.7984, err_z 7.8880, err_trans 22.9297, err_rot 10.0162, err_R 13.6035, err_t 32.9904
+2024-12-04 19:40:14 | INFO     | epoch 443, train, loss 125310.8125, time 0.04s, err_x 20.9845, err_y 4.8306, err_z 7.8649, err_trans 22.9247, err_rot 10.0086, err_R 13.5995, err_t 32.9611
+2024-12-04 19:40:14 | INFO     | epoch 444, train, loss 125278.2109, time 0.04s, err_x 20.9806, err_y 4.8676, err_z 7.8377, err_trans 22.9196, err_rot 10.0021, err_R 13.5946, err_t 32.9284
+2024-12-04 19:40:14 | INFO     | epoch 445, train, loss 125257.3750, time 0.04s, err_x 20.9750, err_y 4.9053, err_z 7.8143, err_trans 22.9146, err_rot 9.9954, err_R 13.5903, err_t 32.8952
+2024-12-04 19:40:15 | INFO     | epoch 446, train, loss 125233.9219, time 0.04s, err_x 20.9696, err_y 4.9456, err_z 7.7935, err_trans 22.9112, err_rot 9.9898, err_R 13.5863, err_t 32.8623
+2024-12-04 19:40:15 | INFO     | epoch 447, train, loss 125207.0312, time 0.05s, err_x 20.9736, err_y 4.9880, err_z 7.7690, err_trans 22.9157, err_rot 9.9922, err_R 13.5876, err_t 32.8425
+2024-12-04 19:40:15 | INFO     | epoch 448, train, loss 125210.6094, time 0.04s, err_x 20.9832, err_y 5.0201, err_z 7.7505, err_trans 22.9252, err_rot 9.9952, err_R 13.5933, err_t 32.8385
+2024-12-04 19:40:15 | INFO     | epoch 449, train, loss 125207.5234, time 0.04s, err_x 20.9960, err_y 5.0448, err_z 7.7397, err_trans 22.9387, err_rot 9.9993, err_R 13.6030, err_t 32.8464
+2024-12-04 19:40:15 | INFO     | epoch 450, train, loss 125234.4297, time 0.04s, err_x 21.0145, err_y 5.0512, err_z 7.7394, err_trans 22.9570, err_rot 10.0018, err_R 13.6185, err_t 32.8757
+2024-12-04 19:40:15 | INFO     | epoch 451, train, loss 125255.5312, time 0.04s, err_x 21.0394, err_y 5.0626, err_z 7.7302, err_trans 22.9792, err_rot 10.0099, err_R 13.6360, err_t 32.9093
+2024-12-04 19:40:15 | INFO     | epoch 452, train, loss 125267.4297, time 0.04s, err_x 21.0615, err_y 5.0791, err_z 7.7162, err_trans 22.9983, err_rot 10.0174, err_R 13.6506, err_t 32.9340
+2024-12-04 19:40:15 | INFO     | epoch 453, train, loss 125280.2734, time 0.04s, err_x 21.0773, err_y 5.0988, err_z 7.7004, err_trans 23.0119, err_rot 10.0201, err_R 13.6606, err_t 32.9457
+2024-12-04 19:40:15 | INFO     | epoch 454, train, loss 125266.2500, time 0.05s, err_x 21.0834, err_y 5.1327, err_z 7.6765, err_trans 23.0170, err_rot 10.0205, err_R 13.6626, err_t 32.9320
+2024-12-04 19:40:15 | INFO     | epoch 455, train, loss 125250.0781, time 0.04s, err_x 21.0894, err_y 5.1736, err_z 7.6453, err_trans 23.0212, err_rot 10.0228, err_R 13.6627, err_t 32.9120
+2024-12-04 19:40:15 | INFO     | epoch 456, train, loss 125249.9375, time 0.04s, err_x 21.0955, err_y 5.1998, err_z 7.6259, err_trans 23.0264, err_rot 10.0199, err_R 13.6656, err_t 32.9034
+2024-12-04 19:40:15 | INFO     | epoch 457, train, loss 125247.1484, time 0.05s, err_x 21.1013, err_y 5.2100, err_z 7.6182, err_trans 23.0314, err_rot 10.0104, err_R 13.6708, err_t 32.9051
+2024-12-04 19:40:15 | INFO     | epoch 458, train, loss 125269.4375, time 0.04s, err_x 21.1056, err_y 5.2151, err_z 7.6089, err_trans 23.0334, err_rot 9.9996, err_R 13.6755, err_t 32.9064
+2024-12-04 19:40:15 | INFO     | epoch 459, train, loss 125269.4844, time 0.05s, err_x 21.1017, err_y 5.2377, err_z 7.5941, err_trans 23.0301, err_rot 9.9880, err_R 13.6737, err_t 32.8849
+2024-12-04 19:40:15 | INFO     | epoch 460, train, loss 125262.2344, time 0.04s, err_x 21.0966, err_y 5.2633, err_z 7.5769, err_trans 23.0256, err_rot 9.9759, err_R 13.6708, err_t 32.8592
+2024-12-04 19:40:15 | INFO     | epoch 461, train, loss 125229.3359, time 0.04s, err_x 21.0953, err_y 5.2997, err_z 7.5504, err_trans 23.0240, err_rot 9.9682, err_R 13.6671, err_t 32.8302
+2024-12-04 19:40:15 | INFO     | epoch 462, train, loss 125200.5859, time 0.04s, err_x 21.0994, err_y 5.3370, err_z 7.5237, err_trans 23.0277, err_rot 9.9636, err_R 13.6659, err_t 32.8088
+2024-12-04 19:40:15 | INFO     | epoch 463, train, loss 125210.5000, time 0.04s, err_x 21.1132, err_y 5.3588, err_z 7.5003, err_trans 23.0378, err_rot 9.9602, err_R 13.6708, err_t 32.8100
+2024-12-04 19:40:15 | INFO     | epoch 464, train, loss 125229.7422, time 0.04s, err_x 21.1301, err_y 5.3745, err_z 7.4791, err_trans 23.0500, err_rot 9.9564, err_R 13.6777, err_t 32.8190
+2024-12-04 19:40:15 | INFO     | epoch 465, train, loss 125251.6484, time 0.04s, err_x 21.1510, err_y 5.3912, err_z 7.4558, err_trans 23.0655, err_rot 9.9557, err_R 13.6862, err_t 32.8330
+2024-12-04 19:40:15 | INFO     | epoch 466, train, loss 125244.5234, time 0.04s, err_x 21.1644, err_y 5.4184, err_z 7.4357, err_trans 23.0777, err_rot 9.9539, err_R 13.6910, err_t 32.8324
+2024-12-04 19:40:15 | INFO     | epoch 467, train, loss 125231.9219, time 0.04s, err_x 21.1731, err_y 5.4596, err_z 7.4128, err_trans 23.0880, err_rot 9.9535, err_R 13.6928, err_t 32.8182
+2024-12-04 19:40:16 | INFO     | epoch 468, train, loss 125194.0625, time 0.04s, err_x 21.1804, err_y 5.5134, err_z 7.3829, err_trans 23.0979, err_rot 9.9567, err_R 13.6922, err_t 32.7941
+2024-12-04 19:40:16 | INFO     | epoch 469, train, loss 125180.0625, time 0.04s, err_x 21.1851, err_y 5.5572, err_z 7.3691, err_trans 23.1083, err_rot 9.9574, err_R 13.6949, err_t 32.7783
+2024-12-04 19:40:16 | INFO     | epoch 470, train, loss 125171.5156, time 0.04s, err_x 21.1925, err_y 5.5818, err_z 7.3732, err_trans 23.1223, err_rot 9.9569, err_R 13.7044, err_t 32.7838
+2024-12-04 19:40:16 | INFO     | epoch 471, train, loss 125190.0859, time 0.04s, err_x 21.2052, err_y 5.6040, err_z 7.3767, err_trans 23.1404, err_rot 9.9611, err_R 13.7171, err_t 32.7989
+2024-12-04 19:40:16 | INFO     | epoch 472, train, loss 125176.6484, time 0.04s, err_x 21.2146, err_y 5.6400, err_z 7.3722, err_trans 23.1563, err_rot 9.9683, err_R 13.7257, err_t 32.7997
+2024-12-04 19:40:16 | INFO     | epoch 473, train, loss 125142.5625, time 0.04s, err_x 21.2248, err_y 5.6903, err_z 7.3542, err_trans 23.1723, err_rot 9.9791, err_R 13.7306, err_t 32.7891
+2024-12-04 19:40:16 | INFO     | epoch 474, train, loss 125140.2344, time 0.04s, err_x 21.2359, err_y 5.7174, err_z 7.3532, err_trans 23.1888, err_rot 9.9841, err_R 13.7407, err_t 32.7974
+2024-12-04 19:40:16 | INFO     | epoch 475, train, loss 125169.2031, time 0.04s, err_x 21.2443, err_y 5.7284, err_z 7.3667, err_trans 23.2035, err_rot 9.9835, err_R 13.7532, err_t 32.8143
+2024-12-04 19:40:16 | INFO     | epoch 476, train, loss 125175.3438, time 0.05s, err_x 21.2519, err_y 5.7440, err_z 7.3756, err_trans 23.2172, err_rot 9.9849, err_R 13.7645, err_t 32.8268
+2024-12-04 19:40:16 | INFO     | epoch 477, train, loss 125185.7344, time 0.04s, err_x 21.2569, err_y 5.7636, err_z 7.3853, err_trans 23.2296, err_rot 9.9846, err_R 13.7740, err_t 32.8333
+2024-12-04 19:40:16 | INFO     | epoch 478, train, loss 125152.4219, time 0.04s, err_x 21.2570, err_y 5.8049, err_z 7.3840, err_trans 23.2396, err_rot 9.9863, err_R 13.7773, err_t 32.8180
+2024-12-04 19:40:16 | INFO     | epoch 479, train, loss 125121.2969, time 0.05s, err_x 21.2563, err_y 5.8510, err_z 7.3767, err_trans 23.2482, err_rot 9.9862, err_R 13.7777, err_t 32.7954
+2024-12-04 19:40:16 | INFO     | epoch 480, train, loss 125117.4375, time 0.04s, err_x 21.2589, err_y 5.8947, err_z 7.3679, err_trans 23.2588, err_rot 9.9852, err_R 13.7786, err_t 32.7768
+2024-12-04 19:40:16 | INFO     | epoch 481, train, loss 125100.2109, time 0.04s, err_x 21.2629, err_y 5.9308, err_z 7.3594, err_trans 23.2690, err_rot 9.9832, err_R 13.7808, err_t 32.7640
+2024-12-04 19:40:16 | INFO     | epoch 482, train, loss 125092.8125, time 0.04s, err_x 21.2732, err_y 5.9615, err_z 7.3484, err_trans 23.2828, err_rot 9.9815, err_R 13.7855, err_t 32.7611
+2024-12-04 19:40:16 | INFO     | epoch 483, train, loss 125094.0312, time 0.04s, err_x 21.2870, err_y 5.9883, err_z 7.3339, err_trans 23.2977, err_rot 9.9806, err_R 13.7913, err_t 32.7633
+2024-12-04 19:40:16 | INFO     | epoch 484, train, loss 125093.8047, time 0.04s, err_x 21.3001, err_y 6.0129, err_z 7.3199, err_trans 23.3116, err_rot 9.9794, err_R 13.7969, err_t 32.7658
+2024-12-04 19:40:16 | INFO     | epoch 485, train, loss 125079.6484, time 0.04s, err_x 21.3125, err_y 6.0423, err_z 7.3014, err_trans 23.3247, err_rot 9.9788, err_R 13.8005, err_t 32.7625
+2024-12-04 19:40:16 | INFO     | epoch 486, train, loss 125068.6250, time 0.04s, err_x 21.3220, err_y 6.0763, err_z 7.2820, err_trans 23.3362, err_rot 9.9788, err_R 13.8023, err_t 32.7528
+2024-12-04 19:40:16 | INFO     | epoch 487, train, loss 125064.3281, time 0.04s, err_x 21.3289, err_y 6.1034, err_z 7.2723, err_trans 23.3465, err_rot 9.9750, err_R 13.8053, err_t 32.7460
+2024-12-04 19:40:16 | INFO     | epoch 488, train, loss 125045.0312, time 0.04s, err_x 21.3358, err_y 6.1381, err_z 7.2566, err_trans 23.3570, err_rot 9.9742, err_R 13.8069, err_t 32.7338
+2024-12-04 19:40:16 | INFO     | epoch 489, train, loss 125050.7734, time 0.05s, err_x 21.3470, err_y 6.1619, err_z 7.2493, err_trans 23.3712, err_rot 9.9738, err_R 13.8137, err_t 32.7372
+2024-12-04 19:40:17 | INFO     | epoch 490, train, loss 125058.9844, time 0.05s, err_x 21.3631, err_y 6.1853, err_z 7.2362, err_trans 23.3881, err_rot 9.9770, err_R 13.8222, err_t 32.7463
+2024-12-04 19:40:17 | INFO     | epoch 491, train, loss 125035.4375, time 0.05s, err_x 21.3797, err_y 6.2226, err_z 7.2101, err_trans 23.4051, err_rot 9.9852, err_R 13.8276, err_t 32.7449
+2024-12-04 19:40:17 | INFO     | epoch 492, train, loss 125048.9062, time 0.05s, err_x 21.3935, err_y 6.2365, err_z 7.1991, err_trans 23.4180, err_rot 9.9850, err_R 13.8360, err_t 32.7553
+2024-12-04 19:40:17 | INFO     | epoch 493, train, loss 125047.0469, time 0.04s, err_x 21.4039, err_y 6.2621, err_z 7.1844, err_trans 23.4298, err_rot 9.9870, err_R 13.8417, err_t 32.7545
+2024-12-04 19:40:17 | INFO     | epoch 494, train, loss 125030.7812, time 0.04s, err_x 21.4147, err_y 6.2949, err_z 7.1633, err_trans 23.4420, err_rot 9.9913, err_R 13.8459, err_t 32.7486
+2024-12-04 19:40:17 | INFO     | epoch 495, train, loss 125052.9297, time 0.04s, err_x 21.4220, err_y 6.3095, err_z 7.1564, err_trans 23.4505, err_rot 9.9875, err_R 13.8520, err_t 32.7504
+2024-12-04 19:40:17 | INFO     | epoch 496, train, loss 125024.0547, time 0.05s, err_x 21.4278, err_y 6.3436, err_z 7.1371, err_trans 23.4592, err_rot 9.9879, err_R 13.8530, err_t 32.7360
+2024-12-04 19:40:17 | INFO     | epoch 497, train, loss 124988.7344, time 0.05s, err_x 21.4410, err_y 6.3886, err_z 7.1045, err_trans 23.4735, err_rot 9.9942, err_R 13.8535, err_t 32.7216
+2024-12-04 19:40:17 | INFO     | epoch 498, train, loss 124985.6562, time 0.05s, err_x 21.4561, err_y 6.4266, err_z 7.0818, err_trans 23.4908, err_rot 9.9996, err_R 13.8575, err_t 32.7174
+2024-12-04 19:40:17 | INFO     | epoch 499, train, loss 124979.3594, time 0.05s, err_x 21.4694, err_y 6.4645, err_z 7.0665, err_trans 23.5087, err_rot 10.0037, err_R 13.8624, err_t 32.7142
+2024-12-04 19:40:20 | INFO     | epoch 500, train, loss 124981.4062, time 2.69s, err_x 21.4884, err_y 6.4916, err_z 7.0551, err_trans 23.5301, err_rot 10.0086, err_R 13.8723, err_t 32.7264
+2024-12-04 19:40:20 | INFO     | epoch 501, train, loss 124989.5547, time 0.05s, err_x 21.5132, err_y 6.5114, err_z 7.0455, err_trans 23.5553, err_rot 10.0154, err_R 13.8861, err_t 32.7516
+2024-12-04 19:40:20 | INFO     | epoch 502, train, loss 125000.5547, time 0.04s, err_x 21.5367, err_y 6.5352, err_z 7.0349, err_trans 23.5802, err_rot 10.0233, err_R 13.8990, err_t 32.7731
+2024-12-04 19:40:20 | INFO     | epoch 503, train, loss 125016.1484, time 0.05s, err_x 21.5579, err_y 6.5524, err_z 7.0315, err_trans 23.6033, err_rot 10.0274, err_R 13.9127, err_t 32.7968
+2024-12-04 19:40:20 | INFO     | epoch 504, train, loss 125046.2344, time 0.05s, err_x 21.5705, err_y 6.5661, err_z 7.0316, err_trans 23.6187, err_rot 10.0249, err_R 13.9229, err_t 32.8098
+2024-12-04 19:40:20 | INFO     | epoch 505, train, loss 125050.5859, time 0.05s, err_x 21.5721, err_y 6.5805, err_z 7.0330, err_trans 23.6246, err_rot 10.0160, err_R 13.9277, err_t 32.8060
+2024-12-04 19:40:20 | INFO     | epoch 506, train, loss 125030.8047, time 0.05s, err_x 21.5681, err_y 6.6096, err_z 7.0274, err_trans 23.6274, err_rot 10.0065, err_R 13.9274, err_t 32.7844
+2024-12-04 19:40:20 | INFO     | epoch 507, train, loss 125020.4375, time 0.05s, err_x 21.5631, err_y 6.6397, err_z 7.0234, err_trans 23.6300, err_rot 9.9968, err_R 13.9274, err_t 32.7621
+2024-12-04 19:40:20 | INFO     | epoch 508, train, loss 125010.4219, time 0.05s, err_x 21.5602, err_y 6.6725, err_z 7.0152, err_trans 23.6342, err_rot 9.9896, err_R 13.9276, err_t 32.7403
+2024-12-04 19:40:20 | INFO     | epoch 509, train, loss 124974.9922, time 0.04s, err_x 21.5532, err_y 6.7179, err_z 7.0010, err_trans 23.6365, err_rot 9.9815, err_R 13.9227, err_t 32.7032
+2024-12-04 19:40:20 | INFO     | epoch 510, train, loss 124924.2188, time 0.05s, err_x 21.5515, err_y 6.7717, err_z 6.9832, err_trans 23.6451, err_rot 9.9788, err_R 13.9195, err_t 32.6700
+2024-12-04 19:40:20 | INFO     | epoch 511, train, loss 124897.4844, time 0.05s, err_x 21.5602, err_y 6.8259, err_z 6.9585, err_trans 23.6612, err_rot 9.9819, err_R 13.9201, err_t 32.6494
+2024-12-04 19:40:20 | INFO     | epoch 512, train, loss 124891.8281, time 0.05s, err_x 21.5733, err_y 6.8682, err_z 6.9394, err_trans 23.6799, err_rot 9.9856, err_R 13.9252, err_t 32.6438
+2024-12-04 19:40:20 | INFO     | epoch 513, train, loss 124878.4219, time 0.04s, err_x 21.5957, err_y 6.9040, err_z 6.9153, err_trans 23.7036, err_rot 9.9935, err_R 13.9341, err_t 32.6528
+2024-12-04 19:40:20 | INFO     | epoch 514, train, loss 124895.9062, time 0.05s, err_x 21.6258, err_y 6.9304, err_z 6.8930, err_trans 23.7323, err_rot 10.0047, err_R 13.9483, err_t 32.6790
+2024-12-04 19:40:20 | INFO     | epoch 515, train, loss 124928.3359, time 0.05s, err_x 21.6618, err_y 6.9390, err_z 6.8780, err_trans 23.7632, err_rot 10.0128, err_R 13.9678, err_t 32.7242
+2024-12-04 19:40:20 | INFO     | epoch 516, train, loss 124944.4609, time 0.05s, err_x 21.6910, err_y 6.9580, err_z 6.8516, err_trans 23.7878, err_rot 10.0188, err_R 13.9800, err_t 32.7486
+2024-12-04 19:40:20 | INFO     | epoch 517, train, loss 124959.1094, time 0.04s, err_x 21.7193, err_y 6.9832, err_z 6.8186, err_trans 23.8114, err_rot 10.0248, err_R 13.9893, err_t 32.7656
+2024-12-04 19:40:20 | INFO     | epoch 518, train, loss 124970.6562, time 0.05s, err_x 21.7442, err_y 7.0116, err_z 6.7825, err_trans 23.8322, err_rot 10.0296, err_R 13.9963, err_t 32.7749
+2024-12-04 19:40:20 | INFO     | epoch 519, train, loss 124978.6094, time 0.05s, err_x 21.7603, err_y 7.0282, err_z 6.7567, err_trans 23.8444, err_rot 10.0262, err_R 14.0024, err_t 32.7803
+2024-12-04 19:40:21 | INFO     | epoch 520, train, loss 124985.8984, time 0.05s, err_x 21.7639, err_y 7.0364, err_z 6.7378, err_trans 23.8449, err_rot 10.0126, err_R 14.0042, err_t 32.7723
+2024-12-04 19:40:21 | INFO     | epoch 521, train, loss 124990.4219, time 0.05s, err_x 21.7590, err_y 7.0408, err_z 6.7258, err_trans 23.8383, err_rot 9.9923, err_R 14.0034, err_t 32.7554
+2024-12-04 19:40:21 | INFO     | epoch 522, train, loss 124975.3359, time 0.05s, err_x 21.7476, err_y 7.0600, err_z 6.7038, err_trans 23.8274, err_rot 9.9718, err_R 13.9964, err_t 32.7182
+2024-12-04 19:40:21 | INFO     | epoch 523, train, loss 124990.1094, time 0.04s, err_x 21.7347, err_y 7.0635, err_z 6.6931, err_trans 23.8136, err_rot 9.9450, err_R 13.9922, err_t 32.6894
+2024-12-04 19:40:21 | INFO     | epoch 524, train, loss 124959.5312, time 0.05s, err_x 21.7214, err_y 7.0995, err_z 6.6662, err_trans 23.8047, err_rot 9.9275, err_R 13.9825, err_t 32.6406
+2024-12-04 19:40:21 | INFO     | epoch 525, train, loss 124922.2109, time 0.05s, err_x 21.7180, err_y 7.1396, err_z 6.6344, err_trans 23.8047, err_rot 9.9167, err_R 13.9761, err_t 32.6031
+2024-12-04 19:40:21 | INFO     | epoch 526, train, loss 124892.9219, time 0.05s, err_x 21.7241, err_y 7.1857, err_z 6.6012, err_trans 23.8148, err_rot 9.9153, err_R 13.9744, err_t 32.5785
+2024-12-04 19:40:21 | INFO     | epoch 527, train, loss 124896.8672, time 0.05s, err_x 21.7349, err_y 7.2138, err_z 6.5807, err_trans 23.8275, err_rot 9.9123, err_R 13.9796, err_t 32.5744
+2024-12-04 19:40:21 | INFO     | epoch 528, train, loss 124912.4922, time 0.05s, err_x 21.7497, err_y 7.2230, err_z 6.5741, err_trans 23.8420, err_rot 9.9080, err_R 13.9916, err_t 32.5909
+2024-12-04 19:40:21 | INFO     | epoch 529, train, loss 124956.4844, time 0.04s, err_x 21.7723, err_y 7.2367, err_z 6.5673, err_trans 23.8649, err_rot 9.9106, err_R 14.0074, err_t 32.6180
+2024-12-04 19:40:21 | INFO     | epoch 530, train, loss 124969.8125, time 0.05s, err_x 21.8006, err_y 7.2534, err_z 6.5526, err_trans 23.8918, err_rot 9.9156, err_R 14.0232, err_t 32.6482
+2024-12-04 19:40:21 | INFO     | epoch 531, train, loss 124996.4062, time 0.05s, err_x 21.8280, err_y 7.2759, err_z 6.5302, err_trans 23.9174, err_rot 9.9208, err_R 14.0360, err_t 32.6709
+2024-12-04 19:40:21 | INFO     | epoch 532, train, loss 124999.8594, time 0.05s, err_x 21.8447, err_y 7.3060, err_z 6.5122, err_trans 23.9369, err_rot 9.9201, err_R 14.0436, err_t 32.6752
+2024-12-04 19:40:21 | INFO     | epoch 533, train, loss 124983.2188, time 0.05s, err_x 21.8527, err_y 7.3415, err_z 6.4977, err_trans 23.9511, err_rot 9.9149, err_R 14.0469, err_t 32.6647
+2024-12-04 19:40:21 | INFO     | epoch 534, train, loss 124966.7188, time 0.04s, err_x 21.8526, err_y 7.3856, err_z 6.4843, err_trans 23.9610, err_rot 9.9064, err_R 14.0458, err_t 32.6385
+2024-12-04 19:40:21 | INFO     | epoch 535, train, loss 124937.8359, time 0.05s, err_x 21.8465, err_y 7.4307, err_z 6.4736, err_trans 23.9664, err_rot 9.8960, err_R 14.0424, err_t 32.6042
+2024-12-04 19:40:21 | INFO     | epoch 536, train, loss 124923.3750, time 0.04s, err_x 21.8463, err_y 7.4652, err_z 6.4642, err_trans 23.9745, err_rot 9.8858, err_R 14.0433, err_t 32.5840
+2024-12-04 19:40:21 | INFO     | epoch 537, train, loss 124934.2344, time 0.05s, err_x 21.8587, err_y 7.4884, err_z 6.4536, err_trans 23.9902, err_rot 9.8801, err_R 14.0508, err_t 32.5873
+2024-12-04 19:40:21 | INFO     | epoch 538, train, loss 124974.0859, time 0.05s, err_x 21.8796, err_y 7.4927, err_z 6.4497, err_trans 24.0095, err_rot 9.9067, err_R 14.0663, err_t 32.6149
+2024-12-04 19:40:21 | INFO     | epoch 539, train, loss 125010.7969, time 0.05s, err_x 21.8878, err_y 7.5139, err_z 6.4438, err_trans 24.0220, err_rot 9.9319, err_R 14.0746, err_t 32.6165
+2024-12-04 19:40:21 | INFO     | epoch 540, train, loss 124991.9062, time 0.04s, err_x 21.8902, err_y 7.5475, err_z 6.4317, err_trans 24.0315, err_rot 9.9504, err_R 14.0774, err_t 32.6009
+2024-12-04 19:40:22 | INFO     | epoch 541, train, loss 124973.1484, time 0.05s, err_x 21.8891, err_y 7.5866, err_z 6.4185, err_trans 24.0392, err_rot 9.9666, err_R 14.0777, err_t 32.5771
+2024-12-04 19:40:22 | INFO     | epoch 542, train, loss 124943.1406, time 0.05s, err_x 21.8903, err_y 7.6344, err_z 6.3979, err_trans 24.0500, err_rot 9.9757, err_R 14.0763, err_t 32.5500
+2024-12-04 19:40:22 | INFO     | epoch 543, train, loss 124932.0234, time 0.05s, err_x 21.8969, err_y 7.6731, err_z 6.3855, err_trans 24.0651, err_rot 9.9910, err_R 14.0801, err_t 32.5381
+2024-12-04 19:40:22 | INFO     | epoch 544, train, loss 124942.2812, time 0.05s, err_x 21.9099, err_y 7.7009, err_z 6.3780, err_trans 24.0837, err_rot 10.0111, err_R 14.0886, err_t 32.5421
+2024-12-04 19:40:22 | INFO     | epoch 545, train, loss 124949.0469, time 0.05s, err_x 21.9272, err_y 7.7301, err_z 6.3694, err_trans 24.1066, err_rot 10.0295, err_R 14.0987, err_t 32.5520
+2024-12-04 19:40:22 | INFO     | epoch 546, train, loss 124943.8750, time 0.05s, err_x 21.9423, err_y 7.7686, err_z 6.3630, err_trans 24.1310, err_rot 10.0454, err_R 14.1087, err_t 32.5571
+2024-12-04 19:40:22 | INFO     | epoch 547, train, loss 124931.2109, time 0.04s, err_x 21.9525, err_y 7.8150, err_z 6.3569, err_trans 24.1537, err_rot 10.0597, err_R 14.1160, err_t 32.5519
+2024-12-04 19:40:22 | INFO     | epoch 548, train, loss 124912.1719, time 0.04s, err_x 21.9596, err_y 7.8668, err_z 6.3511, err_trans 24.1753, err_rot 10.0728, err_R 14.1215, err_t 32.5398
+2024-12-04 19:40:22 | INFO     | epoch 549, train, loss 124894.0781, time 0.05s, err_x 21.9670, err_y 7.9177, err_z 6.3456, err_trans 24.1972, err_rot 10.0860, err_R 14.1278, err_t 32.5294
+2024-12-04 19:40:22 | INFO     | epoch 550, train, loss 124838.6484, time 0.05s, err_x 21.9778, err_y 7.9798, err_z 6.3309, err_trans 24.2236, err_rot 10.0909, err_R 14.1326, err_t 32.5161
+2024-12-04 19:40:22 | INFO     | epoch 551, train, loss 124839.7031, time 0.05s, err_x 21.9873, err_y 8.0204, err_z 6.3306, err_trans 24.2455, err_rot 10.1104, err_R 14.1412, err_t 32.5140
+2024-12-04 19:40:22 | INFO     | epoch 552, train, loss 124830.2969, time 0.05s, err_x 21.9957, err_y 8.0647, err_z 6.3269, err_trans 24.2669, err_rot 10.1280, err_R 14.1485, err_t 32.5077
+2024-12-04 19:40:22 | INFO     | epoch 553, train, loss 124842.2812, time 0.05s, err_x 22.0047, err_y 8.1040, err_z 6.3251, err_trans 24.2876, err_rot 10.1491, err_R 14.1578, err_t 32.5059
+2024-12-04 19:40:22 | INFO     | epoch 554, train, loss 124817.8281, time 0.05s, err_x 22.0114, err_y 8.1541, err_z 6.3176, err_trans 24.3085, err_rot 10.1643, err_R 14.1633, err_t 32.4933
+2024-12-04 19:40:22 | INFO     | epoch 555, train, loss 124809.7500, time 0.05s, err_x 22.0203, err_y 8.1987, err_z 6.3115, err_trans 24.3299, err_rot 10.1821, err_R 14.1705, err_t 32.4865
+2024-12-04 19:40:22 | INFO     | epoch 556, train, loss 124784.6719, time 0.05s, err_x 22.0311, err_y 8.2479, err_z 6.3009, err_trans 24.3536, err_rot 10.1960, err_R 14.1768, err_t 32.4787
+2024-12-04 19:40:22 | INFO     | epoch 557, train, loss 124754.6484, time 0.05s, err_x 22.0449, err_y 8.3044, err_z 6.2857, err_trans 24.3814, err_rot 10.2048, err_R 14.1821, err_t 32.4697
+2024-12-04 19:40:22 | INFO     | epoch 558, train, loss 124737.3359, time 0.05s, err_x 22.0535, err_y 8.3677, err_z 6.2768, err_trans 24.4084, err_rot 10.2132, err_R 14.1858, err_t 32.4531
+2024-12-04 19:40:22 | INFO     | epoch 559, train, loss 124695.4297, time 0.05s, err_x 22.0635, err_y 8.4344, err_z 6.2636, err_trans 24.4371, err_rot 10.2191, err_R 14.1894, err_t 32.4361
+2024-12-04 19:40:22 | INFO     | epoch 560, train, loss 124667.9375, time 0.05s, err_x 22.0834, err_y 8.4868, err_z 6.2524, err_trans 24.4703, err_rot 10.2306, err_R 14.1994, err_t 32.4406
+2024-12-04 19:40:22 | INFO     | epoch 561, train, loss 124670.1250, time 0.04s, err_x 22.1105, err_y 8.5303, err_z 6.2398, err_trans 24.5067, err_rot 10.2443, err_R 14.2125, err_t 32.4582
+2024-12-04 19:40:23 | INFO     | epoch 562, train, loss 124671.7031, time 0.05s, err_x 22.1376, err_y 8.5825, err_z 6.2179, err_trans 24.5438, err_rot 10.2507, err_R 14.2229, err_t 32.4688
+2024-12-04 19:40:23 | INFO     | epoch 563, train, loss 124667.7109, time 0.05s, err_x 22.1511, err_y 8.6235, err_z 6.2163, err_trans 24.5698, err_rot 10.2703, err_R 14.2326, err_t 32.4715
+2024-12-04 19:40:23 | INFO     | epoch 564, train, loss 124649.7812, time 0.05s, err_x 22.1554, err_y 8.6614, err_z 6.2262, err_trans 24.5896, err_rot 10.2957, err_R 14.2412, err_t 32.4666
+2024-12-04 19:40:23 | INFO     | epoch 565, train, loss 124638.7734, time 0.05s, err_x 22.1540, err_y 8.7052, err_z 6.2356, err_trans 24.6062, err_rot 10.3190, err_R 14.2462, err_t 32.4502
+2024-12-04 19:40:23 | INFO     | epoch 566, train, loss 124619.9922, time 0.05s, err_x 22.1566, err_y 8.7470, err_z 6.2370, err_trans 24.6237, err_rot 10.3395, err_R 14.2513, err_t 32.4372
+2024-12-04 19:40:23 | INFO     | epoch 567, train, loss 124635.9531, time 0.04s, err_x 22.1633, err_y 8.7754, err_z 6.2448, err_trans 24.6418, err_rot 10.3677, err_R 14.2611, err_t 32.4381
+2024-12-04 19:40:23 | INFO     | epoch 568, train, loss 124634.7344, time 0.05s, err_x 22.1738, err_y 8.8050, err_z 6.2442, err_trans 24.6616, err_rot 10.3920, err_R 14.2711, err_t 32.4415
+2024-12-04 19:40:23 | INFO     | epoch 569, train, loss 124642.4062, time 0.05s, err_x 22.1861, err_y 8.8305, err_z 6.2421, err_trans 24.6812, err_rot 10.4167, err_R 14.2815, err_t 32.4481
+2024-12-04 19:40:23 | INFO     | epoch 570, train, loss 124633.2422, time 0.05s, err_x 22.1982, err_y 8.8654, err_z 6.2282, err_trans 24.7011, err_rot 10.4345, err_R 14.2886, err_t 32.4460
+2024-12-04 19:40:23 | INFO     | epoch 571, train, loss 124619.5469, time 0.05s, err_x 22.2100, err_y 8.9119, err_z 6.2003, err_trans 24.7215, err_rot 10.4433, err_R 14.2910, err_t 32.4325
+2024-12-04 19:40:23 | INFO     | epoch 572, train, loss 124614.0156, time 0.05s, err_x 22.2278, err_y 8.9460, err_z 6.1772, err_trans 24.7440, err_rot 10.4577, err_R 14.2985, err_t 32.4353
+2024-12-04 19:40:23 | INFO     | epoch 573, train, loss 124614.1406, time 0.04s, err_x 22.2507, err_y 8.9771, err_z 6.1528, err_trans 24.7697, err_rot 10.4723, err_R 14.3084, err_t 32.4463
+2024-12-04 19:40:23 | INFO     | epoch 574, train, loss 124634.1406, time 0.04s, err_x 22.2748, err_y 8.9976, err_z 6.1239, err_trans 24.7916, err_rot 10.4888, err_R 14.3188, err_t 32.4615
+2024-12-04 19:40:23 | INFO     | epoch 575, train, loss 124649.9219, time 0.05s, err_x 22.2925, err_y 9.0077, err_z 6.1039, err_trans 24.8063, err_rot 10.5123, err_R 14.3280, err_t 32.4731
+2024-12-04 19:40:23 | INFO     | epoch 576, train, loss 124644.5469, time 0.05s, err_x 22.3029, err_y 9.0290, err_z 6.0784, err_trans 24.8171, err_rot 10.5314, err_R 14.3319, err_t 32.4669
+2024-12-04 19:40:23 | INFO     | epoch 577, train, loss 124634.4609, time 0.05s, err_x 22.3078, err_y 9.0533, err_z 6.0522, err_trans 24.8239, err_rot 10.5497, err_R 14.3337, err_t 32.4521
+2024-12-04 19:40:23 | INFO     | epoch 578, train, loss 124612.0859, time 0.04s, err_x 22.3059, err_y 9.0845, err_z 6.0244, err_trans 24.8269, err_rot 10.5660, err_R 14.3317, err_t 32.4238
+2024-12-04 19:40:23 | INFO     | epoch 579, train, loss 124578.5859, time 0.05s, err_x 22.3013, err_y 9.1214, err_z 6.0008, err_trans 24.8306, err_rot 10.5822, err_R 14.3291, err_t 32.3912
+2024-12-04 19:40:23 | INFO     | epoch 580, train, loss 124582.0000, time 0.04s, err_x 22.3023, err_y 9.1508, err_z 5.9852, err_trans 24.8386, err_rot 10.6030, err_R 14.3317, err_t 32.3735
+2024-12-04 19:40:23 | INFO     | epoch 581, train, loss 124594.7500, time 0.05s, err_x 22.3104, err_y 9.1652, err_z 5.9764, err_trans 24.8490, err_rot 10.6314, err_R 14.3407, err_t 32.3752
+2024-12-04 19:40:23 | INFO     | epoch 582, train, loss 124650.8125, time 0.05s, err_x 22.3277, err_y 9.1654, err_z 5.9742, err_trans 24.8640, err_rot 10.6670, err_R 14.3568, err_t 32.3991
+2024-12-04 19:40:23 | INFO     | epoch 583, train, loss 124704.2500, time 0.05s, err_x 22.3451, err_y 9.1694, err_z 5.9756, err_trans 24.8814, err_rot 10.7027, err_R 14.3736, err_t 32.4234
+2024-12-04 19:40:24 | INFO     | epoch 584, train, loss 124757.2656, time 0.05s, err_x 22.3538, err_y 9.1866, err_z 5.9805, err_trans 24.8968, err_rot 10.7353, err_R 14.3867, err_t 32.4317
+2024-12-04 19:40:24 | INFO     | epoch 585, train, loss 124765.8594, time 0.05s, err_x 22.3588, err_y 9.2156, err_z 5.9799, err_trans 24.9119, err_rot 10.7631, err_R 14.3955, err_t 32.4270
+2024-12-04 19:40:24 | INFO     | epoch 586, train, loss 124743.7109, time 0.05s, err_x 22.3636, err_y 9.2608, err_z 5.9694, err_trans 24.9304, err_rot 10.7814, err_R 14.4007, err_t 32.4122
+2024-12-04 19:40:24 | INFO     | epoch 587, train, loss 124712.2109, time 0.05s, err_x 22.3704, err_y 9.3152, err_z 5.9527, err_trans 24.9528, err_rot 10.7946, err_R 14.4051, err_t 32.3951
+2024-12-04 19:40:24 | INFO     | epoch 588, train, loss 124648.6094, time 0.05s, err_x 22.3792, err_y 9.3846, err_z 5.9283, err_trans 24.9809, err_rot 10.7982, err_R 14.4070, err_t 32.3725
+2024-12-04 19:40:24 | INFO     | epoch 589, train, loss 124606.8750, time 0.05s, err_x 22.3936, err_y 9.4449, err_z 5.9068, err_trans 25.0114, err_rot 10.8058, err_R 14.4119, err_t 32.3615
+2024-12-04 19:40:24 | INFO     | epoch 590, train, loss 124560.8750, time 0.05s, err_x 22.4171, err_y 9.5053, err_z 5.8784, err_trans 25.0486, err_rot 10.8103, err_R 14.4191, err_t 32.3614
+2024-12-04 19:40:24 | INFO     | epoch 591, train, loss 124577.2109, time 0.05s, err_x 22.4543, err_y 9.5337, err_z 5.8646, err_trans 25.0895, err_rot 10.8309, err_R 14.4398, err_t 32.4011
+2024-12-04 19:40:24 | INFO     | epoch 592, train, loss 124593.3438, time 0.05s, err_x 22.4844, err_y 9.5656, err_z 5.8527, err_trans 25.1257, err_rot 10.8513, err_R 14.4567, err_t 32.4287
+2024-12-04 19:40:24 | INFO     | epoch 593, train, loss 124622.8125, time 0.05s, err_x 22.5075, err_y 9.5941, err_z 5.8442, err_trans 25.1553, err_rot 10.8752, err_R 14.4712, err_t 32.4476
+2024-12-04 19:40:24 | INFO     | epoch 594, train, loss 124631.6875, time 0.05s, err_x 22.5219, err_y 9.6306, err_z 5.8316, err_trans 25.1792, err_rot 10.8951, err_R 14.4788, err_t 32.4466
+2024-12-04 19:40:24 | INFO     | epoch 595, train, loss 124587.3125, time 0.05s, err_x 22.5283, err_y 9.6859, err_z 5.8046, err_trans 25.1998, err_rot 10.9035, err_R 14.4762, err_t 32.4190
+2024-12-04 19:40:24 | INFO     | epoch 596, train, loss 124556.2109, time 0.05s, err_x 22.5281, err_y 9.7404, err_z 5.7825, err_trans 25.2156, err_rot 10.9150, err_R 14.4716, err_t 32.3830
+2024-12-04 19:40:24 | INFO     | epoch 597, train, loss 124557.9531, time 0.04s, err_x 22.5269, err_y 9.7784, err_z 5.7722, err_trans 25.2269, err_rot 10.9373, err_R 14.4717, err_t 32.3571
+2024-12-04 19:40:24 | INFO     | epoch 598, train, loss 124548.6797, time 0.05s, err_x 22.5229, err_y 9.8130, err_z 5.7651, err_trans 25.2351, err_rot 10.9623, err_R 14.4721, err_t 32.3301
+2024-12-04 19:40:24 | INFO     | epoch 599, train, loss 124552.9219, time 0.05s, err_x 22.5238, err_y 9.8457, err_z 5.7547, err_trans 25.2463, err_rot 10.9859, err_R 14.4747, err_t 32.3108
+2024-12-04 19:40:27 | INFO     | epoch 600, train, loss 124556.1484, time 2.91s, err_x 22.5361, err_y 9.8777, err_z 5.7406, err_trans 25.2665, err_rot 11.0074, err_R 14.4829, err_t 32.3095
+2024-12-04 19:40:27 | INFO     | epoch 601, train, loss 124548.6484, time 0.05s, err_x 22.5516, err_y 9.9189, err_z 5.7250, err_trans 25.2930, err_rot 11.0239, err_R 14.4917, err_t 32.3103
+2024-12-04 19:40:27 | INFO     | epoch 602, train, loss 124503.0938, time 0.05s, err_x 22.5700, err_y 9.9765, err_z 5.7025, err_trans 25.3270, err_rot 11.0309, err_R 14.4988, err_t 32.3073
+2024-12-04 19:40:27 | INFO     | epoch 603, train, loss 124505.7344, time 0.05s, err_x 22.5946, err_y 10.0217, err_z 5.6798, err_trans 25.3616, err_rot 11.0414, err_R 14.5095, err_t 32.3179
+2024-12-04 19:40:27 | INFO     | epoch 604, train, loss 124491.2344, time 0.05s, err_x 22.6221, err_y 10.0614, err_z 5.6570, err_trans 25.3967, err_rot 11.0528, err_R 14.5217, err_t 32.3349
+2024-12-04 19:40:27 | INFO     | epoch 605, train, loss 124472.0312, time 0.05s, err_x 22.6535, err_y 10.1086, err_z 5.6260, err_trans 25.4365, err_rot 11.0581, err_R 14.5332, err_t 32.3521
+2024-12-04 19:40:27 | INFO     | epoch 606, train, loss 124489.8359, time 0.05s, err_x 22.6799, err_y 10.1390, err_z 5.6052, err_trans 25.4675, err_rot 11.0744, err_R 14.5462, err_t 32.3710
+2024-12-04 19:40:27 | INFO     | epoch 607, train, loss 124519.9844, time 0.05s, err_x 22.6940, err_y 10.1597, err_z 5.5997, err_trans 25.4871, err_rot 11.1024, err_R 14.5581, err_t 32.3799
+2024-12-04 19:40:28 | INFO     | epoch 608, train, loss 124531.3750, time 0.05s, err_x 22.7042, err_y 10.1809, err_z 5.5909, err_trans 25.5027, err_rot 11.1300, err_R 14.5672, err_t 32.3806
+2024-12-04 19:40:28 | INFO     | epoch 609, train, loss 124487.4531, time 0.05s, err_x 22.7066, err_y 10.2267, err_z 5.5665, err_trans 25.5179, err_rot 11.1440, err_R 14.5663, err_t 32.3535
+2024-12-04 19:40:28 | INFO     | epoch 610, train, loss 124454.1094, time 0.05s, err_x 22.7030, err_y 10.2794, err_z 5.5423, err_trans 25.5306, err_rot 11.1560, err_R 14.5625, err_t 32.3155
+2024-12-04 19:40:28 | INFO     | epoch 611, train, loss 124427.3906, time 0.05s, err_x 22.6998, err_y 10.3196, err_z 5.5294, err_trans 25.5411, err_rot 11.1765, err_R 14.5627, err_t 32.2869
+2024-12-04 19:40:28 | INFO     | epoch 612, train, loss 124402.4375, time 0.05s, err_x 22.7030, err_y 10.3679, err_z 5.5073, err_trans 25.5588, err_rot 11.1890, err_R 14.5626, err_t 32.2619
+2024-12-04 19:40:28 | INFO     | epoch 613, train, loss 124419.7734, time 0.05s, err_x 22.7158, err_y 10.3917, err_z 5.4972, err_trans 25.5776, err_rot 11.2143, err_R 14.5727, err_t 32.2658
+2024-12-04 19:40:28 | INFO     | epoch 614, train, loss 124427.8594, time 0.05s, err_x 22.7370, err_y 10.4181, err_z 5.4788, err_trans 25.6032, err_rot 11.2343, err_R 14.5846, err_t 32.2788
+2024-12-04 19:40:28 | INFO     | epoch 615, train, loss 124462.2500, time 0.05s, err_x 22.7657, err_y 10.4333, err_z 5.4591, err_trans 25.6307, err_rot 11.2571, err_R 14.6008, err_t 32.3071
+2024-12-04 19:40:28 | INFO     | epoch 616, train, loss 124460.2734, time 0.05s, err_x 22.7923, err_y 10.4563, err_z 5.4322, err_trans 25.6580, err_rot 11.2744, err_R 14.6136, err_t 32.3266
+2024-12-04 19:40:28 | INFO     | epoch 617, train, loss 124439.7188, time 0.05s, err_x 22.8132, err_y 10.4953, err_z 5.3940, err_trans 25.6844, err_rot 11.2819, err_R 14.6193, err_t 32.3269
+2024-12-04 19:40:28 | INFO     | epoch 618, train, loss 124420.3359, time 0.05s, err_x 22.8326, err_y 10.5334, err_z 5.3486, err_trans 25.7078, err_rot 11.2878, err_R 14.6220, err_t 32.3211
+2024-12-04 19:40:28 | INFO     | epoch 619, train, loss 124400.6094, time 0.05s, err_x 22.8468, err_y 10.5640, err_z 5.3073, err_trans 25.7243, err_rot 11.2995, err_R 14.6251, err_t 32.3123
+2024-12-04 19:40:28 | INFO     | epoch 620, train, loss 124387.7109, time 0.05s, err_x 22.8586, err_y 10.5946, err_z 5.2630, err_trans 25.7383, err_rot 11.3106, err_R 14.6268, err_t 32.2989
+2024-12-04 19:40:28 | INFO     | epoch 621, train, loss 124376.5781, time 0.05s, err_x 22.8754, err_y 10.6150, err_z 5.2175, err_trans 25.7524, err_rot 11.3244, err_R 14.6308, err_t 32.2955
+2024-12-04 19:40:28 | INFO     | epoch 622, train, loss 124398.9062, time 0.05s, err_x 22.8941, err_y 10.6258, err_z 5.1757, err_trans 25.7650, err_rot 11.3430, err_R 14.6377, err_t 32.2999
+2024-12-04 19:40:28 | INFO     | epoch 623, train, loss 124411.3047, time 0.05s, err_x 22.9103, err_y 10.6263, err_z 5.1441, err_trans 25.7733, err_rot 11.3689, err_R 14.6468, err_t 32.3080
+2024-12-04 19:40:28 | INFO     | epoch 624, train, loss 124458.1875, time 0.05s, err_x 22.9274, err_y 10.6176, err_z 5.1124, err_trans 25.7786, err_rot 11.3989, err_R 14.6578, err_t 32.3208
+2024-12-04 19:40:28 | INFO     | epoch 625, train, loss 124503.1172, time 0.05s, err_x 22.9445, err_y 10.6021, err_z 5.0803, err_trans 25.7810, err_rot 11.4312, err_R 14.6693, err_t 32.3355
+2024-12-04 19:40:28 | INFO     | epoch 626, train, loss 124559.7422, time 0.05s, err_x 22.9558, err_y 10.5870, err_z 5.0504, err_trans 25.7790, err_rot 11.4643, err_R 14.6778, err_t 32.3408
+2024-12-04 19:40:28 | INFO     | epoch 627, train, loss 124590.8672, time 0.05s, err_x 22.9584, err_y 10.5822, err_z 5.0244, err_trans 25.7743, err_rot 11.4955, err_R 14.6834, err_t 32.3322
+2024-12-04 19:40:28 | INFO     | epoch 628, train, loss 124580.2109, time 0.05s, err_x 22.9537, err_y 10.5996, err_z 4.9863, err_trans 25.7699, err_rot 11.5146, err_R 14.6799, err_t 32.2988
+2024-12-04 19:40:29 | INFO     | epoch 629, train, loss 124513.4688, time 0.05s, err_x 22.9451, err_y 10.6444, err_z 4.9384, err_trans 25.7715, err_rot 11.5189, err_R 14.6690, err_t 32.2464
+2024-12-04 19:40:29 | INFO     | epoch 630, train, loss 124499.5234, time 0.05s, err_x 22.9456, err_y 10.6655, err_z 4.9027, err_trans 25.7738, err_rot 11.5355, err_R 14.6674, err_t 32.2208
+2024-12-04 19:40:29 | INFO     | epoch 631, train, loss 124506.7188, time 0.05s, err_x 22.9558, err_y 10.6819, err_z 4.8685, err_trans 25.7832, err_rot 11.5530, err_R 14.6698, err_t 32.2111
+2024-12-04 19:40:29 | INFO     | epoch 632, train, loss 124509.5156, time 0.05s, err_x 22.9743, err_y 10.7026, err_z 4.8323, err_trans 25.8014, err_rot 11.5668, err_R 14.6737, err_t 32.2109
+2024-12-04 19:40:29 | INFO     | epoch 633, train, loss 124510.0234, time 0.05s, err_x 23.0018, err_y 10.7236, err_z 4.7902, err_trans 25.8268, err_rot 11.5769, err_R 14.6786, err_t 32.2207
+2024-12-04 19:40:29 | INFO     | epoch 634, train, loss 124521.4688, time 0.05s, err_x 23.0326, err_y 10.7398, err_z 4.7487, err_trans 25.8533, err_rot 11.5890, err_R 14.6857, err_t 32.2373
+2024-12-04 19:40:29 | INFO     | epoch 635, train, loss 124532.4609, time 0.05s, err_x 23.0687, err_y 10.7548, err_z 4.7063, err_trans 25.8840, err_rot 11.6007, err_R 14.6954, err_t 32.2629
+2024-12-04 19:40:29 | INFO     | epoch 636, train, loss 124581.3125, time 0.05s, err_x 23.1107, err_y 10.7549, err_z 4.6687, err_trans 25.9147, err_rot 11.6199, err_R 14.7118, err_t 32.3061
+2024-12-04 19:40:29 | INFO     | epoch 637, train, loss 124607.5156, time 0.05s, err_x 23.1377, err_y 10.7675, err_z 4.6326, err_trans 25.9375, err_rot 11.6365, err_R 14.7203, err_t 32.3218
+2024-12-04 19:40:29 | INFO     | epoch 638, train, loss 124598.9297, time 0.05s, err_x 23.1554, err_y 10.7916, err_z 4.5885, err_trans 25.9555, err_rot 11.6476, err_R 14.7219, err_t 32.3159
+2024-12-04 19:40:29 | INFO     | epoch 639, train, loss 124578.1875, time 0.05s, err_x 23.1641, err_y 10.8212, err_z 4.5473, err_trans 25.9683, err_rot 11.6589, err_R 14.7201, err_t 32.2957
+2024-12-04 19:40:29 | INFO     | epoch 640, train, loss 124546.3750, time 0.05s, err_x 23.1634, err_y 10.8549, err_z 4.5103, err_trans 25.9753, err_rot 11.6703, err_R 14.7153, err_t 32.2621
+2024-12-04 19:40:29 | INFO     | epoch 641, train, loss 124478.4609, time 0.05s, err_x 23.1590, err_y 10.8975, err_z 4.4714, err_trans 25.9825, err_rot 11.6775, err_R 14.7074, err_t 32.2193
+2024-12-04 19:40:29 | INFO     | epoch 642, train, loss 124478.5234, time 0.05s, err_x 23.1679, err_y 10.9202, err_z 4.4412, err_trans 25.9948, err_rot 11.6951, err_R 14.7106, err_t 32.2081
+2024-12-04 19:40:29 | INFO     | epoch 643, train, loss 124476.6250, time 0.05s, err_x 23.1893, err_y 10.9421, err_z 4.4036, err_trans 26.0166, err_rot 11.7101, err_R 14.7179, err_t 32.2140
+2024-12-04 19:40:29 | INFO     | epoch 644, train, loss 124526.2422, time 0.05s, err_x 23.2170, err_y 10.9480, err_z 4.3724, err_trans 26.0385, err_rot 11.7331, err_R 14.7318, err_t 32.2380
+2024-12-04 19:40:29 | INFO     | epoch 645, train, loss 124573.9219, time 0.05s, err_x 23.2445, err_y 10.9534, err_z 4.3418, err_trans 26.0602, err_rot 11.7567, err_R 14.7456, err_t 32.2619
+2024-12-04 19:40:29 | INFO     | epoch 646, train, loss 124597.2969, time 0.05s, err_x 23.2695, err_y 10.9661, err_z 4.3049, err_trans 26.0817, err_rot 11.7764, err_R 14.7561, err_t 32.2767
+2024-12-04 19:40:29 | INFO     | epoch 647, train, loss 124623.1797, time 0.05s, err_x 23.2942, err_y 10.9697, err_z 4.2657, err_trans 26.0988, err_rot 11.7992, err_R 14.7678, err_t 32.2941
+2024-12-04 19:40:29 | INFO     | epoch 648, train, loss 124645.1797, time 0.05s, err_x 23.3184, err_y 10.9793, err_z 4.2204, err_trans 26.1171, err_rot 11.8172, err_R 14.7769, err_t 32.3061
+2024-12-04 19:40:30 | INFO     | epoch 649, train, loss 124678.9844, time 0.05s, err_x 23.3361, err_y 10.9837, err_z 4.1830, err_trans 26.1288, err_rot 11.8404, err_R 14.7856, err_t 32.3126
+2024-12-04 19:40:30 | INFO     | epoch 650, train, loss 124670.0859, time 0.05s, err_x 23.3493, err_y 11.0060, err_z 4.1343, err_trans 26.1422, err_rot 11.8523, err_R 14.7882, err_t 32.3032
+2024-12-04 19:40:30 | INFO     | epoch 651, train, loss 124631.7656, time 0.05s, err_x 23.3565, err_y 11.0391, err_z 4.0809, err_trans 26.1541, err_rot 11.8585, err_R 14.7858, err_t 32.2792
+2024-12-04 19:40:30 | INFO     | epoch 652, train, loss 124587.2422, time 0.05s, err_x 23.3539, err_y 11.0700, err_z 4.0343, err_trans 26.1577, err_rot 11.8691, err_R 14.7813, err_t 32.2432
+2024-12-04 19:40:30 | INFO     | epoch 653, train, loss 124557.3594, time 0.05s, err_x 23.3534, err_y 11.0922, err_z 3.9877, err_trans 26.1595, err_rot 11.8830, err_R 14.7789, err_t 32.2134
+2024-12-04 19:40:30 | INFO     | epoch 654, train, loss 124564.6719, time 0.05s, err_x 23.3653, err_y 11.1017, err_z 3.9403, err_trans 26.1670, err_rot 11.9003, err_R 14.7832, err_t 32.2071
+2024-12-04 19:40:30 | INFO     | epoch 655, train, loss 124602.7344, time 0.05s, err_x 23.3856, err_y 11.0987, err_z 3.8975, err_trans 26.1775, err_rot 11.9228, err_R 14.7939, err_t 32.2204
+2024-12-04 19:40:30 | INFO     | epoch 656, train, loss 124650.1797, time 0.05s, err_x 23.4028, err_y 11.0923, err_z 3.8606, err_trans 26.1846, err_rot 11.9486, err_R 14.8047, err_t 32.2317
+2024-12-04 19:40:30 | INFO     | epoch 657, train, loss 124633.4297, time 0.05s, err_x 23.4253, err_y 11.1117, err_z 3.8043, err_trans 26.2047, err_rot 11.9560, err_R 14.8097, err_t 32.2360
+2024-12-04 19:40:30 | INFO     | epoch 658, train, loss 124647.7812, time 0.05s, err_x 23.4522, err_y 11.1146, err_z 3.7514, err_trans 26.2224, err_rot 11.9698, err_R 14.8197, err_t 32.2546
+2024-12-04 19:40:30 | INFO     | epoch 659, train, loss 124689.2031, time 0.05s, err_x 23.4767, err_y 11.1096, err_z 3.7018, err_trans 26.2352, err_rot 11.9889, err_R 14.8306, err_t 32.2730
+2024-12-04 19:40:30 | INFO     | epoch 660, train, loss 124695.1484, time 0.05s, err_x 23.4952, err_y 11.1156, err_z 3.6507, err_trans 26.2470, err_rot 12.0042, err_R 14.8374, err_t 32.2777
+2024-12-04 19:40:30 | INFO     | epoch 661, train, loss 124692.2969, time 0.05s, err_x 23.5070, err_y 11.1303, err_z 3.5947, err_trans 26.2561, err_rot 12.0148, err_R 14.8393, err_t 32.2677
+2024-12-04 19:40:30 | INFO     | epoch 662, train, loss 124632.3906, time 0.05s, err_x 23.5127, err_y 11.1662, err_z 3.5271, err_trans 26.2673, err_rot 12.0138, err_R 14.8328, err_t 32.2361
+2024-12-04 19:40:30 | INFO     | epoch 663, train, loss 124594.4375, time 0.05s, err_x 23.5252, err_y 11.2092, err_z 3.4502, err_trans 26.2866, err_rot 12.0056, err_R 14.8265, err_t 32.2106
+2024-12-04 19:40:30 | INFO     | epoch 664, train, loss 124544.6250, time 0.05s, err_x 23.5437, err_y 11.2554, err_z 3.3719, err_trans 26.3127, err_rot 11.9957, err_R 14.8220, err_t 32.1931
+2024-12-04 19:40:30 | INFO     | epoch 665, train, loss 124519.8438, time 0.05s, err_x 23.5748, err_y 11.3025, err_z 3.2898, err_trans 26.3503, err_rot 11.9834, err_R 14.8219, err_t 32.1936
+2024-12-04 19:40:30 | INFO     | epoch 666, train, loss 124545.7344, time 0.05s, err_x 23.6191, err_y 11.3316, err_z 3.2125, err_trans 26.3929, err_rot 11.9791, err_R 14.8313, err_t 32.2235
+2024-12-04 19:40:30 | INFO     | epoch 667, train, loss 124600.6875, time 0.05s, err_x 23.6637, err_y 11.3619, err_z 3.1335, err_trans 26.4364, err_rot 11.9726, err_R 14.8401, err_t 32.2532
+2024-12-04 19:40:30 | INFO     | epoch 668, train, loss 124632.6562, time 0.05s, err_x 23.7016, err_y 11.3774, err_z 3.0739, err_trans 26.4700, err_rot 11.9794, err_R 14.8529, err_t 32.2847
+2024-12-04 19:40:30 | INFO     | epoch 669, train, loss 124689.4297, time 0.05s, err_x 23.7456, err_y 11.3671, err_z 3.0265, err_trans 26.4995, err_rot 12.0012, err_R 14.8756, err_t 32.3395
+2024-12-04 19:40:31 | INFO     | epoch 670, train, loss 124747.8281, time 0.05s, err_x 23.7878, err_y 11.3385, err_z 2.9878, err_trans 26.5207, err_rot 12.0343, err_R 14.9030, err_t 32.4013
+2024-12-04 19:40:31 | INFO     | epoch 671, train, loss 124807.3125, time 0.05s, err_x 23.8309, err_y 11.2940, err_z 2.9607, err_trans 26.5374, err_rot 12.0779, err_R 14.9355, err_t 32.4736
+2024-12-04 19:40:31 | INFO     | epoch 672, train, loss 124906.2109, time 0.05s, err_x 23.8737, err_y 11.2563, err_z 2.9280, err_trans 26.5562, err_rot 12.1169, err_R 14.9657, err_t 32.5412
+2024-12-04 19:40:31 | INFO     | epoch 673, train, loss 124975.4375, time 0.05s, err_x 23.9078, err_y 11.2328, err_z 2.8863, err_trans 26.5723, err_rot 12.1482, err_R 14.9883, err_t 32.5869
+2024-12-04 19:40:31 | INFO     | epoch 674, train, loss 125007.1406, time 0.05s, err_x 23.9315, err_y 11.2332, err_z 2.8303, err_trans 26.5878, err_rot 12.1670, err_R 15.0002, err_t 32.6033
+2024-12-04 19:40:31 | INFO     | epoch 675, train, loss 124970.9609, time 0.05s, err_x 23.9419, err_y 11.2655, err_z 2.7576, err_trans 26.6032, err_rot 12.1698, err_R 14.9982, err_t 32.5813
+2024-12-04 19:40:31 | INFO     | epoch 676, train, loss 124924.8906, time 0.05s, err_x 23.9422, err_y 11.3178, err_z 2.6820, err_trans 26.6179, err_rot 12.1651, err_R 14.9884, err_t 32.5355
+2024-12-04 19:40:31 | INFO     | epoch 677, train, loss 124894.8281, time 0.05s, err_x 23.9389, err_y 11.3688, err_z 2.6098, err_trans 26.6295, err_rot 12.1639, err_R 14.9783, err_t 32.4853
+2024-12-04 19:40:31 | INFO     | epoch 678, train, loss 124861.7500, time 0.05s, err_x 23.9317, err_y 11.4099, err_z 2.5499, err_trans 26.6348, err_rot 12.1713, err_R 14.9722, err_t 32.4381
+2024-12-04 19:40:31 | INFO     | epoch 679, train, loss 124834.1875, time 0.05s, err_x 23.9250, err_y 11.4379, err_z 2.5039, err_trans 26.6364, err_rot 12.1894, err_R 14.9726, err_t 32.4019
+2024-12-04 19:40:31 | INFO     | epoch 680, train, loss 124815.0234, time 0.05s, err_x 23.9201, err_y 11.4425, err_z 2.4802, err_trans 26.6318, err_rot 12.2253, err_R 14.9831, err_t 32.3849
+2024-12-04 19:40:31 | INFO     | epoch 681, train, loss 124797.2031, time 0.05s, err_x 23.9244, err_y 11.4243, err_z 2.4687, err_trans 26.6268, err_rot 12.2741, err_R 15.0035, err_t 32.3938
+2024-12-04 19:40:31 | INFO     | epoch 682, train, loss 124826.5000, time 0.05s, err_x 23.9301, err_y 11.4025, err_z 2.4636, err_trans 26.6221, err_rot 12.3267, err_R 15.0270, err_t 32.4088
+2024-12-04 19:40:31 | INFO     | epoch 683, train, loss 124838.3359, time 0.05s, err_x 23.9365, err_y 11.4154, err_z 2.4370, err_trans 26.6309, err_rot 12.3579, err_R 15.0404, err_t 32.4056
+2024-12-04 19:40:31 | INFO     | epoch 684, train, loss 124826.8359, time 0.05s, err_x 23.9454, err_y 11.4470, err_z 2.3956, err_trans 26.6488, err_rot 12.3759, err_R 15.0482, err_t 32.3943
+2024-12-04 19:40:31 | INFO     | epoch 685, train, loss 124790.1562, time 0.05s, err_x 23.9542, err_y 11.4935, err_z 2.3504, err_trans 26.6726, err_rot 12.3867, err_R 15.0530, err_t 32.3767
+2024-12-04 19:40:31 | INFO     | epoch 686, train, loss 124766.1094, time 0.05s, err_x 23.9652, err_y 11.5607, err_z 2.2947, err_trans 26.7067, err_rot 12.3839, err_R 15.0534, err_t 32.3534
+2024-12-04 19:40:31 | INFO     | epoch 687, train, loss 124758.5469, time 0.05s, err_x 23.9753, err_y 11.6139, err_z 2.2514, err_trans 26.7351, err_rot 12.3912, err_R 15.0592, err_t 32.3387
+2024-12-04 19:40:31 | INFO     | epoch 688, train, loss 124733.1094, time 0.05s, err_x 23.9898, err_y 11.6550, err_z 2.2175, err_trans 26.7632, err_rot 12.4067, err_R 15.0717, err_t 32.3391
+2024-12-04 19:40:31 | INFO     | epoch 689, train, loss 124744.2188, time 0.05s, err_x 24.0093, err_y 11.6864, err_z 2.1912, err_trans 26.7922, err_rot 12.4293, err_R 15.0900, err_t 32.3537
+2024-12-04 19:40:31 | INFO     | epoch 690, train, loss 124759.5469, time 0.05s, err_x 24.0322, err_y 11.7021, err_z 2.1761, err_trans 26.8183, err_rot 12.4626, err_R 15.1148, err_t 32.3827
+2024-12-04 19:40:32 | INFO     | epoch 691, train, loss 124766.4219, time 0.05s, err_x 24.0527, err_y 11.7107, err_z 2.1700, err_trans 26.8399, err_rot 12.5026, err_R 15.1431, err_t 32.4147
+2024-12-04 19:40:32 | INFO     | epoch 692, train, loss 124787.6797, time 0.05s, err_x 24.0737, err_y 11.7308, err_z 2.1592, err_trans 26.8667, err_rot 12.5362, err_R 15.1680, err_t 32.4409
+2024-12-04 19:40:32 | INFO     | epoch 693, train, loss 124818.0469, time 0.05s, err_x 24.0934, err_y 11.7541, err_z 2.1483, err_trans 26.8936, err_rot 12.5693, err_R 15.1924, err_t 32.4644
+2024-12-04 19:40:32 | INFO     | epoch 694, train, loss 124816.3125, time 0.05s, err_x 24.1175, err_y 11.7875, err_z 2.1225, err_trans 26.9277, err_rot 12.5923, err_R 15.2132, err_t 32.4860
+2024-12-04 19:40:32 | INFO     | epoch 695, train, loss 124820.2734, time 0.05s, err_x 24.1479, err_y 11.8279, err_z 2.0828, err_trans 26.9696, err_rot 12.6074, err_R 15.2324, err_t 32.5108
+2024-12-04 19:40:32 | INFO     | epoch 696, train, loss 124829.3359, time 0.05s, err_x 24.1651, err_y 11.8809, err_z 2.0491, err_trans 27.0056, err_rot 12.6216, err_R 15.2474, err_t 32.5142
+2024-12-04 19:40:32 | INFO     | epoch 697, train, loss 124796.9609, time 0.05s, err_x 24.1767, err_y 11.9343, err_z 2.0193, err_trans 27.0373, err_rot 12.6371, err_R 15.2614, err_t 32.5106
+2024-12-04 19:40:32 | INFO     | epoch 698, train, loss 124791.5781, time 0.05s, err_x 24.1872, err_y 11.9893, err_z 1.9869, err_trans 27.0686, err_rot 12.6519, err_R 15.2743, err_t 32.5040
+2024-12-04 19:40:32 | INFO     | epoch 699, train, loss 124788.7656, time 0.05s, err_x 24.2019, err_y 12.0294, err_z 1.9597, err_trans 27.0976, err_rot 12.6749, err_R 15.2925, err_t 32.5103
+2024-12-04 19:40:35 | INFO     | epoch 700, train, loss 124797.9219, time 2.95s, err_x 24.2198, err_y 12.0464, err_z 1.9430, err_trans 27.1199, err_rot 12.7116, err_R 15.3177, err_t 32.5320
+2024-12-04 19:40:35 | INFO     | epoch 701, train, loss 124789.0547, time 0.05s, err_x 24.2277, err_y 12.0783, err_z 1.9261, err_trans 27.1399, err_rot 12.7440, err_R 15.3369, err_t 32.5328
+2024-12-04 19:40:35 | INFO     | epoch 702, train, loss 124762.7734, time 0.05s, err_x 24.2223, err_y 12.1089, err_z 1.9204, err_trans 27.1483, err_rot 12.7822, err_R 15.3540, err_t 32.5168
+2024-12-04 19:40:35 | INFO     | epoch 703, train, loss 124723.2656, time 0.05s, err_x 24.2117, err_y 12.1489, err_z 1.9076, err_trans 27.1558, err_rot 12.8135, err_R 15.3650, err_t 32.4866
+2024-12-04 19:40:35 | INFO     | epoch 704, train, loss 124690.1094, time 0.05s, err_x 24.2048, err_y 12.2037, err_z 1.8792, err_trans 27.1723, err_rot 12.8332, err_R 15.3710, err_t 32.4511
+2024-12-04 19:40:35 | INFO     | epoch 705, train, loss 124665.0234, time 0.05s, err_x 24.2099, err_y 12.2539, err_z 1.8394, err_trans 27.1967, err_rot 12.8488, err_R 15.3790, err_t 32.4316
+2024-12-04 19:40:35 | INFO     | epoch 706, train, loss 124647.0469, time 0.05s, err_x 24.2099, err_y 12.2950, err_z 1.8133, err_trans 27.2135, err_rot 12.8712, err_R 15.3890, err_t 32.4120
+2024-12-04 19:40:35 | INFO     | epoch 707, train, loss 124601.2734, time 0.05s, err_x 24.2024, err_y 12.3236, err_z 1.8081, err_trans 27.2194, err_rot 12.9052, err_R 15.4024, err_t 32.3916
+2024-12-04 19:40:35 | INFO     | epoch 708, train, loss 124597.6094, time 0.05s, err_x 24.1952, err_y 12.3469, err_z 1.8059, err_trans 27.2234, err_rot 12.9417, err_R 15.4177, err_t 32.3749
+2024-12-04 19:40:35 | INFO     | epoch 709, train, loss 124585.3281, time 0.05s, err_x 24.1879, err_y 12.3649, err_z 1.8010, err_trans 27.2247, err_rot 12.9793, err_R 15.4319, err_t 32.3573
+2024-12-04 19:40:35 | INFO     | epoch 710, train, loss 124587.4375, time 0.05s, err_x 24.1874, err_y 12.3845, err_z 1.7889, err_trans 27.2325, err_rot 13.0120, err_R 15.4466, err_t 32.3475
+2024-12-04 19:40:35 | INFO     | epoch 711, train, loss 124588.9922, time 0.05s, err_x 24.1963, err_y 12.4043, err_z 1.7628, err_trans 27.2476, err_rot 13.0384, err_R 15.4610, err_t 32.3472
+2024-12-04 19:40:35 | INFO     | epoch 712, train, loss 124594.7812, time 0.05s, err_x 24.2110, err_y 12.4243, err_z 1.7300, err_trans 27.2677, err_rot 13.0607, err_R 15.4753, err_t 32.3535
+2024-12-04 19:40:35 | INFO     | epoch 713, train, loss 124613.6094, time 0.05s, err_x 24.2309, err_y 12.4425, err_z 1.6946, err_trans 27.2915, err_rot 13.0823, err_R 15.4914, err_t 32.3681
+2024-12-04 19:40:36 | INFO     | epoch 714, train, loss 124609.5234, time 0.05s, err_x 24.2508, err_y 12.4724, err_z 1.6505, err_trans 27.3201, err_rot 13.0955, err_R 15.5031, err_t 32.3755
+2024-12-04 19:40:36 | INFO     | epoch 715, train, loss 124596.8672, time 0.05s, err_x 24.2674, err_y 12.5025, err_z 1.6102, err_trans 27.3461, err_rot 13.1092, err_R 15.5140, err_t 32.3787
+2024-12-04 19:40:36 | INFO     | epoch 716, train, loss 124577.1250, time 0.05s, err_x 24.2828, err_y 12.5380, err_z 1.5734, err_trans 27.3739, err_rot 13.1220, err_R 15.5245, err_t 32.3796
+2024-12-04 19:40:36 | INFO     | epoch 717, train, loss 124557.1250, time 0.05s, err_x 24.2975, err_y 12.5772, err_z 1.5452, err_trans 27.4033, err_rot 13.1368, err_R 15.5372, err_t 32.3822
+2024-12-04 19:40:36 | INFO     | epoch 718, train, loss 124534.3125, time 0.05s, err_x 24.3085, err_y 12.6138, err_z 1.5219, err_trans 27.4285, err_rot 13.1541, err_R 15.5508, err_t 32.3827
+2024-12-04 19:40:36 | INFO     | epoch 719, train, loss 124517.7500, time 0.05s, err_x 24.3156, err_y 12.6508, err_z 1.5039, err_trans 27.4509, err_rot 13.1736, err_R 15.5656, err_t 32.3807
+2024-12-04 19:40:36 | INFO     | epoch 720, train, loss 124530.9375, time 0.05s, err_x 24.3253, err_y 12.6657, err_z 1.4986, err_trans 27.4661, err_rot 13.2059, err_R 15.5882, err_t 32.3947
+2024-12-04 19:40:36 | INFO     | epoch 721, train, loss 124536.6875, time 0.05s, err_x 24.3325, err_y 12.6869, err_z 1.4915, err_trans 27.4819, err_rot 13.2359, err_R 15.6091, err_t 32.4026
+2024-12-04 19:40:36 | INFO     | epoch 722, train, loss 124514.2969, time 0.05s, err_x 24.3378, err_y 12.7202, err_z 1.4777, err_trans 27.5012, err_rot 13.2577, err_R 15.6251, err_t 32.4010
+2024-12-04 19:40:36 | INFO     | epoch 723, train, loss 124482.6562, time 0.05s, err_x 24.3471, err_y 12.7614, err_z 1.4560, err_trans 27.5273, err_rot 13.2735, err_R 15.6393, err_t 32.4000
+2024-12-04 19:40:36 | INFO     | epoch 724, train, loss 124482.6094, time 0.05s, err_x 24.3688, err_y 12.7948, err_z 1.4286, err_trans 27.5606, err_rot 13.2883, err_R 15.6564, err_t 32.4177
+2024-12-04 19:40:36 | INFO     | epoch 725, train, loss 124507.1719, time 0.05s, err_x 24.3940, err_y 12.8106, err_z 1.4141, err_trans 27.5894, err_rot 13.3143, err_R 15.6806, err_t 32.4509
+2024-12-04 19:40:36 | INFO     | epoch 726, train, loss 124521.4844, time 0.05s, err_x 24.4137, err_y 12.8327, err_z 1.4001, err_trans 27.6164, err_rot 13.3384, err_R 15.7013, err_t 32.4727
+2024-12-04 19:40:36 | INFO     | epoch 727, train, loss 124509.3359, time 0.05s, err_x 24.4237, err_y 12.8577, err_z 1.3924, err_trans 27.6365, err_rot 13.3640, err_R 15.7191, err_t 32.4800
+2024-12-04 19:40:36 | INFO     | epoch 728, train, loss 124486.8594, time 0.05s, err_x 24.4214, err_y 12.8902, err_z 1.3932, err_trans 27.6496, err_rot 13.3913, err_R 15.7337, err_t 32.4690
+2024-12-04 19:40:36 | INFO     | epoch 729, train, loss 124483.1406, time 0.05s, err_x 24.4191, err_y 12.9189, err_z 1.3968, err_trans 27.6612, err_rot 13.4200, err_R 15.7489, err_t 32.4599
+2024-12-04 19:40:36 | INFO     | epoch 730, train, loss 124486.2031, time 0.05s, err_x 24.4235, err_y 12.9492, err_z 1.3948, err_trans 27.6792, err_rot 13.4451, err_R 15.7645, err_t 32.4583
+2024-12-04 19:40:36 | INFO     | epoch 731, train, loss 124475.8750, time 0.05s, err_x 24.4285, err_y 12.9824, err_z 1.3972, err_trans 27.6992, err_rot 13.4710, err_R 15.7805, err_t 32.4576
+2024-12-04 19:40:36 | INFO     | epoch 732, train, loss 124469.0469, time 0.05s, err_x 24.4435, err_y 13.0194, err_z 1.3902, err_trans 27.7295, err_rot 13.4909, err_R 15.7972, err_t 32.4682
+2024-12-04 19:40:36 | INFO     | epoch 733, train, loss 124472.2969, time 0.05s, err_x 24.4666, err_y 13.0518, err_z 1.3816, err_trans 27.7646, err_rot 13.5107, err_R 15.8167, err_t 32.4922
+2024-12-04 19:40:36 | INFO     | epoch 734, train, loss 124501.9062, time 0.05s, err_x 24.4908, err_y 13.0754, err_z 1.3764, err_trans 27.7968, err_rot 13.5347, err_R 15.8381, err_t 32.5213
+2024-12-04 19:40:37 | INFO     | epoch 735, train, loss 124479.9609, time 0.05s, err_x 24.5085, err_y 13.1203, err_z 1.3569, err_trans 27.8325, err_rot 13.5465, err_R 15.8493, err_t 32.5264
+2024-12-04 19:40:37 | INFO     | epoch 736, train, loss 124451.8594, time 0.05s, err_x 24.5222, err_y 13.1655, err_z 1.3314, err_trans 27.8647, err_rot 13.5560, err_R 15.8570, err_t 32.5225
+2024-12-04 19:40:37 | INFO     | epoch 737, train, loss 124397.7656, time 0.05s, err_x 24.5245, err_y 13.2168, err_z 1.3093, err_trans 27.8899, err_rot 13.5661, err_R 15.8604, err_t 32.4997
+2024-12-04 19:40:37 | INFO     | epoch 738, train, loss 124377.7500, time 0.05s, err_x 24.5252, err_y 13.2563, err_z 1.2986, err_trans 27.9088, err_rot 13.5858, err_R 15.8684, err_t 32.4825
+2024-12-04 19:40:37 | INFO     | epoch 739, train, loss 124361.5234, time 0.05s, err_x 24.5329, err_y 13.2954, err_z 1.2853, err_trans 27.9336, err_rot 13.6044, err_R 15.8784, err_t 32.4753
+2024-12-04 19:40:37 | INFO     | epoch 740, train, loss 124337.0000, time 0.05s, err_x 24.5456, err_y 13.3416, err_z 1.2690, err_trans 27.9659, err_rot 13.6177, err_R 15.8882, err_t 32.4730
+2024-12-04 19:40:37 | INFO     | epoch 741, train, loss 124325.8750, time 0.05s, err_x 24.5654, err_y 13.3880, err_z 1.2512, err_trans 28.0047, err_rot 13.6295, err_R 15.9001, err_t 32.4817
+2024-12-04 19:40:37 | INFO     | epoch 742, train, loss 124293.8594, time 0.05s, err_x 24.5873, err_y 13.4469, err_z 1.2265, err_trans 28.0510, err_rot 13.6347, err_R 15.9094, err_t 32.4871
+2024-12-04 19:40:37 | INFO     | epoch 743, train, loss 124294.5000, time 0.05s, err_x 24.6136, err_y 13.5011, err_z 1.2006, err_trans 28.0989, err_rot 13.6418, err_R 15.9213, err_t 32.5009
+2024-12-04 19:40:37 | INFO     | epoch 744, train, loss 124314.7344, time 0.05s, err_x 24.6401, err_y 13.5441, err_z 1.1832, err_trans 28.1421, err_rot 13.6570, err_R 15.9382, err_t 32.5224
+2024-12-04 19:40:37 | INFO     | epoch 745, train, loss 124298.6719, time 0.05s, err_x 24.6524, err_y 13.5845, err_z 1.1749, err_trans 28.1720, err_rot 13.6788, err_R 15.9537, err_t 32.5264
+2024-12-04 19:40:37 | INFO     | epoch 746, train, loss 124279.3672, time 0.05s, err_x 24.6553, err_y 13.6197, err_z 1.1767, err_trans 28.1916, err_rot 13.7082, err_R 15.9700, err_t 32.5215
+2024-12-04 19:40:37 | INFO     | epoch 747, train, loss 124270.9375, time 0.05s, err_x 24.6577, err_y 13.6486, err_z 1.1784, err_trans 28.2077, err_rot 13.7413, err_R 15.9883, err_t 32.5184
+2024-12-04 19:40:37 | INFO     | epoch 748, train, loss 124267.5156, time 0.05s, err_x 24.6581, err_y 13.6795, err_z 1.1754, err_trans 28.2229, err_rot 13.7725, err_R 16.0035, err_t 32.5085
+2024-12-04 19:40:37 | INFO     | epoch 749, train, loss 124266.2734, time 0.05s, err_x 24.6573, err_y 13.7064, err_z 1.1781, err_trans 28.2354, err_rot 13.8073, err_R 16.0199, err_t 32.4994
+2024-12-04 19:40:37 | INFO     | epoch 750, train, loss 124281.0859, time 0.05s, err_x 24.6643, err_y 13.7329, err_z 1.1732, err_trans 28.2541, err_rot 13.8394, err_R 16.0375, err_t 32.4999
+2024-12-04 19:40:37 | INFO     | epoch 751, train, loss 124296.6875, time 0.05s, err_x 24.6697, err_y 13.7647, err_z 1.1643, err_trans 28.2740, err_rot 13.8679, err_R 16.0520, err_t 32.4939
+2024-12-04 19:40:37 | INFO     | epoch 752, train, loss 124256.4844, time 0.05s, err_x 24.6816, err_y 13.8190, err_z 1.1407, err_trans 28.3099, err_rot 13.8811, err_R 16.0611, err_t 32.4857
+2024-12-04 19:40:37 | INFO     | epoch 753, train, loss 124218.2812, time 0.05s, err_x 24.6979, err_y 13.8719, err_z 1.1142, err_trans 28.3489, err_rot 13.8932, err_R 16.0706, err_t 32.4829
+2024-12-04 19:40:37 | INFO     | epoch 754, train, loss 124207.1875, time 0.05s, err_x 24.7231, err_y 13.9235, err_z 1.0858, err_trans 28.3950, err_rot 13.9046, err_R 16.0828, err_t 32.4935
+2024-12-04 19:40:38 | INFO     | epoch 755, train, loss 124189.0625, time 0.05s, err_x 24.7535, err_y 13.9759, err_z 1.0540, err_trans 28.4459, err_rot 13.9140, err_R 16.0961, err_t 32.5109
+2024-12-04 19:40:38 | INFO     | epoch 756, train, loss 124218.9922, time 0.05s, err_x 24.7780, err_y 14.0072, err_z 1.0448, err_trans 28.4823, err_rot 13.9402, err_R 16.1163, err_t 32.5337
+2024-12-04 19:40:38 | INFO     | epoch 757, train, loss 124231.8594, time 0.05s, err_x 24.7932, err_y 14.0399, err_z 1.0389, err_trans 28.5114, err_rot 13.9686, err_R 16.1351, err_t 32.5437
+2024-12-04 19:40:38 | INFO     | epoch 758, train, loss 124236.9375, time 0.05s, err_x 24.8039, err_y 14.0758, err_z 1.0269, err_trans 28.5380, err_rot 13.9945, err_R 16.1504, err_t 32.5435
+2024-12-04 19:40:38 | INFO     | epoch 759, train, loss 124225.0859, time 0.05s, err_x 24.8065, err_y 14.1121, err_z 1.0145, err_trans 28.5577, err_rot 14.0211, err_R 16.1624, err_t 32.5295
+2024-12-04 19:40:38 | INFO     | epoch 760, train, loss 124188.0625, time 0.05s, err_x 24.8042, err_y 14.1561, err_z 1.0017, err_trans 28.5771, err_rot 14.0447, err_R 16.1713, err_t 32.5056
+2024-12-04 19:40:38 | INFO     | epoch 761, train, loss 124174.0000, time 0.05s, err_x 24.8094, err_y 14.1842, err_z 0.9981, err_trans 28.5954, err_rot 14.0759, err_R 16.1872, err_t 32.5013
+2024-12-04 19:40:38 | INFO     | epoch 762, train, loss 124203.0547, time 0.05s, err_x 24.8180, err_y 14.2111, err_z 0.9961, err_trans 28.6161, err_rot 14.1077, err_R 16.2050, err_t 32.5036
+2024-12-04 19:40:38 | INFO     | epoch 763, train, loss 124238.4922, time 0.05s, err_x 24.8300, err_y 14.2354, err_z 0.9983, err_trans 28.6386, err_rot 14.1413, err_R 16.2257, err_t 32.5140
+2024-12-04 19:40:38 | INFO     | epoch 764, train, loss 124230.1250, time 0.05s, err_x 24.8451, err_y 14.2792, err_z 0.9932, err_trans 28.6734, err_rot 14.1641, err_R 16.2425, err_t 32.5213
+2024-12-04 19:40:38 | INFO     | epoch 765, train, loss 124204.3906, time 0.05s, err_x 24.8635, err_y 14.3325, err_z 0.9837, err_trans 28.7156, err_rot 14.1811, err_R 16.2582, err_t 32.5299
+2024-12-04 19:40:38 | INFO     | epoch 766, train, loss 124163.5234, time 0.05s, err_x 24.8769, err_y 14.3956, err_z 0.9760, err_trans 28.7584, err_rot 14.1953, err_R 16.2701, err_t 32.5275
+2024-12-04 19:40:38 | INFO     | epoch 767, train, loss 124128.7031, time 0.05s, err_x 24.8881, err_y 14.4540, err_z 0.9745, err_trans 28.7974, err_rot 14.2141, err_R 16.2842, err_t 32.5259
+2024-12-04 19:40:38 | INFO     | epoch 768, train, loss 124112.0859, time 0.05s, err_x 24.9008, err_y 14.5136, err_z 0.9740, err_trans 28.8382, err_rot 14.2328, err_R 16.2985, err_t 32.5263
+2024-12-04 19:40:38 | INFO     | epoch 769, train, loss 124100.2344, time 0.05s, err_x 24.9140, err_y 14.5693, err_z 0.9745, err_trans 28.8777, err_rot 14.2527, err_R 16.3139, err_t 32.5293
+2024-12-04 19:40:38 | INFO     | epoch 770, train, loss 124104.6562, time 0.05s, err_x 24.9340, err_y 14.6154, err_z 0.9762, err_trans 28.9183, err_rot 14.2757, err_R 16.3338, err_t 32.5469
+2024-12-04 19:40:38 | INFO     | epoch 771, train, loss 124113.6484, time 0.05s, err_x 24.9570, err_y 14.6593, err_z 0.9759, err_trans 28.9603, err_rot 14.2987, err_R 16.3543, err_t 32.5691
+2024-12-04 19:40:38 | INFO     | epoch 772, train, loss 124110.7188, time 0.05s, err_x 24.9707, err_y 14.7025, err_z 0.9814, err_trans 28.9942, err_rot 14.3251, err_R 16.3727, err_t 32.5779
+2024-12-04 19:40:38 | INFO     | epoch 773, train, loss 124084.0312, time 0.05s, err_x 24.9742, err_y 14.7618, err_z 0.9773, err_trans 29.0272, err_rot 14.3437, err_R 16.3824, err_t 32.5618
+2024-12-04 19:40:38 | INFO     | epoch 774, train, loss 124059.0234, time 0.05s, err_x 24.9780, err_y 14.8219, err_z 0.9710, err_trans 29.0608, err_rot 14.3616, err_R 16.3913, err_t 32.5448
+2024-12-04 19:40:38 | INFO     | epoch 775, train, loss 124065.6172, time 0.05s, err_x 24.9913, err_y 14.8649, err_z 0.9658, err_trans 29.0940, err_rot 14.3862, err_R 16.4069, err_t 32.5484
+2024-12-04 19:40:39 | INFO     | epoch 776, train, loss 124052.9375, time 0.05s, err_x 25.0109, err_y 14.9059, err_z 0.9452, err_trans 29.1312, err_rot 14.4063, err_R 16.4214, err_t 32.5568
+2024-12-04 19:40:39 | INFO     | epoch 777, train, loss 124050.7734, time 0.05s, err_x 25.0309, err_y 14.9493, err_z 0.9172, err_trans 29.1697, err_rot 14.4236, err_R 16.4333, err_t 32.5613
+2024-12-04 19:40:39 | INFO     | epoch 778, train, loss 124061.2969, time 0.05s, err_x 25.0458, err_y 14.9795, err_z 0.9013, err_trans 29.1975, err_rot 14.4508, err_R 16.4482, err_t 32.5653
+2024-12-04 19:40:39 | INFO     | epoch 779, train, loss 124046.5938, time 0.05s, err_x 25.0504, err_y 15.0270, err_z 0.8775, err_trans 29.2250, err_rot 14.4701, err_R 16.4551, err_t 32.5449
+2024-12-04 19:40:39 | INFO     | epoch 780, train, loss 124024.1719, time 0.05s, err_x 25.0598, err_y 15.0711, err_z 0.8435, err_trans 29.2548, err_rot 14.4870, err_R 16.4609, err_t 32.5286
+2024-12-04 19:40:39 | INFO     | epoch 781, train, loss 124025.9297, time 0.05s, err_x 25.0780, err_y 15.1078, err_z 0.8069, err_trans 29.2882, err_rot 14.5053, err_R 16.4710, err_t 32.5280
+2024-12-04 19:40:39 | INFO     | epoch 782, train, loss 124023.0547, time 0.05s, err_x 25.0977, err_y 15.1374, err_z 0.7702, err_trans 29.3194, err_rot 14.5262, err_R 16.4830, err_t 32.5321
+2024-12-04 19:40:39 | INFO     | epoch 783, train, loss 124033.8125, time 0.05s, err_x 25.1116, err_y 15.1656, err_z 0.7400, err_trans 29.3451, err_rot 14.5504, err_R 16.4953, err_t 32.5304
+2024-12-04 19:40:39 | INFO     | epoch 784, train, loss 124032.0000, time 0.05s, err_x 25.1233, err_y 15.1994, err_z 0.7075, err_trans 29.3718, err_rot 14.5712, err_R 16.5050, err_t 32.5227
+2024-12-04 19:40:39 | INFO     | epoch 785, train, loss 123995.9609, time 0.05s, err_x 25.1327, err_y 15.2455, err_z 0.6689, err_trans 29.4028, err_rot 14.5849, err_R 16.5106, err_t 32.5062
+2024-12-04 19:40:39 | INFO     | epoch 786, train, loss 123972.1484, time 0.05s, err_x 25.1446, err_y 15.2867, err_z 0.6310, err_trans 29.4336, err_rot 14.6002, err_R 16.5181, err_t 32.4957
+2024-12-04 19:40:39 | INFO     | epoch 787, train, loss 123967.1719, time 0.05s, err_x 25.1518, err_y 15.3215, err_z 0.6053, err_trans 29.4573, err_rot 14.6239, err_R 16.5292, err_t 32.4844
+2024-12-04 19:40:39 | INFO     | epoch 788, train, loss 123949.9531, time 0.05s, err_x 25.1633, err_y 15.3603, err_z 0.5763, err_trans 29.4866, err_rot 14.6444, err_R 16.5410, err_t 32.4785
+2024-12-04 19:40:39 | INFO     | epoch 789, train, loss 123950.9297, time 0.05s, err_x 25.1764, err_y 15.3964, err_z 0.5535, err_trans 29.5162, err_rot 14.6681, err_R 16.5563, err_t 32.4794
+2024-12-04 19:40:39 | INFO     | epoch 790, train, loss 123943.7969, time 0.05s, err_x 25.1938, err_y 15.4324, err_z 0.5276, err_trans 29.5494, err_rot 14.6904, err_R 16.5728, err_t 32.4864
+2024-12-04 19:40:39 | INFO     | epoch 791, train, loss 123966.8984, time 0.05s, err_x 25.2156, err_y 15.4584, err_z 0.5068, err_trans 29.5812, err_rot 14.7181, err_R 16.5939, err_t 32.5050
+2024-12-04 19:40:39 | INFO     | epoch 792, train, loss 123935.9844, time 0.05s, err_x 25.2303, err_y 15.5086, err_z 0.4746, err_trans 29.6195, err_rot 14.7340, err_R 16.6057, err_t 32.5011
+2024-12-04 19:40:39 | INFO     | epoch 793, train, loss 123931.2422, time 0.05s, err_x 25.2481, err_y 15.5591, err_z 0.4445, err_trans 29.6605, err_rot 14.7505, err_R 16.6192, err_t 32.5026
+2024-12-04 19:40:39 | INFO     | epoch 794, train, loss 123944.7734, time 0.05s, err_x 25.2710, err_y 15.5917, err_z 0.4268, err_trans 29.6969, err_rot 14.7770, err_R 16.6408, err_t 32.5227
+2024-12-04 19:40:39 | INFO     | epoch 795, train, loss 123958.8359, time 0.05s, err_x 25.2886, err_y 15.6210, err_z 0.4185, err_trans 29.7272, err_rot 14.8093, err_R 16.6634, err_t 32.5377
+2024-12-04 19:40:39 | INFO     | epoch 796, train, loss 123956.7109, time 0.05s, err_x 25.3029, err_y 15.6642, err_z 0.3968, err_trans 29.7618, err_rot 14.8334, err_R 16.6795, err_t 32.5386
+2024-12-04 19:40:40 | INFO     | epoch 797, train, loss 123922.5938, time 0.05s, err_x 25.3128, err_y 15.7208, err_z 0.3609, err_trans 29.7995, err_rot 14.8486, err_R 16.6880, err_t 32.5227
+2024-12-04 19:40:40 | INFO     | epoch 798, train, loss 123909.8672, time 0.05s, err_x 25.3225, err_y 15.7580, err_z 0.3424, err_trans 29.8271, err_rot 14.8777, err_R 16.7047, err_t 32.5188
+2024-12-04 19:40:40 | INFO     | epoch 799, train, loss 123929.2344, time 0.05s, err_x 25.3383, err_y 15.7918, err_z 0.3200, err_trans 29.8582, err_rot 14.9070, err_R 16.7235, err_t 32.5242

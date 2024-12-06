@@ -1,0 +1,63 @@
+model:
+  meta_architecture: "RBSolver"
+  rbsolver:
+    use_mask: anno
+    init_Tc_c2b: [ [ 0.95921475,  0.28230679,  0.01448959, -0.24205755 ],
+                   [ 0.11272016, -0.33498466, -0.93545675, 0.10301555 ],
+                   [ -0.25923201,  0.89893723, -0.35314393,  0.93993033 ],
+                   [ 0.        ,  0.        ,  0.        ,  1. ] ]
+
+    mesh_paths: [ "data/xarm_description/meshes/xarm7/visual/link1.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link2.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link3.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link4.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link5.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link6.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link7.STL", ]
+  space_explorer:
+    sample_limit: True
+    n_sample_qposes: 2000
+    urdf_path: "data/xarm7_with_gripper_reduced_dof.urdf"
+    srdf_path: "data/xarm7_with_gripper_reduced_dof.srdf"
+    move_group: "link_eef"
+    max_dist_constraint:
+      enable: True
+      max_dist: 0.5
+      max_dist_center_compute_n: 20000
+    collision_check:
+      enable: True
+      pc_sampled: 40000
+datasets:
+  train: ("xarm_real_rb_solver_iter/real_xarm/example_back",)
+  test: "xarm_real_rb_solver_iter/real_xarm/example_back"
+
+solver:
+  trainer: "rbsolver"
+  num_epochs: 1000
+  max_lr: 0.003
+  batch_size: 100
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+dataloader:
+  pin_memory: True
+dataset:
+  xarm_real:
+    load_mask_anno: True
+test:
+  batch_size: 100
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: True
+  visualizer: "rbsolver_hover_mask"
+
+
+#  space_explore:
+#    start: 300
+#    sample: 50 # camera poses sampled from start to end (steps[-1])
+#    #    sample: 10 # camera poses sampled from start to end (steps[-1])
+#    qpos_sample_method: random
+#    n_sample_qposes: 1500
+##    n_sample_qposes: 500

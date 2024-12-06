@@ -1,0 +1,25 @@
+rb_solve:
+  use_nvdiffrast: True
+  data_dir: data/realsense/20230120_164127_subset
+  init_Tbc: [ [ 0.77643362,  0.62306748, -0.09453963, -0.1456618 ],
+              [ -0.00469061, -0.14429772, -0.9895232 ,  0.20391459 ],
+              [ -0.63018158,  0.76874253, -0.10911504,  0.53939172 ],
+              [ 0.        ,  0.        ,  0.        ,  1. ] ]
+
+  steps: [ 1000 ]
+  validate_dir: "data/realsense/20230120_164127"
+  dbg: True
+  #  render_sizes: [ 128,256 ]
+  #render_sizes: [ 512, ]
+  render_sizes: [ 64, ]
+
+
+  #  lrs: [ 0.01, 0.003 ]
+  #lrs: [ 0.001 ]
+  lrs: [ 0.001 ]
+
+  links: [ 1,2,3,4,5,6,7 ]
+
+
+  log_interval: 20
+

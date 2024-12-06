@@ -35,6 +35,7 @@ dataloader:
 dataset:
   baxter_real:
     load_mask_pred: True
+    use_links: [15, 18, 21, 24, 27, 32]
 test:
   batch_size: 1000
   do_evaluation: True

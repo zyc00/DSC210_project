@@ -1,0 +1,56 @@
+model:
+  meta_architecture: "RBSolver"
+  rbsolver:
+    eye_in_hand: True
+    use_mask: pred
+    ignore_gripper_mask: True
+    optim_eep: False
+    #    eep_init: [ 0,0,0.005, 0,0,0.785 ]
+    #    optim_eep_mask: [ 0,1,2,3,4,5 ]
+    init_Tc_c2e: [ [ 0.69567,-0.71791, 0.02561, 0.02845 ],
+                   [ 0.69476, 0.66333,-0.27803, 0.08174 ],
+                   [ 0.18261, 0.2112 , 0.96023,-0.00703 ],
+                   [ 0.     , 0.     , 0.     , 1. ] ]
+    mesh_paths: [ "data/xarm_description/meshes/xarm7/visual/link0.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link1.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link2.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link3.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link4.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link5.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link6.STL",
+                  "data/xarm_description/meshes/xarm7/visual/link7.STL",
+    ]
+datasets:
+  train: ("xarm_real_rb_solver_iter/real_xarm/example_eih_autosam5",)
+  test: "xarm_real_rb_solver_iter/real_xarm/example_eih_autosam5"
+
+solver:
+  trainer: "rbsolver"
+  log_interval: 1
+  explore_iters: 5
+  num_epochs: 1000
+  max_lr: 0.003
+  batch_size: 100
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+input:
+  shuffle: False
+dataloader:
+  pin_memory: True
+dataset:
+  xarm_real:
+    load_mask_pred: True
+    load_mask_gripper: True
+    eye_in_hand: True
+    urdf_path: "data/sapien_packages/xarm7/xarm_urdf/xarm7_gripper.urdf"
+    use_links: [ 1, 2, 3, 4, 5, 6, 7, 8 ]
+    shift_gripper: False
+test:
+  batch_size: 100
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: True
+  visualizer: "rbsolver_hover_mask"

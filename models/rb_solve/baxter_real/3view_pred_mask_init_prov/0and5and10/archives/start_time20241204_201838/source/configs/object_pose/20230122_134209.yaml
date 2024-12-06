@@ -1,0 +1,2 @@
+data_dir: "data/realsense/20230122_134209"
+icp: True

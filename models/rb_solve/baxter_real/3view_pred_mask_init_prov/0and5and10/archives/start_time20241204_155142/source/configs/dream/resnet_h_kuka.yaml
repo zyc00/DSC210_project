@@ -1,0 +1,25 @@
+model:
+  meta_architecture: "DreamNetwork"
+  dream:
+    resnet:
+      n_keypoints: 8
+      old_process: True
+dataloader:
+  num_workers: 16
+datasets:
+  train: ("dream_kuka_train",)
+  test: "dream_kuka_test"
+solver:
+  max_lr: 0.001
+  num_epochs: 100
+  scheduler: ConstantScheduler
+  #  scheduler: OneCycleScheduler
+  trainer: base
+  batch_size: 16
+  save_every: True
+  save_freq: 1
+input:
+  shuffle: True
+test:
+  save_predictions: True
+  batch_size: 16

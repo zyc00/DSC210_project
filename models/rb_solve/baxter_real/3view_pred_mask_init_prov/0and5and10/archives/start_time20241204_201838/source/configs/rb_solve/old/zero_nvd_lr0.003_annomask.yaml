@@ -1,0 +1,22 @@
+rb_solve:
+  use_nvdiffrast: True
+  use_gt_mask: False
+  data_dir: data/sim/zero
+  init_Tbc: [ [ 0.99869549, 0.04814276,-0.01701665,-0.2755737 ],
+              [ -0.01554248,-0.03083134,-0.99940377, 0.2164405 ],
+              [ -0.0486387 , 0.99836451,-0.03004277, 0.92661572 ],
+              [ 0.        , 0.        , 0.        , 1. ] ]
+
+  steps: [ 1000 ]
+  validate_dir: ""
+  dbg: True
+
+  #  lrs: [ 0.01, 0.003 ]
+  lrs: [ 0.003 ]
+
+  #links: [ 0,1,2,3,4,5,6,7 ]
+
+
+  log_interval: 20
+
+output_dir: ""

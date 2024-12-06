@@ -1,0 +1,3 @@
+pnp_with_chessboard:
+  data_dir: data/realsense/20230205_143440
+  patterns: [ 3, 11 ]

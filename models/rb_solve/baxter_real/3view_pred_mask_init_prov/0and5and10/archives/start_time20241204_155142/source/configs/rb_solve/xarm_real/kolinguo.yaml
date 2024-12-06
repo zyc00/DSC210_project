@@ -1,0 +1,52 @@
+model:
+  meta_architecture: "RBSolver"
+  rbsolver:
+    eye_in_hand: False
+    use_mask: pred
+    init_Tc_c2b: [ [ 0.95921475,  0.28230679,  0.01448959, -0.24205755 ],
+                   [ 0.11272016, -0.33498466, -0.93545675, 0.10301555 ],
+                   [ -0.25923201,  0.89893723, -0.35314393,  1.03993033 ],
+                   [ 0.        ,  0.        ,  0.        ,  1. ] ]
+
+    mesh_paths: [
+      #      "data/xarm_description/meshes/xarm7/visual/link0.STL",
+      "data/xarm_description/meshes/xarm7/visual/link1.STL",
+      "data/xarm_description/meshes/xarm7/visual/link2.STL",
+      "data/xarm_description/meshes/xarm7/visual/link3.STL",
+      "data/xarm_description/meshes/xarm7/visual/link4.STL",
+      "data/xarm_description/meshes/xarm7/visual/link5.STL",
+      "data/xarm_description/meshes/xarm7/visual/link6.STL",
+      "data/xarm_description/meshes/xarm7/visual/link7.STL",
+    ]
+datasets:
+  train: ("xarm_real_rb_solver_iter/real_xarm/kolinguo",)
+  test: "xarm_real_rb_solver_iter/real_xarm/kolinguo"
+solver:
+  trainer: "rbsolver"
+  log_interval: 1
+  #  explore_iters: 5
+  num_epochs: 1000
+  max_lr: 0.003
+  batch_size: 100
+  save_freq: 200
+  val_freq: 200
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+input:
+  shuffle: False
+dataloader:
+  pin_memory: True
+dataset:
+  xarm_real:
+    load_mask_pred: True
+    eye_in_hand: False
+    urdf_path: "data/sapien_packages/xarm7/xarm_urdf/xarm7_gripper.urdf"
+    use_links: [ 2, 3, 4, 5, 6, 7, 8 ]
+#    selected_indices: [ 0,1,2,3,4,5,6,7,8 ]
+test:
+  batch_size: 100
+  do_evaluation: False
+  evaluators: [ "" ]
+  do_visualization: True
+  visualizer: "rbsolver_hover_mask"

@@ -1,0 +1,1593 @@
+2024-12-04 20:18:38 | INFO     | Using 1 GPUs
+2024-12-04 20:18:38 | INFO     | Namespace(config_file='configs/rb_solve/baxter_real/3view_pred_mask_init_prov/0and5and10.yaml', opts=['model.rbsolver.use_mask', 'anno', 'dataset.baxter_real.load_mask_anno', 'True'], init_method='env://', no_archive=False, distributed=False)
+2024-12-04 20:18:38 | INFO     | Running with full config:
+annotate_video:
+  aruco:
+    cols: 7
+    dictionary: DICT_ARUCO_ORIGINAL
+    marker_sep: 0.005
+    marker_size: 0.015
+    rows: 4
+  chessboard:
+    cols: 9
+    grid_size: 0.028
+    rows: 6
+  data_dir: ''
+  n: -1
+  pts_3d:
+  - - 0.03175
+    - -0.022225
+    - -0.0635
+  - - 0.03175
+    - 0.022225
+    - -0.0635
+  - - -0.03175
+    - 0.022225
+    - -0.0635
+  - - -0.03175
+    - -0.022225
+    - -0.0635
+  - - -0.03175
+    - -0.022225
+    - 0.0635
+  - - 0.03175
+    - -0.022225
+    - 0.0635
+  - - 0.03175
+    - 0.022225
+    - 0.0635
+  use_aruco: false
+  whl:
+  - 0.0635
+  - 0.04445
+  - 0.127
+autoinit:
+  azim_interval: 5
+  data_dir: ''
+  elev_interval: 5
+  elev_max: 70
+  elev_min: 0
+  n: -1
+  nqpos: 10
+  radius: 1.0
+  urdf_path: data/sapien_packages/xarm7/xarm_urdf/xarm7_gripper.urdf
+  use_mask: ''
+backup_src: true
+bproc_cube:
+  H: 720
+  K:
+  - - 906.80517578125
+    - 0.0
+    - 650.1978759765625
+  - - 0.0
+    - 906.6802978515625
+    - 367.71429443359375
+  - - 0.0
+    - 0.0
+    - 1.0
+  W: 1280
+  colors:
+    back:
+    - 0.0
+    - 0.0
+    - 1.0
+    - 1
+    bottom:
+    - 1.0
+    - 1.0
+    - 0.0
+    - 1
+    front:
+    - 0.0
+    - 1.0
+    - 0.0
+    - 1
+    left:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 1
+    right:
+    - 0.54
+    - 0.27
+    - 0.074
+    - 1
+    top:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1
+  dists:
+  - 0.4
+  - 0.9
+  do_render: false
+  light_plane_z: 2
+  max_elev: 60.0
+  mesh_path: data/untitled.obj
+  n_elev: 10
+  nazim: 12
+  noise: 0.0
+  output_dir: data/blenderproc
+  resize_factor: 1
+dataloader:
+  collator: DefaultBatchCollator
+  num_workers: 0
+  pin_memory: true
+dataset:
+  baxter_real:
+    load_mask_anno: true
+    load_mask_gsam: false
+    load_mask_pred: true
+    load_mask_sam: false
+    selected_indices: []
+    urdf_path: ./baxter_common/baxter.urdf
+    use_links:
+    - 15
+    - 18
+    - 21
+    - 24
+    - 27
+    - 32
+  dream_real_panda_3cam_realsense:
+    load_mask_anno: false
+    load_mask_pred: false
+    urdf_path: ./ManiSkill2/mani_skill2/assets/descriptions/panda_v2.urdf
+    use_links:
+    - 0
+    - 2
+    - 3
+    - 4
+    - 6
+    - 7
+    - 9
+  dream_synthetic_panda_test_dr:
+    load_mask_anno: false
+    load_mask_pred: false
+    urdf_path: data/panda_v2.urdf
+    use_links:
+    - 0
+    - 2
+    - 3
+    - 4
+    - 6
+    - 7
+    - 9
+  dream_synthetic_panda_test_photo:
+    load_mask_anno: false
+    load_mask_pred: false
+    urdf_path: data/panda_v2.urdf
+    use_links:
+    - 0
+    - 2
+    - 3
+    - 4
+    - 6
+    - 7
+    - 9
+  dream_synthetic_panda_train_dr:
+    load_mask_anno: false
+    load_mask_pred: false
+    urdf_path: ./ManiSkill2/mani_skill2/assets/descriptions/panda_v2.urdf
+    use_links:
+    - 0
+    - 2
+    - 3
+    - 4
+    - 6
+    - 7
+    - 9
+  mobilerobot:
+    eye_in_hand: false
+    load_mask_anno: false
+    load_mask_gripper: false
+    load_mask_gt: false
+    load_mask_pred: false
+    selected_indices: []
+    shift_gripper: false
+    urdf_path: data/mobilerobot/mycobot_pi_v2/mycobot_urdf_stl.urdf
+    use_links:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+  realman:
+    camera_id: head
+    eye_in_hand: false
+    load_mask_anno: true
+    load_mask_gt: false
+    load_mask_pred: false
+    relative_to: base_link
+    resize:
+    - -1
+    - -1
+    selected_indices: []
+    urdf_path: data/hillbot_pgi_description_linghao/hillbot_pgi_description_linghao.urdf
+    use_links:
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+  realman_hec_marker:
+    camera_id: right
+    urdf_path: data/hillbot_pgi_description_linghao/hillbot_pgi_description_linghao.urdf
+  xarm:
+    eye_in_hand: false
+    load_mask_anno: false
+    load_mask_gripper: false
+    load_mask_gt: false
+    load_mask_pred: false
+    selected_indices: []
+    shift_gripper: false
+    urdf_path: data/xarm7_with_gripper_reduced_dof.urdf
+    use_links:
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+  xarm_hec_sim_marker:
+    urdf_path: data/xarm7_with_gripper_reduced_dof.urdf
+datasets:
+  test: baxter_real_0and5and10
+  train:
+  - baxter_real_0and5and10
+dbg: false
+deterministic: false
+do_eval_after_train: false
+evaltime: false
+input:
+  shuffle: true
+  transforms: []
+maskrcnn:
+  base_lr: 0.00025
+  batch_size: 2
+  batch_size_per_image: 128
+  checkpoint_period: 5000
+  data_dir: ''
+  max_iter: 8000
+  model_cfg_file: COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml
+  num_workers: 4
+  score_thresh_test: 0.7
+meshloc:
+  loftr_thresh: 0.2
+  matching_method: dkm
+  object_ids:
+  - '000000'
+  pnp_method: ransac
+  pnp_ransac_iterations_count: 10000
+  pnp_ransac_reproj_error: 8.0
+  query_dir: data/sim_hec_with_marker/version2_no_marker
+  ref_dir: data/sim_hec_for_meshloc_ref_v1
+  topk: 10
+mode: train
+model:
+  device: cuda
+  dream:
+    resnet:
+      full: false
+      n_keypoints: 7
+      old_process: true
+      pretrained: true
+  hand_eye_solver:
+    chessboard: true
+    cpa: false
+    icp: false
+    manual_set_zero: []
+    subpixel: true
+    use_gt_marker_pose: false
+  hand_eye_solver_gn:
+    cpa: false
+    icp: false
+    manual_set_zero: []
+    subpixel: true
+    use_gt_marker_pose: false
+  megapose6d:
+    generate_data:
+      H: 720
+      K:
+      - - 906.80517578125
+        - 0.0
+        - 650.1978759765625
+      - - 0.0
+        - 906.6802978515625
+        - 367.71429443359375
+      - - 0.0
+        - 0.0
+        - 1.0
+      W: 1280
+      max_dist: 2.0
+      max_elev: 80
+      min_dist: 0.5
+      min_elev: 0
+      n_dist: 10
+      n_elev: 10
+      nazim: 30
+      output_dir: ''
+      trans_noise:
+      - 0.03
+      - 0.03
+      - 0.03
+      urdf_path: data/xarm7_textured.urdf
+  meta_architecture: RBSolver
+  rbsolver:
+    H: 1536
+    W: 2048
+    eep_init: []
+    eep_rotz: 0.0
+    eep_tz: 0.0
+    eye_in_hand: false
+    ignore_gripper_mask: false
+    init_Tc_c2b:
+    - - 0.3575719
+      - 0.93387324
+      - -0.00480661
+      - -0.8592802
+    - - -0.11172229
+      - 0.03766659
+      - -0.9930254
+      - 0.30743563
+    - - -0.9271785
+      - 0.3556154
+      - 0.11780312
+      - 1.2090743
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    init_Tc_c2e: []
+    last2link_loss_weights: 1
+    loss_type: mse
+    lrs: []
+    mesh_paths:
+    - ./baxter_common/baxter_description/meshes/upper_shoulder/S0.STL
+    - ./baxter_common/baxter_description/meshes/lower_shoulder/S1.STL
+    - ./baxter_common/baxter_description/meshes/upper_elbow/E0.STL
+    - ./baxter_common/baxter_description/meshes/lower_elbow/E1.STL
+    - ./baxter_common/baxter_description/meshes/upper_forearm/W0.STL
+    - ./baxter_common/baxter_description/meshes/lower_forearm/W1.STL
+    optim_eep: false
+    optim_eep_mask: []
+    optim_eep_rot: true
+    optim_eep_xy: true
+    optim_inverse: false
+    optim_mesh_scale: false
+    optim_trans_only: false
+    reg_loss_weight: 0.0
+    render_scale: 1.0
+    use_last_as_result: true
+    use_mask: anno
+    weighted_loss: false
+  rbsolver_iter:
+    autosam_box_scale: 1.0
+    autosam_links:
+    - 1
+    - 2
+    autosam_point_center: false
+    autosam_random_points: false
+    data_dir: ''
+    data_pool: []
+    explore_iters: 1
+    init_method: manual
+    meshloc_database_dir: ''
+    meshloc_init_Tc_c2b: []
+    meshloc_use_all_imgs: false
+    pointrend_cfg_file: configs/InstanceSegmentation/pointrend_rcnn_R_50_FPN_3x_xarm.yaml
+    pointrend_model_weight: output/model_0099999.pth
+    qpos_noise: 0.0
+    qpos_pool: []
+    segmentor: pointrend
+    start_index: 0
+    start_qpos:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    use_realarm:
+      enable: false
+      ip: 192.168.1.209
+      record_video:
+        enable: false
+        outdir: data/realarm_video
+      safety_factor: 3
+      speed: 0.1
+      speed_control: false
+      timestep: 0.1
+      wait_time: 1
+    use_realman:
+      arm: ''
+      enable: false
+      ip: 192.168.31.175
+      speed: 1
+      wait_time: 1
+  space_explorer:
+    camera_intrinsic:
+    - 906.80517578125
+    - 906.6802978515625
+    - 650.1978759765625
+    - 367.71429443359375
+    ckpt_path: ''
+    collision_check:
+      by_eef_pose: true
+      dilate: 10
+      enable: false
+      ignore_posz_pts: false
+      pc_sampled: -1
+      planning_time: 1.0
+      timestep: 0.01
+      use_pointcloud: true
+    max_dist_constraint:
+      enable: false
+      max_dist: 0.5
+      max_dist_center: 0.0
+      max_dist_center_compute_n: 100000
+    mesh_dir: data/xarm_description/meshes/xarm7/visual
+    move_group: ''
+    n_sample_qpos_each_joint: 2
+    n_sample_qposes: 1000
+    parallel_rendering: false
+    qpos_choices: ''
+    qpos_choices_pad_left: 0
+    qpos_choices_pad_right: 0
+    qpos_sample_method: random
+    qpos_sample_method_switch: false
+    qpos_sample_range: 0.0
+    render_resize_factor: 1
+    resample_camera_poses:
+      enable: false
+      maxn: 0
+    sample: 10
+    sample_camera_poses_method: random
+    sample_dof: 6
+    sample_limit: false
+    self_collision_check:
+      enable: true
+    srdf_path: ''
+    start: 200
+    urdf_path: ''
+    var_in_valid_mask: false
+    variance_based_sampling: true
+output_dir: models/rb_solve/baxter_real/3view_pred_mask_init_prov/0and5and10
+paths_catalog: /home/jigu/projects/DSC210_project/crc/config/paths_catalog.py
+pnp_hole_pose:
+  data_dir: ''
+  pts2d: []
+  pts3d:
+  - - 0.03175
+    - -0.022225
+    - -0.0635
+  - - 0.03175
+    - 0.022225
+    - -0.0635
+  - - -0.03175
+    - 0.022225
+    - -0.0635
+  - - -0.03175
+    - -0.022225
+    - -0.0635
+  - - -0.03175
+    - -0.022225
+    - 0.0635
+  - - 0.03175
+    - -0.022225
+    - 0.0635
+  - - 0.03175
+    - 0.022225
+    - 0.0635
+  whl:
+  - 0.0635
+  - 0.04445
+  - 0.127
+pnp_with_chessboard:
+  data_dir: ''
+  grid_sizes: []
+  pattern_planes: []
+  patterns: []
+  wlh:
+  - 0.0635
+  - 0.127
+  - 0.04445
+rb_solve:
+  data_dir: ''
+  dbg: true
+  eye_on_hand: false
+  init_Tbc: []
+  init_Tc_c2e: []
+  links:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  log_interval: 20
+  lrs: []
+  neg_iou_loss: false
+  nimgs: -1
+  optimizer: adam
+  render_sizes: []
+  space_explore:
+    n_sample_qpos_each_joint: 2
+    n_sample_qposes: 1000
+    qpos_sample_method: grid
+    sample: 10
+    start: 200
+  steps: []
+  use_gt_mask: false
+  use_nvdiffrast: false
+  validate_dir: ''
+sapien_cube:
+  H: 720
+  K:
+  - - 906.80517578125
+    - 0.0
+    - 650.1978759765625
+  - - 0.0
+    - 906.6802978515625
+    - 367.71429443359375
+  - - 0.0
+    - 0.0
+    - 1.0
+  TB_B2w:
+  - - 1
+    - 0
+    - 0
+    - 0.6
+  - - 0
+    - 1
+    - 0
+    - 0
+  - - 0
+    - 0
+    - 1
+    - 0
+  - - 0
+    - 0
+    - 0
+    - 1
+  Tw_w2o_path: tmp/cubaA_poses.npy
+  W: 1280
+  camera_pose: []
+  cx: 0.0
+  cy: 0.0
+  fx: 0.0
+  fy: 0.0
+  gripper_qpos:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  mesh_path: data/untitled.obj
+  outdir: ''
+  output_dir: data/sapien_cube
+  robot_pose:
+  - -0.6
+  - 0
+  - 0
+  - 1
+  - 0
+  - 0
+  - 0
+  robot_qpos_path: tmp/robot_qpos.npy
+  rotz: 0
+  rt:
+    enable: false
+  urdf_path: data/xarm7_with_gripper.urdf
+  visual_path: data/untitled.dae
+sim:
+  add_desk_cube:
+    color:
+    - 0.5
+    - 0.5
+    - 0.5
+    enable: false
+    half_size:
+    - 0.5
+    - 0.5
+    - 0.5
+    pose:
+    - 0.0
+    - 0.0
+    - 0.0
+  add_ground:
+    enable: false
+  cam_pose: []
+  camera_ring: false
+  cx: 0.0
+  cy: 0.0
+  eih_nqpos: 100
+  envmaps:
+  - SaintPetersSquare2
+  eye_on_hand_pose: []
+  fx: 0.0
+  fy: 0.0
+  move_group: ''
+  n_point_light: 10
+  outdir: ''
+  qpos: []
+  random_light_each_step: false
+  random_qpos: false
+  random_qpos_number: 10
+  rt:
+    enable: false
+  srdf_path: data/xarm7.urdf
+  urdf_path: data/xarm7.urdf
+sim_hec:
+  Tc_c2b: []
+  Tc_c2b_index: 0
+  Tc_c2b_npy_path: ''
+  Tc_c2e: []
+  Tc_c2e_index: 0
+  Tc_c2e_npy_path: ''
+  add_desk_cube:
+    color:
+    - 0
+    - 0
+    - 0
+    colors: []
+    enable: false
+    half_size:
+    - 0.5
+    - 0.5
+    - 0.5
+    half_sizes: []
+    pose:
+    - -0.3
+    - 0
+    - -0.5
+    poses: []
+  add_ground: false
+  camera_ring: false
+  cx: 650.1978759765625
+  cy: 367.71429443359375
+  eye_on_hand_pose: []
+  fx: 906.80517578125
+  fy: 906.6802978515625
+  height: 720
+  n_point_light: 10
+  outdir: ''
+  qpos: []
+  random_qpos: false
+  random_qpos_number: 10
+  rt:
+    enable: false
+  srdf_path: ''
+  step: false
+  urdf_path: data/xarm7_textured.urdf
+  width: 1280
+sim_hec_eye_in_hand:
+  Tc_c2e: []
+  add_chessboard: true
+  add_desk_cube:
+    colors:
+    - - 0
+      - 0
+      - 0
+    enable: false
+    half_sizes:
+    - - 0.5
+      - 0.5
+      - 0.5
+    poses:
+    - - -0.3
+      - 0
+      - -0.5
+  add_ground: false
+  chessboard_path: data/chessboard2.glb
+  cx: 650.1978759765625
+  cy: 367.71429443359375
+  fx: 906.80517578125
+  fy: 906.6802978515625
+  move_group: link_eef
+  n_point_light: 10
+  outdir: ''
+  qpos: []
+  random_qpos: false
+  random_qpos_number: 10
+  rt:
+    enable: false
+  srdf_path: data/xarm7_textured.srdf
+  urdf_path: data/xarm7_textured.urdf
+sim_hec_with_marker:
+  Tc_c2b: []
+  add_chessboard: true
+  add_desk_cube:
+    color:
+    - 0
+    - 0
+    - 0
+    enable: false
+    half_size:
+    - 0.5
+    - 0.5
+    - 0.5
+    pose:
+    - -0.3
+    - 0
+    - -0.5
+  add_ground: false
+  camera_ring:
+    enable: false
+    end_azim: 6.283185307179586
+    endpoint: true
+    max_dist: 1.5
+    max_elev: 80
+    min_dist: 0.7
+    min_elev: -80
+    nazim: 12
+    ndist: 5
+    nelev: 18
+    start_azim: 0.0
+    trans_noise: 0.0
+  chessboard_path: data/chessboard2.glb
+  cx: 650.1978759765625
+  cy: 367.71429443359375
+  eye_on_hand_pose: []
+  fx: 906.80517578125
+  fy: 906.6802978515625
+  move_group: link_eef
+  n_point_light: 10
+  outdir: ''
+  qpos: []
+  random_qpos: false
+  random_qpos_number: 10
+  rt:
+    enable: false
+  srdf_path: data/xarm7_textured.srdf
+  urdf_path: data/xarm7_textured.urdf
+sim_pvnet:
+  K:
+  - - 906.80517578125
+    - 0.0
+    - 650.1978759765625
+  - - 0.0
+    - 906.6802978515625
+    - 367.71429443359375
+  - - 0.0
+    - 0.0
+    - 1.0
+  Tc_c2b: []
+  add_desk_cube:
+    color:
+    - 0
+    - 0
+    - 0
+    enable: false
+    half_size:
+    - 0.5
+    - 0.5
+    - 0.5
+    pose:
+    - -0.3
+    - 0
+    - -0.5
+  add_ground: false
+  envmaps:
+  - SaintPetersSquare2
+  max_dist: 2.0
+  max_elev: 80
+  min_dist: 0.5
+  min_elev: 0
+  n_dist: 10
+  n_elev: 10
+  n_point_light: 10
+  nazim: 30
+  outdir: ''
+  random_light_each_step: false
+  rt:
+    enable: false
+  trans_noise:
+  - 0.03
+  - 0.03
+  - 0.03
+  urdf_path: data/xarm7_textured.urdf
+solver:
+  batch_size: 1000
+  bias_lr_factor: 1
+  broadcast_buffers: false
+  compress_history_ops: false
+  convert_sync_batchnorm: false
+  ddp_version: torch
+  detect_anomaly: false
+  dist:
+    sampler:
+      shuffle: false
+      type: pytorch
+  do_grad_clip: false
+  ds_len: -1
+  empty_cache: true
+  end_lr: 0.0001
+  end_pose_lr: 1.0e-05
+  explore_iters: 10
+  find_unused_parameters: false
+  gamma: 0.1
+  gamma_pose: 0.1
+  grad_clip: 1.0
+  grad_clip_type: norm
+  grad_noise:
+    enable: false
+    noise: 0.0
+  image_grid_on_tb_writer: true
+  load: ''
+  load_model: ''
+  load_model_extras: []
+  log_interval: 1
+  loss_function: ''
+  lrate_decay: 250
+  lrate_decay_pose: 250
+  max_lr: 0.003
+  metric_functions: []
+  min_factor: 0.1
+  mlp_lr: 0.001
+  momentum: 0.9
+  num_epochs: 1000
+  num_iters: 10000
+  optimizer: Adam
+  pop_verts_faces: false
+  pose_lr: 5.0e-05
+  print_it: false
+  resume: false
+  save_every: true
+  save_freq: 20
+  save_last_only: false
+  save_min_loss: 20.0
+  save_mode: iteration
+  save_optimizer: true
+  save_scheduler: true
+  scheduler: ConstantScheduler
+  scheduler_decay_thresh: 5.0e-05
+  steps:
+  - 30000
+  trainer: rbsolver
+  val_freq: 20
+  warmup_factor: 0.3333333333333333
+  warmup_iters: 500
+  warmup_method: linear
+  weight_decay: 0.0005
+  weight_decay_bias: 0.0
+test:
+  batch_size: 1000
+  ckpt_dir: ''
+  do_evaluation: true
+  do_visualization: true
+  eval_all: false
+  eval_all_min: 0
+  evaluators:
+  - baxter_ee_pck
+  force_recompute: true
+  save_predictions: false
+  visualizer: rbsolver_hover_mask
+video_segm:
+  data_dir: ''
+
+2024-12-04 20:18:38 | INFO     | Backuping source....
+2024-12-04 20:18:39 | INFO     | Backuping source done!
+2024-12-04 20:18:39 | INFO     | Loaded configuration file configs/rb_solve/baxter_real/3view_pred_mask_init_prov/0and5and10.yaml
+2024-12-04 20:18:39 | INFO     | 
+model:
+  meta_architecture: "RBSolver"
+  rbsolver:
+    use_mask: pred
+    init_Tc_c2b: [ [ 0.3575719 ,  0.93387324, -0.00480661, -0.8592802 ],
+                   [ -0.11172229,  0.03766659, -0.9930254 ,  0.30743563 ],
+                   [ -0.9271785 ,  0.3556154 ,  0.11780312,  1.2090743 ],
+                   [ 0.        ,  0.        ,  0.        ,  1. ] ]
+    mesh_paths: [
+      "./baxter_common/baxter_description/meshes/upper_shoulder/S0.STL",
+      "./baxter_common/baxter_description/meshes/lower_shoulder/S1.STL",
+      "./baxter_common/baxter_description/meshes/upper_elbow/E0.STL",
+      "./baxter_common/baxter_description/meshes/lower_elbow/E1.STL",
+      "./baxter_common/baxter_description/meshes/upper_forearm/W0.STL",
+      "./baxter_common/baxter_description/meshes/lower_forearm/W1.STL",
+    ]
+    H: 1536
+    W: 2048
+datasets:
+  train: ("baxter_real_0and5and10",)
+  test: "baxter_real_0and5and10"
+
+solver:
+  trainer: rbsolver
+  num_epochs: 1000
+  max_lr: 0.003
+  batch_size: 1000
+  save_freq: 20
+  val_freq: 20
+  scheduler: "ConstantScheduler"
+  save_every: True
+  save_mode: iteration
+dataloader:
+  pin_memory: True
+dataset:
+  baxter_real:
+    load_mask_pred: True
+    use_links: [15, 18, 21, 24, 27, 32]
+test:
+  batch_size: 1000
+  do_evaluation: True
+  evaluators: [ "baxter_ee_pck" ]
+  do_visualization: True
+  visualizer: "rbsolver_hover_mask"
+2024-12-04 20:18:39 | INFO     | Running with config:
+annotate_video:
+  aruco:
+    cols: 7
+    dictionary: DICT_ARUCO_ORIGINAL
+    marker_sep: 0.005
+    marker_size: 0.015
+    rows: 4
+  chessboard:
+    cols: 9
+    grid_size: 0.028
+    rows: 6
+  data_dir: 
+  n: -1
+  pts_3d: [[0.03175, -0.022225, -0.0635], [0.03175, 0.022225, -0.0635], [-0.03175, 0.022225, -0.0635], [-0.03175, -0.022225, -0.0635], [-0.03175, -0.022225, 0.0635], [0.03175, -0.022225, 0.0635], [0.03175, 0.022225, 0.0635]]
+  use_aruco: False
+  whl: [0.0635, 0.04445, 0.127]
+autoinit:
+  azim_interval: 5
+  data_dir: 
+  elev_interval: 5
+  elev_max: 70
+  elev_min: 0
+  n: -1
+  nqpos: 10
+  radius: 1.0
+  urdf_path: data/sapien_packages/xarm7/xarm_urdf/xarm7_gripper.urdf
+  use_mask: 
+backup_src: True
+bproc_cube:
+  H: 720
+  K: [[906.80517578125, 0.0, 650.1978759765625], [0.0, 906.6802978515625, 367.71429443359375], [0.0, 0.0, 1.0]]
+  W: 1280
+  colors:
+    back: [0.0, 0.0, 1.0, 1]
+    bottom: [1.0, 1.0, 0.0, 1]
+    front: [0.0, 1.0, 0.0, 1]
+    left: [1.0, 0.0, 0.0, 1]
+    right: [0.54, 0.27, 0.074, 1]
+    top: [1.0, 1.0, 1.0, 1]
+  dists: [0.4, 0.9]
+  do_render: False
+  light_plane_z: 2
+  max_elev: 60.0
+  mesh_path: data/untitled.obj
+  n_elev: 10
+  nazim: 12
+  noise: 0.0
+  output_dir: data/blenderproc
+  resize_factor: 1
+dataloader:
+  collator: DefaultBatchCollator
+  num_workers: 0
+  pin_memory: True
+dataset:
+  baxter_real:
+    load_mask_anno: True
+    load_mask_gsam: False
+    load_mask_pred: True
+    load_mask_sam: False
+    selected_indices: []
+    urdf_path: ./baxter_common/baxter.urdf
+    use_links: [15, 18, 21, 24, 27, 32]
+  dream_real_panda_3cam_realsense:
+    load_mask_anno: False
+    load_mask_pred: False
+    urdf_path: ./ManiSkill2/mani_skill2/assets/descriptions/panda_v2.urdf
+    use_links: [0, 2, 3, 4, 6, 7, 9]
+  dream_synthetic_panda_test_dr:
+    load_mask_anno: False
+    load_mask_pred: False
+    urdf_path: data/panda_v2.urdf
+    use_links: [0, 2, 3, 4, 6, 7, 9]
+  dream_synthetic_panda_test_photo:
+    load_mask_anno: False
+    load_mask_pred: False
+    urdf_path: data/panda_v2.urdf
+    use_links: [0, 2, 3, 4, 6, 7, 9]
+  dream_synthetic_panda_train_dr:
+    load_mask_anno: False
+    load_mask_pred: False
+    urdf_path: ./ManiSkill2/mani_skill2/assets/descriptions/panda_v2.urdf
+    use_links: [0, 2, 3, 4, 6, 7, 9]
+  mobilerobot:
+    eye_in_hand: False
+    load_mask_anno: False
+    load_mask_gripper: False
+    load_mask_gt: False
+    load_mask_pred: False
+    selected_indices: []
+    shift_gripper: False
+    urdf_path: data/mobilerobot/mycobot_pi_v2/mycobot_urdf_stl.urdf
+    use_links: [0, 1, 2, 3, 4, 5, 6]
+  realman:
+    camera_id: head
+    eye_in_hand: False
+    load_mask_anno: True
+    load_mask_gt: False
+    load_mask_pred: False
+    relative_to: base_link
+    resize: [-1, -1]
+    selected_indices: []
+    urdf_path: data/hillbot_pgi_description_linghao/hillbot_pgi_description_linghao.urdf
+    use_links: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+  realman_hec_marker:
+    camera_id: right
+    urdf_path: data/hillbot_pgi_description_linghao/hillbot_pgi_description_linghao.urdf
+  xarm:
+    eye_in_hand: False
+    load_mask_anno: False
+    load_mask_gripper: False
+    load_mask_gt: False
+    load_mask_pred: False
+    selected_indices: []
+    shift_gripper: False
+    urdf_path: data/xarm7_with_gripper_reduced_dof.urdf
+    use_links: [2, 3, 4, 5, 6, 7, 8]
+  xarm_hec_sim_marker:
+    urdf_path: data/xarm7_with_gripper_reduced_dof.urdf
+datasets:
+  test: baxter_real_0and5and10
+  train: ('baxter_real_0and5and10',)
+dbg: False
+deterministic: False
+do_eval_after_train: False
+evaltime: False
+input:
+  shuffle: True
+  transforms: []
+maskrcnn:
+  base_lr: 0.00025
+  batch_size: 2
+  batch_size_per_image: 128
+  checkpoint_period: 5000
+  data_dir: 
+  max_iter: 8000
+  model_cfg_file: COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml
+  num_workers: 4
+  score_thresh_test: 0.7
+meshloc:
+  loftr_thresh: 0.2
+  matching_method: dkm
+  object_ids: ['000000']
+  pnp_method: ransac
+  pnp_ransac_iterations_count: 10000
+  pnp_ransac_reproj_error: 8.0
+  query_dir: data/sim_hec_with_marker/version2_no_marker
+  ref_dir: data/sim_hec_for_meshloc_ref_v1
+  topk: 10
+mode: train
+model:
+  device: cuda
+  dream:
+    resnet:
+      full: False
+      n_keypoints: 7
+      old_process: True
+      pretrained: True
+  hand_eye_solver:
+    chessboard: True
+    cpa: False
+    icp: False
+    manual_set_zero: []
+    subpixel: True
+    use_gt_marker_pose: False
+  hand_eye_solver_gn:
+    cpa: False
+    icp: False
+    manual_set_zero: []
+    subpixel: True
+    use_gt_marker_pose: False
+  megapose6d:
+    generate_data:
+      H: 720
+      K: [[906.80517578125, 0.0, 650.1978759765625], [0.0, 906.6802978515625, 367.71429443359375], [0.0, 0.0, 1.0]]
+      W: 1280
+      max_dist: 2.0
+      max_elev: 80
+      min_dist: 0.5
+      min_elev: 0
+      n_dist: 10
+      n_elev: 10
+      nazim: 30
+      output_dir: 
+      trans_noise: [0.03, 0.03, 0.03]
+      urdf_path: data/xarm7_textured.urdf
+  meta_architecture: RBSolver
+  rbsolver:
+    H: 1536
+    W: 2048
+    eep_init: []
+    eep_rotz: 0.0
+    eep_tz: 0.0
+    eye_in_hand: False
+    ignore_gripper_mask: False
+    init_Tc_c2b: [[0.3575719, 0.93387324, -0.00480661, -0.8592802], [-0.11172229, 0.03766659, -0.9930254, 0.30743563], [-0.9271785, 0.3556154, 0.11780312, 1.2090743], [0.0, 0.0, 0.0, 1.0]]
+    init_Tc_c2e: []
+    last2link_loss_weights: 1
+    loss_type: mse
+    lrs: []
+    mesh_paths: ['./baxter_common/baxter_description/meshes/upper_shoulder/S0.STL', './baxter_common/baxter_description/meshes/lower_shoulder/S1.STL', './baxter_common/baxter_description/meshes/upper_elbow/E0.STL', './baxter_common/baxter_description/meshes/lower_elbow/E1.STL', './baxter_common/baxter_description/meshes/upper_forearm/W0.STL', './baxter_common/baxter_description/meshes/lower_forearm/W1.STL']
+    optim_eep: False
+    optim_eep_mask: []
+    optim_eep_rot: True
+    optim_eep_xy: True
+    optim_inverse: False
+    optim_mesh_scale: False
+    optim_trans_only: False
+    reg_loss_weight: 0.0
+    render_scale: 1.0
+    use_last_as_result: True
+    use_mask: anno
+    weighted_loss: False
+  rbsolver_iter:
+    autosam_box_scale: 1.0
+    autosam_links: [1, 2]
+    autosam_point_center: False
+    autosam_random_points: False
+    data_dir: 
+    data_pool: []
+    explore_iters: 1
+    init_method: manual
+    meshloc_database_dir: 
+    meshloc_init_Tc_c2b: []
+    meshloc_use_all_imgs: False
+    pointrend_cfg_file: configs/InstanceSegmentation/pointrend_rcnn_R_50_FPN_3x_xarm.yaml
+    pointrend_model_weight: output/model_0099999.pth
+    qpos_noise: 0.0
+    qpos_pool: []
+    segmentor: pointrend
+    start_index: 0
+    start_qpos: [0, 0, 0, 0, 0, 0, 0]
+    use_realarm:
+      enable: False
+      ip: 192.168.1.209
+      record_video:
+        enable: False
+        outdir: data/realarm_video
+      safety_factor: 3
+      speed: 0.1
+      speed_control: False
+      timestep: 0.1
+      wait_time: 1
+    use_realman:
+      arm: 
+      enable: False
+      ip: 192.168.31.175
+      speed: 1
+      wait_time: 1
+  space_explorer:
+    camera_intrinsic: [906.80517578125, 906.6802978515625, 650.1978759765625, 367.71429443359375]
+    ckpt_path: 
+    collision_check:
+      by_eef_pose: True
+      dilate: 10
+      enable: False
+      ignore_posz_pts: False
+      pc_sampled: -1
+      planning_time: 1.0
+      timestep: 0.01
+      use_pointcloud: True
+    max_dist_constraint:
+      enable: False
+      max_dist: 0.5
+      max_dist_center: 0.0
+      max_dist_center_compute_n: 100000
+    mesh_dir: data/xarm_description/meshes/xarm7/visual
+    move_group: 
+    n_sample_qpos_each_joint: 2
+    n_sample_qposes: 1000
+    parallel_rendering: False
+    qpos_choices: 
+    qpos_choices_pad_left: 0
+    qpos_choices_pad_right: 0
+    qpos_sample_method: random
+    qpos_sample_method_switch: False
+    qpos_sample_range: 0.0
+    render_resize_factor: 1
+    resample_camera_poses:
+      enable: False
+      maxn: 0
+    sample: 10
+    sample_camera_poses_method: random
+    sample_dof: 6
+    sample_limit: False
+    self_collision_check:
+      enable: True
+    srdf_path: 
+    start: 200
+    urdf_path: 
+    var_in_valid_mask: False
+    variance_based_sampling: True
+output_dir: models/rb_solve/baxter_real/3view_pred_mask_init_prov/0and5and10
+paths_catalog: /home/jigu/projects/DSC210_project/crc/config/paths_catalog.py
+pnp_hole_pose:
+  data_dir: 
+  pts2d: []
+  pts3d: [[0.03175, -0.022225, -0.0635], [0.03175, 0.022225, -0.0635], [-0.03175, 0.022225, -0.0635], [-0.03175, -0.022225, -0.0635], [-0.03175, -0.022225, 0.0635], [0.03175, -0.022225, 0.0635], [0.03175, 0.022225, 0.0635]]
+  whl: [0.0635, 0.04445, 0.127]
+pnp_with_chessboard:
+  data_dir: 
+  grid_sizes: []
+  pattern_planes: []
+  patterns: []
+  wlh: [0.0635, 0.127, 0.04445]
+rb_solve:
+  data_dir: 
+  dbg: True
+  eye_on_hand: False
+  init_Tbc: []
+  init_Tc_c2e: []
+  links: [0, 1, 2, 3, 4, 5, 6, 7]
+  log_interval: 20
+  lrs: []
+  neg_iou_loss: False
+  nimgs: -1
+  optimizer: adam
+  render_sizes: []
+  space_explore:
+    n_sample_qpos_each_joint: 2
+    n_sample_qposes: 1000
+    qpos_sample_method: grid
+    sample: 10
+    start: 200
+  steps: []
+  use_gt_mask: False
+  use_nvdiffrast: False
+  validate_dir: 
+sapien_cube:
+  H: 720
+  K: [[906.80517578125, 0.0, 650.1978759765625], [0.0, 906.6802978515625, 367.71429443359375], [0.0, 0.0, 1.0]]
+  TB_B2w: [[1, 0, 0, 0.6], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]
+  Tw_w2o_path: tmp/cubaA_poses.npy
+  W: 1280
+  camera_pose: []
+  cx: 0.0
+  cy: 0.0
+  fx: 0.0
+  fy: 0.0
+  gripper_qpos: [0, 0, 0, 0, 0, 0]
+  mesh_path: data/untitled.obj
+  outdir: 
+  output_dir: data/sapien_cube
+  robot_pose: [-0.6, 0, 0, 1, 0, 0, 0]
+  robot_qpos_path: tmp/robot_qpos.npy
+  rotz: 0
+  rt:
+    enable: False
+  urdf_path: data/xarm7_with_gripper.urdf
+  visual_path: data/untitled.dae
+sim:
+  add_desk_cube:
+    color: [0.5, 0.5, 0.5]
+    enable: False
+    half_size: [0.5, 0.5, 0.5]
+    pose: [0.0, 0.0, 0.0]
+  add_ground:
+    enable: False
+  cam_pose: []
+  camera_ring: False
+  cx: 0.0
+  cy: 0.0
+  eih_nqpos: 100
+  envmaps: ['SaintPetersSquare2']
+  eye_on_hand_pose: []
+  fx: 0.0
+  fy: 0.0
+  move_group: 
+  n_point_light: 10
+  outdir: 
+  qpos: []
+  random_light_each_step: False
+  random_qpos: False
+  random_qpos_number: 10
+  rt:
+    enable: False
+  srdf_path: data/xarm7.urdf
+  urdf_path: data/xarm7.urdf
+sim_hec:
+  Tc_c2b: []
+  Tc_c2b_index: 0
+  Tc_c2b_npy_path: 
+  Tc_c2e: []
+  Tc_c2e_index: 0
+  Tc_c2e_npy_path: 
+  add_desk_cube:
+    color: [0, 0, 0]
+    colors: []
+    enable: False
+    half_size: [0.5, 0.5, 0.5]
+    half_sizes: []
+    pose: [-0.3, 0, -0.5]
+    poses: []
+  add_ground: False
+  camera_ring: False
+  cx: 650.1978759765625
+  cy: 367.71429443359375
+  eye_on_hand_pose: []
+  fx: 906.80517578125
+  fy: 906.6802978515625
+  height: 720
+  n_point_light: 10
+  outdir: 
+  qpos: []
+  random_qpos: False
+  random_qpos_number: 10
+  rt:
+    enable: False
+  srdf_path: 
+  step: False
+  urdf_path: data/xarm7_textured.urdf
+  width: 1280
+sim_hec_eye_in_hand:
+  Tc_c2e: []
+  add_chessboard: True
+  add_desk_cube:
+    colors: [[0, 0, 0]]
+    enable: False
+    half_sizes: [[0.5, 0.5, 0.5]]
+    poses: [[-0.3, 0, -0.5]]
+  add_ground: False
+  chessboard_path: data/chessboard2.glb
+  cx: 650.1978759765625
+  cy: 367.71429443359375
+  fx: 906.80517578125
+  fy: 906.6802978515625
+  move_group: link_eef
+  n_point_light: 10
+  outdir: 
+  qpos: []
+  random_qpos: False
+  random_qpos_number: 10
+  rt:
+    enable: False
+  srdf_path: data/xarm7_textured.srdf
+  urdf_path: data/xarm7_textured.urdf
+sim_hec_with_marker:
+  Tc_c2b: []
+  add_chessboard: True
+  add_desk_cube:
+    color: [0, 0, 0]
+    enable: False
+    half_size: [0.5, 0.5, 0.5]
+    pose: [-0.3, 0, -0.5]
+  add_ground: False
+  camera_ring:
+    enable: False
+    end_azim: 6.283185307179586
+    endpoint: True
+    max_dist: 1.5
+    max_elev: 80
+    min_dist: 0.7
+    min_elev: -80
+    nazim: 12
+    ndist: 5
+    nelev: 18
+    start_azim: 0.0
+    trans_noise: 0.0
+  chessboard_path: data/chessboard2.glb
+  cx: 650.1978759765625
+  cy: 367.71429443359375
+  eye_on_hand_pose: []
+  fx: 906.80517578125
+  fy: 906.6802978515625
+  move_group: link_eef
+  n_point_light: 10
+  outdir: 
+  qpos: []
+  random_qpos: False
+  random_qpos_number: 10
+  rt:
+    enable: False
+  srdf_path: data/xarm7_textured.srdf
+  urdf_path: data/xarm7_textured.urdf
+sim_pvnet:
+  K: [[906.80517578125, 0.0, 650.1978759765625], [0.0, 906.6802978515625, 367.71429443359375], [0.0, 0.0, 1.0]]
+  Tc_c2b: []
+  add_desk_cube:
+    color: [0, 0, 0]
+    enable: False
+    half_size: [0.5, 0.5, 0.5]
+    pose: [-0.3, 0, -0.5]
+  add_ground: False
+  envmaps: ['SaintPetersSquare2']
+  max_dist: 2.0
+  max_elev: 80
+  min_dist: 0.5
+  min_elev: 0
+  n_dist: 10
+  n_elev: 10
+  n_point_light: 10
+  nazim: 30
+  outdir: 
+  random_light_each_step: False
+  rt:
+    enable: False
+  trans_noise: [0.03, 0.03, 0.03]
+  urdf_path: data/xarm7_textured.urdf
+solver:
+  batch_size: 1000
+  bias_lr_factor: 1
+  broadcast_buffers: False
+  compress_history_ops: False
+  convert_sync_batchnorm: False
+  ddp_version: torch
+  detect_anomaly: False
+  dist:
+    sampler:
+      shuffle: False
+      type: pytorch
+  do_grad_clip: False
+  ds_len: -1
+  empty_cache: True
+  end_lr: 0.0001
+  end_pose_lr: 1e-05
+  explore_iters: 10
+  find_unused_parameters: False
+  gamma: 0.1
+  gamma_pose: 0.1
+  grad_clip: 1.0
+  grad_clip_type: norm
+  grad_noise:
+    enable: False
+    noise: 0.0
+  image_grid_on_tb_writer: True
+  load: 
+  load_model: 
+  load_model_extras: []
+  log_interval: 1
+  loss_function: 
+  lrate_decay: 250
+  lrate_decay_pose: 250
+  max_lr: 0.003
+  metric_functions: ()
+  min_factor: 0.1
+  mlp_lr: 0.001
+  momentum: 0.9
+  num_epochs: 1000
+  num_iters: 10000
+  optimizer: Adam
+  pop_verts_faces: False
+  pose_lr: 5e-05
+  print_it: False
+  resume: False
+  save_every: True
+  save_freq: 20
+  save_last_only: False
+  save_min_loss: 20.0
+  save_mode: iteration
+  save_optimizer: True
+  save_scheduler: True
+  scheduler: ConstantScheduler
+  scheduler_decay_thresh: 5e-05
+  steps: (30000,)
+  trainer: rbsolver
+  val_freq: 20
+  warmup_factor: 0.3333333333333333
+  warmup_iters: 500
+  warmup_method: linear
+  weight_decay: 0.0005
+  weight_decay_bias: 0.0
+test:
+  batch_size: 1000
+  ckpt_dir: 
+  do_evaluation: True
+  do_visualization: True
+  eval_all: False
+  eval_all_min: 0
+  evaluators: ['baxter_ee_pck']
+  force_recompute: True
+  save_predictions: False
+  visualizer: rbsolver_hover_mask
+video_segm:
+  data_dir: 
+2024-12-04 20:18:39 | INFO     | making dataloader...
+2024-12-04 20:18:40 | INFO     | Done.
+2024-12-04 20:18:43 | INFO     | epoch 0, train, loss 43446.1445, time 3.45s, err_x 0.0000, err_y 0.0000, err_z 0.0000, err_trans 0.0000, err_rot 0.0000, err_R 0.0280, err_t 0.0000
+2024-12-04 20:18:43 | INFO     | epoch 1, train, loss 33485.1562, time 0.05s, err_x 0.3000, err_y 0.3000, err_z 0.3000, err_trans 0.5196, err_rot 0.1719, err_R 0.2654, err_t 0.3890
+2024-12-04 20:18:43 | INFO     | epoch 2, train, loss 27548.3633, time 0.05s, err_x 0.5980, err_y 0.5977, err_z 0.5951, err_trans 1.0339, err_rot 0.3421, err_R 0.5226, err_t 0.7841
+2024-12-04 20:18:43 | INFO     | epoch 3, train, loss 26575.2305, time 0.05s, err_x 0.8276, err_y 0.8744, err_z 0.8124, err_trans 1.4523, err_rot 0.4942, err_R 0.7231, err_t 1.1444
+2024-12-04 20:18:43 | INFO     | epoch 4, train, loss 27035.8203, time 0.05s, err_x 0.9267, err_y 1.1031, err_z 0.9162, err_trans 1.7073, err_rot 0.6323, err_R 0.8523, err_t 1.4472
+2024-12-04 20:18:43 | INFO     | epoch 5, train, loss 27453.3867, time 0.05s, err_x 0.9142, err_y 1.2940, err_z 0.9163, err_trans 1.8302, err_rot 0.7894, err_R 0.9602, err_t 1.7108
+2024-12-04 20:18:43 | INFO     | epoch 6, train, loss 27333.0898, time 0.05s, err_x 0.8507, err_y 1.4218, err_z 0.8512, err_trans 1.8627, err_rot 0.9253, err_R 1.0442, err_t 1.9372
+2024-12-04 20:18:43 | INFO     | epoch 7, train, loss 26687.2344, time 0.05s, err_x 0.7641, err_y 1.4961, err_z 0.7441, err_trans 1.8374, err_rot 1.0270, err_R 1.1036, err_t 2.1321
+2024-12-04 20:18:43 | INFO     | epoch 8, train, loss 25758.7031, time 0.05s, err_x 0.6616, err_y 1.5252, err_z 0.6025, err_trans 1.7684, err_rot 1.1052, err_R 1.1494, err_t 2.2966
+2024-12-04 20:18:43 | INFO     | epoch 9, train, loss 24729.3594, time 0.05s, err_x 0.5478, err_y 1.5125, err_z 0.4393, err_trans 1.6676, err_rot 1.1427, err_R 1.1717, err_t 2.4249
+2024-12-04 20:18:43 | INFO     | epoch 10, train, loss 24130.3906, time 0.05s, err_x 0.4483, err_y 1.4848, err_z 0.2667, err_trans 1.5737, err_rot 1.1544, err_R 1.1876, err_t 2.5407
+2024-12-04 20:18:44 | INFO     | epoch 11, train, loss 23828.6367, time 0.05s, err_x 0.4263, err_y 1.4525, err_z 0.1145, err_trans 1.5181, err_rot 1.1031, err_R 1.1697, err_t 2.5985
+2024-12-04 20:18:44 | INFO     | epoch 12, train, loss 23493.1074, time 0.05s, err_x 0.4845, err_y 1.4241, err_z 0.0014, err_trans 1.5043, err_rot 1.0129, err_R 1.1347, err_t 2.6088
+2024-12-04 20:18:44 | INFO     | epoch 13, train, loss 23005.8340, time 0.05s, err_x 0.6008, err_y 1.4082, err_z 0.0774, err_trans 1.5329, err_rot 0.9003, err_R 1.0954, err_t 2.5978
+2024-12-04 20:18:44 | INFO     | epoch 14, train, loss 22330.1172, time 0.05s, err_x 0.7572, err_y 1.4186, err_z 0.1190, err_trans 1.6124, err_rot 0.7767, err_R 1.0587, err_t 2.6018
+2024-12-04 20:18:44 | INFO     | epoch 15, train, loss 21623.7227, time 0.05s, err_x 0.9316, err_y 1.4408, err_z 0.1543, err_trans 1.7227, err_rot 0.8017, err_R 1.0287, err_t 2.6268
+2024-12-04 20:18:44 | INFO     | epoch 16, train, loss 20984.3535, time 0.05s, err_x 1.1157, err_y 1.4766, err_z 0.1968, err_trans 1.8611, err_rot 0.8462, err_R 1.0076, err_t 2.6796
+2024-12-04 20:18:44 | INFO     | epoch 17, train, loss 20404.8672, time 0.05s, err_x 1.3033, err_y 1.5165, err_z 0.2534, err_trans 2.0156, err_rot 0.8712, err_R 0.9907, err_t 2.7470
+2024-12-04 20:18:44 | INFO     | epoch 18, train, loss 19912.2930, time 0.05s, err_x 1.4916, err_y 1.5574, err_z 0.3245, err_trans 2.1808, err_rot 0.8827, err_R 0.9756, err_t 2.8256
+2024-12-04 20:18:44 | INFO     | epoch 19, train, loss 19451.3711, time 0.05s, err_x 1.6748, err_y 1.6027, err_z 0.4135, err_trans 2.3547, err_rot 0.8835, err_R 0.9614, err_t 2.9167
+2024-12-04 20:18:44 | INFO     | epoch 20, train, loss 19031.7695, time 0.05s, err_x 1.8500, err_y 1.6511, err_z 0.5150, err_trans 2.5326, err_rot 0.8795, err_R 0.9496, err_t 3.0179
+2024-12-04 20:18:44 | INFO     | epoch 21, train, loss 18578.1758, time 0.05s, err_x 1.9980, err_y 1.7081, err_z 0.6394, err_trans 2.7052, err_rot 0.8759, err_R 0.9467, err_t 3.1299
+2024-12-04 20:18:44 | INFO     | epoch 22, train, loss 18043.1367, time 0.05s, err_x 2.1273, err_y 1.7749, err_z 0.7810, err_trans 2.8785, err_rot 0.8738, err_R 0.9483, err_t 3.2540
+2024-12-04 20:18:44 | INFO     | epoch 23, train, loss 17480.2812, time 0.05s, err_x 2.2351, err_y 1.8420, err_z 0.9355, err_trans 3.0437, err_rot 0.8709, err_R 0.9529, err_t 3.3771
+2024-12-04 20:18:44 | INFO     | epoch 24, train, loss 16938.8027, time 0.05s, err_x 2.3315, err_y 1.8997, err_z 1.1041, err_trans 3.2037, err_rot 0.8635, err_R 0.9541, err_t 3.4936
+2024-12-04 20:18:44 | INFO     | epoch 25, train, loss 16421.7480, time 0.05s, err_x 2.4200, err_y 1.9497, err_z 1.2814, err_trans 3.3615, err_rot 0.8567, err_R 0.9541, err_t 3.6100
+2024-12-04 20:18:44 | INFO     | epoch 26, train, loss 16024.3975, time 0.05s, err_x 2.5084, err_y 2.0031, err_z 1.4606, err_trans 3.5267, err_rot 0.8465, err_R 0.9541, err_t 3.7373
+2024-12-04 20:18:44 | INFO     | epoch 27, train, loss 15597.5449, time 0.05s, err_x 2.6016, err_y 2.0693, err_z 1.6287, err_trans 3.7018, err_rot 0.8395, err_R 0.9602, err_t 3.8831
+2024-12-04 20:18:44 | INFO     | epoch 28, train, loss 15165.7949, time 0.05s, err_x 2.7061, err_y 2.1424, err_z 1.7890, err_trans 3.8876, err_rot 0.8273, err_R 0.9627, err_t 4.0386
+2024-12-04 20:18:44 | INFO     | epoch 29, train, loss 14678.7217, time 0.05s, err_x 2.8219, err_y 2.2287, err_z 1.9320, err_trans 4.0820, err_rot 0.8189, err_R 0.9691, err_t 4.2066
+2024-12-04 20:18:44 | INFO     | epoch 30, train, loss 14244.8467, time 0.05s, err_x 2.9259, err_y 2.3200, err_z 2.0781, err_trans 4.2734, err_rot 0.8216, err_R 0.9856, err_t 4.3828
+2024-12-04 20:18:44 | INFO     | epoch 31, train, loss 13810.6436, time 0.05s, err_x 3.0375, err_y 2.4028, err_z 2.2230, err_trans 4.4656, err_rot 0.8288, err_R 0.9986, err_t 4.5552
+2024-12-04 20:18:45 | INFO     | epoch 32, train, loss 13439.2793, time 0.05s, err_x 3.1591, err_y 2.4789, err_z 2.3651, err_trans 4.6603, err_rot 0.8374, err_R 1.0072, err_t 4.7249
+2024-12-04 20:18:45 | INFO     | epoch 33, train, loss 13023.0176, time 0.05s, err_x 3.2799, err_y 2.5528, err_z 2.5053, err_trans 4.8530, err_rot 0.8563, err_R 1.0199, err_t 4.8951
+2024-12-04 20:18:45 | INFO     | epoch 34, train, loss 12643.8848, time 0.05s, err_x 3.4107, err_y 2.6308, err_z 2.6304, err_trans 5.0471, err_rot 0.8782, err_R 1.0321, err_t 5.0655
+2024-12-04 20:18:45 | INFO     | epoch 35, train, loss 12265.1777, time 0.05s, err_x 3.5421, err_y 2.7097, err_z 2.7482, err_trans 5.2385, err_rot 0.9070, err_R 1.0475, err_t 5.2358
+2024-12-04 20:18:45 | INFO     | epoch 36, train, loss 11974.6279, time 0.05s, err_x 3.6625, err_y 2.7719, err_z 2.8695, err_trans 5.4158, err_rot 0.9408, err_R 1.0628, err_t 5.3921
+2024-12-04 20:18:45 | INFO     | epoch 37, train, loss 11715.1279, time 0.05s, err_x 3.7664, err_y 2.8349, err_z 2.9929, err_trans 5.5839, err_rot 0.9797, err_R 1.0857, err_t 5.5472
+2024-12-04 20:18:45 | INFO     | epoch 38, train, loss 11521.9717, time 0.05s, err_x 3.8670, err_y 2.8938, err_z 3.1103, err_trans 5.7447, err_rot 1.0208, err_R 1.1099, err_t 5.6962
+2024-12-04 20:18:45 | INFO     | epoch 39, train, loss 11389.1094, time 0.05s, err_x 3.9530, err_y 2.9545, err_z 3.2285, err_trans 5.8973, err_rot 1.0721, err_R 1.1443, err_t 5.8455
+2024-12-04 20:18:45 | INFO     | epoch 40, train, loss 11299.5029, time 0.05s, err_x 4.0400, err_y 3.0208, err_z 3.3262, err_trans 6.0424, err_rot 1.1213, err_R 1.1790, err_t 5.9889
+2024-12-04 20:18:45 | INFO     | epoch 41, train, loss 11198.6797, time 0.05s, err_x 4.1258, err_y 3.0997, err_z 3.4076, err_trans 6.1840, err_rot 1.1700, err_R 1.2179, err_t 6.1344
+2024-12-04 20:18:45 | INFO     | epoch 42, train, loss 11187.3711, time 0.05s, err_x 4.2164, err_y 3.1703, err_z 3.4730, err_trans 6.3159, err_rot 1.2137, err_R 1.2518, err_t 6.2672
+2024-12-04 20:18:45 | INFO     | epoch 43, train, loss 11214.8535, time 0.05s, err_x 4.2943, err_y 3.2381, err_z 3.5341, err_trans 6.4356, err_rot 1.2534, err_R 1.2863, err_t 6.3924
+2024-12-04 20:18:45 | INFO     | epoch 44, train, loss 11261.5293, time 0.05s, err_x 4.3676, err_y 3.2890, err_z 3.5911, err_trans 6.5413, err_rot 1.2916, err_R 1.3176, err_t 6.5014
+2024-12-04 20:18:45 | INFO     | epoch 45, train, loss 11323.1748, time 0.06s, err_x 4.4454, err_y 3.3207, err_z 3.6332, err_trans 6.6324, err_rot 1.3234, err_R 1.3394, err_t 6.5879
+2024-12-04 20:18:45 | INFO     | epoch 46, train, loss 11396.5107, time 0.05s, err_x 4.5243, err_y 3.3393, err_z 3.6542, err_trans 6.7062, err_rot 1.3491, err_R 1.3545, err_t 6.6524
+2024-12-04 20:18:45 | INFO     | epoch 47, train, loss 11426.0586, time 0.05s, err_x 4.5842, err_y 3.3594, err_z 3.6689, err_trans 6.7647, err_rot 1.3704, err_R 1.3712, err_t 6.7098
+2024-12-04 20:18:45 | INFO     | epoch 48, train, loss 11414.0410, time 0.05s, err_x 4.6190, err_y 3.3726, err_z 3.6822, err_trans 6.8021, err_rot 1.3873, err_R 1.3879, err_t 6.7522
+2024-12-04 20:18:45 | INFO     | epoch 49, train, loss 11407.7295, time 0.05s, err_x 4.6560, err_y 3.3761, err_z 3.6724, err_trans 6.8237, err_rot 1.3951, err_R 1.3952, err_t 6.7734
+2024-12-04 20:18:45 | INFO     | epoch 50, train, loss 11413.2061, time 0.05s, err_x 4.6909, err_y 3.3662, err_z 3.6543, err_trans 6.8330, err_rot 1.3951, err_R 1.3949, err_t 6.7774
+2024-12-04 20:18:45 | INFO     | epoch 51, train, loss 11331.3242, time 0.05s, err_x 4.6935, err_y 3.3639, err_z 3.6402, err_trans 6.8261, err_rot 1.3915, err_R 1.4019, err_t 6.7797
+2024-12-04 20:18:46 | INFO     | epoch 52, train, loss 11263.2500, time 0.05s, err_x 4.6994, err_y 3.3578, err_z 3.6157, err_trans 6.8141, err_rot 1.3768, err_R 1.4008, err_t 6.7718
+2024-12-04 20:18:46 | INFO     | epoch 53, train, loss 11213.1387, time 0.05s, err_x 4.7280, err_y 3.3541, err_z 3.5629, err_trans 6.8043, err_rot 1.3547, err_R 1.3887, err_t 6.7562
+2024-12-04 20:18:46 | INFO     | epoch 54, train, loss 11149.2441, time 0.05s, err_x 4.7378, err_y 3.3632, err_z 3.5108, err_trans 6.7885, err_rot 1.3384, err_R 1.3868, err_t 6.7452
+2024-12-04 20:18:46 | INFO     | epoch 55, train, loss 11057.9248, time 0.05s, err_x 4.7207, err_y 3.3760, err_z 3.4632, err_trans 6.7584, err_rot 1.3331, err_R 1.3980, err_t 6.7324
+2024-12-04 20:18:46 | INFO     | epoch 56, train, loss 11041.9043, time 0.05s, err_x 4.6940, err_y 3.3785, err_z 3.4196, err_trans 6.7187, err_rot 1.3294, err_R 1.4083, err_t 6.7082
+2024-12-04 20:18:46 | INFO     | epoch 57, train, loss 10997.6475, time 0.05s, err_x 4.6773, err_y 3.3640, err_z 3.3685, err_trans 6.6739, err_rot 1.3267, err_R 1.4078, err_t 6.6665
+2024-12-04 20:18:46 | INFO     | epoch 58, train, loss 11017.4209, time 0.05s, err_x 4.6552, err_y 3.3541, err_z 3.3154, err_trans 6.6267, err_rot 1.3291, err_R 1.4097, err_t 6.6241
+2024-12-04 20:18:46 | INFO     | epoch 59, train, loss 11024.3945, time 0.05s, err_x 4.6299, err_y 3.3525, err_z 3.2655, err_trans 6.5832, err_rot 1.3350, err_R 1.4142, err_t 6.5878
+2024-12-04 20:18:46 | INFO     | epoch 60, train, loss 11045.3379, time 0.05s, err_x 4.6016, err_y 3.3466, err_z 3.2178, err_trans 6.5367, err_rot 1.3448, err_R 1.4200, err_t 6.5482
+2024-12-04 20:18:46 | INFO     | epoch 61, train, loss 11109.0449, time 0.05s, err_x 4.5882, err_y 3.3324, err_z 3.1636, err_trans 6.4935, err_rot 1.3501, err_R 1.4144, err_t 6.5000
+2024-12-04 20:18:46 | INFO     | epoch 62, train, loss 11156.4717, time 0.05s, err_x 4.5673, err_y 3.3231, err_z 3.1174, err_trans 6.4514, err_rot 1.3540, err_R 1.4122, err_t 6.4571
+2024-12-04 20:18:46 | INFO     | epoch 63, train, loss 11180.2949, time 0.05s, err_x 4.5426, err_y 3.3195, err_z 3.0718, err_trans 6.4102, err_rot 1.3513, err_R 1.4075, err_t 6.4160
+2024-12-04 20:18:46 | INFO     | epoch 64, train, loss 11246.3389, time 0.05s, err_x 4.5164, err_y 3.3113, err_z 3.0307, err_trans 6.3678, err_rot 1.3398, err_R 1.3975, err_t 6.3703
+2024-12-04 20:18:46 | INFO     | epoch 65, train, loss 11216.2402, time 0.05s, err_x 4.4804, err_y 3.3233, err_z 2.9943, err_trans 6.3312, err_rot 1.3248, err_R 1.3930, err_t 6.3400
+2024-12-04 20:18:46 | INFO     | epoch 66, train, loss 11161.9746, time 0.05s, err_x 4.4659, err_y 3.3552, err_z 2.9459, err_trans 6.3151, err_rot 1.3029, err_R 1.3817, err_t 6.3248
+2024-12-04 20:18:46 | INFO     | epoch 67, train, loss 11158.9844, time 0.05s, err_x 4.4487, err_y 3.3742, err_z 2.9151, err_trans 6.2987, err_rot 1.2815, err_R 1.3700, err_t 6.3067
+2024-12-04 20:18:46 | INFO     | epoch 68, train, loss 11149.9238, time 0.05s, err_x 4.4443, err_y 3.3805, err_z 2.8947, err_trans 6.2896, err_rot 1.2581, err_R 1.3507, err_t 6.2847
+2024-12-04 20:18:46 | INFO     | epoch 69, train, loss 11192.8887, time 0.05s, err_x 4.4351, err_y 3.3736, err_z 2.9005, err_trans 6.2820, err_rot 1.2391, err_R 1.3347, err_t 6.2643
+2024-12-04 20:18:46 | INFO     | epoch 70, train, loss 11179.3398, time 0.05s, err_x 4.4232, err_y 3.4002, err_z 2.8910, err_trans 6.2836, err_rot 1.2362, err_R 1.3318, err_t 6.2655
+2024-12-04 20:18:46 | INFO     | epoch 71, train, loss 11140.2764, time 0.05s, err_x 4.4189, err_y 3.4522, err_z 2.8694, err_trans 6.2990, err_rot 1.2398, err_R 1.3327, err_t 6.2842
+2024-12-04 20:18:46 | INFO     | epoch 72, train, loss 11111.9434, time 0.05s, err_x 4.4170, err_y 3.4929, err_z 2.8653, err_trans 6.3183, err_rot 1.2392, err_R 1.3285, err_t 6.3015
+2024-12-04 20:18:47 | INFO     | epoch 73, train, loss 11085.4609, time 0.05s, err_x 4.4410, err_y 3.5163, err_z 2.8632, err_trans 6.3471, err_rot 1.2332, err_R 1.3110, err_t 6.3108
+2024-12-04 20:18:47 | INFO     | epoch 74, train, loss 11067.5391, time 0.05s, err_x 4.4275, err_y 3.5364, err_z 2.8950, err_trans 6.3632, err_rot 1.2367, err_R 1.3134, err_t 6.3262
+2024-12-04 20:18:47 | INFO     | epoch 75, train, loss 11112.8506, time 0.05s, err_x 4.4141, err_y 3.5471, err_z 2.9383, err_trans 6.3796, err_rot 1.2408, err_R 1.3158, err_t 6.3403
+2024-12-04 20:18:47 | INFO     | epoch 76, train, loss 11134.8262, time 0.05s, err_x 4.4286, err_y 3.5639, err_z 2.9508, err_trans 6.4048, err_rot 1.2468, err_R 1.3084, err_t 6.3506
+2024-12-04 20:18:47 | INFO     | epoch 77, train, loss 11036.8193, time 0.05s, err_x 4.4545, err_y 3.6157, err_z 2.9408, err_trans 6.4470, err_rot 1.2525, err_R 1.3006, err_t 6.3819
+2024-12-04 20:18:47 | INFO     | epoch 78, train, loss 10977.7969, time 0.05s, err_x 4.4609, err_y 3.6721, err_z 2.9492, err_trans 6.4871, err_rot 1.2546, err_R 1.3021, err_t 6.4223
+2024-12-04 20:18:47 | INFO     | epoch 79, train, loss 10971.7715, time 0.05s, err_x 4.4678, err_y 3.7146, err_z 2.9561, err_trans 6.5190, err_rot 1.2535, err_R 1.2984, err_t 6.4493
+2024-12-04 20:18:47 | INFO     | epoch 80, train, loss 10925.8467, time 0.05s, err_x 4.4676, err_y 3.7458, err_z 2.9693, err_trans 6.5427, err_rot 1.2457, err_R 1.2915, err_t 6.4664
+2024-12-04 20:18:47 | INFO     | epoch 81, train, loss 10946.7559, time 0.05s, err_x 4.4468, err_y 3.7650, err_z 3.0009, err_trans 6.5539, err_rot 1.2451, err_R 1.2975, err_t 6.4798
+2024-12-04 20:18:47 | INFO     | epoch 82, train, loss 11034.7061, time 0.05s, err_x 4.4322, err_y 3.7820, err_z 3.0420, err_trans 6.5729, err_rot 1.2413, err_R 1.3039, err_t 6.5008
+2024-12-04 20:18:47 | INFO     | epoch 83, train, loss 10910.6094, time 0.05s, err_x 4.4842, err_y 3.8033, err_z 3.0295, err_trans 6.6144, err_rot 1.2242, err_R 1.2784, err_t 6.5123
+2024-12-04 20:18:47 | INFO     | epoch 84, train, loss 10872.5498, time 0.05s, err_x 4.5374, err_y 3.8290, err_z 3.0181, err_trans 6.6602, err_rot 1.2101, err_R 1.2574, err_t 6.5321
+2024-12-04 20:18:47 | INFO     | epoch 85, train, loss 11002.1748, time 0.05s, err_x 4.5946, err_y 3.8345, err_z 3.0032, err_trans 6.6957, err_rot 1.1806, err_R 1.2227, err_t 6.5314
+2024-12-04 20:18:47 | INFO     | epoch 86, train, loss 11015.4238, time 0.05s, err_x 4.5969, err_y 3.8326, err_z 3.0225, err_trans 6.7049, err_rot 1.1568, err_R 1.2098, err_t 6.5277
+2024-12-04 20:18:47 | INFO     | epoch 87, train, loss 10863.9961, time 0.05s, err_x 4.5663, err_y 3.8708, err_z 3.0336, err_trans 6.7109, err_rot 1.1463, err_R 1.2176, err_t 6.5435
+2024-12-04 20:18:47 | INFO     | epoch 88, train, loss 10747.8750, time 0.05s, err_x 4.5577, err_y 3.9360, err_z 2.9973, err_trans 6.7267, err_rot 1.1409, err_R 1.2160, err_t 6.5631
+2024-12-04 20:18:47 | INFO     | epoch 89, train, loss 10722.5918, time 0.05s, err_x 4.5186, err_y 3.9850, err_z 2.9935, err_trans 6.7275, err_rot 1.1409, err_R 1.2291, err_t 6.5791

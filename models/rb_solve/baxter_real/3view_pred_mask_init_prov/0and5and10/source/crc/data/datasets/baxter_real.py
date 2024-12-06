@@ -18,8 +18,6 @@ class BaxterRealDataset(torch.utils.data.Dataset):
         self.cfg = cfg.dataset.baxter_real
         selected_indices = cfg.dataset.baxter_real.selected_indices
         self.data_dir = data_dir
-        # print(data_dir)
-        # exit()
         if ds_len < 0:
             ds_len = 1000000
         rgb_paths = sorted(glob.glob(f"{data_dir}/color/*.png"))[:ds_len]
@@ -91,12 +89,11 @@ class BaxterRealDataset(torch.utils.data.Dataset):
             qpos = np.loadtxt(qpos_path)
             self.qpos.append(qpos)
             link_poses = []
+            qpos_=np.zeros(sk.robot.dof)
+            qpos_[2::2]=qpos
             for link in self.cfg.use_links:
-                pad = np.zeros(sk.robot.dof - qpos.shape[0])
-                pq = sk.compute_forward_kinematics(np.concatenate([pad, qpos]), link)
-                R = transforms3d.quaternions.quat2mat(pq.q)
-                t = pq.p
-                pose_eb = utils_3d.Rt_to_pose(R, t)
+                pq = sk.compute_forward_kinematics(qpos_, link)
+                pose_eb = pq.to_transformation_matrix()
                 link_poses.append(pose_eb)
             link_poses = np.stack(link_poses)
             self.link_poses.append(link_poses)
