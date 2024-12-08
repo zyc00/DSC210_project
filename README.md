@@ -9,3 +9,10 @@ conda install pytorch3d -c pytorch3d
 pip install -r requirements.txt
 pip install -e .
 ```
+# run results
+```
+python tools/train_net.py -c configs/rb_solve/baxter_real/3view_pred_mask_init_prov/0and5and10.yaml model.rbsolver.use_mask anno dataset.baxter_real.load_mask_anno True
+```
+```
+python tools/test_net.py -c configs/rb_solve/baxter_real/3view_pred_mask_init_prov/0and5and10.yaml solver.load latest
+```
