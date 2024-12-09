@@ -22,3 +22,5 @@ python tools/test_net.py -c configs/rb_solve/baxter_real/3view_pred_mask_init_pr
 | --- | --- | --- |
 | Paper | 0.55, 0.85, 1.0, 1.0 | 0.15, 0.8, 0.9, 1.0 |
 | Ours | 0.7, 0.8, 0.9, 0.9 | 0, 0.55, 0.85, 1.0 |
+
+visualization results are saved in `models/rb_solve/baxter_real/3view_pred_mask_init_prov/visualization/baxter_real_0and5and10`
