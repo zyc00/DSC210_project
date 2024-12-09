@@ -29,10 +29,10 @@ def rbsolver_hover_mask(cfg):
                 image = data_dict['rgb']
                 rendered_mask = rendered_masks[i] > 0
                 tmp = plt_utils.vis_mask(image, rendered_mask.astype(np.uint8), [255, 0, 0])
-                imageio.imwrite(osp.join(vis_dir, f'{i:06d}_rendered_mask.png'), tmp)
+                imageio.imwrite(f'{i:06d}_rendered_mask.png', tmp)
                 tmps.append(tmp)
             image_grid(tmps, show=False)
-            plt.savefig(osp.join(vis_dir, 'grid_rendered_masks.png'))
+            plt.savefig('grid_rendered_masks.png')
 
     return f
 
